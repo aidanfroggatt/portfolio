@@ -62,4 +62,16 @@
     .h-projectPicMobile{
         height: 185px;
     }
+    .h-pdfDesktop{
+        height: 500px;
+    }
+    .w-pdfDesktop{
+        width: 900px;
+    }
+    .h-pdfMobile{
+        height: 450px;
+    }
+    .w-pdfMobile{
+        width: 350px;
+    }
 }

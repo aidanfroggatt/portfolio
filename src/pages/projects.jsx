@@ -26,7 +26,7 @@ const projects = () => {
                                     </a>
                                 </div>
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">
-                                    My personal portfolio outlining my projects and skills<br/><br/>Developed using React JS and Tailwind CSS
+                                    My personal portfolio outlining my projects and skills<br/><br/>Developed using ReactJS and Tailwind CSS
                                 </div>
                             </div>
                             <div className="shadow-lg shadow-black p-4 mx-6 bg-gray-800 xl:mx-16 xl:mt-32 mt-8 flex xl:flex-row flex-col justify-center items-center">
@@ -39,7 +39,7 @@ const projects = () => {
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">
                                     Won Best Environmental Hack at MacHacks 3<br/><br/>
                                     SnapCycle is a web app that scans items and provides information about the environmental impact using AI<br/><br/>
-                                    Developed using React, PyTorch, Python, and Flask
+                                    Developed using ReactJS, PyTorch, Python, and Flask
                                 </div>
                             </div>
                             <div className="p-4 mx-6 bg-gray-800 shadow-lg shadow-black xl:mx-16 xl:mt-32 mt-8 flex xl:flex-row flex-col justify-center items-center">
@@ -52,7 +52,7 @@ const projects = () => {
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">
                                     Won 1st place for the best hack at DeltaHacks IX<br/><br/>
                                     CodeWarriors is a gamified web app that teaches programming skills<br/><br/>
-                                    Developed using React and Tailwind.
+                                    Developed using ReactJS and Tailwind CSS.
                                 </div>
                             </div>
                         </div>

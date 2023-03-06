@@ -10,7 +10,7 @@ const Resume = () => {
 
             <div className="h-screen bg-gray-900 text-white flex flex-row justify-center items-center">
                 {/*<iframe src={myResume} className=""></iframe>*/}
-                <object data={myResume} className="xl:mt-16 xl:w-pdfDesktop xl:h-pdfDesktop w-pdfMobile h-pdfMobile">
+                <object data={myResume} className="xl:mt-16 xl:w-pdfDesktop xl:bg-none xl:h-pdfDesktop w-pdfMobile h-pdfMobile bg-white">
                 </object>
             </div>
 

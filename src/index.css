@@ -74,4 +74,10 @@
     .w-pdfMobile{
         width: 350px;
     }
+    .h-pdfMobileLandscape{
+        height: 550px;
+    }
+    .w-pdfMobileLandscape{
+        width: 500px;
+    }
 }

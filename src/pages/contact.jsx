@@ -11,7 +11,7 @@ const contact = () => {
                     Thanks For Visiting!
                 </div>
                 <div className="h-auto bg-gray-900">
-                    <div className="p-4 flex flex-col xl:flex-row justify-center items-center">
+                    <div className="p-4 flex flex-col sm:flex-row md:flex-row xl:flex-row justify-center items-center">
 
                         <div className="w-28 xl:w-auto xl:h-auto my-4 xl:my-0 xl:mx-4 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gray-800 p-4 rounded-xl">
                             <a href="https://github.com/aidanfroggatt" target='_blank' className="hover:scale-110 hover:opacity-50">Github</a>

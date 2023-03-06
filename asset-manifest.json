@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.81228268.css",
+    "main.css": "/portfolio/static/css/main.f58f14f9.css",
     "main.js": "/portfolio/static/js/main.f9d1d91a.js",
     "static/media/snapcycle_home.png": "/portfolio/static/media/snapcycle_home.3ce0df948eb13797a234.png",
     "static/media/resume.pdf": "/portfolio/static/media/resume.363b48632a4433130993.pdf",
     "static/media/codewarriors_home.jpg": "/portfolio/static/media/codewarriors_home.3ff8d980cdd373ba8d8d.jpg",
     "static/media/portfolio_skills.png": "/portfolio/static/media/portfolio_skills.f82a3762ed423b22cb2d.png",
     "index.html": "/portfolio/index.html",
-    "main.81228268.css.map": "/portfolio/static/css/main.81228268.css.map",
+    "main.f58f14f9.css.map": "/portfolio/static/css/main.f58f14f9.css.map",
     "main.f9d1d91a.js.map": "/portfolio/static/js/main.f9d1d91a.js.map"
   },
   "entrypoints": [
-    "static/css/main.81228268.css",
+    "static/css/main.f58f14f9.css",
     "static/js/main.f9d1d91a.js"
   ]
 }

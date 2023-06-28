@@ -7,4 +7,4 @@ This is my portfolio, take a look :)
 
 ## Contributing
 
-- [Aidan Froggatt](https://github.com/aidanfroggat)
+- [Aidan Froggatt](https://github.com/aidanfroggatt)

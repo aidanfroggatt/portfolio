@@ -1,0 +1,6 @@
+@import 'App.css';
+
+.navbar {
+    position: absolute;
+    top: 0;
+}

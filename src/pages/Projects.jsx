@@ -1,9 +1,10 @@
 import React from "react";
+import '../styles/Projects.css';
 
 const Projects = () => {
 
     return (
-        <div>
+        <div className="landing-page">
             <h1>Projects</h1>
         </div>
     )

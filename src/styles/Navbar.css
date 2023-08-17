@@ -3,4 +3,43 @@
 .navbar {
     position: absolute;
     top: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 2vmax;
+
+    font: var(--body-font);
+}
+
+.my-name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-name {
+
+}
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.page {
+
+}
+
+.social-media-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.social-media-icon {
+
 }

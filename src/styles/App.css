@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 
 
@@ -12,25 +12,42 @@
     --color-4: #3A254B;
     --color-5: #F2FEDC;
 
-    --body-font: 'Rubik', sans-serif;
+    --body-font: 'Didact Gothic';
     --accent-font: 'Poiret One';
 
 }
 
-.heading {
+h1 {
+    text-align: center;
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     font-family: var(--accent-font);
-    font-size: 3rem;
     color: var(--color-2);
 }
 
-.subheading {
+h2 {
     font-family: var(--body-font);
     color: var(--color-4);
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    max-width: 60vw;
 }
 
 .landing-page {
-    height: 90vh;
+    height: 100vh;
+
     background-image: url("../assets/background.svg");
     background-size: cover;
-    margin-top: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }

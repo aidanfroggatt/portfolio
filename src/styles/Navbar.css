@@ -42,7 +42,11 @@
     color: var(--color-4);
 }
 
-.page-current {
+.page:hover {
+    cursor: pointer;
+}
+
+.current {
     background-color: #CDB1E0;
     border-radius: 15%;
     transition: background-color 0.25s ease-in-out;

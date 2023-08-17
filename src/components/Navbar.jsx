@@ -22,7 +22,7 @@ const Navbar = () => {
                     Object.keys(AppInfo.pages).map((page, index) => {
                         if (page === "AboutMe") return null
                         return (
-                            <div className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "page-current" : "page"} key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
+                            <div className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "page current" : "page"} key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
                                 {AppInfo.pages[page].name}
                             </div>
                         )

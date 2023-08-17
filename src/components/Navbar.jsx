@@ -4,12 +4,11 @@ import {AppInfo} from "../info/AppInfo";
 import {useLocation, useNavigate} from "react-router-dom";
 
 const Navbar = () => {
+    const location = useLocation()
     const navigate = useNavigate()
     const goToDestination = (destination) => {
         navigate(destination)
     }
-
-    const location = useLocation()
 
     return (
         <div className="navbar">

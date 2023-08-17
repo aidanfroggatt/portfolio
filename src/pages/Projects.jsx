@@ -8,9 +8,10 @@ import {useNavigate} from "react-router";
 
 const projects = () => {
     let navigate = useNavigate()
-    const goHome = () => {
-        navigate("/home")
+    const navigateToDestination = (destination) => {
+        navigate(destination)
     }
+
     return (
         <>
             <div className="bg-gray-800 w-screen font-bold text-white">
@@ -22,7 +23,7 @@ const projects = () => {
                             <div className="shadow-lg shadow-black p-4 mx-6 bg-gray-800 xl:mx-16 xl:mt-32 mt-24 flex xl:flex-row flex-col justify-center items-center">
                                 <div className="xl:w-1/3 mx-16 xl:mx-0 flex flex-col justify-center text-2xl xl:text-4xl items-center rounded-xl">
                                     <div className="pb-4">Portfolio</div>
-                                    <a onClick={goHome} className="xl:hover:opacity-50">
+                                    <a onClick={() => navigateToDestination('/home')} className="xl:hover:opacity-50">
                                         <img src={PortfolioSkills} className="rounded-2xl border-4 border-gray-900" alt="Portfolio Skills Image"/>
                                     </a>
                                 </div>

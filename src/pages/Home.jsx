@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Arrow from "../components/Arrow";
@@ -24,24 +24,23 @@ import {
 import {DiJava} from "react-icons/di";
 
 const home = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     let navigate = useNavigate()
-    const scrollToProjects = () => {
-        const element = document.getElementById('projects');
-        if (element) {
-            // 👇 Will scroll smoothly to the top of the next section
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-    const scrollToSkills = () => {
-        const element = document.getElementById('skills');
-        if (element) {
-            // 👇 Will scroll smoothly to the top of the next section
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-    const goToProjects = () => {
-        navigate('/projects')
+    const goToDestination = (destination) => {
+        navigate(destination)
     }
+
+    const scrollToDestination = (destination) => {
+        const element = document.getElementById(destination);
+        if (element) {
+            // 👇 Will scroll smoothly to the top of the next section
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <div className=" bg-gray-900 w-screen font-bold text-white">
@@ -53,33 +52,33 @@ const home = () => {
                     <div className="mt-4 xl:text-3xl text-l">
                         Software Engineering Student
                     </div>
-                    <button className="mt-64" onClick={scrollToProjects}>
+                    <button className="mt-64" onClick={() => scrollToDestination('projects')}>
                         <Arrow/>
                     </button>
                 </div>
 
                 <div id="projects" className="min-h-screen flex flex-col justify-center items-center text-3xl xl:text-5xl text-white">
-                    <button className="btn-scroll mb-16" onClick={scrollToProjects}>
+                    <button className="btn-scroll mb-16" onClick={() => scrollToDestination('projects')}>
                         Projects
                     </button>
                     <div className="xl:mb-32 p-4 flex flex-row flex-wrap gap-16 justify-center items-center">
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">Portfolio</div>
                             <div><img src={PortfolioSkills} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="Portfolio Skills Image"/></div>
-                        </div>} text="My personal portfolio outlining my projects and skills" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="Portfolio"/>
+                        </div>} text="My personal portfolio outlining my projects and skills" moreInfo={<div className="hover:text-yellow-400" onClick={() => goToDestination('/projects')}>MORE INFO</div>} projectTitle="Portfolio"/>
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">SnapCycle</div>
                             <div><img src={SnapCycleHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="SnapCycle Home Image"/></div>
-                        </div>} text="SnapCycle is a web app that scans items and provides information about the environmental impact using AI" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="SnapCycle"/>
+                        </div>} text="SnapCycle is a web app that scans items and provides information about the environmental impact using AI" moreInfo={<div className="hover:text-yellow-400" onClick={() => goToDestination('/projects')}>MORE INFO</div>} projectTitle="SnapCycle"/>
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">CodeWarriors</div>
                             <div><img src={CodeWarriorsHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="CodeWarriors Home Image"/></div>
-                        </div>} text="CodeWarriors is a gamified web app that teaches programming skills" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="CodeWarriors"/>
+                        </div>} text="CodeWarriors is a gamified web app that teaches programming skills" moreInfo={<div className="hover:text-yellow-400" onClick={() => goToDestination('/projects')}>MORE INFO</div>} projectTitle="CodeWarriors"/>
                     </div>
                 </div>
 
                 <div id="skills" className="min-h-screen xl:mb-32 bg-gray-900 flex flex-col items-center justify-center text-5xl text-white pl-8 pt-8">
-                    <button className="btn-scroll mb-8 text-3xl xl:text-4xl" onClick={scrollToSkills}>
+                    <button className="btn-scroll mb-8 text-3xl xl:text-4xl" onClick={() => scrollToDestination('skills')}>
                         Skills
                     </button>
                     <div className="flex flex-row flex-wrap justify-center items-center">
@@ -94,7 +93,6 @@ const home = () => {
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiFigma size="48"/>} text="Figma"/>}</div>
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiGit size="48"/>} text="Git"/>}</div>
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiLinux size="48"/>} text="Linux"/>}</div>
-
                     </div>
 
                 </div>

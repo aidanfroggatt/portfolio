@@ -1,10 +1,10 @@
-import './styles/App.css';
+import './archive/styles/App.css';
 import React from "react";
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
-import Resume from "./pages/Resume";
+import Home from "./archive/pages/Home";
+import Contact from "./archive/pages/Contact";
+import Projects from "./archive/pages/Projects";
+import Resume from "./archive/pages/Resume";
 
 function App() {
   return (

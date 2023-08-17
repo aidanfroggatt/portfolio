@@ -84,7 +84,7 @@ const home = () => {
                     </button>
                     <div className="flex flex-row flex-wrap justify-center items-center">
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiReact/>} text="React"/>}</div>
-                        <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiJavascript size="48"/>} text="JavaScirpt"/>}</div>
+                        <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiJavascript size="48"/>} text="JavaScript"/>}</div>
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiCss3 size="48"/>} text="CSS"/>}</div>
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<SiTailwindcss size="48"/>} text="Tailwind"/>}</div>
                         <div className="shadow-md shadow-black hover:scale-110 flex flex-col justify-center items-center bg-gray-800 m-3 xl:m-8">{<SkillFlipCard icon={<DiJava size="48"/>} text="Java"/>}</div>

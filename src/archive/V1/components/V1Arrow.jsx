@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/arrow.css';
+import '../styles/V1Arrow.css';
 
 const V1Arrow = () => {
     return (

@@ -1,12 +1,16 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import React, {useEffect} from "react";
+import V1Navbar from "../components/V1Navbar";
+import V1Footer from "../components/V1Footer";
 import CodeWarriorsHome from "../assets/codewarriors_home.jpg";
 import SnapCycleHome from "../assets/snapcycle_home.png";
 import PortfolioSkills from "../assets/portfolio_skills.png";
 import {useNavigate} from "react-router-dom";
 
-const projects = () => {
+const v1Projects = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     let navigate = useNavigate()
     const navigateToDestination = (destination) => {
         navigate(destination)
@@ -15,7 +19,7 @@ const projects = () => {
     return (
         <>
             <div className="bg-gray-800 w-screen font-bold text-white">
-                <Navbar/>
+                <V1Navbar/>
 
                 <div className="bg-gray-900 pb-16">
                     <div className="bg-gradient-to-b from-gray-800 via-gray-900 to-gray-900">
@@ -23,7 +27,7 @@ const projects = () => {
                             <div className="shadow-lg shadow-black p-4 mx-6 bg-gray-800 xl:mx-16 xl:mt-32 mt-24 flex xl:flex-row flex-col justify-center items-center">
                                 <div className="xl:w-1/3 mx-16 xl:mx-0 flex flex-col justify-center text-2xl xl:text-4xl items-center rounded-xl">
                                     <div className="pb-4">Portfolio</div>
-                                    <a onClick={() => navigateToDestination('/home')} className="xl:hover:opacity-50">
+                                    <a onClick={() => navigateToDestination('/v1Home')} className="xl:hover:opacity-50">
                                         <img src={PortfolioSkills} className="rounded-2xl border-4 border-gray-900" alt="Portfolio Skills Image"/>
                                     </a>
                                 </div>
@@ -62,7 +66,7 @@ const projects = () => {
                 </div>
 
                 <div className="bg-gray-900 border-t-4 border-amber-300 h-auto flex flex-row justify-center items-center text-9xl text-white">
-                    <Footer/>
+                    <V1Footer/>
                 </div>
             </div>
         </>
@@ -70,4 +74,4 @@ const projects = () => {
     );
 };
 
-export default projects;
+export default v1Projects;

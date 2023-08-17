@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ReactCardFlip from "react-card-flip";
 
-function SkillFlipCard({icon,text}) {
+const V1SkillFlipCard = ({icon,text}) => {
     const [flip, setFlip] = useState(false);
     return (
         <ReactCardFlip isFlipped={flip} flipDirection="vertical">
@@ -15,4 +15,4 @@ function SkillFlipCard({icon,text}) {
     );
 }
 
-export default SkillFlipCard;
+export default V1SkillFlipCard;

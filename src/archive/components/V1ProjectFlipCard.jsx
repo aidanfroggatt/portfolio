@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ReactCardFlip from "react-card-flip";
 
-function SkillFlipCard({project,text,moreInfo, projectTitle}) {
+const SkillFlipCard = ({project,text,moreInfo, projectTitle}) => {
     const [flip, setFlip] = useState(false);
     return (
         <ReactCardFlip isFlipped={flip} flipDirection="vertical">

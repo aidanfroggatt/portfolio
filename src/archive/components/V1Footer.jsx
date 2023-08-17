@@ -1,7 +1,7 @@
 import {FaGithub, FaLinkedin, FaRegEnvelopeOpen} from 'react-icons/fa';
 import React from "react";
 
-const Footer = () => {
+const V1Footer = () => {
     return (
         <div className="w-auto h-auto flex flex-row ">
             <FooterIcon icon={<FaGithub size="28" />} text="Github" destination="https://github.com/aidanfroggatt"/>
@@ -21,4 +21,4 @@ const FooterIcon = ({ icon, text, destination }) => (
         </div>
     </a>
 );
-export default Footer;
+export default V1Footer;

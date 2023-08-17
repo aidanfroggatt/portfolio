@@ -1,11 +1,15 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import React, {useEffect} from "react";
+import V1Navbar from "../components/V1Navbar";
+import V1Footer from "../components/V1Footer";
 
-const contact = () => {
+const v1Contact = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     return (
         <div className="h-auto text-white bg-gray-900 w-screen font-bold">
-            <Navbar/>
+            <V1Navbar/>
 
             <div className="h-screen flex flex-col justify-center items-center text-4xl xl:text-6xl">
                 <div className="my-8">
@@ -28,10 +32,10 @@ const contact = () => {
             </div>
 
             <div className="bg-gray-900 border-t-4 border-amber-300 flex flex-row justify-center items-center text-9xl text-white">
-                <Footer/>
+                <V1Footer/>
             </div>
         </div>
     );
 };
 
-export default contact;
+export default v1Contact;

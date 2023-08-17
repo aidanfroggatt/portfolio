@@ -1,13 +1,16 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import React, {useEffect} from "react";
+import V1Navbar from "../components/V1Navbar";
+import V1Footer from "../components/V1Footer";
 import myResume from "../assets/resume.pdf";
 
-const Resume = () => {
+const V1Resume = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     return (
         <div className="h-auto bg-gray-900 w-screen font-bold text-white">
-            <Navbar/>
+            <V1Navbar/>
 
             <div className="h-screen sm:my-16 sm:h-auto bg-gray-900 text-white flex flex-row justify-center items-center">
                 {/*<iframe src={myResume} className=""></iframe>*/}
@@ -18,10 +21,10 @@ const Resume = () => {
             </div>
 
             <div className="bg-gray-900 border-t-4 border-amber-300 flex flex-row justify-center items-center text-9xl text-white">
-                <Footer/>
+                <V1Footer/>
             </div>
         </div>
     );
 };
 
-export default Resume;
+export default V1Resume;

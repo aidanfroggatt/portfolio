@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/arrow.css';
 
-const Arrow = () => {
+const V1Arrow = () => {
     return (
         <div className="arrow">
             <span></span>
@@ -11,4 +11,4 @@ const Arrow = () => {
     );
 };
 
-export default Arrow
+export default V1Arrow;

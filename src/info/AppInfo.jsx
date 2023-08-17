@@ -8,23 +8,23 @@ export const AppInfo = {
         description: "A passionate Software Engineering Student looking to utilize my experience to design and develop solutions...",
         route: "/",
     },
-    pages : [
-        {
+    pages : {
+        Experience: {
             name: "Experience",
-            description: "My work experience",
+            description: ".An overview of my experience and skills...",
             route: "/experience"
         },
-        {
+        Projects: {
             name: "Projects",
-            description: "My projects",
+            description: "Some projects I have been developing in my spare time...",
             route: "/projects"
         },
-        {
+        Contact: {
             name: "Contact",
             description: "Contact me",
             route: "/contact"
         }
-    ],
+    },
     socialMedia : [
         {
             name: "LinkedIn",

@@ -1,6 +1,6 @@
 import {FaFileAlt, FaInfoCircle, FaLightbulb, FaUser} from 'react-icons/fa';
 import React from "react";
-import {useNavigate} from "react-router";
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () => {
     let navigate = useNavigate()

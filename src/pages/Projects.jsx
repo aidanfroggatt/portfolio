@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import CodeWarriorsHome from "../assets/codewarriors_home.jpg";
 import SnapCycleHome from "../assets/snapcycle_home.png";
 import PortfolioSkills from "../assets/portfolio_skills.png";
-import {useNavigate} from "react-router";
+import {useNavigate} from "react-router-dom";
 
 const projects = () => {
     let navigate = useNavigate()

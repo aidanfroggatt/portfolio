@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const contact = () => {
     return (
-        <div className="h-auto text-white bg-gray-900 w-screen font-bold text-white">
+        <div className="h-auto text-white bg-gray-900 w-screen font-bold">
             <Navbar/>
 
             <div className="h-screen flex flex-col justify-center items-center text-4xl xl:text-6xl">

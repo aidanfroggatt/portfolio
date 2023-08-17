@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import myResume from "../resources/resume.pdf";
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import myResume from "../assets/resume.pdf";
+
 const Resume = () => {
 
     return (

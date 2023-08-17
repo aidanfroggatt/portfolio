@@ -1,27 +1,27 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Arrow from "../components/arrow";
-import SkillFlipCard from "../components/skillflipcard";
-import ProjectFlipCard from "../components/projectflipcard";
-import CodeWarriorsHome from "../resources/codewarriors_home.jpg";
-import SnapCycleHome from "../resources/snapcycle_home.png";
-import PortfolioSkills from "../resources/portfolio_skills.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Arrow from "../components/Arrow";
+import SkillFlipCard from "../components/SkillFlipCard";
+import ProjectFlipCard from "../components/ProjectFlipCard";
+import CodeWarriorsHome from "../assets/codewarriors_home.jpg";
+import SnapCycleHome from "../assets/snapcycle_home.png";
+import PortfolioSkills from "../assets/portfolio_skills.png";
 import {useNavigate} from "react-router";
 import {
-    SiTailwindcss,
+    SiC,
     SiCss3,
+    SiFigma,
+    SiGit,
     SiJavascript,
+    SiLinux,
     SiMysql,
     SiPython,
     SiReact,
-    SiFigma,
-    SiLinux,
-    SiGit,
-    SiC,
+    SiTailwindcss,
 } from "react-icons/si";
 
-import { DiJava } from "react-icons/di";
+import {DiJava} from "react-icons/di";
 
 const home = () => {
     let navigate = useNavigate()
@@ -65,15 +65,15 @@ const home = () => {
                     <div className="xl:mb-32 p-4 flex flex-row flex-wrap gap-16 justify-center items-center">
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">Portfolio</div>
-                            <div><img src={PortfolioSkills} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900"/></div>
+                            <div><img src={PortfolioSkills} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="Portfolio Skills Image"/></div>
                         </div>} text="My personal portfolio outlining my projects and skills" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="Portfolio"/>
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">SnapCycle</div>
-                            <div><img src={SnapCycleHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900"/></div>
+                            <div><img src={SnapCycleHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="SnapCycle Home Image"/></div>
                         </div>} text="SnapCycle is a web app that scans items and provides information about the environmental impact using AI" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="SnapCycle"/>
                         <ProjectFlipCard project={<div className="xl:hover:scale-110 flex flex-col justify-center text-xl xl:text-4xl items-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-4 shadow-lg shadow-black">
                             <div className="pb-4">CodeWarriors</div>
-                            <div><img src={CodeWarriorsHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900"/></div>
+                            <div><img src={CodeWarriorsHome} className="flex h-auto max-w-1/2 xl:h-64 w-projectPicMobile h-projectPicMobile xl:w-projectPic border-4 border-gray-900" alt="CodeWarriors Home Image"/></div>
                         </div>} text="CodeWarriors is a gamified web app that teaches programming skills" moreInfo={<div className="hover:text-yellow-400" onClick={goToProjects}>MORE INFO</div>} projectTitle="CodeWarriors"/>
                     </div>
                 </div>

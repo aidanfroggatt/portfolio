@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ReactCardFlip from "react-card-flip";
-import PortfolioSkills from "../resources/portfolio_skills.png";
-import {useNavigate} from "react-router";
-import CodeWarriorsHome from "../resources/codewarriors_home.jpg";
 
 function SkillFlipCard({project,text,moreInfo, projectTitle}) {
     const [flip, setFlip] = useState(false);

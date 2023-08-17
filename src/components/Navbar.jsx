@@ -1,4 +1,4 @@
-import {FaUser, FaFileAlt, FaInfoCircle, FaLightbulb} from 'react-icons/fa';
+import {FaFileAlt, FaInfoCircle, FaLightbulb, FaUser} from 'react-icons/fa';
 import React from "react";
 import {useNavigate} from "react-router";
 
@@ -30,7 +30,7 @@ const NavBarIcon = ({ icon, text, destination }) => (
     <a onClick={destination}>
         <div className="navbar-icon group">
             {icon}
-            <span class="navbar-tooltip xl:group-hover:scale-100">
+            <span className="navbar-tooltip xl:group-hover:scale-100">
                 {text}
             </span>
         </div>

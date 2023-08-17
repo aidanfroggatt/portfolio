@@ -1,5 +1,6 @@
 import React from "react";
-import './arrow.css';
+import '../styles/arrow.css';
+
 const Arrow = () => {
     return (
         <div className="arrow">

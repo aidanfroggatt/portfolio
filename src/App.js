@@ -1,10 +1,11 @@
-import './App.css';
+import './styles/App.css';
 import React from "react";
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from "./pages/home";
-import Contact from "./pages/contact";
-import Projects from "./pages/projects";
-import Resume from "./pages/resume";
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
+import Resume from "./pages/Resume";
+
 function App() {
   return (
       <div className="flex">

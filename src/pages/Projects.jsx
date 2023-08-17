@@ -1,10 +1,11 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import CodeWarriorsHome from "../resources/codewarriors_home.jpg";
-import SnapCycleHome from "../resources/snapcycle_home.png";
-import PortfolioSkills from "../resources/portfolio_skills.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CodeWarriorsHome from "../assets/codewarriors_home.jpg";
+import SnapCycleHome from "../assets/snapcycle_home.png";
+import PortfolioSkills from "../assets/portfolio_skills.png";
 import {useNavigate} from "react-router";
+
 const projects = () => {
     let navigate = useNavigate()
     const goHome = () => {
@@ -22,7 +23,7 @@ const projects = () => {
                                 <div className="xl:w-1/3 mx-16 xl:mx-0 flex flex-col justify-center text-2xl xl:text-4xl items-center rounded-xl">
                                     <div className="pb-4">Portfolio</div>
                                     <a onClick={goHome} className="xl:hover:opacity-50">
-                                        <img src={PortfolioSkills} className="rounded-2xl border-4 border-gray-900"/>
+                                        <img src={PortfolioSkills} className="rounded-2xl border-4 border-gray-900" alt="Portfolio Skills Image"/>
                                     </a>
                                 </div>
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">
@@ -33,7 +34,7 @@ const projects = () => {
                                 <div className="xl:w-1/3 mx-16 xl:mx-0 flex flex-col justify-center text-2xl xl:text-4xl items-center rounded-xl">
                                     <div className="pb-4">SnapCycle</div>
                                     <a href="https://devpost.com/software/snapcycle-hyx3qv" target="_blank" className="xl:hover:opacity-50">
-                                        <img src={SnapCycleHome} className="rounded-2xl text-2xl border-4 border-gray-900"/>
+                                        <img src={SnapCycleHome} className="rounded-2xl text-2xl border-4 border-gray-900" alt="SnapCycle Home Image"/>
                                     </a>
                                 </div>
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">
@@ -46,7 +47,7 @@ const projects = () => {
                                 <div className="xl:w-1/3 mx-16 xl:mx-0 flex flex-col justify-center xl:text-4xl text-2xl items-center rounded-xl">
                                     <div className="pb-4">CodeWarriors</div>
                                     <a href="https://devpost.com/software/code-warriors" target="_blank" className="xl:hover:opacity-50">
-                                        <img src={CodeWarriorsHome} className="rounded-2xl border-4 border-gray-900"/>
+                                        <img src={CodeWarriorsHome} className="rounded-2xl border-4 border-gray-900" alt="CodeWarriors Home Image"/>
                                     </a>
                                 </div>
                                 <div className="xl:w-2/3 xl:ml-16 text-sm xl:text-xl mt-8">

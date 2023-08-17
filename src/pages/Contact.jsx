@@ -1,6 +1,7 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 const contact = () => {
     return (
         <div className="h-auto text-white bg-gray-900 w-screen font-bold text-white">

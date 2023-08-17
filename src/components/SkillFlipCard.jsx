@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ReactCardFlip from "react-card-flip";
 
 function SkillFlipCard({icon,text}) {

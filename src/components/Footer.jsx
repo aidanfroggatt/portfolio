@@ -1,5 +1,6 @@
-import {FaGithub, FaRegEnvelopeOpen, FaLinkedin} from 'react-icons/fa';
+import {FaGithub, FaLinkedin, FaRegEnvelopeOpen} from 'react-icons/fa';
 import React from "react";
+
 const Footer = () => {
     return (
         <div className="w-auto h-auto flex flex-row ">
@@ -14,7 +15,7 @@ const FooterIcon = ({ icon, text, destination }) => (
     <a href={destination} target="_blank">
         <div className="footer-icon group">
             {icon}
-            <span class="footer-tooltip group-hover:scale-100">
+            <span className="footer-tooltip group-hover:scale-100">
           {text}
         </span>
         </div>

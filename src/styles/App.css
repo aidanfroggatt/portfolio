@@ -19,24 +19,27 @@
 
 h1 {
     text-align: center;
+
+    font-family: var(--accent-font);
+    color: var(--color-2);
     font-size: 128px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    font-family: var(--accent-font);
-    color: var(--color-2);
+
 }
 
 h2 {
+    text-align: center;
+
     font-family: var(--body-font);
     color: var(--color-4);
-    text-align: center;
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 
-    max-width: 60vw;
+    max-width: 50vw;
 }
 
 .landing-page {

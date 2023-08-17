@@ -21,7 +21,7 @@
 }
 
 .my-name {
-
+    color: var(--color-2);
 }
 
 .page-container {
@@ -31,6 +31,7 @@
 }
 
 .page {
+    color: var(--color-4);
 
 }
 
@@ -41,5 +42,5 @@
 }
 
 .social-media-icon {
-
+    color: var(--color-2);
 }

@@ -26,7 +26,7 @@ const Navbar = () => {
                 {
                     AppInfo.socialMedia.map((socialMedia, index) => {
                         return (
-                            <div className="social-media" key={index}>
+                            <div className="social-media-icon" key={index}>
                                 {socialMedia.name}
                             </div>
                         )

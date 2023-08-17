@@ -12,28 +12,28 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <div className="my-name-container">
-                <div className="my-name" onClick={() => goToDestination(AppInfo.pages.AboutMe.route)}>
+            <div className="navbar-my-name-container">
+                <div className="navbar-my-name" onClick={() => goToDestination(AppInfo.pages.AboutMe.route)}>
                     {AppInfo.pages.AboutMe.name}
                 </div>
             </div>
-            <div className="page-container">
+            <div className="navbar-page-container">
                 {
                     Object.keys(AppInfo.pages).map((page, index) => {
                         if (page === "AboutMe") return null
                         return (
-                            <div className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "page current" : "page"} key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
+                            <div className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "navbar-page navbar-current" : "navbar-page"} key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
                                 {AppInfo.pages[page].name}
                             </div>
                         )
                     })
                 }
             </div>
-            <div className="social-media-container">
+            <div className="navbar-social-media-container">
                 {
                     Object.keys(AppInfo.socialMedia).map((socialMedia, index) => {
                         return (
-                            <div className="social-media-icon" key={index} onClick={() => window.open(AppInfo.socialMedia[socialMedia].link, "_blank")}>
+                            <div className="navbar-social-media-icon" key={index} onClick={() => window.open(AppInfo.socialMedia[socialMedia].link, "_blank")}>
                                 {AppInfo.socialMedia[socialMedia].icon}
                             </div>
                         )

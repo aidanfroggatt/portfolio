@@ -15,55 +15,55 @@
     font-size: var(--font-size-3);
 }
 
-.my-name-container {
+.navbar-my-name-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.my-name {
+.navbar-my-name {
     color: var(--color-2);
 }
 
-.my-name:hover {
+.navbar-my-name:hover {
     cursor: pointer;
     color: var(--color-4);
     transition: all 0.25s ease;
 }
 
-.page-container {
+.navbar-page-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 4vmax;
 }
 
-.page {
+.navbar-page {
     color: var(--color-4);
 }
 
-.page:hover {
+.navbar-page:hover {
     cursor: pointer;
 }
 
-.current {
+.navbar-current {
     background-color: #CDB1E0;
     border-radius: 15%;
     transition: background-color 0.25s ease-in-out;
 }
 
-.social-media-container {
+.navbar-social-media-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 1vmax;
 }
 
-.social-media-icon {
+.navbar-social-media-icon {
     color: var(--color-2);
 }
 
-.social-media-icon:hover {
+.navbar-social-media-icon:hover {
     cursor: pointer;
     color: var(--color-4);
     scale: 1.1;

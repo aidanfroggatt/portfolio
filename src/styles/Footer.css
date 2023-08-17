@@ -1,0 +1,17 @@
+@import 'App.css';
+
+.footer {
+    height: 60vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-item {
+
+}

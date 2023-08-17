@@ -18,10 +18,10 @@ const Navbar = () => {
             </div>
             <div className="page-container">
                 {
-                    AppInfo.pages.map((page, index) => {
+                    Object.keys(AppInfo.pages).map((page, index) => {
                         return (
-                            <div className="page" key={index} onClick={() => goToDestination(page.route)}>
-                                {page.name}
+                            <div className="page" key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
+                                {AppInfo.pages[page].name}
                             </div>
                         )
                     })
@@ -29,11 +29,11 @@ const Navbar = () => {
             </div>
             <div className="social-media-container">
                 {
-                    AppInfo.socialMedia.map((socialMedia, index) => {
+                    Object.keys(AppInfo.socialMedia).map((socialMedia, index) => {
                         return (
-                            <a className="social-media-icon" key={index} href={socialMedia.url} target="_blank">
-                                {socialMedia.icon}
-                            </a>
+                            <div className="social-media-icon" key={index} onClick={() => window.open(AppInfo.socialMedia[socialMedia].link, "_blank")}>
+                                {AppInfo.socialMedia[socialMedia].name}
+                            </div>
                         )
                     })
                 }

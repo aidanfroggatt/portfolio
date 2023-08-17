@@ -12,13 +12,14 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="my-name-container">
-                <div className="my-name" onClick={() => goToDestination(AppInfo.landingPage.route)}>
-                    {AppInfo.name}
+                <div className="my-name" onClick={() => goToDestination(AppInfo.pages.AboutMe.route)}>
+                    {AppInfo.pages.AboutMe.name}
                 </div>
             </div>
             <div className="page-container">
                 {
                     Object.keys(AppInfo.pages).map((page, index) => {
+                        if (page === "AboutMe") return null
                         return (
                             <div className="page" key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
                                 {AppInfo.pages[page].name}
@@ -32,7 +33,7 @@ const Navbar = () => {
                     Object.keys(AppInfo.socialMedia).map((socialMedia, index) => {
                         return (
                             <div className="social-media-icon" key={index} onClick={() => window.open(AppInfo.socialMedia[socialMedia].link, "_blank")}>
-                                {AppInfo.socialMedia[socialMedia].name}
+                                {AppInfo.socialMedia[socialMedia].icon}
                             </div>
                         )
                     })

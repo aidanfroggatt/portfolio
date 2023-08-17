@@ -1,3 +1,6 @@
+import React from 'react';
+import { FaLinkedin, FaGithub, FaRegEnvelopeOpen } from 'react-icons/fa';
+
 export const AppInfo = {
     landingPage : {
         heading: "Hi. I'm Aidan.",
@@ -21,14 +24,17 @@ export const AppInfo = {
         {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/aidanfroggatt/",
+            icon: <FaLinkedin/>,
         },
         {
             name: "Github",
             url: "https://github.com/aidanfroggatt",
+            icon: <FaGithub/>,
         },
         {
             name: "Email",
             url: "",
+            icon: <FaRegEnvelopeOpen/>,
         }
     ]
 }

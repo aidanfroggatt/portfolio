@@ -1,13 +1,15 @@
 import React from "react";
 import '../styles/Navbar.css';
 import {AppInfo} from "../info/AppInfo";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate()
     const goToDestination = (destination) => {
         navigate(destination)
     }
+
+    const location = useLocation()
 
     return (
         <div className="navbar">
@@ -20,8 +22,9 @@ const Navbar = () => {
                 {
                     Object.keys(AppInfo.pages).map((page, index) => {
                         if (page === "AboutMe") return null
+                        console.log(location.pathname.replaceAll("/", ""), page.toLowerCase())
                         return (
-                            <div className="page" key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
+                            <div className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "page-current" : "page"} key={index} onClick={() => goToDestination(AppInfo.pages[page].route)}>
                                 {AppInfo.pages[page].name}
                             </div>
                         )

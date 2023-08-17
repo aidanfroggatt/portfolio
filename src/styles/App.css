@@ -12,17 +12,20 @@
     --color-4: #3A254B;
     --color-5: #F2FEDC;
 
-    --body-font: 'Didact Gothic';
-    --accent-font: 'Poiret One';
+    --font-face-1: 'Didact Gothic';
+    --font-face-2: 'Poiret One';
 
+    --font-size-1: 128px;
+    --font-size-2: 32px;
+    --font-size-3: 20px;
 }
 
 h1 {
     text-align: center;
 
-    font-family: var(--accent-font);
+    font-family: var(--font-face-2);
     color: var(--color-2);
-    font-size: 128px;
+    font-size: var(--font-size-1);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -32,9 +35,9 @@ h1 {
 h2 {
     text-align: center;
 
-    font-family: var(--body-font);
+    font-family: var(--font-face-1);
     color: var(--color-4);
-    font-size: 32px;
+    font-size: var(--font-size-2);
     font-style: normal;
     font-weight: 400;
     line-height: normal;

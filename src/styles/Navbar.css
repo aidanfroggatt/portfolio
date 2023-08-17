@@ -39,6 +39,8 @@
 .page-current {
     background: red;
     border-radius: 25%;
+
+    transition: background-color 0.5s ease-in-out;
 }
 
 .social-media-container {

@@ -38,7 +38,7 @@ export const AppInfo = {
         },
         {
             name: "Email",
-            url: "",
+            url: "mailto:aidanfr@live.ca",
             icon: <FaRegEnvelopeOpen/>,
         }
     ]

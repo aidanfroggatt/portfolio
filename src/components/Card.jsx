@@ -18,12 +18,14 @@ const Card = ({Heading, Subheading, Body, Image, ImageAlt, alt}) => {
                     <img src={Image} alt={ImageAlt}/>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <h2>{Subheading}</h2>
-                <h1>{Heading}</h1>
-                <p>{Body}</p>
-            </Modal>
-        </div>
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                Heading={Heading}
+                Subheading={Subheading}
+                Body={Body}
+            />
+            </div>
     )
 }
 

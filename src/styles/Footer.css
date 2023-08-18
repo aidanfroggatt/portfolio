@@ -3,19 +3,16 @@
 .footer {
     display: flex;
     flex-direction: column;
-    background: var(--color-2);
     color: var(--color-3);
-    min-height: 80vh;
-
 }
 
-.footer-container {
+.wave-overlay-container {
     width: 100%;
     z-index: 1;
-    background-image: url("../assets/background.svg");
 }
 
 .wave-overlay {
+    width: 100%;
     z-index: 2;
 }
 

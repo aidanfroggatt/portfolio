@@ -14,7 +14,7 @@ const Footer = () => {
 
         return (
             <div className="footer">
-                <div className="footer-container">
+                <div className="wave-overlay-container">
                     <img className="wave-overlay" src={wave} alt="wave overlay image"/>
                 </div>
                 <div className="footer-content">

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/components/Modal.css';
+import {FaWindowClose} from "react-icons/fa";
 
 const Modal = ({ isOpen, onClose, Subheading, Heading, Body }) => {
     if (!isOpen) return null;
@@ -14,7 +15,9 @@ const Modal = ({ isOpen, onClose, Subheading, Heading, Body }) => {
                 <h2>{Subheading}</h2>
                 <h1>{Heading}</h1>
                 <p>{Body}</p>
-                <button onClick={onClose}>Close Modal</button>
+                <button className={"close-button"} onClick={onClose}>
+                    <FaWindowClose className={"w-4 h-4"}/>
+                </button>
             </div>
         </div>
     );

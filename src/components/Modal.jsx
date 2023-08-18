@@ -13,6 +13,7 @@ const Modal = ({ isOpen, onClose, Subheading, Heading, Body, alt }) => {
                 <div className="modal-subheading">{Subheading}</div>
                 <div className="modal-heading">{Heading}</div>
                 <div className="modal-body">{Body}</div>
+
                 {/*<button className={"close-button"} onClick={onClose}>*/}
                 {/*    <FaWindowClose className={"w-4 h-4"}/>*/}
                 {/*</button>*/}

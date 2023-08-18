@@ -12,7 +12,42 @@ export const AppInfo = {
         Experience: {
             name: "Experience",
             description: "An overview of my experience and skills...",
-            route: "/experience"
+            route: "/experience",
+            timeline: {
+                "CodeNinjas": {
+                    role: "Lead Instructor (Code Sensei)",
+                    company: "Code Ninjas",
+                    location: "Burlington, Ontario",
+                    date: "June 2022 - September 2022",
+                    description: "",
+                    technologies: [],
+                    additionalInfo: {
+
+                    }
+                },
+                "UniversoleFit": {
+                    role: "Web Developer",
+                    company: "Universole Fit",
+                    location: "Burlington, Ontario",
+                    date: "March 2023 - May 2023",
+                    description: "",
+                    technologies: ["React JS", "AWS", "Shopify", "Git"],
+                    additionalInfo: {
+
+                    }
+                },
+                "BurloakTechnologies": {
+                    role: "Software Engineering Co-op",
+                    company: "Burloak Technologies",
+                    location: "Burlington, Ontario",
+                    date: "May 2023 - September 2023",
+                    description: "",
+                    technologies: ["React JS", "Node JS", "MySQL", "Python"],
+                    additionalInfo: {
+
+                    }
+                }
+            }
         },
         Projects: {
             name: "Projects",

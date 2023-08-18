@@ -24,6 +24,7 @@ const Card = ({Heading, Subheading, Body, Image, ImageAlt, alt}) => {
                 Heading={Heading}
                 Subheading={Subheading}
                 Body={Body}
+                alt={alt}
             />
             </div>
     )

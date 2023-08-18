@@ -13,11 +13,15 @@
 
 .modal {
     position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 500px;
+    background: var(--color-3);
+    border-radius: 0.5vmax;
+    padding: 1vmax;
+    width: 40vw;
+    height: 40vh;
+}
+
+.modal-alt{
+    background: var(--color-5);
 }
 
 .close-button {
@@ -32,4 +36,22 @@
 
 .close-button:focus {
     outline: none;
+}
+
+.modal-heading {
+    font-family: var(--font-face-2);
+    font-size: var(--font-size-2);
+    color: var(--color-2);
+}
+
+.modal-subheading {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-3);
+    color: var(--color-4);
+}
+
+.modal-body {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-6);
+    color: var(--color-4);
 }

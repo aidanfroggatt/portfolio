@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <div className={navbar ? "navbar scrolled" : "navbar"}>
             <div className="navbar-my-name-container">
-                <div className="navbar-my-name" onClick={() => goToDestination(AppInfo.pages.AboutMe.route)}>
+                <div className={"navbar-my-name"} onClick={() => goToDestination(AppInfo.pages.AboutMe.route)}>
                     {AppInfo.pages.AboutMe.name}
                 </div>
             </div>

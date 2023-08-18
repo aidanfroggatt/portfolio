@@ -24,6 +24,7 @@ const Projects = () => {
                                     Subheading={AppInfo.pages.Projects.projects[project].additionalInfo.association}
                                     Body={AppInfo.pages.Projects.projects[project].description}
                                     Image={AppInfo.pages.Projects.projects[project].image}
+                                    ImageAlt={AppInfo.pages.Projects.projects[project].imageAlt}
                                     alt={alt}
                                 />
                             )

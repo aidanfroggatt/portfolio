@@ -61,6 +61,7 @@ export const AppInfo = {
                     github: "https://github.com/snap-cycle/SnapCycle",
                     website: "",
                     image: "",
+                    imageAlt: "SnapCycle Image",
                     additionalInfo: {
                         association: "MacHacks3",
                         devpost: "https://devpost.com/software/snapcycle-hyx3qv",
@@ -74,6 +75,7 @@ export const AppInfo = {
                     github: "https://github.com/aidanfroggatt/portfolio",
                     website: "https://aidanfroggatt.github.io/portfolio/",
                     image: "",
+                    imageAlt: "Portfolio Image",
                     additionalInfo: {
                         association: "Aidan Froggatt",
                     }
@@ -85,6 +87,7 @@ export const AppInfo = {
                     github: "https://github.com/aidanfroggatt/CodeWarriors",
                     website: "",
                     image: "",
+                    imageAlt: "CodeWarriors Image",
                     additionalInfo: {
                         devpost: "https://devpost.com/software/code-warriors",
                         association: "DeltaHacks IX",
@@ -98,6 +101,7 @@ export const AppInfo = {
                     github: "https://github.com/aidanfroggatt/IslandGenerator",
                     website: "",
                     image: "",
+                    imageAlt: "Island Generator Image",
                     additionalInfo: {
                         association: "McMaster University",
                     }
@@ -109,6 +113,7 @@ export const AppInfo = {
                     github: "https://github.com/aidanfroggatt/PiratenKapern",
                     website: "",
                     image: "",
+                    imageAlt: "Piraten Kapern Simulator Image",
                     additionalInfo: {
                         association: "McMaster University",
                     }

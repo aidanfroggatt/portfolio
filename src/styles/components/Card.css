@@ -12,6 +12,10 @@
     background-color: var(--color-5);
 }
 
+.card-hover {
+    background-color: var(--color-4);
+}
+
 .card-heading {
     font-family: var(--font-face-2);
     font-size: var(--font-size-2);

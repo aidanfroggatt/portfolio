@@ -21,6 +21,7 @@
 
 .resume{
     background: var(--white);
+    color: var(--color-4);
     height: 75vh;
     width: 75vw;
 }

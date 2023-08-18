@@ -37,7 +37,7 @@
 
     border-left: var(--color-3) 0.1vmax solid;
     padding-left: 2vmax;
-
+    padding-right: 2vmax;
     gap: 0.5vmax
 }
 
@@ -50,6 +50,7 @@
 
     border-left: var(--color-3) 0.1vmax solid;
     padding-left: 2vmax;
+    padding-right: 2vmax;
 
     gap: 1.5vmax;
 }

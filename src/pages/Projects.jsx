@@ -16,6 +16,7 @@ const Projects = () => {
                 <div className="projects-container">
                     {
                         Object.keys(AppInfo.pages.Projects.projects).map((project, index) => {
+                            const alt = index % 2 !== 0;
                             return (
                                 <Card
                                     key={index}
@@ -23,6 +24,7 @@ const Projects = () => {
                                     Subheading={AppInfo.pages.Projects.projects[project].additionalInfo.association}
                                     Body={AppInfo.pages.Projects.projects[project].description}
                                     Image={AppInfo.pages.Projects.projects[project].image}
+                                    alt={alt}
                                 />
                             )
                         })

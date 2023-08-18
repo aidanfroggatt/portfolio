@@ -1,10 +1,10 @@
 import React from "react";
 import '../styles/components/Card.css';
 
-const Card = ({Heading, Subheading, Body, Image}) => {
+const Card = ({Heading, Subheading, Body, Image, alt}) => {
 
         return (
-            <div className={"card"}>
+            <div className={alt ? "card card-alt" : "card"}>
                 <div className="card-subheading">
                     {Subheading}
                 </div>

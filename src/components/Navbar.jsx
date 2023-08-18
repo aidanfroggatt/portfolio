@@ -33,9 +33,14 @@ const Navbar = () => {
                 {
                     Object.keys(AppInfo.socialMedia).map((socialMedia, index) => {
                         return (
-                            <div className="navbar-social-media-icon" key={index} onClick={() => window.open(AppInfo.socialMedia[socialMedia].link, "_blank")}>
+                            <a className="navbar-social-media-icon"
+                               href={AppInfo.socialMedia[socialMedia].url}
+                               target="_blank"
+                               rel="noreferrer"
+                               key={index}
+                            >
                                 {AppInfo.socialMedia[socialMedia].icon}
-                            </div>
+                            </a>
                         )
                     })
                 }

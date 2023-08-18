@@ -11,7 +11,7 @@ export const AppInfo = {
         },
         Experience: {
             name: "Experience",
-            description: ".An overview of my experience and skills...",
+            description: "An overview of my experience and skills...",
             route: "/experience"
         },
         Projects: {

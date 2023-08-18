@@ -39,4 +39,5 @@
 .card-image {
     width: 17.5vw;
     height: auto;
+    border-radius: 0.5vmax;
 }

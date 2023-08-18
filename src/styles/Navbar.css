@@ -13,6 +13,13 @@
 
     font: var(--font-face-1);
     font-size: var(--font-size-3);
+
+    transition: all 0.25s ease;
+}
+
+.scrolled {
+    background-color: var(--white);
+    transition: background-color 0.25s ease;
 }
 
 .navbar-my-name-container {

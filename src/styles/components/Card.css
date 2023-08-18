@@ -27,3 +27,7 @@
     font-size: var(--font-size-3);
     color: var(--color-4);
 }
+
+.card-image {
+    padding: 1vmax;
+}

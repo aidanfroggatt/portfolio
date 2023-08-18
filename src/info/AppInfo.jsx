@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaRegEnvelopeOpen } from 'react-icons/fa';
-
+import SnapCycleImage from "../assets/snapcycle_home.png";
+import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
 export const AppInfo = {
     pages : {
         AboutMe : {
@@ -60,7 +61,7 @@ export const AppInfo = {
                     technologies: ["React JS", "Jira", "Git", "Figma"],
                     github: "https://github.com/snap-cycle/SnapCycle",
                     website: "",
-                    image: "",
+                    image: SnapCycleImage,
                     imageAlt: "SnapCycle Image",
                     additionalInfo: {
                         association: "MacHacks3",
@@ -86,7 +87,7 @@ export const AppInfo = {
                     technologies: ["React JS", "Tailwind CSS", "Figma"],
                     github: "https://github.com/aidanfroggatt/CodeWarriors",
                     website: "",
-                    image: "",
+                    image: CodeWarriorsImage,
                     imageAlt: "CodeWarriors Image",
                     additionalInfo: {
                         devpost: "https://devpost.com/software/code-warriors",

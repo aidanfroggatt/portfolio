@@ -28,6 +28,15 @@
     color: var(--color-4);
 }
 
-.card-image {
+.card-image-container {
     padding: 1vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-image {
+    width: 17.5vw;
+    height: auto;
 }

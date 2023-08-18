@@ -137,5 +137,16 @@ export const AppInfo = {
             url: "mailto:aidanfr@live.ca",
             icon: <FaRegEnvelopeOpen/>,
         }
+    },
+    credits: {
+        creditsTag: "Developed by Aidan Froggatt",
+        contributors: {
+            "Aidan Froggatt": {
+                name: "Aidan Froggatt",
+                contributions: "Portfolio Website",
+                github: "https://github.com/aidanfroggatt",
+                portfolio: "https://aidanfroggatt.github.io/portfolio/"
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Timeline.css';
+import '../styles/components/Timeline.css';
 
 const Timeline = () => {
 

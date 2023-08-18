@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Footer.css';
+import '../styles/components/Footer.css';
 import wave from '../assets/footer-wave.svg';
 import {AppInfo} from "../info/AppInfo";
 import {useLocation, useNavigate} from "react-router-dom";

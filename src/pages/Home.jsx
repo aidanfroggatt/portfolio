@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Home.css';
+import '../styles/pages/Home.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
 

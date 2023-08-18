@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Experience.css';
+import '../styles/pages/Experience.css';
 import {AppInfo} from "../info/AppInfo";
 import myResume from "../assets/old-resume.pdf";
 import Timeline from "../components/Timeline";

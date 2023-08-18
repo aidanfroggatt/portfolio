@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Contact.css';
+import '../styles/pages/Contact.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
 

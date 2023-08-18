@@ -9,6 +9,7 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false)
     const goToDestination = (destination) => {
         navigate(destination)
+        window.scroll(0, 0)
     }
     const changeBackground = () => {
         if (window.scrollY >= 66) setNavbar(true)

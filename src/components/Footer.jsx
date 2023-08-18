@@ -9,6 +9,7 @@ const Footer = () => {
         const location = useLocation()
         const goToDestination = (destination) => {
             navigate(destination)
+            window.scroll(0, 0)
         }
 
         return (

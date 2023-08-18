@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/pages/Experience.css';
 import {AppInfo} from "../info/AppInfo";
 import myResume from "../assets/old-resume.pdf";
-import Timeline from "../components/Timeline";
 import AnimatedPage from "../animations/AnimatedPage";
 
 const Experience = () => {
@@ -15,7 +14,7 @@ const Experience = () => {
                     <h2>{AppInfo.pages.Experience.description}</h2>
                 </div>
                 <div className="experience-timeline-container">
-                    <Timeline/>
+
                 </div>
                 <div className="resume-container">
                     Resume.

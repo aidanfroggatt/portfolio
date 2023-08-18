@@ -13,6 +13,26 @@ export const AppInfo = {
             name: "Experience",
             description: "An overview of my experience and skills...",
             route: "/experience",
+            chrono: [
+                {
+                    title: "May 2023 - September 2023",
+                    cardTitle: "Software Engineering Co-op",
+                    cardSubtitle: "Burloak Technologies",
+                    cardDetailedText: "I worked n stuff...",
+                },
+                {
+                    title: "March 2023 - May 2023",
+                    cardTitle: "Web Developer",
+                    cardSubtitle: "Universole Fit",
+                    cardDetailedText: "I worked n stuff...",
+                },
+                {
+                    title: "June 2022 - September 2022",
+                    cardTitle: "Lead Instructor (Code Sensei)",
+                    cardSubtitle: "Code Ninjas",
+                    cardDetailedText: "I worked n stuff...",
+                },
+            ],
             timeline: {
                 "CodeNinjas": {
                     role: "Lead Instructor (Code Sensei)",

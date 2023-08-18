@@ -25,7 +25,6 @@ const Footer = () => {
                         {
                             Object.keys(AppInfo.pages).map((page, index) => {
                                 if (page === "AboutMe") return null
-                                console.log(page.toLowerCase(), location.pathname.replaceAll("/", ""))
                                 return (
                                     <div
                                         className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "footer-page footer-current" : "footer-page"}

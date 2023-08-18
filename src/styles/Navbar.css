@@ -30,6 +30,8 @@
 
 .navbar-my-name {
     color: var(--color-2);
+    font-family: var(--font-face-2);
+    font-weight: var(--font-weight-2);
 }
 
 .navbar-my-name:hover {

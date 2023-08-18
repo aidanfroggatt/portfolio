@@ -19,6 +19,9 @@
     --font-size-2: 2.5vmax;
     --font-size-3: 1.5vmax;
     --font-size-4: 6vmax;
+
+    --font-weight-1: 400;
+    --font-weight-2: 800;
 }
 
 .App {
@@ -47,7 +50,7 @@ h1 {
     color: var(--color-2);
     font-size: var(--font-size-1);
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--font-weight-1);
     line-height: normal;
 
 }
@@ -59,7 +62,7 @@ h2 {
     color: var(--color-4);
     font-size: var(--font-size-2);
     font-style: normal;
-    font-weight: 400;
+    font-weight: var(--font-weight-1);
     line-height: normal;
 
     max-width: 50vw;

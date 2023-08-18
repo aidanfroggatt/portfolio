@@ -8,11 +8,11 @@ const Experience = () => {
 
     return (
         <div className="experience">
-            <div className="landing-page">
+            <div className="landing-page experience-landing-page">
                 <h1>{AppInfo.pages.Experience.name}.</h1>
                 <h2>{AppInfo.pages.Experience.description}</h2>
             </div>
-            <div className="experience-timeline">
+            <div className="experience-timeline-container">
                 <Timeline/>
             </div>
             <div className="resume-container">

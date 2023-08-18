@@ -103,7 +103,7 @@ export const AppInfo = {
                     }
                 },
                 "Piraten Kapern Simulator": {
-                    name: "Piraten Kapern Simulator",
+                    name: "Piraten Kapern",
                     description: "A program that simulates the card and dice game Piraten Kapern",
                     technologies: ["Java", "Maven", "Git"],
                     github: "https://github.com/aidanfroggatt/PiratenKapern",

@@ -1,13 +1,26 @@
 @import 'App.css';
 
 .footer {
-    height: 60vh;
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 80vh;
+
+    background: var(--color-2);
+}
+
+.wave-overlay-container {
+    width: 100%;
 
     background-image: url("../assets/background.svg");
-    background-size: cover;
+}
+
+.wave-overlay {
+
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
 }
 
 .footer-column {
@@ -16,5 +29,15 @@
 }
 
 .footer-item {
+    z-index: 5;
 
+    color: var(--color-3);
+}
+
+.footer-current {
+    color: var(--color-5);
+}
+
+.thanks {
+    color: var(--color-3);
 }

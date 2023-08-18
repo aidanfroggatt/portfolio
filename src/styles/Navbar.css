@@ -61,6 +61,8 @@
 
 .navbar-social-media-icon {
     color: var(--color-2);
+    scale: 1;
+    transition: all ease 0.25s;
 }
 
 .navbar-social-media-icon:hover {

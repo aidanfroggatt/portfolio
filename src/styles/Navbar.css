@@ -19,8 +19,9 @@
 
 .scrolled {
     background-color: var(--color-1);
-    transition: background-color 0.25s ease;
+    transition: all 0.25s ease;
 }
+
 
 .navbar-my-name-container {
     display: flex;

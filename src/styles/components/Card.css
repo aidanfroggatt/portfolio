@@ -1,0 +1,21 @@
+@import '../App.css';
+
+.card {
+    background-color: var(--color-3);
+    width: 25vw;
+    height: 40vh;
+    border-radius: 5%;
+    padding: 2vmax;
+}
+
+.card-heading {
+    font-family: var(--font-face-2);
+    font-size: var(--font-size-2);
+    color: var(--color-2);
+}
+
+.card-subheading {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-3);
+    color: var(--color-4);
+}

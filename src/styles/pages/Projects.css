@@ -4,14 +4,15 @@
 
 }
 
+.projects-landing-page {
+    height: 90vh;
+}
+
 .projects-container {
-
-}
-
-.project-card-1 {
-
-}
-
-.project-card-2 {
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 2vmax;
 }

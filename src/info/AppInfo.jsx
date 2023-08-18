@@ -13,26 +13,6 @@ export const AppInfo = {
             name: "Experience",
             description: "An overview of my experience and skills...",
             route: "/experience",
-            chrono: [
-                {
-                    title: "May 2023 - September 2023",
-                    cardTitle: "Software Engineering Co-op",
-                    cardSubtitle: "Burloak Technologies",
-                    cardDetailedText: "I worked n stuff...",
-                },
-                {
-                    title: "March 2023 - May 2023",
-                    cardTitle: "Web Developer",
-                    cardSubtitle: "Universole Fit",
-                    cardDetailedText: "I worked n stuff...",
-                },
-                {
-                    title: "June 2022 - September 2022",
-                    cardTitle: "Lead Instructor (Code Sensei)",
-                    cardSubtitle: "Code Ninjas",
-                    cardDetailedText: "I worked n stuff...",
-                },
-            ],
             timeline: {
                 "CodeNinjas": {
                     role: "Lead Instructor (Code Sensei)",
@@ -84,7 +64,18 @@ export const AppInfo = {
                     additionalInfo: {
                         association: "MacHacks3",
                         devpost: "https://devpost.com/software/snapcycle-hyx3qv",
-                        awards: "Best Environmental Hack"
+                        awards: "Best Environmental Hack",
+                    }
+                },
+                "Portfolio": {
+                    name: "Portfolio",
+                    description: "A website that showcases my experience and projects.",
+                    technologies: ["React JS, Tailwind CSS", "Figma"],
+                    github: "https://github.com/aidanfroggatt/portfolio",
+                    website: "https://aidanfroggatt.github.io/portfolio/",
+                    image: "",
+                    additionalInfo: {
+                        association: "Aidan Froggatt",
                     }
                 },
                 "CodeWarriors": {
@@ -97,18 +88,7 @@ export const AppInfo = {
                     additionalInfo: {
                         devpost: "https://devpost.com/software/code-warriors",
                         association: "DeltaHacks IX",
-                        awards: "#1 Overall Hack"
-                    }
-                },
-                "Portfolio": {
-                    name: "Portfolio",
-                    description: "A website that showcases my experience and projects.",
-                    technologies: ["React JS, Tailwind CSS", "Figma"],
-                    github: "https://github.com/aidanfroggatt/portfolio",
-                    website: "https://aidanfroggatt.github.io/portfolio/",
-                    image: "",
-                    additionalInfo: {
-
+                        awards: "#1 Overall Hack",
                     }
                 },
                 "Island Generator": {

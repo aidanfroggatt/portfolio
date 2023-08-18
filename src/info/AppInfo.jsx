@@ -52,7 +52,7 @@ export const AppInfo = {
         },
         Projects: {
             name: "Projects",
-            description: "Some projects I have been developing in my spare time...",
+            description: "Some projects I have been developing...",
             route: "/projects",
             projects: {
                 "SnapCycle": {

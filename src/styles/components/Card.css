@@ -6,14 +6,20 @@
     height: 40vh;
     border-radius: 5%;
     padding: 2vmax;
+
+    transition: 0.25s ease-out;
 }
 
 .card-alt {
     background-color: var(--color-5);
+
+    transition: 0.25s ease-out;
 }
 
-.card-hover {
-    background-color: var(--color-4);
+.card:hover {
+    scale: 1.05;
+    transition: 0.25s ease-out;
+    cursor: pointer;
 }
 
 .card-heading {

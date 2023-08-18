@@ -6,7 +6,7 @@ const Contact = () => {
 
     return (
         <div className="landing-page">
-            <h1>{AppInfo.pages.Contact.name}</h1>
+            <h1>{AppInfo.pages.Contact.name}.</h1>
             <h2>{AppInfo.pages.Contact.description}</h2>
         </div>
     )

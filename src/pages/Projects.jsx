@@ -7,7 +7,7 @@ const Projects = () => {
     return (
         <div className="projects">
             <div className="landing-page">
-                <h1>{AppInfo.pages.Projects.name}</h1>
+                <h1>{AppInfo.pages.Projects.name}.</h1>
                 <h2>{AppInfo.pages.Projects.description}</h2>
             </div>
             <div className="projects-container">

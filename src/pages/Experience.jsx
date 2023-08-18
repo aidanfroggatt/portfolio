@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Experience.css';
 import {AppInfo} from "../info/AppInfo";
+import myResume from "../assets/old-resume.pdf";
 
 const Experience = () => {
 
@@ -14,7 +15,11 @@ const Experience = () => {
 
             </div>
             <div className="resume-container">
-
+                Resume.
+                <object
+                    data={myResume}
+                    className="resume">
+                </object>
             </div>
         </div>
     )

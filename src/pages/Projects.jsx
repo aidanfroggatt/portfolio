@@ -26,6 +26,9 @@ const Projects = () => {
                                     Image={AppInfo.pages.Projects.projects[project].image}
                                     ImageAlt={AppInfo.pages.Projects.projects[project].imageAlt}
                                     alt={alt}
+                                    GitHub={AppInfo.pages.Projects.projects[project].github}
+                                    Website={AppInfo.pages.Projects.projects[project].website}
+                                    Devpost={AppInfo.pages.Projects.projects[project].additionalInfo.devpost}
                                 />
                             )
                         })

@@ -1,20 +1,5 @@
 @import '../App.css';
 
-.card-heading {
-    font-family: var(--font-face-2);
-    font-size: var(--font-size-2);
-    color: var(--color-2);
-}
-
-.card-subheading {
-    font-family: var(--font-face-1);
-    font-size: var(--font-size-3);
-    color: var(--color-4);
-}
-
-.card-body {
-
-}
 
 .flip-card {
     width: 25vw;
@@ -66,4 +51,36 @@
 
 .flip-card-back {
     transform: rotateY(180deg);
+}
+
+.card-heading {
+    font-family: var(--font-face-2);
+    font-size: var(--font-size-2);
+    color: var(--color-2);
+}
+
+.card-subheading {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-3);
+    color: var(--color-4);
+}
+
+.card-body {
+
+}
+
+.card-link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: auto;
+}
+
+.card-link {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-2);
+    color: var(--color-4);
+    text-decoration: none;
+    transition: 0.25s ease-out;
 }

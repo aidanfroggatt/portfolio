@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/pages/Projects.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
-import Card from "../components/Card";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
 
@@ -18,7 +18,7 @@ const Projects = () => {
                         Object.keys(AppInfo.pages.Projects.projects).map((project, index) => {
                             const alt = index % 2 !== 0;
                             return (
-                                <Card
+                                <ProjectCard
                                     key={index}
                                     Heading={AppInfo.pages.Projects.projects[project].name}
                                     Subheading={AppInfo.pages.Projects.projects[project].additionalInfo.association}

@@ -14,9 +14,6 @@ const Card = ({Heading, Subheading, Body, Image, ImageAlt, alt}) => {
                 <div className="card-heading">
                     {Heading}
                 </div>
-                <div className="card-image-container">
-                    <img className="card-image" src={Image} alt={ImageAlt}/>
-                </div>
             </div>
             <Modal
                 isOpen={isModalOpen}

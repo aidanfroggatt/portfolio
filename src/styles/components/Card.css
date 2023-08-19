@@ -31,7 +31,6 @@
     background-color: var(--color-3);
 
     border-radius: 5%;
-    padding: 2vmax;
 
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
@@ -62,12 +61,9 @@
 }
 
 .flip-card-front {
-    background-color: #bbb;
-    color: black;
+
 }
 
 .flip-card-back {
-    background-color: #2980b9;
-    color: white;
     transform: rotateY(180deg);
 }

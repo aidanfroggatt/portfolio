@@ -1,20 +1,20 @@
 @import '../App.css';
 
 
-.flip-card {
+.project-flip-card {
     width: 25vw;
     height: 40vh;
     cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
-    .flip-card {
+    .project-flip-card {
         width: 80vw;
         height: 40vh;
     }
 }
 
-.flip-card-inner {
+.project-flip-card-inner {
     width: 100%;
     height: 100%;
 
@@ -31,22 +31,22 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
-.flip-card-inner:hover {
+.project-flip-card-inner:hover {
     scale: 1.05;
     transition: 0.25s ease-out;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 
-.flip-card-inner-alt {
+.project-flip-card-inner-alt {
     background-color: var(--color-5);
 }
 
-.flip-card.flipped .flip-card-inner {
+.project-flip-card.flipped .project-flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.project-flip-card-front, .project-flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -56,31 +56,31 @@
     padding: 2vmax;
 }
 
-.flip-card-front {
+.project-flip-card-front {
 
 }
 
-.flip-card-back {
+.project-flip-card-back {
     transform: rotateY(180deg);
 }
 
-.card-heading {
+.project-card-heading {
     font-family: var(--font-face-2);
     font-size: var(--font-size-2);
     color: var(--color-2);
 }
 
-.card-subheading {
+.project-card-subheading {
     font-family: var(--font-face-1);
     font-size: var(--font-size-3);
     color: var(--color-4);
 }
 
-.card-body {
+.project-card-body {
 
 }
 
-.card-link-container {
+.project-card-link-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -94,11 +94,11 @@
     gap: 1vmax;
 }
 
-.card-link-container-alt {
+.project-card-link-container-alt {
     background: var(--color-5);
 }
 
-.card-link {
+.project-card-link {
     font-family: var(--font-face-1);
     font-size: var(--font-size-2);
     color: var(--color-4);
@@ -107,13 +107,13 @@
     scale: 1;
 }
 
-.card-link:hover {
+.project-card-link:hover {
     color: var(--color-2);
     transition: 0.25s ease-out;
     scale: 1.1;
 }
 
-.card-technologies-container{
+.project-card-technologies-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -130,11 +130,11 @@
     gap: 1vmax;
 }
 
-.card-technologies-container-alt {
+.project-card-technologies-container-alt {
     background: var(--color-5);
 }
 
-.card-technology {
+.project-card-technology {
     padding: 0.25vmax;
     border-radius: 0.25vmax;
     width: 100%;

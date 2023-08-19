@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import '../styles/components/Card.css';
+import '../styles/components/ProjectCard.css';
 import {FaAward, FaGithub, FaGlobe} from "react-icons/fa";
 
 const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Technologies, Awards, alt}) => {
@@ -10,18 +10,18 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
 
     return (
         <div
-            className={`flip-card ${isFlipped ? 'flipped' : ''}`}
+            className={`project-flip-card ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
         >
-            <div className={alt ? "flip-card-inner flip-card-inner-alt" : "flip-card-inner"}>
-                <div className="flip-card-front">
-                    <div className="card-subheading">{Subheading}</div>
-                    <div className="card-heading">{Heading}</div>
-                    <div className={alt ? "card-technologies-container card-technologies-container-alt" : "card-technologies-container"}>
+            <div className={alt ? "project-flip-card-inner project-flip-card-inner-alt" : "project-flip-card-inner"}>
+                <div className="project-flip-card-front">
+                    <div className="project-card-subheading">{Subheading}</div>
+                    <div className="project-card-heading">{Heading}</div>
+                    <div className={alt ? "project-card-technologies-container project-card-technologies-container-alt" : "project-card-technologies-container"}>
                         {
                             Object.keys(Technologies).map((technology, index) => {
                                 return (
-                                    <div className={"card-technology"} key={index}>
+                                    <div className={"project-card-technology"} key={index}>
                                         {Technologies[technology].icon}
                                     </div>
                                 )
@@ -29,13 +29,13 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
                         }
                     </div>
                 </div>
-                <div className="flip-card-back">
-                    <div className="card-heading">{Heading}</div>
-                    <div className="card-body">{Body}</div>
-                    <div className={alt ? "card-link-container card-link-container-alt" : "card-link-container"}>
-                        {GitHub ? <a className="card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
-                        {Website ? <a className="card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}
-                        {Devpost ? <a className="card-link" href={Devpost} target="_blank"><FaAward/></a> : <></>}
+                <div className="project-flip-card-back">
+                    <div className="project-card-heading">{Heading}</div>
+                    <div className="project-card-body">{Body}</div>
+                    <div className={alt ? "project-card-link-container project-card-link-container-alt" : "project-card-link-container"}>
+                        {GitHub ? <a className="project-card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
+                        {Website ? <a className="project-card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}
+                        {Devpost ? <a className="project-card-link" href={Devpost} target="_blank"><FaAward/></a> : <></>}
                     </div>
                 </div>
             </div>

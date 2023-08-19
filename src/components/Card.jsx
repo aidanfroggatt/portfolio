@@ -2,8 +2,11 @@ import React, {useState} from "react";
 import '../styles/components/Card.css';
 import {FaAward, FaGithub, FaGlobe} from "react-icons/fa";
 
-const Card = ({Heading, Subheading, Body, GitHub, Website, Devpost, alt}) => {
+const Card = ({Heading, Subheading, Body, GitHub, Website, Devpost, Technologies, Awards, alt}) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    Object.keys(Technologies).map((technology, index) => {
+        console.log(technology)
+    })
 
     return (
         <div
@@ -14,6 +17,17 @@ const Card = ({Heading, Subheading, Body, GitHub, Website, Devpost, alt}) => {
                 <div className="flip-card-front">
                     <div className="card-subheading">{Subheading}</div>
                     <div className="card-heading">{Heading}</div>
+                    <div className="card-technologies-container">
+                        {
+                            Object.keys(Technologies).map((technology, index) => {
+                                return (
+                                    <div className="card-technology" key={index}>
+                                        {Technologies[technology].icon}
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
                 <div className="flip-card-back">
                     <div className="card-heading">{Heading}</div>

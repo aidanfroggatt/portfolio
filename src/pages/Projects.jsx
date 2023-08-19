@@ -29,6 +29,8 @@ const Projects = () => {
                                     GitHub={AppInfo.pages.Projects.projects[project].github}
                                     Website={AppInfo.pages.Projects.projects[project].website}
                                     Devpost={AppInfo.pages.Projects.projects[project].additionalInfo.devpost}
+                                    Technologies={AppInfo.pages.Projects.projects[project].technologies}
+                                    Awards={AppInfo.pages.Projects.projects[project].additionalInfo.awards}
                                 />
                             )
                         })

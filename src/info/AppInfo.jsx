@@ -1,7 +1,8 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaRegEnvelopeOpen } from 'react-icons/fa';
+import {FaLinkedin, FaGithub, FaRegEnvelopeOpen, FaReact, FaCss3, FaJira, FaGit, FaFigma, FaJava} from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
+import {SiApachemaven} from "react-icons/si";
 export const AppInfo = {
     pages : {
         AboutMe : {
@@ -58,7 +59,28 @@ export const AppInfo = {
                 "SnapCycle": {
                     name: "SnapCycle",
                     description: "A mobile application that allows users to take a picture of their waste and receive information on how to properly dispose of it.",
-                    technologies: ["React JS", "Jira", "Git", "Figma"],
+                    technologies: {
+                        "ReactJS": {
+                            name: "ReactJS",
+                            icon: <FaReact/>
+                        },
+                        "CSS": {
+                            name: "CSS",
+                            icon: <FaCss3/>
+                        },
+                        "Jira": {
+                            name: "Jira",
+                            icon: <FaJira/>
+                        },
+                        "Git": {
+                            name: "Git",
+                            icon: <FaGit/>
+                        },
+                        "Figma": {
+                            name: "Figma",
+                            icon: <FaFigma/>
+                        },
+                    },
                     github: "https://github.com/snap-cycle/SnapCycle",
                     website: "",
                     image: SnapCycleImage,
@@ -72,7 +94,20 @@ export const AppInfo = {
                 "Portfolio": {
                     name: "Portfolio",
                     description: "A website that showcases my experience and projects.",
-                    technologies: ["React JS, Tailwind CSS", "Figma"],
+                    technologies: {
+                        "ReactJS": {
+                            name: "ReactJS",
+                            icon: <FaReact/>
+                        },
+                        "CSS": {
+                            name: "CSS",
+                            icon: <FaCss3/>
+                        },
+                        "Figma": {
+                            name: "Figma",
+                            icon: <FaFigma/>
+                        },
+                    },
                     github: "https://github.com/aidanfroggatt/portfolio",
                     website: "https://aidanfroggatt.github.io/portfolio/",
                     image: "",
@@ -84,7 +119,24 @@ export const AppInfo = {
                 "CodeWarriors": {
                     name: "CodeWarriors",
                     description: "A website that allows users to compete in coding challenges and view their progress.",
-                    technologies: ["React JS", "Tailwind CSS", "Figma"],
+                    technologies: {
+                        "ReactJS": {
+                            name: "ReactJS",
+                            icon: <FaReact/>
+                        },
+                        "CSS": {
+                            name: "CSS",
+                            icon: <FaCss3/>
+                        },
+                        "Git": {
+                            name: "Git",
+                            icon: <FaGit/>
+                        },
+                        "Figma": {
+                            name: "Figma",
+                            icon: <FaFigma/>
+                        },
+                    },
                     github: "https://github.com/aidanfroggatt/CodeWarriors",
                     website: "",
                     image: CodeWarriorsImage,
@@ -98,7 +150,20 @@ export const AppInfo = {
                 "Island Generator": {
                     name: "Island Generator",
                     description: "A program that generates a mesh data structure and can populate the mesh with random island generation",
-                    technologies: ["Java", "Maven", "Git"],
+                    technologies: {
+                        "Java": {
+                            name: "Java",
+                            icon: <FaJava/>
+                        },
+                        "Maven": {
+                            name: "Maven",
+                            icon: <SiApachemaven/>
+                        },
+                        "Git": {
+                            name: "Git",
+                            icon: <FaGit/>
+                        },
+                    },
                     github: "https://github.com/aidanfroggatt/IslandGenerator",
                     website: "",
                     image: "",
@@ -110,7 +175,20 @@ export const AppInfo = {
                 "Piraten Kapern Simulator": {
                     name: "Piraten Kapern",
                     description: "A program that simulates the card and dice game Piraten Kapern",
-                    technologies: ["Java", "Maven", "Git"],
+                    technologies: {
+                        "Java": {
+                            name: "Java",
+                            icon: <FaJava/>
+                        },
+                        "Maven": {
+                            name: "Maven",
+                            icon: <SiApachemaven/>
+                        },
+                        "Git": {
+                            name: "Git",
+                            icon: <FaGit/>
+                        },
+                    },
                     github: "https://github.com/aidanfroggatt/PiratenKapern",
                     website: "",
                     image: "",

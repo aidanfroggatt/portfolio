@@ -33,9 +33,9 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
                     <div className="project-card-heading">{Heading}</div>
                     <div className="project-card-body">{Body}</div>
                     <div className={alt ? "project-card-link-container project-card-link-container-alt" : "project-card-link-container"}>
-                        {GitHub ? <a className="project-card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
-                        {Website ? <a className="project-card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}
                         {Devpost ? <a className="project-card-link" href={Devpost} target="_blank"><FaAward/></a> : <></>}
+                        {Website ? <a className="project-card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}
+                        {GitHub ? <a className="project-card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ const ContactForm = () => {
     const [state, handleSubmit] = useForm("xknlrgqd");
     if (state.succeeded) {
         return (
-            <div>
+            <div className={"contact-form contact-form-submitted"}>
                 Thanks for reaching out!
             </div>
         )

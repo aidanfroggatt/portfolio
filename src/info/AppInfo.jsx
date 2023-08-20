@@ -1,5 +1,16 @@
 import React from 'react';
-import {FaLinkedin, FaGithub, FaRegEnvelopeOpen, FaReact, FaCss3, FaJira, FaGit, FaFigma, FaJava} from 'react-icons/fa';
+import {
+    FaLinkedin,
+    FaGithub,
+    FaRegEnvelopeOpen,
+    FaReact,
+    FaCss3,
+    FaJira,
+    FaGit,
+    FaFigma,
+    FaJava,
+    FaPython
+} from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
 import {SiApachemaven} from "react-icons/si";
@@ -58,11 +69,15 @@ export const AppInfo = {
             projects: {
                 "SnapCycle": {
                     name: "SnapCycle",
-                    description: "A mobile application that allows users to take a picture of their waste and receive information on how to properly dispose of it.",
+                    description: "a web app that scans items identifying their recyclability.",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
                             icon: <FaReact/>
+                        },
+                        "Python": {
+                            name: "Python",
+                            icon: <FaPython/>
                         },
                         "CSS": {
                             name: "CSS",
@@ -71,10 +86,6 @@ export const AppInfo = {
                         "Jira": {
                             name: "Jira",
                             icon: <FaJira/>
-                        },
-                        "Git": {
-                            name: "Git",
-                            icon: <FaGit/>
                         },
                         "Figma": {
                             name: "Figma",
@@ -118,7 +129,7 @@ export const AppInfo = {
                 },
                 "CodeWarriors": {
                     name: "CodeWarriors",
-                    description: "A website that allows users to compete in coding challenges and view their progress.",
+                    description: "a web app that gamifies teaching programming skills.",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -127,10 +138,6 @@ export const AppInfo = {
                         "CSS": {
                             name: "CSS",
                             icon: <FaCss3/>
-                        },
-                        "Git": {
-                            name: "Git",
-                            icon: <FaGit/>
                         },
                         "Figma": {
                             name: "Figma",

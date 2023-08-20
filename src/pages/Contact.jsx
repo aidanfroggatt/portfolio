@@ -11,7 +11,7 @@ const Contact = () => {
             <div className="contact">
                 <div className="landing-page contact-landing-page">
                     <h1>{AppInfo.pages.Contact.name}.</h1>
-                    <p>{AppInfo.pages.Contact.description}</p>
+                    <h2>{AppInfo.pages.Contact.description}</h2>
                 </div>
                 <ContactForm/>
             </div>

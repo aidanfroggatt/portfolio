@@ -5,6 +5,7 @@ import AnimatedPage from "../animations/AnimatedPage";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import Navbar from "../components/Navbar";
+import DownArrow from "../components/DownArrow";
 
 const Home = () => {
     const [experienceRef, setExperienceRef] = useState(null);
@@ -25,8 +26,9 @@ const Home = () => {
         <AnimatedPage>
             <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={handleScrollToHome}/>
             <div ref={scrollToHome} className='landing-page'>
-                <h1>{AppInfo.pages.AboutMe.heading}</h1>
-                <h2>{AppInfo.pages.AboutMe.description}</h2>
+                <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
+                <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
+                <DownArrow/>
             </div>
             <Experience setExperienceRef={setExperienceRef}/>
             <Projects setProjectsRef={setProjectsRef}/>

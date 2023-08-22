@@ -1,1 +1,25 @@
 @import '../App.css';
+
+.home-heading {
+    text-align: center;
+
+    font-family: var(--font-face-2);
+    color: var(--color-2);
+    font-size: var(--font-size-1);
+    font-style: normal;
+    font-weight: var(--font-weight-1);
+    line-height: normal;
+}
+
+.home-subheading {
+    text-align: center;
+
+    font-family: var(--font-face-1);
+    color: var(--color-4);
+    font-size: var(--font-size-2);
+    font-style: normal;
+    font-weight: var(--font-weight-1);
+    line-height: normal;
+
+    max-width: 50vw;
+}

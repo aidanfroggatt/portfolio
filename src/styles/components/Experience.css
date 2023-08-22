@@ -1,13 +1,13 @@
 @import '../App.css';
 
 .experience {
-    padding: 8vmax;
     font-family: var(--font-face-1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
+    padding: 8vmax;
 }
 
 .experience-title {

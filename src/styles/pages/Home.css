@@ -23,3 +23,15 @@
 
     max-width: 50vw;
 }
+
+.down-arrow-scroll-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    height: fit-content;
+    width: fit-content;
+}
+
+.down-arrow-scroll-container:hover {
+    cursor: pointer;
+}

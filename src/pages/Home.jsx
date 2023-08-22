@@ -28,7 +28,9 @@ const Home = () => {
             <div ref={scrollToHome} className='landing-page'>
                 <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
                 <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
-                <DownArrow/>
+                <div className="down-arrow-scroll-container">
+                    <DownArrow/>
+                </div>
             </div>
             <Experience setExperienceRef={setExperienceRef}/>
             <Projects setProjectsRef={setProjectsRef}/>

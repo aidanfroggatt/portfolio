@@ -2,13 +2,6 @@
 
 .mouse_scroll {
     display: block;
-    width: 24px;
-    height: 100px;
-    margin: 125px auto 0;
-
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
 }
 
 

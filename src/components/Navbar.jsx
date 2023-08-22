@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import '../styles/components/Navbar.css';
 import {AppInfo} from "../info/AppInfo";
 
-const Navbar = ({experienceRef, projectsRef}) => {
+const Navbar = ({experienceRef, projectsRef, handleScrollToHome}) => {
     const [navbar, setNavbar] = useState(false)
 
     const changeBackground = () => {
@@ -26,7 +26,7 @@ const Navbar = ({experienceRef, projectsRef}) => {
     return (
         <div className={navbar ? "navbar scrolled" : "navbar"}>
             <div className="navbar-my-name-container">
-                <div className={"navbar-my-name"} >
+                <div className={"navbar-my-name"} onClick={handleScrollToHome}>
                     {AppInfo.pages.AboutMe.name}
                 </div>
             </div>

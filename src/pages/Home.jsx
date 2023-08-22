@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import '../styles/pages/Home.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
@@ -10,10 +10,21 @@ const Home = () => {
     const [experienceRef, setExperienceRef] = useState(null);
     const [projectsRef, setProjectsRef] = useState(null);
 
+    const scrollToHome = useRef(null);
+
+    const handleScrollToHome = () => {
+        if (scrollToHome.current) {
+            scrollToHome.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    };
+
     return (
         <AnimatedPage>
-            <Navbar experienceRef={experienceRef} projectsRef={projectsRef}/>
-            <div className='landing-page'>
+            <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={handleScrollToHome}/>
+            <div ref={scrollToHome} className='landing-page'>
                 <h1>{AppInfo.pages.AboutMe.heading}</h1>
                 <h2>{AppInfo.pages.AboutMe.description}</h2>
             </div>

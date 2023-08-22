@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import '../styles/components/ProjectCard.css';
 import {FaAward, FaGithub, FaGlobe} from "react-icons/fa";
+import Tooltip from "./Tooltip";
 
 const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Technologies, Awards, alt}) => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -21,9 +22,11 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
                         {
                             Object.keys(Technologies).map((technology, index) => {
                                 return (
-                                    <div className={"project-card-technology"} key={index}>
-                                        {Technologies[technology].icon}
-                                    </div>
+                                    <Tooltip content={Technologies[technology].name}>
+                                        <div className={"project-card-technology"} key={index}>
+                                            {Technologies[technology].icon}
+                                        </div>
+                                    </Tooltip>
                                 )
                             })
                         }

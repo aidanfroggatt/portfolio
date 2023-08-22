@@ -1,9 +1,12 @@
 import React from "react";
 import ModelViewer from "./ModelViewer";
 import stickmanModel from "../assets/3D/stickman_model.glb"
-const Stickman = ({ modelPath, scale = 40, position = [0, 0, 0] }) => {
+import '../styles/3D/Stickman.css'
+const Stickman = () => {
     return (
-        <ModelViewer modelPath={stickmanModel} scale={1}/>
+        <div className="stickman-canvas-container">
+            <ModelViewer modelPath={stickmanModel} scale={1} position={[0,0,0]}/>
+        </div>
     );
 };
 

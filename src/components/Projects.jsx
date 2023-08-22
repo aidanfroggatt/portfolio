@@ -23,6 +23,7 @@ const Projects = ({setProjectsRef}) => {
                                 Heading={AppInfo.pages.Projects.projects[project].name}
                                 Subheading={AppInfo.pages.Projects.projects[project].additionalInfo.association}
                                 Body={AppInfo.pages.Projects.projects[project].description}
+                                Date={AppInfo.pages.Projects.projects[project].date}
                                 Image={AppInfo.pages.Projects.projects[project].image}
                                 ImageAlt={AppInfo.pages.Projects.projects[project].imageAlt}
                                 alt={alt}

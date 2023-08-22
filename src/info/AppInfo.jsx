@@ -9,7 +9,7 @@ import {
     FaGit,
     FaFigma,
     FaJava,
-    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaUser, FaChalkboardTeacher
+    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
@@ -126,6 +126,7 @@ export const AppInfo = {
                 "SnapCycle": {
                     name: "SnapCycle",
                     description: "A web app that scans items identifying their recyclability.",
+                    date: "Mar 2023 - Present",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -161,6 +162,7 @@ export const AppInfo = {
                 "Portfolio": {
                     name: "Portfolio",
                     description: "A web app that showcases my experience and projects.",
+                    date: "Mar 2023 - Present",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -186,6 +188,7 @@ export const AppInfo = {
                 "CodeWarriors": {
                     name: "CodeWarriors",
                     description: "A web app that gamifies teaching programming skills.",
+                    date: "Mar 2023",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -213,6 +216,7 @@ export const AppInfo = {
                 "Island Generator": {
                     name: "Island Generator",
                     description: "A program that generates a mesh data structure and can populate the mesh with random island generation",
+                    date: "Feb 2023 - Apr 2023",
                     technologies: {
                         "Java": {
                             name: "Java",
@@ -238,6 +242,7 @@ export const AppInfo = {
                 "Piraten Kapern Simulator": {
                     name: "Piraten Kapern",
                     description: "A program that simulates the card and dice game Piraten Kapern",
+                    date: "Jan 2023 - Feb 2023",
                     technologies: {
                         "Java": {
                             name: "Java",

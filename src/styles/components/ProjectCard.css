@@ -80,6 +80,12 @@
 
 }
 
+.project-card-date {
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-3);
+    color: var(--color-4);
+}
+
 .project-card-link-container {
     display: flex;
     flex-direction: row;

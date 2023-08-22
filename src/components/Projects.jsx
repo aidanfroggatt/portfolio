@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/pages/Projects.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
 

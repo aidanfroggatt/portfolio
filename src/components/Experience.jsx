@@ -1,9 +1,8 @@
 import React from 'react';
 import '../styles/pages/Experience.css';
 import {AppInfo} from "../info/AppInfo";
-import myResume from "../assets/Resume.pdf";
 import AnimatedPage from "../animations/AnimatedPage";
-import Timeline from "../components/Timeline";
+import Timeline from "./Timeline";
 
 const Experience = () => {
 

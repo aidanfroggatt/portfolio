@@ -1,16 +1,10 @@
 import React, {useEffect, useState} from "react";
 import '../styles/components/Navbar.css';
 import {AppInfo} from "../info/AppInfo";
-import {useLocation, useNavigate} from "react-router-dom";
 
 const Navbar = () => {
-    const location = useLocation()
-    const navigate = useNavigate()
     const [navbar, setNavbar] = useState(false)
-    const goToDestination = (destination) => {
-        navigate(destination)
-        window.scroll(0, 0)
-    }
+
     const changeBackground = () => {
         if (window.scrollY >= 66) setNavbar(true)
         else setNavbar(false)
@@ -33,7 +27,7 @@ const Navbar = () => {
                         if (page === "AboutMe") return null
                         return (
                             <div
-                                className={location.pathname.replaceAll("/", "") === page.toLowerCase() ? "navbar-page navbar-current" : "navbar-page"}
+                                className={"navbar-page"}
                                 key={index}
                                 onClick={() => goToDestination(AppInfo.pages[page].route)}
                             >

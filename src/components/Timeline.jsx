@@ -3,7 +3,7 @@ import '../styles/components/Timeline.css';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-import {FaArrowDown, FaBriefcase} from "react-icons/fa";
+import {FaBriefcase} from "react-icons/fa";
 import Tooltip from "./Tooltip";
 
 const Timeline = ({info}) => {
@@ -34,7 +34,7 @@ const Timeline = ({info}) => {
                             {
                                 info.pages.Experience.timeline[item].bulletPoints.map((bullet, bulletKey) => {
                                     return (
-                                        <h4 key={bulletKey} className="vertical-timeline-element-subtitle">{bullet}</h4>
+                                        <div key={bulletKey} className="">{bullet}</div>
                                     )
                                 })
                             }

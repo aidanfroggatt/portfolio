@@ -6,7 +6,6 @@ import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 
 const Home = () => {
-
     return (
         <AnimatedPage>
             <div className='landing-page'>

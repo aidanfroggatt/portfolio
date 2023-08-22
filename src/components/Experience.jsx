@@ -5,7 +5,6 @@ import AnimatedPage from "../animations/AnimatedPage";
 import Timeline from "./Timeline";
 
 const Experience = () => {
-
     return (
         <AnimatedPage>
             <div className="experience">

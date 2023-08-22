@@ -6,17 +6,18 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 const App = () => {
-  return (
-      <div className="App">
-          <Router>
-              <Navbar/>
-              <Routes>
-                  <Route exact path='/' element={<Home/>} />
-              </Routes>
-              <Footer/>
-          </Router>
-      </div>
-  );
+    const scrollRef = React.useRef(null);
+    return (
+        <div className="App">
+            <Router>
+                <Navbar ref={scrollRef}/>
+                <Routes>
+                    <Route exact path='/' element={<Home ref={scrollRef}/>} />
+                </Routes>
+                <Footer/>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

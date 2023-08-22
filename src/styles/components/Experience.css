@@ -2,7 +2,7 @@
 
 .experience {
     padding: 8vmax;
-
+    font-family: var(--font-face-1);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,9 +51,26 @@
 }
 
 .experience-card-subheading {
-    font-family: var(--font-face-1);
     font-size: var(--font-size-3);
     color: var(--color-4);
+}
+
+.experience-card-bullet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: auto;
+    gap: 1vmax;
+    padding-bottom: 1vmax;
+    padding-top: 1vmax;
+}
+
+.experience-card-bullet {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .experience-card-skills-container {

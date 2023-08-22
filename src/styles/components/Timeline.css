@@ -7,3 +7,51 @@
 .timeline-component {
     min-height: 20vh;
 }
+
+.timeline-component-heading {
+    font-size: var(--font-size-3);
+    font-family: var(--font-face-2);
+}
+
+.timeline-component-subheading {
+    font-size: var(--font-size-6);
+    font-family: var(--font-face-1);
+}
+
+
+.timeline-component-technologies-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: auto;
+
+    font-size: var(--font-size-3);
+    color: var(--color-4);
+
+    background: var(--color-3);
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    border-radius: 0.5vmax;
+    padding: 0.75vmax;
+    gap: 1vmax;
+}
+
+.timeline-component-technologies-container-alt {
+    background: var(--color-5);
+}
+
+.timeline-component-technology {
+    padding: 0.25vmax;
+    border-radius: 0.25vmax;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-4);
+    transition: 0.25s ease-out;
+}
+
+.timeline-component-technology:hover {
+    color: var(--color-2);
+    transition: 0.25s ease-out;
+}

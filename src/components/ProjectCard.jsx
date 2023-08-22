@@ -5,9 +5,6 @@ import Tooltip from "./Tooltip";
 
 const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Technologies, Awards, alt}) => {
     const [isFlipped, setIsFlipped] = useState(false);
-    Object.keys(Technologies).map((technology, index) => {
-        console.log(technology)
-    })
 
     return (
         <div

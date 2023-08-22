@@ -4,8 +4,11 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 
 import {FaArrowDown, FaBriefcase} from "react-icons/fa";
+import Tooltip from "./Tooltip";
 
 const Timeline = ({info}) => {
+
+
 
     return (
         <VerticalTimeline lineColor={"#F2FEDC"}>
@@ -17,7 +20,6 @@ const Timeline = ({info}) => {
 
             {
                 Object.keys(info.pages.Experience.timeline).map((item, index) => {
-                    console.log(info.pages.Experience.timeline[item])
                     return (
                         <VerticalTimelineElement
                             className="timeline-component vertical-timeline-element--work"
@@ -27,7 +29,8 @@ const Timeline = ({info}) => {
                             contentStyle={{ background: '#FFFADE', color: '#3A254B'}}
                             icon={<FaBriefcase/>}
                         >
-                            <h3 className="vertical-timeline-element-title">{info.pages.Experience.timeline[item].role}</h3>
+                            <div className="timeline-component-subheading">{info.pages.Experience.timeline[item].company}</div>
+                            <div className="timeline-component-heading">{info.pages.Experience.timeline[item].role}</div>
                             {
                                 info.pages.Experience.timeline[item].bulletPoints.map((bullet, bulletKey) => {
                                     return (
@@ -35,9 +38,19 @@ const Timeline = ({info}) => {
                                     )
                                 })
                             }
-                            <p>
-                                {info.pages.Experience.timeline[item].description}
-                            </p>
+                            <div className="timeline-component-technologies-container">
+                                {
+                                    Object.keys(info.pages.Experience.timeline[item].technologies).map((tech, techKey) => {
+                                        return (
+                                            <Tooltip content={info.pages.Experience.timeline[item].technologies[tech].name}>
+                                                <div key={techKey} className="timeline-component-technology">
+                                                    {info.pages.Experience.timeline[item].technologies[tech].icon}
+                                                </div>
+                                            </Tooltip>
+                                        )
+                                    })
+                                }
+                            </div>
                         </VerticalTimelineElement>
                     )
                 })

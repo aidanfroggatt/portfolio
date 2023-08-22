@@ -31,14 +31,27 @@ export const AppInfo = {
                     role: "Software Engineering Co-op",
                     company: "Burloak Technologies",
                     location: "Burlington, Ontario",
-                    date: "May 2023 - September 2023",
+                    date: "May 2023 - Sep 2023",
                     description: "",
                     bulletPoints: [
                         "● Architected a full-stack web application for data analysis, data visualization, and automated report generation using ExpressJS, ReactJS, and MySQL.",
                         "● Built custom PDF scrapers using Python, significantly increasing data collection efficiency.",
                         "● Created a machine verification dashboard using Power BI to detect material testing machine failure"
                     ],
-                    technologies: ["React JS", "Node JS", "MySQL", "Python"],
+                    technologies: {
+                        "ReactJS": {
+                            name: "ReactJS",
+                            icon: <FaReact/>
+                        },
+                        "Python": {
+                            name: "Python",
+                            icon: <FaPython/>
+                        },
+                        "Figma": {
+                            name: "Figma",
+                            icon: <FaFigma/>
+                        },
+                    },
                     additionalInfo: {
 
                     }
@@ -47,14 +60,16 @@ export const AppInfo = {
                     role: "Web Developer",
                     company: "Universole Fit",
                     location: "Burlington, Ontario",
-                    date: "March 2023 - May 2023",
+                    date: "Mar 2023 - May 2023",
                     description: "",
                     bulletPoints: [
                         "● Developed a Shopify plugin using ReactJS, Shopify CLI, AWS, and Cognito for Universole Fit's first client in a fast-paced startup environment.",
                         "● Designed a Shopify theme app extension with ReactJS, Shopify CLI, AWS, and Cognito embedding Universole Fit’s technology in a Shopify storefront.",
                         "● Wrote documentation for all software."
                     ],
-                    technologies: ["React JS", "AWS", "Shopify", "Git"],
+                    technologies: {
+
+                    },
                     additionalInfo: {
 
                     }
@@ -63,14 +78,16 @@ export const AppInfo = {
                     role: "Lead Instructor (Code Sensei)",
                     company: "Code Ninjas",
                     location: "Burlington, Ontario",
-                    date: "June 2022 - September 2022",
+                    date: "Jun 2022 - Sep 2022",
                     description: "",
                     bulletPoints: [
                         "● Taught over 400 children science, technology, engineering, and math (STEM) topics including Scratch, Spike Prime (Python), MCreator, and engineering principles.",
                         "● Established new content and modified existing content for 8 STEM classes.",
                         "● Guided team members to optimize learning for students."
                     ],
-                    technologies: [],
+                    technologies: {
+
+                    },
                     additionalInfo: {
 
                     }

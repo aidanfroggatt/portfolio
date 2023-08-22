@@ -22,7 +22,7 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
                         {
                             Object.keys(Technologies).map((technology, index) => {
                                 return (
-                                    <Tooltip content={Technologies[technology].name}>
+                                    <Tooltip content={Technologies[technology].name} alt={alt}>
                                         <div className={"project-card-technology"} key={index}>
                                             {Technologies[technology].icon}
                                         </div>
@@ -36,7 +36,7 @@ const ProjectCard = ({Heading, Subheading, Body, GitHub, Website, Devpost, Techn
                     <div className="project-card-heading">{Heading}</div>
                     <div className="project-card-body">{Body}</div>
                     <div className={alt ? "project-card-link-container project-card-link-container-alt" : "project-card-link-container"}>
-                        {Devpost ? <a className="project-card-link" href={Devpost} target="_blank"><FaAward/></a> : <></>}
+                        {Devpost ? <Tooltip content={"Devpost"}><a className="project-card-link" href={Devpost} target="_blank"><FaAward/></a></Tooltip> : <></>}
                         {Website ? <a className="project-card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}
                         {GitHub ? <a className="project-card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
                     </div>

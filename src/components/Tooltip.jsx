@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/components/Tooltip.css';
 
-const Tooltip = ({ children, content }) => {
+const Tooltip = ({ children, content, alt }) => {
     const [show, setShow] = useState(false);
 
     return (
@@ -11,7 +11,7 @@ const Tooltip = ({ children, content }) => {
             onMouseLeave={() => setShow(false)}
         >
             {children}
-            {show && <div className="tooltip-content">{content}</div>}
+            {show && <div className={alt ? "tooltip-content tooltip-content-alt" : "tooltip-content"}>{content}</div>}
         </div>
     );
 };

@@ -11,7 +11,7 @@ const Timeline = ({info}) => {
 
 
     return (
-        <VerticalTimeline lineColor={"#F2FEDC"}>
+        <VerticalTimeline lineColor={"#007662"}>
             {/*<VerticalTimelineElement className="timeline-component vertical-timeline-element--work"*/}
             {/*    iconStyle={{ background: '#F2FEDC', color: '#3A254B' }}*/}
             {/*    icon={<FaArrowDown/>}*/}
@@ -20,13 +20,14 @@ const Timeline = ({info}) => {
 
             {
                 Object.keys(info.pages.Experience.timeline).map((item, index) => {
+                    const alt = index % 2 === 0
                     return (
                         <VerticalTimelineElement
                             className="timeline-component vertical-timeline-element--work"
                             date={info.pages.Experience.timeline[item].date}
-                            iconStyle={{ background: '#F2FEDC', color: '#3A2548' }}
+                            iconStyle={alt ? {background: '#FFFADE', color: '#007662'} : { background: '#F2FEDC', color: '#007662' }}
                             key={index}
-                            contentStyle={{ background: '#FFFADE', color: '#3A254B'}}
+                            contentStyle={alt ? { background: '#FFFADE', color: '#3A254B'} : { background: '#F2FEDC', color: '#3A254B'}}
                             icon={<FaBriefcase/>}
                         >
                             <div className="timeline-component-subheading">{info.pages.Experience.timeline[item].company}</div>
@@ -38,7 +39,7 @@ const Timeline = ({info}) => {
                                     )
                                 })
                             }
-                            <div className="timeline-component-technologies-container">
+                            <div className={alt ? "timeline-component-technologies-container" : "timeline-component-technologies-container timeline-component-technologies-container-alt"}>
                                 {
                                     Object.keys(info.pages.Experience.timeline[item].technologies).map((tech, techKey) => {
                                         return (

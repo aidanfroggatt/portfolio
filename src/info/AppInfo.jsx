@@ -27,13 +27,18 @@ export const AppInfo = {
             description: "An overview of my experience and skills...",
             route: "/experience",
             timeline: {
-                "CodeNinjas": {
-                    role: "Lead Instructor (Code Sensei)",
-                    company: "Code Ninjas",
+                "BurloakTechnologies": {
+                    role: "Software Engineering Co-op",
+                    company: "Burloak Technologies",
                     location: "Burlington, Ontario",
-                    date: "June 2022 - September 2022",
+                    date: "May 2023 - September 2023",
                     description: "",
-                    technologies: [],
+                    bulletPoints: [
+                        "● Architected a full-stack web application for data analysis, data visualization, and automated report generation using ExpressJS, ReactJS, and MySQL.",
+                        "● Built custom PDF scrapers using Python, significantly increasing data collection efficiency.",
+                        "● Created a machine verification dashboard using Power BI to detect material testing machine failure"
+                    ],
+                    technologies: ["React JS", "Node JS", "MySQL", "Python"],
                     additionalInfo: {
 
                     }
@@ -44,22 +49,32 @@ export const AppInfo = {
                     location: "Burlington, Ontario",
                     date: "March 2023 - May 2023",
                     description: "",
+                    bulletPoints: [
+                        "● Developed a Shopify plugin using ReactJS, Shopify CLI, AWS, and Cognito for Universole Fit's first client in a fast-paced startup environment.",
+                        "● Designed a Shopify theme app extension with ReactJS, Shopify CLI, AWS, and Cognito embedding Universole Fit’s technology in a Shopify storefront.",
+                        "● Wrote documentation for all software."
+                    ],
                     technologies: ["React JS", "AWS", "Shopify", "Git"],
                     additionalInfo: {
 
                     }
                 },
-                "BurloakTechnologies": {
-                    role: "Software Engineering Co-op",
-                    company: "Burloak Technologies",
+                "CodeNinjas": {
+                    role: "Lead Instructor (Code Sensei)",
+                    company: "Code Ninjas",
                     location: "Burlington, Ontario",
-                    date: "May 2023 - September 2023",
+                    date: "June 2022 - September 2022",
                     description: "",
-                    technologies: ["React JS", "Node JS", "MySQL", "Python"],
+                    bulletPoints: [
+                        "● Taught over 400 children science, technology, engineering, and math (STEM) topics including Scratch, Spike Prime (Python), MCreator, and engineering principles.",
+                        "● Established new content and modified existing content for 8 STEM classes.",
+                        "● Guided team members to optimize learning for students."
+                    ],
+                    technologies: [],
                     additionalInfo: {
 
                     }
-                }
+                },
             }
         },
         Projects: {
@@ -69,7 +84,7 @@ export const AppInfo = {
             projects: {
                 "SnapCycle": {
                     name: "SnapCycle",
-                    description: "a web app that scans items identifying their recyclability.",
+                    description: "A web app that scans items identifying their recyclability.",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -104,7 +119,7 @@ export const AppInfo = {
                 },
                 "Portfolio": {
                     name: "Portfolio",
-                    description: "A website that showcases my experience and projects.",
+                    description: "A web app that showcases my experience and projects.",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",
@@ -129,7 +144,7 @@ export const AppInfo = {
                 },
                 "CodeWarriors": {
                     name: "CodeWarriors",
-                    description: "a web app that gamifies teaching programming skills.",
+                    description: "A web app that gamifies teaching programming skills.",
                     technologies: {
                         "ReactJS": {
                             name: "ReactJS",

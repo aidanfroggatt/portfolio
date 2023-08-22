@@ -9,10 +9,6 @@ const Contact = () => {
     return (
         <AnimatedPage>
             <div className="contact">
-                <div className="landing-page contact-landing-page">
-                    <h1>{AppInfo.pages.Contact.name}.</h1>
-                    <h2>{AppInfo.pages.Contact.description}</h2>
-                </div>
                 <ContactForm/>
             </div>
         </AnimatedPage>

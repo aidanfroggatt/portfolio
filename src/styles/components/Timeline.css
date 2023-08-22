@@ -3,3 +3,7 @@
 .timeline {
     z-index: 1;
 }
+
+.timeline-component {
+    min-height: 20vh;
+}

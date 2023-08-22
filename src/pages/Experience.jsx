@@ -10,20 +10,10 @@ const Experience = () => {
     return (
         <AnimatedPage>
             <div className="experience">
-                <div className="landing-page experience-landing-page">
-                    <h1>{AppInfo.pages.Experience.name}.</h1>
-                    <h2>{AppInfo.pages.Experience.description}</h2>
+                <div className="experience-timeline-container">
+                    <Timeline info={AppInfo}/>
                 </div>
-                {/*<div className="experience-timeline-container">*/}
-                {/*    <Timeline/>*/}
-                {/*</div>*/}
-                <div className="resume-container">
-                    Resume.
-                    <object
-                        data={myResume}
-                        className="resume">
-                    </object>
-                </div>
+
             </div>
         </AnimatedPage>
     )

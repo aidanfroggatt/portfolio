@@ -9,23 +9,5 @@
 }
 
 .experience-timeline-container{
-    height: 120vh;
-}
 
-.resume-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    font-family: var(--font-face-2);
-    font-size: var(--font-size-4);
-    color: var(--color-2);
-}
-
-.resume{
-    background: var(--white);
-    color: var(--color-4);
-    height: 75vh;
-    width: 75vw;
 }

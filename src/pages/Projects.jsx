@@ -9,10 +9,6 @@ const Projects = () => {
     return (
         <AnimatedPage>
             <div className="projects">
-                <div className="landing-page projects-landing-page">
-                    <h1>{AppInfo.pages.Projects.name}.</h1>
-                    <h2>{AppInfo.pages.Projects.description}</h2>
-                </div>
                 <div className="projects-container">
                     {
                         Object.keys(AppInfo.pages.Projects.projects).map((project, index) => {

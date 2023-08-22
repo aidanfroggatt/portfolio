@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/pages/Projects.css';
+import '../styles/components/Projects.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
 import ProjectCard from "./ProjectCard";

@@ -28,7 +28,6 @@ const Timeline = ({info}) => {
                             iconStyle={alt ? {background: '#FFFADE', color: '#007662'} : { background: '#F2FEDC', color: '#007662' }}
                             key={index}
                             contentStyle={alt ? { background: '#FFFADE', color: '#3A254B'} : { background: '#F2FEDC', color: '#3A254B'}}
-                            icon={<FaBriefcase/>}
                         >
                             <div className="timeline-component-subheading">{info.pages.Experience.timeline[item].company}</div>
                             <div className="timeline-component-heading">{info.pages.Experience.timeline[item].role}</div>

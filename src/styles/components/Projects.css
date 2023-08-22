@@ -2,6 +2,12 @@
 
 .projects {
     padding: 8vmax;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .projects-title {
@@ -15,10 +21,6 @@
     line-height: normal;
 
     padding: 4vmax;
-}
-
-.projects-landing-page {
-    height: 90vh;
 }
 
 .projects-container {

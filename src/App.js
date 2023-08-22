@@ -6,13 +6,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 const App = () => {
-    const scrollRef = React.useRef(null);
     return (
         <div className="App">
             <Router>
-                <Navbar ref={scrollRef}/>
+                <Navbar/>
                 <Routes>
-                    <Route exact path='/' element={<Home ref={scrollRef}/>} />
+                    <Route exact path='/' element={<Home/>} />
                 </Routes>
                 <Footer/>
             </Router>

@@ -3,6 +3,7 @@ import '../styles/pages/Home.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
 import Experience from "./Experience";
+import Projects from "./Projects";
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
                 <h2>{AppInfo.pages.AboutMe.description}</h2>
             </div>
             <Experience/>
+            <Projects/>
         </AnimatedPage>
     )
 }

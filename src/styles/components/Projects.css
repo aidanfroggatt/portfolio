@@ -1,7 +1,7 @@
 @import '../App.css';
 
 .projects {
-    padding: 8vmax;
+    padding-top: 8vmax;
 
     display: flex;
     flex-direction: column;

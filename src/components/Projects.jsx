@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import '../styles/components/Projects.css';
 import {AppInfo} from "../info/AppInfo";
 import ProjectCard from "./ProjectCard";
 
-const Projects = () => {
+const Projects = ({setProjectsRef}) => {
+    const scrollToRef = useRef(null);
+
+    useEffect(() => {
+        setProjectsRef(scrollToRef);
+    }, [setProjectsRef]);
 
     return (
-        <div className="projects">
+        <div ref={scrollToRef} className="projects">
             <div className="projects-title">Projects</div>
             <div className="projects-container">
                 {

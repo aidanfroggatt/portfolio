@@ -9,11 +9,11 @@ const Timeline = ({info}) => {
 
     return (
         <VerticalTimeline lineColor={"#F2FEDC"}>
-            <VerticalTimelineElement className="timeline-component vertical-timeline-element--work"
-                iconStyle={{ background: '#F2FEDC', color: '#3A254B' }}
-                icon={<FaArrowDown/>}
-            >
-            </VerticalTimelineElement>
+            {/*<VerticalTimelineElement className="timeline-component vertical-timeline-element--work"*/}
+            {/*    iconStyle={{ background: '#F2FEDC', color: '#3A254B' }}*/}
+            {/*    icon={<FaArrowDown/>}*/}
+            {/*>*/}
+            {/*</VerticalTimelineElement>*/}
 
             {
                 Object.keys(info.pages.Experience.timeline).map((item, index) => {

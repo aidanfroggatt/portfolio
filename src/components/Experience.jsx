@@ -12,7 +12,7 @@ const Experience = ({setExperienceRef}) => {
 
     return (
         <div ref={scrollToRef} className="experience">
-            <div className="experience-title">Experience</div>
+            {/*<div className="experience-title">Experience</div>*/}
             <div className="experience-timeline-container">
                 <Timeline info={AppInfo}/>
             </div>

@@ -12,7 +12,7 @@ const Projects = ({setProjectsRef}) => {
 
     return (
         <div ref={scrollToRef} className="projects">
-            <div className="projects-title">Projects</div>
+            {/*<div className="projects-title">Projects</div>*/}
             <div className="projects-container">
                 {
                     Object.keys(AppInfo.pages.Projects.projects).map((project, index) => {

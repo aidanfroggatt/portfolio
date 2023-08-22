@@ -7,6 +7,7 @@ const Projects = () => {
 
     return (
         <div className="projects">
+            <div className="projects-title">Projects</div>
             <div className="projects-container">
                 {
                     Object.keys(AppInfo.pages.Projects.projects).map((project, index) => {

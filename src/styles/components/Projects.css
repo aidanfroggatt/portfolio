@@ -1,6 +1,18 @@
 @import '../App.css';
 
 .projects {
+}
+
+.projects-title {
+    text-align: center;
+
+    font-family: var(--font-face-2);
+    color: var(--color-2);
+    font-size: var(--font-size-4);
+    font-style: normal;
+    font-weight: var(--font-weight-1);
+    line-height: normal;
+
     padding: 4vmax;
 }
 

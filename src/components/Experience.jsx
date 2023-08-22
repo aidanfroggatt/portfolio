@@ -6,6 +6,7 @@ import Timeline from "./Timeline";
 const Experience = () => {
     return (
         <div className="experience">
+            <div className="experience-title">Experience</div>
             <div className="experience-timeline-container">
                 <Timeline info={AppInfo}/>
             </div>

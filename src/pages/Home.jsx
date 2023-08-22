@@ -7,6 +7,18 @@ import Projects from "../components/Projects";
 import Navbar from "../components/Navbar";
 import DownArrow from "../components/DownArrow";
 
+const LandingPage = ({scrollToHome}) => {
+    return (
+        <div ref={scrollToHome} className='landing-page'>
+            <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
+            <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
+            <div className="down-arrow-scroll-container">
+                <DownArrow/>
+            </div>
+        </div>
+    )
+}
+
 const Home = () => {
     const [experienceRef, setExperienceRef] = useState(null);
     const [projectsRef, setProjectsRef] = useState(null);
@@ -24,13 +36,7 @@ const Home = () => {
     return (
         <AnimatedPage>
             <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={() => handleScrollTo(scrollToHome)}/>
-            <div ref={scrollToHome} className='landing-page'>
-                <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
-                <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
-                <div className="down-arrow-scroll-container">
-                    <DownArrow/>
-                </div>
-            </div>
+            <LandingPage scrollToHome={scrollToHome}/>
             <Experience setExperienceRef={setExperienceRef}/>
             <Projects setProjectsRef={setProjectsRef}/>
         </AnimatedPage>

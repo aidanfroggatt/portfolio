@@ -9,7 +9,7 @@ import {
     FaGit,
     FaFigma,
     FaJava,
-    FaPython
+    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaUser, FaChalkboardTeacher
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
@@ -43,13 +43,21 @@ export const AppInfo = {
                             name: "ReactJS",
                             icon: <FaReact/>
                         },
+                        "NodeJS": {
+                            name: "NodeJS",
+                            icon: <FaNodeJs/>
+                        },
                         "Python": {
                             name: "Python",
                             icon: <FaPython/>
                         },
-                        "Figma": {
-                            name: "Figma",
-                            icon: <FaFigma/>
+                        "MySQL": {
+                            name: "MySQL",
+                            icon: <FaDatabase/>
+                        },
+                        "PowerBI": {
+                            name: "PowerBI",
+                            icon: <FaChartLine/>
                         },
                     },
                     additionalInfo: {
@@ -68,6 +76,18 @@ export const AppInfo = {
                         "Wrote documentation for all software."
                     ],
                     technologies: {
+                        "ReactJS": {
+                            name: "ReactJS",
+                            icon: <FaReact/>
+                        },
+                        "AWS": {
+                            name: "AWS (Amazon Web Services)",
+                            icon: <FaAws/>
+                        },
+                        "Shopify": {
+                            name: "Shopify",
+                            icon: <FaShopify/>
+                        },
 
                     },
                     additionalInfo: {
@@ -86,6 +106,10 @@ export const AppInfo = {
                         "Guided team members to optimize learning for students."
                     ],
                     technologies: {
+                        "Teaching": {
+                            name: "Teaching",
+                            icon: <FaChalkboardTeacher/>
+                        },
 
                     },
                     additionalInfo: {

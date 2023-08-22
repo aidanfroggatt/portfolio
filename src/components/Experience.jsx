@@ -18,6 +18,11 @@ const Experience = ({setExperienceRef}) => {
                         const alt = index % 2 === 0
                         return (
                             <div className={alt ? "experience-card" : "experience-card experience-card-alt"}>
+                                <div className="experience-card-date-container">
+                                    <div className="experience-card-date">
+                                        {AppInfo.pages.Experience.timeline[item].date}
+                                    </div>
+                                </div>
                                 <div className="experience-card-subheading">{AppInfo.pages.Experience.timeline[item].company}</div>
                                 <div className="experience-card-heading">{AppInfo.pages.Experience.timeline[item].role}</div>
                                 <div className="experience-card-bullet-container">

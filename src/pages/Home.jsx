@@ -10,12 +10,11 @@ import DownArrow from "../components/DownArrow";
 const Home = () => {
     const [experienceRef, setExperienceRef] = useState(null);
     const [projectsRef, setProjectsRef] = useState(null);
-
     const scrollToHome = useRef(null);
 
-    const handleScrollToHome = () => {
-        if (scrollToHome.current) {
-            scrollToHome.current.scrollIntoView({
+    const handleScrollTo = (scrollTo) => {
+        if (scrollTo.current) {
+            scrollTo.current.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
             });
@@ -24,7 +23,7 @@ const Home = () => {
 
     return (
         <AnimatedPage>
-            <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={handleScrollToHome}/>
+            <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={() => handleScrollTo(scrollToHome)}/>
             <div ref={scrollToHome} className='landing-page'>
                 <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
                 <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>

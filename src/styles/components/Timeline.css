@@ -9,15 +9,16 @@
 }
 
 .timeline-component-heading {
-    font-size: var(--font-size-3);
     font-family: var(--font-face-2);
+    font-size: var(--font-size-2);
+    color: var(--color-2);
 }
 
 .timeline-component-subheading {
-    font-size: var(--font-size-6);
     font-family: var(--font-face-1);
+    font-size: var(--font-size-3);
+    color: var(--color-4);
 }
-
 
 .timeline-component-technologies-container{
     display: flex;

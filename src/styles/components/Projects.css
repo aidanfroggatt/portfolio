@@ -1,6 +1,7 @@
 @import '../App.css';
 
 .projects {
+    padding: 4vmax;
 }
 
 .projects-title {

@@ -1,22 +1,5 @@
 @import '../App.css';
 
-.skills-item {
-    background: var(--color-3);
-    width: 100px;
-    height: 100px;
-    border-radius: 75%;
-
-    font-size: var(--font-size-2);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
-
-    transition: transform 2s;
-}
-
 .skills-item:hover {
     transform: rotateY(180deg);
 
@@ -28,14 +11,16 @@
 }
 
 .skill-coin {
-    width: 25vw;
-    height: 40vh;
     cursor: pointer;
+    width: 100px;
+    height: 100px;
+
 }
 
 .skill-coin-inner {
     width: 100%;
     height: 100%;
+
 
     transition:
             transform 0.6s,
@@ -46,8 +31,11 @@
     scale: 1;
 
     background-color: var(--color-3);
-    border-radius: 5%;
+    border-radius: 75%;
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+
+    background: var(--color-3);
+    font-size: var(--font-size-2);
 }
 
 .skill-coin-inner:hover {
@@ -66,11 +54,16 @@
 }
 
 .skill-coin-front, .skill-coin-back {
+    font-family: var(--font-face-1);
+    color: var(--color-4);
+
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 2vmax;
 }
@@ -81,4 +74,5 @@
 
 .skill-coin-back {
     transform: rotateY(180deg);
+    font-size: var(--font-size-3);
 }

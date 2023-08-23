@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Navbar from "../components/Navbar";
 import DownArrow from "../components/DownArrow";
 import Skills from "./Skills";
+import Footer from "../components/Footer";
 
 const LandingPage = ({experienceRef, scrollToHome}) => {
     const handleClick = (ref) => {
@@ -50,6 +51,7 @@ const Home = () => {
             <Experience setExperienceRef={setExperienceRef}/>
             <Projects setProjectsRef={setProjectsRef}/>
             <Skills setSkillsRef={setSkillsRef}/>
+            <Footer experienceRef={experienceRef} projectsRef={projectsRef} skillsRef={skillsRef}/>
         </AnimatedPage>
     )
 }

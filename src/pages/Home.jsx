@@ -6,6 +6,7 @@ import Experience from "./Experience";
 import Projects from "./Projects";
 import Navbar from "../components/Navbar";
 import DownArrow from "../components/DownArrow";
+import Skills from "./Skills";
 
 const LandingPage = ({experienceRef, scrollToHome}) => {
     const handleClick = (ref) => {
@@ -30,6 +31,7 @@ const LandingPage = ({experienceRef, scrollToHome}) => {
 const Home = () => {
     const [experienceRef, setExperienceRef] = useState(null);
     const [projectsRef, setProjectsRef] = useState(null);
+    const [skillsRef, setSkillsRef] = useState(null);
     const scrollToHome = useRef(null);
 
     const handleScrollTo = (scrollTo) => {
@@ -43,10 +45,11 @@ const Home = () => {
 
     return (
         <AnimatedPage>
-            <Navbar experienceRef={experienceRef} projectsRef={projectsRef} handleScrollToHome={() => handleScrollTo(scrollToHome)}/>
+            <Navbar experienceRef={experienceRef} projectsRef={projectsRef} skillsRef={skillsRef} handleScrollToHome={() => handleScrollTo(scrollToHome)}/>
             <LandingPage experienceRef={experienceRef} scrollToHome={scrollToHome}/>
             <Experience setExperienceRef={setExperienceRef}/>
             <Projects setProjectsRef={setProjectsRef}/>
+            <Skills setSkillsRef={setSkillsRef}/>
         </AnimatedPage>
     )
 }

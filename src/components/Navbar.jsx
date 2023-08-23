@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import '../styles/components/Navbar.css';
 import {AppInfo} from "../info/AppInfo";
 
-const Navbar = ({experienceRef, projectsRef, handleScrollToHome}) => {
+const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => {
     const [navbar, setNavbar] = useState(false)
 
     const changeBackground = () => {
@@ -14,7 +14,21 @@ const Navbar = ({experienceRef, projectsRef, handleScrollToHome}) => {
         window.addEventListener("scroll", changeBackground)
     }, [])
 
-    const handleClick = (ref) => {
+    const handleClick = (page) => {
+        let ref = null
+        switch (page){
+            case "Experience":
+                ref = experienceRef
+                break
+            case "Projects":
+                ref = projectsRef
+                break
+            case "Skills":
+                ref = skillsRef
+                break
+            default:
+                break
+        }
         if (ref && ref.current) {
             ref.current.scrollIntoView({
                 behavior: 'smooth',
@@ -38,7 +52,7 @@ const Navbar = ({experienceRef, projectsRef, handleScrollToHome}) => {
                             <div
                                 className={"navbar-page"}
                                 key={index}
-                                onClick={() => handleClick(page === "Experience" ? experienceRef : projectsRef)}
+                                onClick={() => handleClick(page)}
                             >
                                 {AppInfo.pages[page].name}
                             </div>

@@ -14,6 +14,7 @@ import {
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
 import {SiApachemaven} from "react-icons/si";
+
 export const AppInfo = {
     pages : {
         AboutMe : {
@@ -263,9 +264,23 @@ export const AppInfo = {
                     imageAlt: "Piraten Kapern Simulator Image",
                     additionalInfo: {
                         association: "McMaster University",
-                    }
-                }
-            }
+                    },
+                },
+            },
+        },
+        Skills: {
+
+            name: "Skills",
+            description: "Some of my skills...",
+            route: "/skills",
+            ReactJS: {
+                name: "ReactJS",
+                icon: <FaReact/>
+            },
+            NodeJS: {
+                name: "NodeJS",
+                icon: <FaNodeJs/>
+            },
         },
     },
     socialMedia : {

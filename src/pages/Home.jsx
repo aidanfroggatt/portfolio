@@ -2,8 +2,8 @@ import React, {useRef, useState} from "react";
 import '../styles/pages/Home.css';
 import {AppInfo} from "../info/AppInfo";
 import AnimatedPage from "../animations/AnimatedPage";
-import Experience from "../components/Experience";
-import Projects from "../components/Projects";
+import Experience from "./Experience";
+import Projects from "./Projects";
 import Navbar from "../components/Navbar";
 import DownArrow from "../components/DownArrow";
 

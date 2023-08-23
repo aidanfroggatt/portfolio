@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from "react";
-import '../styles/components/Projects.css';
+import '../styles/pages/Projects.css';
 import {AppInfo} from "../info/AppInfo";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = ({setProjectsRef}) => {
     const scrollToRef = useRef(null);

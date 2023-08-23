@@ -267,11 +267,6 @@ export const AppInfo = {
                 }
             }
         },
-        Contact: {
-            name: "Contact",
-            description: "Contact me",
-            route: "/contact"
-        }
     },
     socialMedia : {
         LinkedIn: {

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import '../styles/components/Experience.css';
+import '../styles/pages/Experience.css';
 import {AppInfo} from "../info/AppInfo";
-import Tooltip from "./Tooltip";
+import Tooltip from "../components/Tooltip";
 
 const Experience = ({setExperienceRef}) => {
     const scrollToRef = useRef(null);

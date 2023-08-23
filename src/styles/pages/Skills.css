@@ -23,22 +23,3 @@
 
     gap: 4vmax;
 }
-
-.skills-item {
-    background: var(--color-3);
-    width: 100px;
-    height: 100px;
-    border-radius: 75%;
-
-    font-size: var(--font-size-2);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
-}
-
-.skills-item-alt {
-    background: var(--color-5);
-}

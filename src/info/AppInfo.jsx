@@ -275,6 +275,46 @@ export const AppInfo = {
                 name: "NodeJS",
                 icon: <FaNodeJs/>
             },
+            Java: {
+                name: "Java",
+                icon: <FaJava/>
+            },
+            Maven: {
+                name: "Maven",
+                icon: <SiApachemaven/>
+            },
+            Git: {
+                name: "Git",
+                icon: <FaGit/>
+            },
+            CSS: {
+                name: "CSS",
+                icon: <FaCss3/>
+            },
+            Figma: {
+                name: "Figma",
+                icon: <FaFigma/>
+            },
+            Python: {
+                name: "Python",
+                icon: <FaPython/>
+            },
+            Jira: {
+                name: "Jira",
+                icon: <FaJira/>
+            },
+            MySQL: {
+                name: "MySQL",
+                icon: <FaDatabase/>
+            },
+            PowerBI: {
+                name: "PowerBI",
+                icon: <FaChartLine/>
+            },
+            AWS: {
+                name: "AWS (Amazon Web Services)",
+                icon: <FaAws/>
+            },
         },
     },
     socialMedia : {

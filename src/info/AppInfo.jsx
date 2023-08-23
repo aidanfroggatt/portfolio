@@ -269,10 +269,6 @@ export const AppInfo = {
             },
         },
         Skills: {
-
-            name: "Skills",
-            description: "Some of my skills...",
-            route: "/skills",
             ReactJS: {
                 name: "ReactJS",
                 icon: <FaReact/>

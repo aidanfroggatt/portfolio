@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {AppInfo} from "../info/AppInfo";
+import '../styles/pages/Skills.css';
 
 const Skills = ({setSkillsRef}) => {
     const scrollToRef = useRef(null);
@@ -14,9 +15,9 @@ const Skills = ({setSkillsRef}) => {
                 {
                     Object.keys(AppInfo.pages.Skills).map((skill, index) => {
                         return (
-                            <div className="skills-item" key={index}>
-                                <div className="skills-item-icon">{AppInfo.pages.Skills[skill].icon}</div>
-                                <div className="skills-item-name">{AppInfo.pages.Skills[skill].name}</div>
+                            <div key={index} className="skills-item">
+                                {AppInfo.pages.Skills[skill].icon}
+                                {AppInfo.pages.Skills[skill].name}
                             </div>
                         )
                     })

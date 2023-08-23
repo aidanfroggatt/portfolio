@@ -54,7 +54,7 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
                                 key={index}
                                 onClick={() => handleClick(page)}
                             >
-                                {AppInfo.pages[page].name}
+                                {page}
                             </div>
                         )
                     })

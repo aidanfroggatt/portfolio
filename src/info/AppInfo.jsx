@@ -24,7 +24,6 @@ export const AppInfo = {
             route: "/",
         },
         Experience: {
-            name: "Experience",
             description: "An overview of my experience and skills...",
             route: "/experience",
             timeline: {
@@ -120,7 +119,6 @@ export const AppInfo = {
             }
         },
         Projects: {
-            name: "Projects",
             description: "Some projects I have been developing...",
             route: "/projects",
             projects: {

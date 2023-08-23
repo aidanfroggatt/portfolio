@@ -71,6 +71,10 @@
     animation: coin-rotate 4s infinite linear;
 }
 
+.skill-coin-front:hover {
+    animation: none
+}
+
 @keyframes coin-rotate {
     0% {
         transform: rotate(0deg);

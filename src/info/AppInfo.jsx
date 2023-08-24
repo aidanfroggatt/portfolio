@@ -9,11 +9,12 @@ import {
     FaGit,
     FaFigma,
     FaJava,
-    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher
+    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher, FaDownload
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
 import {SiApachemaven} from "react-icons/si";
+import myResume from "../assets/Resume.pdf";
 
 export const AppInfo = {
     pages : {
@@ -332,7 +333,12 @@ export const AppInfo = {
             name: "Email",
             url: "mailto:aidanfr@live.ca",
             icon: <FaRegEnvelopeOpen/>,
-        }
+        },
+        Resume: {
+            name: "Resume",
+            url: myResume,
+            icon: <FaDownload/>,
+        },
     },
     credits: {
         creditsTag: "Developed by Aidan Froggatt",

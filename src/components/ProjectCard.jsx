@@ -19,11 +19,13 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
                         {
                             Object.keys(Technologies).map((technology, index) => {
                                 return (
-                                    <Tooltip content={Technologies[technology].name} alt={alt}>
-                                        <div className={"project-card-technology"} key={index}>
-                                            {Technologies[technology].icon}
-                                        </div>
-                                    </Tooltip>
+                                    <div key={index}>
+                                        <Tooltip content={Technologies[technology].name} alt={alt}>
+                                            <div className={"project-card-technology"}>
+                                                {Technologies[technology].icon}
+                                            </div>
+                                        </Tooltip>
+                                    </div>
                                 )
                             })
                         }

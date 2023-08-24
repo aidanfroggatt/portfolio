@@ -16,7 +16,9 @@ const Skills = ({setSkillsRef}) => {
                     Object.keys(AppInfo.pages.Skills).map((skill, index) => {
                         const alt = index % 2 === 0
                         return (
-                            <SkillCoin icon={AppInfo.pages.Skills[skill].icon} skill={skill} alt={alt}/>
+                            <div key={index}>
+                                <SkillCoin icon={AppInfo.pages.Skills[skill].icon} skill={skill} alt={alt}/>
+                            </div>
                         )
                     })
                 }

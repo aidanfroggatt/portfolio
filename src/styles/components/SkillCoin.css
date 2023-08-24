@@ -86,5 +86,6 @@
 
 .skill-coin-back {
     transform: rotateY(180deg);
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-2);
 }

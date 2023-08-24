@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import DownArrow from "../components/DownArrow";
 import Skills from "./Skills";
 import Footer from "../components/Footer";
+import MorphSVG from "../components/MorphSVG";
 
 const LandingPage = ({experienceRef, scrollToHome}) => {
     const handleClick = (ref) => {
@@ -20,6 +21,7 @@ const LandingPage = ({experienceRef, scrollToHome}) => {
     };
     return (
         <div ref={scrollToHome} className='landing-page'>
+            <div className="svg-mayhem"><MorphSVG/></div>
             <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
             <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
             <div className="down-arrow-scroll-container" onClick={() => handleClick(experienceRef)}>

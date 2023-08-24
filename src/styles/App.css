@@ -72,6 +72,7 @@ h2 {
 
 .landing-page {
     height: 100vh;
+    z-index: 2;
 
     display: flex;
     flex-direction: column;

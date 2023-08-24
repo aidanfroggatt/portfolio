@@ -1,7 +1,17 @@
 @import '../App.css';
 
+.svg-mayhem {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-3);
+}
+
 .home-heading {
     text-align: center;
+    z-index: 2;
 
     font-family: var(--font-face-2);
     color: var(--color-2);
@@ -13,6 +23,7 @@
 
 .home-subheading {
     text-align: center;
+    z-index: 2;
 
     font-family: var(--font-face-1);
     color: var(--color-4);
@@ -30,6 +41,7 @@
     left: 50%;
     height: fit-content;
     width: fit-content;
+    z-index: 2;
 }
 
 .down-arrow-scroll-container:hover {

@@ -9,7 +9,7 @@ import {
     FaGit,
     FaFigma,
     FaJava,
-    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher, FaDownload
+    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher, FaDownload, FaJs
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/snapcycle_home.png";
 import CodeWarriorsImage from "../assets/codewarriors_home.jpg";
@@ -316,6 +316,10 @@ export const AppInfo = {
                 name: "AWS (Amazon Web Services)",
                 icon: <FaAws/>
             },
+            JavaScript: {
+                name: "JavaScript",
+                icon: <FaJs/>
+            }
         },
     },
     socialMedia : {

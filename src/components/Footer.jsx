@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/components/Footer.css';
-import wave from '../assets/footer-wave.svg';
+import wave from '../assets/components/footer-wave.svg';
 import {AppInfo} from "../info/AppInfo";
 
 const Footer = ({experienceRef, projectsRef, skillsRef}) => {

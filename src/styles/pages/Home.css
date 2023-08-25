@@ -35,6 +35,12 @@
     max-width: 50vw;
 }
 
+@media screen and (max-width: 768px) {
+    .home-subheading {
+        max-width: 80vw;
+    }
+}
+
 .down-arrow-scroll-container {
     position: absolute;
     bottom: 5%;

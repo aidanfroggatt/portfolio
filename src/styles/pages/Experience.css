@@ -40,7 +40,7 @@
 }
 
 .experience-card {
-    min-height: 20vh;
+    min-height: 30vh;
     background: var(--color-3);
     padding: 2vmax;
     border-radius: 2vmax;

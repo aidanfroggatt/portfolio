@@ -33,6 +33,12 @@
     width: 60vw;
 }
 
+@media screen and (max-width: 768px) {
+    .experience-card-container {
+        width: 80vw;
+    }
+}
+
 .experience-card {
     min-height: 20vh;
     background: var(--color-3);

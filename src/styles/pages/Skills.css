@@ -23,3 +23,9 @@
 
     gap: 4vmax;
 }
+
+@media screen and (max-width: 768px) {
+    .skills-container {
+        width: 80vw;
+    }
+}

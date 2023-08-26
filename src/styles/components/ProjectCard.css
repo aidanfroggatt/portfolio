@@ -246,3 +246,10 @@
         height: 50vh;
     }
 }
+
+@media screen and (max-height: 700px) and (orientation: landscape) and (max-width: 900px){
+    .project-flip-card {
+        width: 40vw;
+        height: 80vh;
+    }
+}

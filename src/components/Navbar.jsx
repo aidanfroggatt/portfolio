@@ -43,6 +43,7 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
 
     const hamburgerNavClick = (page) => {
         updateHamburgerMenu()
+        if (page === "") return handleScrollToHome()
         handleClick(page)
     }
 
@@ -117,7 +118,7 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
                             <div className='HamburgerMenu'>
                                 <div className='BurgerTopContainer' id={ showHamburgerMenu ? 'BurgerTopContainerActive' : 'BurgerTopContainerInactive'}>
                                     <div className='BurgerLogoAndName'>
-                                        <img src={Logo} alt="Aidan Froggatt Logo" className="HamburgerLogo"/>
+                                        <img src={Logo} alt="Aidan Froggatt Logo" className="HamburgerLogo" onClick={() => hamburgerNavClick("")}/>
                                         <div className='BurgerTitleContainer'>
                                             <div className='cover' id={showHamburgerMenu && 'LogoActive'}></div>
                                         </div>

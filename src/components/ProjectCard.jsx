@@ -13,8 +13,6 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
             onMouseLeave={() => setIsFlipped(!isFlipped)}
         >
             <div className={alt ? "project-flip-card-inner project-flip-card-inner-alt" : "project-flip-card-inner"}>
-                {
-                    !isFlipped ?
                 <div className="project-flip-card-front">
                     <div className="project-card-subheading">
                         {Subheading}
@@ -42,7 +40,6 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
                         }
                     </div>
                 </div>
-                        :
                 <div className="project-flip-card-back">
                     <div className="project-card-date">{Date}</div>
                     <div className="project-card-heading">{Heading}</div>
@@ -61,7 +58,6 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
                         {GitHub ? <a className="project-card-link" href={GitHub} target="_blank"><FaGithub/></a> : <></> }
                     </div>
                 </div>
-                    }
             </div>
         </div>
     )

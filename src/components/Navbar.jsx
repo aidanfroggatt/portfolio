@@ -41,6 +41,11 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
         }
     };
 
+    const hamburgerNavClick = (page) => {
+        updateHamburgerMenu()
+        handleClick(page)
+    }
+
     const [showHamburgerMenu, setHamburgerMenu] = useState(false);
 
     const updateHamburgerMenu = () => {
@@ -125,7 +130,7 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
                                             if (key === 'AboutMe') return;
                                             return (
                                                 <div className='HamburgerPage' key={index}>
-                                                    <a href={AppInfo.pages[key].link} className='HamburgerPageLink' onClick={() => updateHamburgerMenu}>
+                                                    <a href={AppInfo.pages[key].link} className='HamburgerPageLink' onClick={() => hamburgerNavClick(key)}>
                                                         {key}
                                                     </a>
                                                 </div>

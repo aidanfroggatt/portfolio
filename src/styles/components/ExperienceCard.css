@@ -50,6 +50,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+
+    font-size: var(--font-size-7);
+    color: var(--color-4);
+    font-family: var(--font-face-1);
 }
 
 .experience-card-skills-container {

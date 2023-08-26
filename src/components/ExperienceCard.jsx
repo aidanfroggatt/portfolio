@@ -27,20 +27,15 @@ const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technolo
                 </div>
                 <div className="experience-card-subheading">{company}</div>
                 <div className="experience-card-heading">{role}</div>
-                {
-                    showMore ?
-                        <div className="experience-card-bullet-container">
-                            {
-                                bulletPoints.map((bullet, bulletKey) => {
-                                    return (
-                                        <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
-                                    )
-                                })
-                            }
-                        </div>
-                        :
-                        <></>
-                }
+                <div className="experience-card-bullet-container">
+                    {
+                        bulletPoints.map((bullet, bulletKey) => {
+                            return (
+                                <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
+                            )
+                        })
+                    }
+                </div>
                 <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
                     {
                         Object.keys(technologies).map((tech, techKey) => {
@@ -55,9 +50,6 @@ const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technolo
                             )
                         })
                     }
-                </div>
-                <div className={showMore ? "experience-card-arrow-container show-more-container" : "experience-card-arrow-container"}>
-                    <FaArrowDown onClick={() => setShowMore(!showMore)} className={alt ? "experience-card-arrow" : "experience-card-arrow experience-card-arrow-alt"}/>
                 </div>
             </div>
         </motion.div>

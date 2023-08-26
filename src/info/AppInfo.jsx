@@ -38,7 +38,7 @@ export const AppInfo = {
                     date: "May 2023 - Sep 2023",
                     description: "",
                     bulletPoints: [
-                        "Architected a full-stack web application for data analysis, data visualization, and automated report generation using ExpressJS, ReactJS, and MySQL.",
+                        "Architected a full-stack web application for data analysis, data visualization, and report generation.",
                         "Built custom PDF scrapers using Python, significantly increasing data collection efficiency.",
                         "Created a machine verification dashboard using Power BI to detect material testing machine failure"
                     ],
@@ -75,9 +75,8 @@ export const AppInfo = {
                     date: "Mar 2023 - May 2023",
                     description: "",
                     bulletPoints: [
-                        "Developed a Shopify plugin using ReactJS, Shopify CLI, AWS, and Cognito for Universole Fit's first client in a fast-paced startup environment.",
-                        "Designed a Shopify theme app extension with ReactJS, Shopify CLI, AWS, and Cognito embedding Universole Fit’s technology in a Shopify storefront.",
-                        "Wrote documentation for all software."
+                        "Developed a Shopify plugin for Universole Fit's first client in a fast-paced startup environment.",
+                        "Designed a Shopify theme app extension embedding Universole Fit’s technology in a Shopify storefront.",
                     ],
                     technologies: {
                         "ReactJS": {
@@ -105,9 +104,8 @@ export const AppInfo = {
                     date: "Jun 2022 - Sep 2022",
                     description: "",
                     bulletPoints: [
-                        "Taught over 400 children science, technology, engineering, and math (STEM) topics including Scratch, Spike Prime (Python), MCreator, and engineering principles.",
+                        "Taught over 400 children STEM topics and engineering principles.",
                         "Established new content and modified existing content for 8 STEM classes.",
-                        "Guided team members to optimize learning for students."
                     ],
                     technologies: {
                         "Teaching": {

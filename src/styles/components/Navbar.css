@@ -117,15 +117,15 @@
 
 .navbar-social-media-icon-hamburger {
     display: flex;
-    color: var(--color-4);
+    color: var(--color-3);
     scale: 1;
     transition: all ease 0.25s;
-    font-size: 4vmax;
+    font-size: 5vmax;
 }
 
 .navbar-social-media-icon:hover {
     cursor: pointer;
-    color: var(--color-5);
+    color: var(--color-4);
     scale: 1.1;
     transition: all ease 0.25s;
 }

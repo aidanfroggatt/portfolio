@@ -13,6 +13,9 @@ import {
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/projects/snapcycle-home.jpg";
 import CodeWarriorsImage from "../assets/projects/codewarriors-home.jpg";
+import PortfolioImage from "../assets/projects/portfolio-home.jpg";
+import MeshGeneratorImage from "../assets/projects/mesh-generator-sample.svg";
+import PiratenKapernImage from "../assets/projects/piraten-kapern-cards.jpg";
 import {SiApachemaven} from "react-icons/si";
 import myResume from "../assets/Resume.pdf";
 
@@ -179,7 +182,7 @@ export const AppInfo = {
                     },
                     github: "https://github.com/aidanfroggatt/portfolio",
                     website: "https://aidanfroggatt.github.io/portfolio/",
-                    image: "",
+                    image: PortfolioImage,
                     imageAlt: "Portfolio Image",
                     additionalInfo: {
                         association: "Aidan Froggatt",
@@ -233,7 +236,7 @@ export const AppInfo = {
                     },
                     github: "https://github.com/aidanfroggatt/IslandGenerator",
                     website: "",
-                    image: "",
+                    image: MeshGeneratorImage,
                     imageAlt: "Island Generator Image",
                     additionalInfo: {
                         association: "McMaster University",
@@ -259,7 +262,7 @@ export const AppInfo = {
                     },
                     github: "https://github.com/aidanfroggatt/PiratenKapern",
                     website: "",
-                    image: "",
+                    image: PiratenKapernImage,
                     imageAlt: "Piraten Kapern Simulator Image",
                     additionalInfo: {
                         association: "McMaster University",

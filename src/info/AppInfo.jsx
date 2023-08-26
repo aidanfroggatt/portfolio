@@ -40,7 +40,7 @@ export const AppInfo = {
                     bulletPoints: [
                         "Architected a full-stack web application for data analysis, data visualization, and report generation.",
                         "Built custom PDF scrapers using Python, significantly increasing data collection efficiency.",
-                        "Created a machine verification dashboard using Power BI to detect material testing machine failure"
+                        "Created a machine verification dashboard using Power BI to detect material testing machine failure."
                     ],
                     technologies: {
                         "ReactJS": {

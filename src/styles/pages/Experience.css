@@ -17,9 +17,9 @@
     color: var(--color-2);
     font-size: var(--font-size-4);
     font-style: normal;
-    font-weight: var(--font-weight-1);
+    font-weight: var(--font-weight-2);
     line-height: normal;
-    padding: 4vmax;
+    padding: 8vmax 4vmax 4vmax;
 }
 
 .experience-card-container {

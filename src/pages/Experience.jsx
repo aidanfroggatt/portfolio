@@ -13,6 +13,7 @@ const Experience = ({setExperienceRef}) => {
 
     return (
         <div ref={scrollToRef} className="experience">
+            <div className="experience-title">Experience</div>
             <div className={"experience-card-container"}>
                 {
                     Object.keys(AppInfo.pages.Experience.timeline).map((item, index) => {

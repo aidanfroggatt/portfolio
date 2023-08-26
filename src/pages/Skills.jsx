@@ -11,6 +11,7 @@ const Skills = ({setSkillsRef}) => {
 
     return (
         <div ref={scrollToRef} className="skills">
+            <div className="skills-title">Skills</div>
             <div className="skills-container">
                 {
                     Object.keys(AppInfo.pages.Skills).map((skill, index) => {

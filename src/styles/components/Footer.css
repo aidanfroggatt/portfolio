@@ -90,4 +90,5 @@
 .thanks {
     font-size: var(--font-size-4);
     font-family: var(--font-face-2);
+    font-weight: var(--font-weight-2);
 }

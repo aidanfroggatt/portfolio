@@ -4,8 +4,6 @@ import {motion} from "framer-motion";
 import '../styles/components/ExperienceCard.css';
 
 const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technologies}) => {
-    const [showMore, setShowMore] = React.useState(false);
-
     return (
         <motion.div
             initial="hidden"
@@ -26,38 +24,30 @@ const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technolo
                 </div>
                 <div className="experience-card-subheading">{company}</div>
                 <div className="experience-card-heading">{role}</div>
-                {
-                    showMore ?
-                        <>
-                            <div className="experience-card-bullet-container">
-                                {
-                                    bulletPoints.map((bullet, bulletKey) => {
-                                        return (
-                                            <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
-                                {
-                                    Object.keys(technologies).map((tech, techKey) => {
-                                        return (
-                                            <div key={techKey} >
-                                                <Tooltip content={technologies[tech].name}>
-                                                    <div className="experience-card-skill">
-                                                        {technologies[tech].icon}
-                                                    </div>
-                                                </Tooltip>
+                    <div className="experience-card-bullet-container">
+                        {
+                            bulletPoints.map((bullet, bulletKey) => {
+                                return (
+                                    <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
+                        {
+                            Object.keys(technologies).map((tech, techKey) => {
+                                return (
+                                    <div key={techKey} >
+                                        <Tooltip content={technologies[tech].name}>
+                                            <div className="experience-card-skill">
+                                                {technologies[tech].icon}
                                             </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </>
-                        :
-                        <>
-                        </>
-                }
+                                        </Tooltip>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
             </div>
         </motion.div>
     )

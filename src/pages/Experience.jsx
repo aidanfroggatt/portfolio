@@ -18,7 +18,15 @@ const Experience = ({setExperienceRef}) => {
                     Object.keys(AppInfo.pages.Experience.timeline).map((item, index) => {
                         const alt = index % 2 === 0
                         return (
-                            <ExperienceCard item={item} alt={alt} index={index}/>
+                            <ExperienceCard
+                                alt={alt}
+                                index={index}
+                                date={AppInfo.pages.Experience.timeline[item].date}
+                                company={AppInfo.pages.Experience.timeline[item].company}
+                                role={AppInfo.pages.Experience.timeline[item].role}
+                                bulletPoints={AppInfo.pages.Experience.timeline[item].bulletPoints}
+                                technologies={AppInfo.pages.Experience.timeline[item].technologies}
+                            />
                         )
                     })
                 }

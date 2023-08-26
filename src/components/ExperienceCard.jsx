@@ -1,10 +1,9 @@
 import React from 'react';
-import {AppInfo} from "../info/AppInfo";
 import Tooltip from "./Tooltip";
 import {motion} from "framer-motion";
 import '../styles/components/ExperienceCard.css';
 
-const ExperienceCard = ({item, alt, index}) => {
+const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technologies}) => {
     const [showMore, setShowMore] = React.useState(false);
 
     return (
@@ -22,17 +21,17 @@ const ExperienceCard = ({item, alt, index}) => {
             <div className={alt ? "experience-card" : "experience-card experience-card-alt"} key={index}>
                 <div className="experience-card-date-container">
                     <div className="experience-card-date">
-                        {AppInfo.pages.Experience.timeline[item].date}
+                        {date}
                     </div>
                 </div>
-                <div className="experience-card-subheading">{AppInfo.pages.Experience.timeline[item].company}</div>
-                <div className="experience-card-heading">{AppInfo.pages.Experience.timeline[item].role}</div>
+                <div className="experience-card-subheading">{company}</div>
+                <div className="experience-card-heading">{role}</div>
                 {
                     showMore ?
                         <>
                             <div className="experience-card-bullet-container">
                                 {
-                                    AppInfo.pages.Experience.timeline[item].bulletPoints.map((bullet, bulletKey) => {
+                                    bulletPoints.map((bullet, bulletKey) => {
                                         return (
                                             <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
                                         )
@@ -41,12 +40,12 @@ const ExperienceCard = ({item, alt, index}) => {
                             </div>
                             <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
                                 {
-                                    Object.keys(AppInfo.pages.Experience.timeline[item].technologies).map((tech, techKey) => {
+                                    Object.keys(technologies).map((tech, techKey) => {
                                         return (
                                             <div key={techKey} >
-                                                <Tooltip content={AppInfo.pages.Experience.timeline[item].technologies[tech].name}>
+                                                <Tooltip content={technologies[tech].name}>
                                                     <div className="experience-card-skill">
-                                                        {AppInfo.pages.Experience.timeline[item].technologies[tech].icon}
+                                                        {technologies[tech].icon}
                                                     </div>
                                                 </Tooltip>
                                             </div>

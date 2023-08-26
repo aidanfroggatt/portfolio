@@ -80,6 +80,10 @@
     animation: coin-rotate 4s infinite linear;
 }
 
+.skill-coin-back {
+    z-index: 6;
+}
+
 .skill-coin-front:hover {
     animation: none
 }

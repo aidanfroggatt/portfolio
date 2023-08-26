@@ -83,6 +83,7 @@
 
 .project-flip-card-back {
     transform: rotateY(180deg);
+    z-index: 6;
 }
 
 .project-card-heading {

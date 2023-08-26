@@ -90,7 +90,7 @@
     100% { opacity: 1; }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 700px) and (orientation: landscape) and (max-width: 900px){
     .mouse_scroll {
         display: none;
     }

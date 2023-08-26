@@ -196,7 +196,7 @@ export const AppInfo = {
                 "CodeWarriors": {
                     name: "CodeWarriors",
                     description: [
-                        "Best Overall Hack - DeltaHacksIX",
+                        "Best Overall Hack - DeltaHacksIX.",
                         "A web app that gamifies teaching programming skills.",
                     ],
                     date: "Mar 2023",

@@ -2,8 +2,14 @@
 
 .skills-item:hover {
     transform: rotateY(180deg);
+    -webkit-tranform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
 
     transition: transform 2s;
+    -webkit-transition: -webkit-transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -o-transition: -o-transform 2s;
 }
 
 .skills-item-alt {
@@ -35,7 +41,26 @@
             scale 0.25s ease-out,
             box-shadow 0.25s ease-out;
 
+    -webkit-transition:
+            transform 0.6s,
+            scale 0.25s ease-out,
+            box-shadow 0.25s ease-out;
+
+    -moz-transition:
+            transform 0.6s,
+            scale 0.25s ease-out,
+            box-shadow 0.25s ease-out;
+
+    -o-transition:
+            transform 0.6s,
+            scale 0.25s ease-out,
+            box-shadow 0.25s ease-out;
+
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+
     scale: 1;
 
     background-color: var(--color-3);
@@ -49,6 +74,9 @@
 .skill-coin-inner:hover {
     scale: 1.05;
     transition: 0.25s ease-out;
+    -webkit-transition: 0.25s ease-out;
+    -moz-transition: 0.25s ease-out;
+    -o-transition: 0.25s ease-out;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
@@ -59,6 +87,9 @@
 
 .skill-coin.flipped .skill-coin-inner {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
 }
 
 .skill-coin-front, .skill-coin-back {
@@ -78,6 +109,9 @@
 
 .skill-coin-front {
     animation: coin-rotate 4s infinite linear;
+    -webkit-animation: coin-rotate 4s infinite linear;
+    -moz-animation: coin-rotate 4s infinite linear;
+    -o-animation: coin-rotate 4s infinite linear;
 }
 
 .skill-coin-back {
@@ -85,7 +119,10 @@
 }
 
 .skill-coin-front:hover {
-    animation: none
+    animation: none;
+    webkit-animation: none;
+    -moz-animation: none;
+    -o-animation: none;
 }
 
 @keyframes coin-rotate {
@@ -99,6 +136,9 @@
 
 .skill-coin-back {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
     font-size: var(--font-size-6);
     font-weight: var(--font-weight-2);
 }

@@ -24,7 +24,7 @@ export const AppInfo = {
         AboutMe : {
             name: "Aidan Froggatt",
             heading: "Hi. I'm Aidan.",
-            description: "A passionate Software Engineering Student looking to utilize my experience to design and develop solutions...",
+            description: "A Software Engineering Student looking to utilize my experience to develop solutions.",
             route: "/",
         },
         Experience: {

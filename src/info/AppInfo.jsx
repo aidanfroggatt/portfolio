@@ -128,7 +128,10 @@ export const AppInfo = {
             projects: {
                 "SnapCycle": {
                     name: "SnapCycle",
-                    description: "A web app that scans items identifying their recyclability.",
+                    description: [
+                        "Best Environmental Hack - MacHacks3.",
+                        "A web app that scans items identifying their recyclability.",
+                    ],
                     date: "Mar 2023 - Present",
                     technologies: {
                         "ReactJS": {
@@ -164,7 +167,9 @@ export const AppInfo = {
                 },
                 "Portfolio": {
                     name: "Portfolio",
-                    description: "A web app that showcases my experience and projects.",
+                    description: [
+                        "A web app that showcases experience and projects.",
+                    ],
                     date: "Mar 2023 - Present",
                     technologies: {
                         "ReactJS": {
@@ -190,7 +195,10 @@ export const AppInfo = {
                 },
                 "CodeWarriors": {
                     name: "CodeWarriors",
-                    description: "A web app that gamifies teaching programming skills.",
+                    description: [
+                        "Best Overall Hack - DeltaHacksIX",
+                        "A web app that gamifies teaching programming skills.",
+                    ],
                     date: "Mar 2023",
                     technologies: {
                         "ReactJS": {
@@ -218,7 +226,9 @@ export const AppInfo = {
                 },
                 "Island Generator": {
                     name: "Island Generator",
-                    description: "A program that generates a mesh data structure and can populate the mesh with random island generation",
+                    description: [
+                        "A program that generates a mesh data structure and can populate the mesh with random island generation",
+                    ],
                     date: "Feb 2023 - Apr 2023",
                     technologies: {
                         "Java": {
@@ -244,7 +254,9 @@ export const AppInfo = {
                 },
                 "Piraten Kapern Simulator": {
                     name: "Piraten Kapern",
-                    description: "A program that simulates the card and dice game Piraten Kapern",
+                    description: [
+                        "A program that simulates the card and dice game Piraten Kapern",
+                    ],
                     date: "Jan 2023 - Feb 2023",
                     technologies: {
                         "Java": {

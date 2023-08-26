@@ -40,15 +40,17 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
                     </div>
                 </div>
                 <div className="project-flip-card-back">
-                    <div className="project-card-heading">{Heading}</div>
                     <div className="project-card-date">{Date}</div>
-                    {
-                        Body.map((text, index) => {
-                            return (
-                                <div key={index} className="project-card-body">{text}</div>
-                            )
-                        })
-                    }
+                    <div className="project-card-heading">{Heading}</div>
+                    <div className="project-card-body-container">
+                        {
+                            Body.map((text, index) => {
+                                return (
+                                    <div key={index} className="project-card-body">{text}</div>
+                                )
+                            })
+                        }
+                    </div>
                     <div className={alt ? "project-card-link-container project-card-link-container-alt" : "project-card-link-container"}>
                         {Devpost ? <a className="project-card-link" href={Devpost} target="_blank"><FaAward/></a> : <></>}
                         {Website ? <a className="project-card-link" href={Website} target="_blank"><FaGlobe/></a> : <></>}

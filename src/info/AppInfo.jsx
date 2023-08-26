@@ -11,8 +11,8 @@ import {
     FaJava,
     FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher, FaDownload, FaJs
 } from 'react-icons/fa';
-import SnapCycleImage from "../assets/projects/snapcycle_home.png";
-import CodeWarriorsImage from "../assets/projects/codewarriors_home.jpg";
+import SnapCycleImage from "../assets/projects/snapcycle-home.jpg";
+import CodeWarriorsImage from "../assets/projects/codewarriors-home.jpg";
 import {SiApachemaven} from "react-icons/si";
 import myResume from "../assets/Resume.pdf";
 

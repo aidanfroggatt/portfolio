@@ -3,7 +3,7 @@ import '../styles/components/ProjectCard.css';
 import {FaAward, FaGithub, FaGlobe} from "react-icons/fa";
 import Tooltip from "./Tooltip";
 
-const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost, Technologies, Awards, alt}) => {
+const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost, Technologies, Awards, Image, ImageAlt, alt}) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     return (
@@ -15,6 +15,7 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
                 <div className="project-flip-card-front">
                     <div className="project-card-subheading">{Subheading}</div>
                     <div className="project-card-heading">{Heading}</div>
+                    <div className="project-card-image-container"><img className="project-card-image" src={Image} alt={ImageAlt}/></div>
                     <div className={alt ? "project-card-technologies-container project-card-technologies-container-alt" : "project-card-technologies-container"}>
                         {
                             Object.keys(Technologies).map((technology, index) => {

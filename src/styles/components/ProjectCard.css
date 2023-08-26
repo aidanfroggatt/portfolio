@@ -3,14 +3,28 @@
 
 .project-flip-card {
     width: 25vw;
-    height: 40vh;
+    height: 60vh;
     cursor: pointer;
+}
+
+.project-card-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5%;
 }
 
 @media only screen and (max-width: 600px) {
     .project-flip-card {
         width: 80vw;
-        height: 30vh;
+        height: 40vh;
     }
 }
 

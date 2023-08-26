@@ -2,8 +2,12 @@ import React from 'react';
 import Tooltip from "./Tooltip";
 import {motion} from "framer-motion";
 import '../styles/components/ExperienceCard.css';
+import {BrowserView, MobileView} from "react-device-detect";
+import {FaArrowDown} from "react-icons/fa";
 
 const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technologies}) => {
+    const [showMore, setShowMore] = React.useState(false);
+
     return (
         <motion.div
             initial="hidden"
@@ -24,30 +28,38 @@ const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technolo
                 </div>
                 <div className="experience-card-subheading">{company}</div>
                 <div className="experience-card-heading">{role}</div>
-                    <div className="experience-card-bullet-container">
-                        {
-                            bulletPoints.map((bullet, bulletKey) => {
-                                return (
-                                    <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
-                                )
-                            })
-                        }
-                    </div>
-                    <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
-                        {
-                            Object.keys(technologies).map((tech, techKey) => {
-                                return (
-                                    <div key={techKey} >
-                                        <Tooltip content={technologies[tech].name}>
-                                            <div className="experience-card-skill">
-                                                {technologies[tech].icon}
-                                            </div>
-                                        </Tooltip>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                {
+                    showMore ?
+                        <div className="experience-card-bullet-container">
+                            {
+                                bulletPoints.map((bullet, bulletKey) => {
+                                    return (
+                                        <div key={bulletKey} className="experience-card-bullet">{bullet}</div>
+                                    )
+                                })
+                            }
+                        </div>
+                        :
+                        <></>
+                }
+                <div className={alt ? "experience-card-skills-container" : "experience-card-skills-container experience-card-skills-container-alt"}>
+                    {
+                        Object.keys(technologies).map((tech, techKey) => {
+                            return (
+                                <div key={techKey} >
+                                    <Tooltip content={technologies[tech].name}>
+                                        <div className="experience-card-skill">
+                                            {technologies[tech].icon}
+                                        </div>
+                                    </Tooltip>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="experience-card-arrow-container">
+                    <FaArrowDown className={alt ? "experience-card-arrow" : "experience-card-arrow experience-card-arrow-alt"}/>
+                </div>
             </div>
         </motion.div>
     )

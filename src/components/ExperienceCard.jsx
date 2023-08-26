@@ -2,6 +2,7 @@ import React from 'react';
 import {AppInfo} from "../info/AppInfo";
 import Tooltip from "./Tooltip";
 import {motion} from "framer-motion";
+import '../styles/components/ExperienceCard.css';
 
 const ExperienceCard = ({item, alt, index}) => {
     const [showMore, setShowMore] = React.useState(false);

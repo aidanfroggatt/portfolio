@@ -39,6 +39,10 @@
     }
 }
 
+html,body{
+    overflow-x: hidden;
+}
+
 .App {
     background: #CDB1E0;
     background-image:

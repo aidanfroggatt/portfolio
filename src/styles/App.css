@@ -27,6 +27,18 @@
     --font-weight-2: 800;
 }
 
+@media screen and (max-width: 768px) {
+    :root {
+        --font-size-1: 12.5vmax;
+        --font-size-2: 3vmax;
+        --font-size-3: 2.25vmax;
+        --font-size-4: 7vmax;
+        --font-size-5: 1vmax;
+        --font-size-6: 2vmax;
+        --font-size-7: 2vmax;
+    }
+}
+
 .App {
     background: #CDB1E0;
     background-image:

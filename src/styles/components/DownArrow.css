@@ -95,3 +95,9 @@
         display: none;
     }
 }
+
+@media screen and (max-height: 800px) and (max-width: 600px){
+    .mouse_scroll {
+        display: none;
+    }
+}

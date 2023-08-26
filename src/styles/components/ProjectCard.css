@@ -112,6 +112,10 @@
 
 .project-card-body {
     display: flex;
+
+    color: var(--color-4);
+    font-family: var(--font-face-1);
+    font-size: var(--font-size-7);
 }
 
 .project-card-date {

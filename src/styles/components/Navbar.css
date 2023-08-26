@@ -18,11 +18,31 @@
     transition: all 0.25s ease;
 }
 
+.phone-navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    padding: 2vmax;
+
+    font: var(--font-face-1);
+    font-size: var(--font-size-3);
+
+    transition: all 0.25s ease;
+
+    height: 10vh;
+}
+
 .scrolled {
     background-color: var(--color-1);
     transition: all 0.25s ease;
 }
-
 
 .navbar-my-name-container {
     display: flex;
@@ -87,9 +107,25 @@
     transition: all ease 0.25s;
 }
 
+.navbar-social-media-container-hamburger {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    gap: 2.5vmax;
+}
+
+.navbar-social-media-icon-hamburger {
+    display: flex;
+    color: var(--color-4);
+    scale: 1;
+    transition: all ease 0.25s;
+    font-size: 4vmax;
+}
+
 .navbar-social-media-icon:hover {
     cursor: pointer;
-    color: var(--color-4);
+    color: var(--color-5);
     scale: 1.1;
     transition: all ease 0.25s;
 }

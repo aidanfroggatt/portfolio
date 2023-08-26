@@ -1,0 +1,148 @@
+@import '../App.css';
+
+.HamburgerMenuContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    background-color: var(--color-2);
+    color: var(--color-3);
+    font-family: var(--font-face-1);
+}
+#HamburgerMenuActive {
+    height: 100%;
+    transition: width 0.5s cubic-bezier(.95,.01,.05,.99), height 0.5s cubic-bezier(.95,.01,.05,.99);
+}
+#HamburgerMenuInactive {
+    height: 0%;
+    overflow-y: hidden;
+    transition: width 0.5s cubic-bezier(.89,0,.12,.99) 0.3s, height 0.5s cubic-bezier(.89,0,.12,.99) 0.3s;
+}
+
+.HamburgerMenu {
+    margin: 25px 30px 65px 25px;
+}
+
+.BurgerTopContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#BurgerTopContainerInactive {
+    transform: translateY(-80px);
+    transition: all 0.25s ease-in 0.3s;
+}
+
+#BurgerTopContainerActive {
+    transition: all 0.25s ease-in;
+}
+
+.BurgerLogoAndName {
+    display: flex;
+    align-items: center;
+}
+
+.BurgerTitleContainer {
+    position: relative;
+    display: flex;
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+}
+
+#LogoActive {
+    background-image: linear-gradient(#1B1818, #1B1818);
+    animation: slideIn 0.35s cubic-bezier(0.17, 0.67, 0.21, 1) 0.8s forwards, slideOut 0.35s cubic-bezier(0.17, 0.67, 0.21, 1) 1.15s forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        background-image: linear-gradient(to right, white 50%, #1B1818 0);
+        background-position: right;
+    }
+    100% {
+        background-image: linear-gradient(to right, white 50%, #1B1818 0);
+        background-position: left;
+    }
+}
+@keyframes slideOut {
+    0% {
+        background-image: linear-gradient(to right, transparent 50%, white 0);
+        background-position: right;
+    }
+    100% {
+        background-image: linear-gradient(to right, transparent 50%, white 0);
+        background-position: left;
+    }
+}
+
+.HamburgerLogo {
+    height: 50px;
+}
+
+.WhiteX {
+    width: 65px;
+    padding: 20px;
+
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 0% 0%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+
+    transition: background-size .15s;
+}
+
+.WhiteX:hover {
+    cursor: pointer;
+    background-size: 100% 100%;
+}
+
+.HamburgerPages {
+    display: flex;
+    flex-direction: column;
+    height: 440px;
+}
+
+.HamburgerPage {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: left;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.HamburgerPage:hover {
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.HamburgerArrow {
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.HamburgerPage:hover .HamburgerArrow {
+    opacity: 1;
+}
+
+.HamburgerIcon {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+
+    border-radius: 50px;
+    height: 65px;
+    background: var(--color-1);
+    padding: 2vmax;
+}

@@ -95,6 +95,8 @@
     justify-content: center;
     align-items: center;
     padding: 2vmax;
+
+    animation: spin-arrow-back 1s;
 }
 
 .experience-card-arrow {
@@ -133,4 +135,25 @@
 .show-more-container {
     transform: scaleY(-1);
     transition: all 0.25s ease-out;
+    animation: spin-arrow 1s;
+}
+
+@keyframes spin-arrow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes spin-arrow-back {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import Tooltip from "./Tooltip";
 import {motion} from "framer-motion";
 import '../styles/components/ExperienceCard.css';
-import {BrowserView, MobileView} from "react-device-detect";
 import {FaArrowDown} from "react-icons/fa";
 
 const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technologies}) => {
@@ -57,8 +56,8 @@ const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technolo
                         })
                     }
                 </div>
-                <div className="experience-card-arrow-container">
-                    <FaArrowDown className={alt ? "experience-card-arrow" : "experience-card-arrow experience-card-arrow-alt"}/>
+                <div className={showMore ? "experience-card-arrow-container show-more-container" : "experience-card-arrow-container"}>
+                    <FaArrowDown onClick={() => setShowMore(!showMore)} className={alt ? "experience-card-arrow" : "experience-card-arrow experience-card-arrow-alt"}/>
                 </div>
             </div>
         </motion.div>

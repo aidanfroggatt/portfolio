@@ -41,6 +41,8 @@
     gap: 1vmax;
     padding-bottom: 1vmax;
     padding-top: 1vmax;
+
+    transition: all 0.25s ease-out;
 }
 
 .experience-card-bullet {
@@ -92,10 +94,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 2vmax;
+    padding: 2vmax;
 }
 
 .experience-card-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: var(--font-size-2);
     background: var(--color-3);
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
@@ -123,4 +128,9 @@
     color: var(--color-5);
     transition: 0.25s ease-out;
     scale: 1.1;
+}
+
+.show-more-container {
+    transform: scaleY(-1);
+    transition: all 0.25s ease-out;
 }

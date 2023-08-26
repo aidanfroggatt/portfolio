@@ -9,7 +9,8 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
     return (
         <div
             className={`project-flip-card ${isFlipped ? 'flipped' : ''}`}
-            onClick={() => setIsFlipped(!isFlipped)}
+            onMouseEnter={() => setIsFlipped(!isFlipped)}
+            onMouseLeave={() => setIsFlipped(!isFlipped)}
         >
             <div className={alt ? "project-flip-card-inner project-flip-card-inner-alt" : "project-flip-card-inner"}>
                 <div className="project-flip-card-front">

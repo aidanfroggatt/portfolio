@@ -145,7 +145,7 @@
     transition: width 0.5s cubic-bezier(.95,.01,.05,.99), height 0.5s cubic-bezier(.95,.01,.05,.99);
 }
 #HamburgerMenuInactive {
-    height: 0%;
+    height: 0;
     overflow-y: hidden;
     transition: width 0.5s cubic-bezier(.89,0,.12,.99) 0.3s, height 0.5s cubic-bezier(.89,0,.12,.99) 0.3s;
 }
@@ -225,7 +225,7 @@
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 0% 0%;
+    background-size: 0 0;
     background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
 
     transition: background-size .15s;
@@ -249,11 +249,6 @@
 
     display: flex;
     justify-content: space-between;
-}
-
-.HamburgerPage:hover {
-    padding-left: 20px;
-    cursor: pointer;
 }
 
 .HamburgerArrow {

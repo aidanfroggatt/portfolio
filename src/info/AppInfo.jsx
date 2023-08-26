@@ -162,7 +162,7 @@ export const AppInfo = {
                     additionalInfo: {
                         association: "MacHacks3",
                         devpost: "https://devpost.com/software/snapcycle-hyx3qv",
-                        awards: "Best Environmental Hack",
+                        awards: "#1 Environmental Hack",
                     }
                 },
                 "Portfolio": {

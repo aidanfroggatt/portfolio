@@ -82,12 +82,20 @@
     font-family: var(--font-face-2);
     font-size: var(--font-size-2);
     color: var(--color-2);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .project-card-subheading {
     font-family: var(--font-face-1);
     font-size: var(--font-size-3);
     color: var(--color-4);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .project-card-body {
@@ -168,6 +176,17 @@
 .project-card-technology:hover {
     color: var(--color-2);
     transition: 0.25s ease-out;
+}
+
+.project-card-award-tag {
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    font-size: var(--font-size-2);
+    color: var(--color-2);
+    border-radius: 0.5vmax;
+    padding: 0.5vmax;
 }
 
 

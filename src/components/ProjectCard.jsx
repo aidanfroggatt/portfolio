@@ -13,8 +13,15 @@ const ProjectCard = ({Heading, Subheading, Body, Date, GitHub, Website, Devpost,
         >
             <div className={alt ? "project-flip-card-inner project-flip-card-inner-alt" : "project-flip-card-inner"}>
                 <div className="project-flip-card-front">
-                    <div className="project-card-subheading">{Subheading}</div>
-                    <div className="project-card-heading">{Heading}</div>
+                    <div className="project-card-subheading">
+                        {Subheading}
+                    </div>
+                    <div className="project-card-heading">
+                        {Heading}
+                        {
+                            Awards ? <div className="project-card-award-tag"><FaAward/></div> : <></>
+                        }
+                    </div>
                     <div className="project-card-image-container"><img className="project-card-image" src={Image} alt={ImageAlt}/></div>
                     <div className={alt ? "project-card-technologies-container project-card-technologies-container-alt" : "project-card-technologies-container"}>
                         {

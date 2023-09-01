@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.fe859c78.css",
-    "main.js": "/portfolio/static/js/main.41d19fa4.js",
+    "main.css": "/portfolio/static/css/main.032cd05e.css",
+    "main.js": "/portfolio/static/js/main.9801e9ad.js",
     "static/media/mesh-generator-sample.svg": "/portfolio/static/media/mesh-generator-sample.ba5ee5a57814f43cb97a5cf1d142ede1.svg",
     "static/media/piraten-kapern-cards.jpg": "/portfolio/static/media/piraten-kapern-cards.e1ee40f2d9252cf21d7b.jpg",
     "static/media/snapcycle-home.jpg": "/portfolio/static/media/snapcycle-home.6898944e389943d2e6e6.jpg",
     "static/media/portfolio-home.jpg": "/portfolio/static/media/portfolio-home.811bda0ed4806f9fc01b.jpg",
-    "static/media/Resume.pdf": "/portfolio/static/media/Resume.8ddf689ee91f2ba83e94.pdf",
+    "static/media/Resume.pdf": "/portfolio/static/media/Resume.864341b927e21c042e37.pdf",
     "static/media/codewarriors-home.jpg": "/portfolio/static/media/codewarriors-home.3ff8d980cdd373ba8d8d.jpg",
     "static/media/logo.png": "/portfolio/static/media/logo.4eb5482ccf2d39387d56.png",
     "static/media/footer-wave.svg": "/portfolio/static/media/footer-wave.03078db724f21d597d7fe7425f9b25b9.svg",
     "index.html": "/portfolio/index.html",
     "static/media/WhiteX.svg": "/portfolio/static/media/WhiteX.63bd6309a3e818f2166dacb1abde579f.svg",
     "static/media/HamburgerMenu.svg": "/portfolio/static/media/HamburgerMenu.2cec87b082381201c34b7cb659f73caf.svg",
-    "main.fe859c78.css.map": "/portfolio/static/css/main.fe859c78.css.map",
-    "main.41d19fa4.js.map": "/portfolio/static/js/main.41d19fa4.js.map"
+    "main.032cd05e.css.map": "/portfolio/static/css/main.032cd05e.css.map",
+    "main.9801e9ad.js.map": "/portfolio/static/js/main.9801e9ad.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe859c78.css",
-    "static/js/main.41d19fa4.js"
+    "static/css/main.032cd05e.css",
+    "static/js/main.9801e9ad.js"
   ]
 }

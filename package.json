@@ -1,6 +1,6 @@
-{
+  {
   "name": "portfolio",
-  "homepage": "https://aidanfroggatt.github.io/portfolio",
+  "homepage": "https://snap-cycle.github.io/snapcycle",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

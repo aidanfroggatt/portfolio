@@ -168,7 +168,7 @@ export const AppInfo = {
                         },
                     },
                     github: "https://github.com/snap-cycle/SnapCycle",
-                    website: "",
+                    website: "https://snap-cycle.github.io/SnapCycle/",
                     image: SnapCycleImage,
                     imageAlt: "SnapCycle Image",
                     additionalInfo: {

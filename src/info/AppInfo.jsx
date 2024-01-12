@@ -38,7 +38,7 @@ export const AppInfo = {
                     date: "Apr 2024 - Aug 2025",
                     description: "",
                     bulletPoints: [
-                        "Incoming Frontend Developer Co-op at IBM...",
+                        "Incoming Frontend Developer at IBM!",
                     ],
                     technologies: {
                     },

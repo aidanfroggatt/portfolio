@@ -23,7 +23,7 @@ export const AppInfo = {
     pages : {
         AboutMe : {
             name: "Aidan Froggatt",
-            heading: "Hi. I'm Aidan.",
+            heading: "Hi, I'm Aidan.",
             description: "A full-stack developer studying Software Engineering looking to utilize my experience to develop solutions.",
             route: "/",
         },

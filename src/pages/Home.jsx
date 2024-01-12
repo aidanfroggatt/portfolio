@@ -5,26 +5,14 @@ import AnimatedPage from "../animations/AnimatedPage";
 import Experience from "./Experience";
 import Projects from "./Projects";
 import Navbar from "../components/Navbar";
-import DownArrow from "../components/DownArrow";
 import Skills from "./Skills";
 import Footer from "../components/Footer";
 
-const LandingPage = ({experienceRef, scrollToHome}) => {
-    const handleClick = (ref) => {
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-    };
+const LandingPage = ({scrollToHome}) => {
     return (
         <div ref={scrollToHome} className='landing-page'>
             <div className="home-heading">{AppInfo.pages.AboutMe.heading}</div>
             <div className="home-subheading">{AppInfo.pages.AboutMe.description}</div>
-            <div className="down-arrow-scroll-container" onClick={() => handleClick(experienceRef)}>
-                <DownArrow/>
-            </div>
         </div>
     )
 }

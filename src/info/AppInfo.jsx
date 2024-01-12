@@ -31,6 +31,20 @@ export const AppInfo = {
             description: "An overview of my experience and skills...",
             route: "/experience",
             timeline: {
+                "IBM": {
+                    role: "Frontend Developer Co-op",
+                    company: "IBM",
+                    location: "Markham, Ontario",
+                    date: "Apr 2024 - Aug 2025",
+                    description: "",
+                    bulletPoints: [
+                        "Incoming Frontend Developer Co-op at IBM...",
+                    ],
+                    technologies: {
+                    },
+                    additionalInfo: {
+                    },
+                },
                 "BurloakTechnologies": {
                     role: "Software Engineer Co-op",
                     company: "Burloak Technologies",

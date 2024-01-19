@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.be7201ac.css",
+    "main.css": "/portfolio/static/css/main.e9283041.css",
     "main.js": "/portfolio/static/js/main.7654bc02.js",
     "static/media/mesh-generator-sample.svg": "/portfolio/static/media/mesh-generator-sample.ba5ee5a57814f43cb97a5cf1d142ede1.svg",
     "static/media/piraten-kapern-cards.jpg": "/portfolio/static/media/piraten-kapern-cards.e1ee40f2d9252cf21d7b.jpg",
@@ -13,11 +13,11 @@
     "index.html": "/portfolio/index.html",
     "static/media/WhiteX.svg": "/portfolio/static/media/WhiteX.63bd6309a3e818f2166dacb1abde579f.svg",
     "static/media/HamburgerMenu.svg": "/portfolio/static/media/HamburgerMenu.2cec87b082381201c34b7cb659f73caf.svg",
-    "main.be7201ac.css.map": "/portfolio/static/css/main.be7201ac.css.map",
+    "main.e9283041.css.map": "/portfolio/static/css/main.e9283041.css.map",
     "main.7654bc02.js.map": "/portfolio/static/js/main.7654bc02.js.map"
   },
   "entrypoints": [
-    "static/css/main.be7201ac.css",
+    "static/css/main.e9283041.css",
     "static/js/main.7654bc02.js"
   ]
 }

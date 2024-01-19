@@ -43,7 +43,7 @@ html,body{
 }
 
 .App {
-    background: #CDB1E0;
+    background: var(--color-1);
 }
 
 

@@ -7,7 +7,6 @@ import Preloader from "./components/Preloader";
 const App = () => {
     return (
         <>
-            <Preloader/>
             <div className="App">
                 <Router>
                     <Routes>

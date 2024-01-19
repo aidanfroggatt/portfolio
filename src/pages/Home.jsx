@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Navbar from "../components/Navbar";
 import Skills from "./Skills";
 import Footer from "../components/Footer";
+import Preloader from "../components/Preloader";
 
 const LandingPage = ({scrollToHome}) => {
     return (

@@ -1,56 +1,35 @@
 @import '../App.css';
 
 .preloader-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
     width: 100vw;
     height: 100vh;
-    background: var(--color-3);
+    background: var(--color-1);
+    background-image: var(--background-image-gradient);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    transition: 0.5s;
-    opacity: 1;
-    visibility: visible;
-    animation: closepreloading 1.5s ease-out 1.5s forwards;
-}
-
-@keyframes closepreloading {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
 }
 
 .preloader {
-    width: 48px;
-    height: 48px;
-    background: var(--color-2);
-    border-radius: 9px;
-    --c:no-repeat radial-gradient(farthest-side,#000 92%,#0000);
-    --s:18px 18px;
-    -webkit-mask:
-            var(--c) left  4px top    4px,
-            var(--c) right 4px top    4px,
-            var(--c) right 4px bottom 4px,
-            var(--c) left  4px bottom 4px,
-            linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
-    animation: l4 1.5s forwards;
-    animation-iteration-count: 1;
+    width: calc(6*30px);
+    height: 50px;
+    display: flex;
+    color: var(--color-2);
+    filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);
+    clip-path: inset(0 100% 0 0);
+    animation: l12 2s infinite steps(7);
 }
-@keyframes l4 {
-    0%    {-webkit-mask-size:0    0  ,0    0  ,0    0  ,0    0  ,auto}
-    12.5% {-webkit-mask-size:var(--s),0    0  ,0    0  ,0    0  ,auto}
-    25%   {-webkit-mask-size:var(--s),var(--s),0    0  ,0    0  ,auto}
-    37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0    0  ,auto}
-    50%   {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}
-    62.5% {-webkit-mask-size:0    0  ,var(--s),var(--s),var(--s),auto}
-    75%   {-webkit-mask-size:0    0  ,0    0  ,var(--s),var(--s),auto}
-    87.5% {-webkit-mask-size:0    0  ,0    0  ,0   0   ,var(--s),auto}
-    100%  {-webkit-mask-size:0    0  ,0    0  ,0   0   ,0   0   ,auto}
+.preloader:before {
+    content: "";
+    width: 30px;
+    height: 25px;
+    --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);
+    background:
+            var(--c) left /70% 70%,
+            var(--c) right/20% 20%,
+            var(--c) top    0 right 15%/20% 20%,
+            var(--c) bottom 0 right 15%/20% 20%;
+}
+@keyframes l12 {
+    100% {clip-path: inset(0 -30px 0 0)}
 }

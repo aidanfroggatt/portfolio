@@ -3,8 +3,8 @@ import '../styles/components/Navbar.css';
 import {AppInfo} from "../info/AppInfo";
 import {BrowserView, MobileView} from "react-device-detect";
 import HamburgerIcon from "../assets/components/HamburgerMenu.svg";
-import Logo from "../assets/logo.png";
 import WhiteX from "../assets/components/WhiteX.svg";
+import {FaFrog} from "react-icons/fa";
 
 const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => {
     const [navbar, setNavbar] = useState(false)
@@ -118,7 +118,7 @@ const Navbar = ({experienceRef, projectsRef, skillsRef, handleScrollToHome}) => 
                             <div className='HamburgerMenu'>
                                 <div className='BurgerTopContainer' id={ showHamburgerMenu ? 'BurgerTopContainerActive' : 'BurgerTopContainerInactive'}>
                                     <div className='BurgerLogoAndName'>
-                                        <img src={Logo} alt="Aidan Froggatt Logo" className="HamburgerLogo" onClick={() => hamburgerNavClick("")}/>
+                                        <FaFrog size="40px" className="HamburgerLogo" onClick={() => hamburgerNavClick("")}/>
                                         <div className='BurgerTitleContainer'>
                                             <div className='cover' id={showHamburgerMenu && 'LogoActive'}></div>
                                         </div>

@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.8f3854ed.css",
-    "main.js": "/portfolio/static/js/main.7654bc02.js",
-    "static/media/mesh-generator-sample.svg": "/portfolio/static/media/mesh-generator-sample.ba5ee5a57814f43cb97a5cf1d142ede1.svg",
-    "static/media/piraten-kapern-cards.jpg": "/portfolio/static/media/piraten-kapern-cards.e1ee40f2d9252cf21d7b.jpg",
-    "static/media/snapcycle-home.jpg": "/portfolio/static/media/snapcycle-home.6898944e389943d2e6e6.jpg",
-    "static/media/portfolio-home.jpg": "/portfolio/static/media/portfolio-home.811bda0ed4806f9fc01b.jpg",
-    "static/media/Resume.pdf": "/portfolio/static/media/Resume.864341b927e21c042e37.pdf",
-    "static/media/codewarriors-home.jpg": "/portfolio/static/media/codewarriors-home.3ff8d980cdd373ba8d8d.jpg",
-    "static/media/logo.png": "/portfolio/static/media/logo.4eb5482ccf2d39387d56.png",
-    "static/media/footer-wave.svg": "/portfolio/static/media/footer-wave.03078db724f21d597d7fe7425f9b25b9.svg",
-    "index.html": "/portfolio/index.html",
-    "static/media/WhiteX.svg": "/portfolio/static/media/WhiteX.63bd6309a3e818f2166dacb1abde579f.svg",
-    "static/media/HamburgerMenu.svg": "/portfolio/static/media/HamburgerMenu.2cec87b082381201c34b7cb659f73caf.svg",
-    "main.8f3854ed.css.map": "/portfolio/static/css/main.8f3854ed.css.map",
-    "main.7654bc02.js.map": "/portfolio/static/js/main.7654bc02.js.map"
+    "main.css": "/static/css/main.265579a8.css",
+    "main.js": "/static/js/main.acabad14.js",
+    "static/media/mesh-generator-sample.svg": "/static/media/mesh-generator-sample.ba5ee5a57814f43cb97a5cf1d142ede1.svg",
+    "static/media/piraten-kapern-cards.jpg": "/static/media/piraten-kapern-cards.e1ee40f2d9252cf21d7b.jpg",
+    "static/media/snapcycle-home.jpg": "/static/media/snapcycle-home.6898944e389943d2e6e6.jpg",
+    "static/media/portfolio-home.jpg": "/static/media/portfolio-home.811bda0ed4806f9fc01b.jpg",
+    "static/media/Resume.pdf": "/static/media/Resume.864341b927e21c042e37.pdf",
+    "static/media/codewarriors-home.jpg": "/static/media/codewarriors-home.3ff8d980cdd373ba8d8d.jpg",
+    "static/media/footer-wave.svg": "/static/media/footer-wave.03078db724f21d597d7fe7425f9b25b9.svg",
+    "static/media/WhiteX.svg": "/static/media/WhiteX.63bd6309a3e818f2166dacb1abde579f.svg",
+    "index.html": "/index.html",
+    "static/media/HamburgerMenu.svg": "/static/media/HamburgerMenu.2cec87b082381201c34b7cb659f73caf.svg",
+    "main.265579a8.css.map": "/static/css/main.265579a8.css.map",
+    "main.acabad14.js.map": "/static/js/main.acabad14.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f3854ed.css",
-    "static/js/main.7654bc02.js"
+    "static/css/main.265579a8.css",
+    "static/js/main.acabad14.js"
   ]
 }

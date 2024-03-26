@@ -27,6 +27,10 @@
         margin-top: 8vh;
         padding-top: 4vh;
     }
+
+    .footer-page {
+        display: none;
+    }
 }
 
 .footer-content {

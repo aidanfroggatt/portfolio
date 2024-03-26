@@ -18,21 +18,14 @@
 }
 
 @media (max-width: 768px) {
-    .wave-overlay-container {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-    }
     .wave-overlay {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
+        display: none;
+    }
+
+    .footer {
+        background: var(--color-2);
+        margin-top: 8vh;
+        padding-top: 4vh;
     }
 }
 

@@ -8,5 +8,4 @@ This is my personal portfolio website containing a brief overview of my skills, 
 ![AWS](https://img.shields.io/badge/-AWS-000000?style=flat&logo=Amazon-AWS)
 
 ## Contributing
-
-- [Aidan Froggatt](https://github.com/aidanfroggatt)
+### [Aidan Froggatt](https://github.com/aidanfroggatt)

@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .project-card-image {
@@ -90,6 +91,8 @@
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 2vmax;
 }
 

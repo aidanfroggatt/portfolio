@@ -5,18 +5,12 @@
   "dependencies": {
     "@formspree/react": "^2.5.0",
     "@react-pdf/renderer": "^3.1.6",
-    "@react-three/drei": "^9.80.5",
-    "@react-three/fiber": "^8.13.7",
     "@react-three/postprocessing": "^2.15.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/three": "^0.155.1",
-    "flubber": "^0.4.2",
-    "framer-motion": "^10.16.0",
     "leva": "^0.9.35",
     "prop-types": "^15.8.1",
-    "r3f-perf": "^7.1.2",
     "react": "^18.2.0",
     "react-card-flip": "^1.2.0",
     "react-chrono": "^2.2.4",
@@ -27,7 +21,6 @@
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "three": "^0.155.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

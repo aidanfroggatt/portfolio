@@ -160,6 +160,8 @@
     justify-content: space-evenly;
     align-items: center;
     margin-top: auto;
+    width: 100%;
+
 
     background: var(--color-3);
     box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
@@ -196,6 +198,7 @@
 .project-card-technologies-container{
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-evenly;
     align-items: center;
     margin-top: auto;
@@ -212,6 +215,7 @@
 
 .project-card-technologies-container-alt {
     background: var(--color-5);
+    width: 100%;
 }
 
 .project-card-technology {

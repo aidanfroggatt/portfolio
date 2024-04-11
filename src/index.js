@@ -5,7 +5,7 @@ import App from './App';
 import ReactGA from 'react-ga';
 
 // Initialize React Ga with your tracking ID
-ReactGA.initialize('');
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

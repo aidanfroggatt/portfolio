@@ -1,9 +1,13 @@
-import {HashRouter as Router, Route, Routes} from 'react-router-dom'
-import React from 'react';
+import {HashRouter as Router, Route, Routes, useLocation} from 'react-router-dom'
+import React, {useEffect} from 'react';
 import Home from "./pages/Home";
 import './styles/App.css';
+import ReactGA from "react-ga";
 
 const App = () => {
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
     return (
         <div className="App">
             <Router>

@@ -96,10 +96,6 @@
     padding: 2vmax;
 }
 
-.project-flip-card-front {
-
-}
-
 .project-flip-card-back {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);

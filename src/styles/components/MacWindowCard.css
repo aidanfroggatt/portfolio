@@ -58,3 +58,48 @@
         border: 0.1vmax solid #1DAD2B;
     }
 }
+
+.window-content {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.25vmax;
+    overflow: auto;
+}
+
+.name-container {
+    display: flex;
+    position: absolute;
+    left: 10%;
+    top: 33%;
+    font-size: 6vmax;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: -2px;
+    line-height: 90%;
+}
+
+.name {
+    font-style: italic;
+}
+
+.additional-info-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+    bottom: 33%;
+    color: #f2f2f2;
+}
+
+.job {
+    font-weight: 600;
+}
+
+.location {
+    font-weight: 400;
+    color: rgba(242, 242, 242, 0.5);
+}

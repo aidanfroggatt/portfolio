@@ -1,5 +1,3 @@
-
-
 function LilypadIcon({bodyColor, borderColor, className}) {
     return (
         <svg
@@ -15,7 +13,7 @@ function LilypadIcon({bodyColor, borderColor, className}) {
                 fill={bodyColor ? bodyColor : "#34AB53"}
             />
         </svg>
-    );
+    )
 }
 
 export default LilypadIcon;

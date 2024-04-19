@@ -1,71 +1,33 @@
-import React from "react";
-import '../styles/components/Footer.css';
-import wave from '../assets/components/footer-wave.svg';
-import {AppInfo} from "../info/AppInfo";
+import LilypadIcon from "../assets/LilypadIcon.jsx";
 
-const Footer = ({experienceRef, projectsRef, skillsRef}) => {
-    const handleClick = (page) => {
-        let ref = null
-        switch (page){
-            case "Experience":
-                ref = experienceRef
-                break
-            case "Projects":
-                ref = projectsRef
-                break
-            case "Skills":
-                ref = skillsRef
-                break
-            default:
-                break
-        }
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-    };
+const Footer = () => {
+
     return (
-        <div className="footer">
-            <div className="wave-overlay-container">
-                <img className="wave-overlay" src={wave} alt="wave overlay image"/>
+        <div className="relative bottom-0 bg-black border-t-2 border-gray-500 text-white h-80 justify-evenly items-center flex flex-row py-20 px-40 gap-x-32">
+            <div className="h-full w-full flex flex-col justify-between">
+                <div className="flex h-full">
+                    <LilypadIcon className={"w-20 h-20"}/>
+                </div>
+                <div className="flex flex-col h-full w-full justify-end items-start">
+                    <text className="font-semibold text-md">Aidan Froggatt</text>
+                    <text className="text-sm text-gray-500">Thanks for visiting</text>
+                </div>
             </div>
-            <div className="footer-content">
-                <div className="thanks">
-                    Thanks for visiting!
+            <div className="h-full w-full flex flex-col justify-between items-end">
+                <div className="flex flex-row justify-end items-start gap-x-16 w-full h-full">
+                    <div className="flex flex-col justify-center items-center">
+                        <text className="text-xs text-gray-500">MAIN</text>
+                        <text className="text-sm">Work</text>
+                        <text className="text-sm">Info</text>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                        <text className="text-xs text-gray-500">CONTACT</text>
+                        <text className="text-sm">LinkedIn</text>
+                        <text className="text-sm">Resume</text>
+                    </div>
                 </div>
-                <div className="footer-column-pages">
-                    {
-                        Object.keys(AppInfo.pages).map((page, index) => {
-                            if (page === "AboutMe") return null
-                            return (
-                                <div
-                                    className={"footer-page"}
-                                    key={index}
-                                    onClick={() => handleClick(page)}
-                                >
-                                    {page}
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-                <div className="footer-column-social-media">
-                    {
-                        Object.keys(AppInfo.socialMedia).map((socialMedia, index) => {
-                            return (
-                                <a className="footer-social-media-icon"
-                                   href={AppInfo.socialMedia[socialMedia].url}
-                                   target="_blank"
-                                   rel="noreferrer"
-                                   key={index}
-                                >
-                                    {AppInfo.socialMedia[socialMedia].icon}
-                                </a>
-                            )
-                        })
-                    }
+                <div className="flex flex-col h-full w-full items-end justify-end">
+                    <text className="text-sm text-gray-500">Last updated by Aidan, 2024-04-18</text>
                 </div>
             </div>
         </div>

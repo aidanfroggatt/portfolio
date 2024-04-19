@@ -1,13 +1,27 @@
 import LilypadIcon from "../assets/LilypadIcon.jsx";
 import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getLastUpdateTime} from "../utils/githubUtils.js";
+import {convertDateFormat} from "../utils/dateTimeUtils.js";
 
 const Footer = () => {
     const navigate = useNavigate();
     const handleNavigate = (destination) => {
         navigate(destination);
     }
+    const [lastUpdate, setLastUpdate] = useState(null);
+
+    useEffect(() => {
+        const fetchLastCommit = async () => {
+            const updateTime = await getLastUpdateTime();
+            setLastUpdate(convertDateFormat(updateTime));
+        };
+        fetchLastCommit().then(r => console.log("Last commit fetched")).catch(e => console.log("Error fetching last commit"));
+    }, []);
+
+
     return (
-        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-gray-500 h-80 justify-evenly items-center flex flex-row py-20 px-40 gap-x-32 select-none">
+        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-gray-500 h-80 justify-evenly items-center flex flex-row py-20 px-40 gap-x-32">
             <div className="h-full w-full flex flex-col justify-between">
                 <div className="flex h-full">
                     <LilypadIcon className={"w-20 h-20"}/>
@@ -31,7 +45,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex flex-col h-full w-full items-end justify-end">
-                    <text className="text-sm text-gray-500">Last updated by Aidan, 2024-04-18</text>
+                    <text className="text-sm text-gray-500">Last updated by Aidan, {lastUpdate}</text>
                 </div>
             </div>
         </div>

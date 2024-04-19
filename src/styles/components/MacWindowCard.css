@@ -71,7 +71,7 @@
 }
 
 .name-container {
-    display: flex;
+    display: inline-block;
     position: absolute;
     left: 10%;
     top: 33%;
@@ -84,6 +84,7 @@
 
 .name {
     font-style: italic;
+    font-family: "Playfair Display", serif;
 }
 
 .additional-info-container {

@@ -46,16 +46,16 @@
 
     &.red {
         background: #FF6057;
-        border: 1px solid #E14640;
+        border: 0.1vmax solid #E14640;
     }
 
     &.amber {
         background: #FFBD2E;
-        border: 1px solid #DFA123;
+        border: 0.1vmax solid #DFA123;
     }
 
     &.green {
         background: #27C93F;
-        border: 1px solid #1DAD2B;
+        border: 0.1vmax solid #1DAD2B;
     }
 }

@@ -20,7 +20,7 @@ const Header = () => {
                     <text className="text-xs text-gray-500">Frontend Developer</text>
                 </div>
             </div>
-            <div className="flex justify-center items-center bg-white p-1.5 rounded-full bg-opacity-10 text-sm">
+            <div className="flex justify-center items-center bg-white p-1.5 rounded-full bg-opacity-10 text-sm border border-opacity-20 border-white">
                 <div
                     className={`${'/' === location.pathname ? 'bg-white bg-opacity-10' : ''} flex justify-center items-center px-6 py-2 rounded-full`}
                     onClick={() => handleNavigate('/')}

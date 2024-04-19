@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
 :root {
     color: white;
     background-color: black;
+    font-family: 'Montserrat', sans-serif;
 }

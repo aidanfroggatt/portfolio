@@ -3,8 +3,16 @@
 const Header = () => {
 
     return (
-        <div>
-            <h1>My React App</h1>
+        <div className="flex flex-row justify-between">
+            <div>
+                name n stuff
+            </div>
+            <div>
+                nav n stuff
+            </div>
+            <div>
+                contact n stuff
+            </div>
         </div>
     )
 }

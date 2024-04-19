@@ -7,7 +7,7 @@ const WorkPage = () => {
     return (
         <>
             <Header/>
-            <div className="h-screen">
+            <div className="h-screen flex justify-center items-center bg-black">
                 <h1>Work Page</h1>
             </div>
             <Footer/>

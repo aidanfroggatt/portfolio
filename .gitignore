@@ -1,6 +1,7 @@
 # environment
 /.env
 .env
+./.env
 
 # Logs
 logs

@@ -1,0 +1,34 @@
+
+.window-container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    border: rgb(255, 255, 255, 0.2) 1px solid;
+    padding: 0.75vmax;
+    margin-top: 25vh;
+    border-radius: 2vmax;
+    width: 70vw;
+    height: 95vh;
+}
+
+.window {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    border: rgb(255, 255, 255, 0.5) 1px solid;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 1.25vmax;
+}
+
+.window-header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 6vh;
+    background: linear-gradient(to right, #1E1E1E, #848484, #1E1E1E);
+    border-top-left-radius: 1.25vmax;
+    border-top-right-radius: 1.25vmax;
+}

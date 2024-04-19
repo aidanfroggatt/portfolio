@@ -3,6 +3,11 @@
 .env
 ./.env
 
+# idea
+.idea
+/.idea
+./.idea
+
 # Logs
 logs
 *.log

@@ -12,7 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className="flex flex-row fixed justify-between items-center h-20 w-full p-12 text-custom-light">
+        <div className="flex flex-row fixed justify-between items-center h-20 w-full p-12 text-custom-light select-none">
             <div className="flex flex-row gap-x-2">
                 <LilypadIcon className={"w-10 h-10"}/>
                 <div className="flex flex-col">
@@ -20,21 +20,21 @@ const Header = () => {
                     <text className="text-xs text-gray-500">Frontend Developer</text>
                 </div>
             </div>
-            <div className="flex justify-center items-center bg-white p-1.5 rounded-full bg-opacity-10 text-sm border border-opacity-20 border-white backdrop-blur">
+            <div className="flex justify-center items-center font-medium bg-white p-1.5 rounded-full bg-opacity-10 text-sm border border-opacity-10 border-white backdrop-blur hover:border-opacity-20">
                 <div
-                    className={`${'/' === location.pathname ? 'bg-white bg-opacity-10' : ''} flex justify-center items-center px-6 py-2 rounded-full`}
+                    className={`${'/' === location.pathname && 'bg-white bg-opacity-10'} flex justify-center items-center px-6 py-2 rounded-full hover:cursor-pointer`}
                     onClick={() => handleNavigate('/')}
                 >
                     <text>Work</text>
                 </div>
                 <div
-                    className={`${'/info' === location.pathname ? 'bg-white bg-opacity-10' : ''} flex justify-center items-center px-6 py-2 rounded-full`}
+                    className={`${'/info' === location.pathname && 'bg-white bg-opacity-10'} flex justify-center items-center px-6 py-2 rounded-full hover:cursor-pointer`}
                     onClick={() => handleNavigate('/info')}
                 >
                     <text>Info</text>
                 </div>
             </div>
-            <div className="flex">
+            <div className="flex font-medium">
                 <ArrowLink destination="https://www.linkedin.com/in/aidanfroggatt/" title="LinkedIn"/>
                 <ArrowLink destination="" title="Resume"/>
             </div>

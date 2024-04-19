@@ -12,7 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className="flex flex-row fixed justify-between items-center h-20 w-full p-12">
+        <div className="flex flex-row fixed justify-between items-center h-20 w-full p-12 text-custom-light">
             <div className="flex flex-row gap-x-2">
                 <LilypadIcon className={"w-10 h-10"}/>
                 <div className="flex flex-col">

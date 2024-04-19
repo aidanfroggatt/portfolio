@@ -3,7 +3,7 @@ import LilypadIcon from "../assets/LilypadIcon.jsx";
 const Footer = () => {
 
     return (
-        <div className="relative bottom-0 bg-black border-t border-gray-500 h-80 justify-evenly items-center flex flex-row py-20 px-40 gap-x-32">
+        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-gray-500 h-80 justify-evenly items-center flex flex-row py-20 px-40 gap-x-32">
             <div className="h-full w-full flex flex-col justify-between">
                 <div className="flex h-full">
                     <LilypadIcon className={"w-20 h-20"}/>

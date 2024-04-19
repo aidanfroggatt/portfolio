@@ -5,10 +5,12 @@ const MacWindowCard = () => {
         <div className="window-container">
             <div className="window">
                 <div className="window-header">
-                    test
+                    <div className="dot red"></div>
+                    <div className="dot amber"></div>
+                    <div className="dot green"></div>
                 </div>
                 <div>
-                    name n stuff
+                name n stuff
                 </div>
             </div>
         </div>

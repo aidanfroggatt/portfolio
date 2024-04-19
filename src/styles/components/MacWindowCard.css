@@ -24,11 +24,38 @@
 
 .window-header {
     display: flex;
+    align-items: center;
     position: absolute;
     top: 0;
     width: 100%;
     height: 6vh;
+    padding-left: 1.25vw;
+    gap: 0.25vw;
     background: linear-gradient(to right, #1E1E1E, #848484, #1E1E1E);
     border-top-left-radius: 1.25vmax;
     border-top-right-radius: 1.25vmax;
+}
+
+.dot {
+    display: inline-block;
+    width: 0.75vmax;
+    height: 0.75vmax;
+    background: #f9f9f9;
+    border-radius: 50%;
+    margin: 0 4px 0 0;
+
+    &.red {
+        background: #FF6057;
+        border: 1px solid #E14640;
+    }
+
+    &.amber {
+        background: #FFBD2E;
+        border: 1px solid #DFA123;
+    }
+
+    &.green {
+        background: #27C93F;
+        border: 1px solid #1DAD2B;
+    }
 }

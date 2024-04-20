@@ -23,8 +23,8 @@
     background-color: rgba(242, 242, 242, 0.04);
 } .card:hover {
     /*background-color: #75BED1;*/
-    background-image: radial-gradient(1000px at 50%, blue, red);
-    transition: background-color 0.5s ease;
+    background-image: radial-gradient(circle farthest-side at 50% 0, rgba(0, 99, 155, .5), rgba(0, 0, 0, 0));    transition: background-color 0.5s ease;
+
     cursor: pointer;
 }
 

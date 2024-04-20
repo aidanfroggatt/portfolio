@@ -10,53 +10,48 @@ import { firestore } from "../config/firebase.config.js";
  */
 
 export const getDataFromFirestore = async ({ collectionName, documentId, fields = [] }) => {
-    try {
-        // Initialize an object to store the JSON data
-        const data = {};
+    // Initialize an object to store the JSON data
+    const data = {};
 
-        if (documentId) {
-            // If documentId is provided, fetch only that specific document
-            const docRef = doc(firestore, collectionName, documentId);
-            const docSnapshot = await getDoc(docRef);
+    if (documentId) {
+        // If documentId is provided, fetch only that specific document
+        const docRef = doc(firestore, collectionName, documentId);
+        const docSnapshot = await getDoc(docRef);
 
-            // Check if the document exists
-            if (docSnapshot.exists()) {
-                // Include only the specified fields or all fields if no fields are provided
-                if (fields.length === 0) {
-                    data[documentId] = docSnapshot.data();
-                } else {
-                    const filteredData = {};
-                    fields.forEach(field => {
-                        if (docSnapshot.data().hasOwnProperty(field)) {
-                            filteredData[field] = docSnapshot.data()[field];
-                        }
-                    });
-                    data[documentId] = filteredData;
-                }
+        // Check if the document exists
+        if (docSnapshot.exists()) {
+            // Include only the specified fields or all fields if no fields are provided
+            if (fields.length === 0) {
+                data[documentId] = docSnapshot.data();
+            } else {
+                const filteredData = {};
+                fields.forEach(field => {
+                    if (docSnapshot.data().hasOwnProperty(field)) {
+                        filteredData[field] = docSnapshot.data()[field];
+                    }
+                });
+                data[documentId] = filteredData;
             }
-        } else {
-            // If documentId is not provided, fetch all documents in the collection
-            const querySnapshot = await getDocs(collection(firestore, collectionName));
-
-            // Loop through each document in the snapshot
-            querySnapshot.forEach(doc => {
-                const docId = doc.id;
-                if (fields.length === 0) {
-                    data[docId] = doc.data();
-                } else {
-                    const filteredData = {};
-                    fields.forEach(field => {
-                        if (doc.data().hasOwnProperty(field)) {
-                            filteredData[field] = doc.data()[field];
-                        }
-                    });
-                    data[docId] = filteredData;
-                }
-            });
         }
-        return data;
-    } catch (error) {
-        console.log("Error fetching data from Firestore: ", error);
-        throw error;
+    } else {
+        // If documentId is not provided, fetch all documents in the collection
+        const querySnapshot = await getDocs(collection(firestore, collectionName));
+
+        // Loop through each document in the snapshot
+        querySnapshot.forEach(doc => {
+            const docId = doc.id;
+            if (fields.length === 0) {
+                data[docId] = doc.data();
+            } else {
+                const filteredData = {};
+                fields.forEach(field => {
+                    if (doc.data().hasOwnProperty(field)) {
+                        filteredData[field] = doc.data()[field];
+                    }
+                });
+                data[docId] = filteredData;
+            }
+        });
     }
+    return data;
 };

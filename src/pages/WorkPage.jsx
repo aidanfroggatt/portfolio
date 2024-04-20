@@ -1,12 +1,12 @@
 import MacWindowCard from "../components/MacWindowCard.jsx";
-import ProjectCard from "../components/ProjectCard.jsx";
+import Card from "../components/Card.jsx";
 
 const WorkPage = () => {
 
     return (
-        <div className="min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+        <div className="min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light" style={{paddingTop: '25vh', gap: '7.5vh'}}>
             <MacWindowCard/>
-            <ProjectCard/>
+            <Card/>
         </div>
     )
 }

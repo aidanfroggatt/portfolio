@@ -5,7 +5,6 @@
     justify-items: center;
     border: rgb(255, 255, 255, 0.1) 1px solid;
     padding: 0.75vmax;
-    margin-top: 25vh;
     border-radius: 2vmax;
     width: 70vw;
     height: 95vh;
@@ -20,9 +19,52 @@
     width: 100%;
     height: 100%;
     border-radius: 1.25vmax;
-}
-
-.card:hover {
+    background-color: rgba(242, 242, 242, 0.04);
+} .card:hover {
     background-color: #75BED1;
     transition: background-color 0.5s ease;
+    cursor: pointer;
 }
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    border-bottom-left-radius: 1.25vmax;
+    border-bottom-right-radius: 1.25vmax;
+    margin: 2.5vmax;
+    gap: 1vh;
+}
+
+.card-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2.5vmax;
+    font-size: 2vmax;
+    transition: transform 0.5s ease;
+} .card:hover .card-arrow {
+    transform: translateX(10px);
+}
+
+.card-title {
+    font-size: 2vmax;
+    font-weight: 700;
+}
+
+.card-subtitle {
+    color: rgba(242, 242, 242, 100);
+    font-size: 1.15vmax;
+}
+
+.card-subtitle-alt {
+    color: rgba(242, 242, 242, 0.5);
+    font-size: 1.15vmax;
+
+}
+
+.image-container {
+
+}
+

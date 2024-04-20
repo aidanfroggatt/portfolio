@@ -31,7 +31,7 @@ const Footer = () => {
                     <LilypadIcon className={"w-20 h-20"}/>
                 </div>
                 <div className="flex flex-col h-full w-full justify-end items-start">
-                    <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>
+                    {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
                     <div className="text-sm text-custom-light text-opacity-50">Thanks for visiting</div>
                 </div>
             </div>

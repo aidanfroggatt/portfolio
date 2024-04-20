@@ -12,13 +12,14 @@ const Header = () => {
         navigate(destination);
     }
 
+    if (!generalInfo) {return null}
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-12 text-custom-light z-50">
             <div className="flex flex-row gap-x-2 items-center fixed left-8">
                 <LilypadIcon className={"w-8 h-8"}/>
                 <div className="flex flex-col">
-                    <div className="font-semibold text-md">Aidan Froggatt</div>
-                    <div className="text-xs text-custom-light text-opacity-50">Frontend Developer</div>
+                    {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
+                    {generalInfo.currentJob && <div className="text-xs text-custom-light text-opacity-50">{generalInfo.currentJob}</div>}
                 </div>
             </div>
             <div
@@ -41,11 +42,8 @@ const Header = () => {
                 </div>
             </div>
             <div className="flex font-medium fixed right-8">
-                <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
-                   href="https://www.linkedin.com/in/aidanfroggatt/" target="_blank"
-                   rel="noopener noreferrer">LinkedIn</a>
-                <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href=""
-                   target="_blank" rel="noopener noreferrer">Resume</a>
+                {generalInfo.linkedIn && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href={generalInfo.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
+                {generalInfo.resume && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href="" target="_blank" rel="noopener noreferrer">Resume</a>}
             </div>
         </div>
 

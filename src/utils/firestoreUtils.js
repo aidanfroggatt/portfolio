@@ -2,8 +2,6 @@ import { getDoc, getDocs, collection, doc } from "firebase/firestore";
 import { firestore } from "../config/firebase.config.js";
 
 /**
- * Name: getDataFromFirestore.
- * Function: Retrieve data from Firestore.
  * @param {Object} options - Options object.
  * @param {string} options.collectionName - Name of the collection to fetch data from.
  * @param {string} [options.documentId] - ID of the specific document to fetch.

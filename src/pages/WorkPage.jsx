@@ -8,13 +8,12 @@ import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)
+    const [projects, setProjects] = useState();
 
     const navigate = useNavigate()
     const handleProjectClick = ({projectID}) => {
         navigate(`/project/${projectID}`);
     }
-
-    const [projects, setProjects] = useState();
 
     const getData = async ({collection, setData, fields, documentId}) => {
         try {
@@ -29,18 +28,15 @@ const WorkPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light" style={{paddingTop: '25vh', paddingBottom: '25vh', gap: '7.5vh'}}>
-            <MacWindowCard>
-                { generalInfo ? Object.keys(generalInfo).map((key) => (
-                    <div key={key}>
-                        <div className="name-container">Hi, I'm&nbsp;<span className="name">{generalInfo[key].firstName}.</span></div>
-                        <div className="additional-info-container">
-                            <text className="job">{generalInfo[key].currentJob} at {generalInfo[key].currentCompany}.</text>
-                            <text className="location">Based in {generalInfo[key].location}.</text>
-                        </div>
+            { generalInfo &&
+                <MacWindowCard>
+                    <div className="name-container">Hi, I'm&nbsp;<span className="name">{generalInfo.firstName}.</span></div>
+                    <div className="additional-info-container">
+                        <text className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</text>
+                        <text className="location">Based in {generalInfo.location}.</text>
                     </div>
-                    )) : <div>Loading...</div>
-                }
-            </MacWindowCard>
+                </MacWindowCard>
+            }
             { projects ? Object.keys(projects).map((key) => (
                 <ProjectCard
                     key={key}

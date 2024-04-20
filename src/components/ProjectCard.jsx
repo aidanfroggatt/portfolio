@@ -24,7 +24,7 @@ ProjectCard.propTypes = {
     title: PropTypes.string.isRequired,
     association: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    image: PropTypes.string | Blob | File,
+    // image: PropTypes.string,
     imageAlt: PropTypes.string,
     arrow: PropTypes.bool,
     handleClick: PropTypes.func

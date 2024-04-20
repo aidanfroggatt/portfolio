@@ -45,7 +45,7 @@
     font-size: 2vmax;
     transition: transform 0.5s ease;
 } .card:hover .card-arrow {
-    transform: translateX(10px);
+    transform: translateX(0.5vw);
 }
 
 .card-title {

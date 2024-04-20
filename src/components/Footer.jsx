@@ -51,7 +51,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex flex-col h-full w-full items-end justify-end">
-                    { (lastCommit.author && lastCommit.time) &&
+                    {lastCommit &&
                         <div className="text-sm text-custom-light text-opacity-50">
                             Last updated by {getFirstWord(lastCommit.author)}, {convertDateFormat(lastCommit.time)}
                         </div>

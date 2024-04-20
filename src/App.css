@@ -3,4 +3,6 @@
 
 :root {
     font-family: 'Montserrat', sans-serif;
+    --background: #101010;
+    --primary: #f2f2f2;
 }

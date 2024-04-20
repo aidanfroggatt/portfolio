@@ -3,6 +3,7 @@ import '../styles/components/MacWindowCard.css';
 const MacWindowCard = ({children}) => {
     return (
         <div className="window-container">
+            <div className="window-overlay"></div>
             <div className="window">
                 <div className="window-header">
                     <div className="dot red"></div>

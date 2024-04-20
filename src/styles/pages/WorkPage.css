@@ -4,6 +4,7 @@
     padding-top: 25vh;
     padding-bottom: 25vh;
     gap: 7.5vh;
+    position: relative;
 }
 
 .name-container {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
-const ProjectCard = ({ title, association, description, image, imageAlt, arrow=true }) => {
+const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true }) => {
     return (
         <div className="card-container">
             <div className="card">
@@ -21,9 +21,9 @@ const ProjectCard = ({ title, association, description, image, imageAlt, arrow=t
 }
 
 ProjectCard.propTypes = {
-    title: PropTypes.string,
-    association: PropTypes.string,
-    description: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    association: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     image: PropTypes.string | Blob | File,
     imageAlt: PropTypes.string,
     arrow: PropTypes.bool

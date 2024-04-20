@@ -50,17 +50,17 @@
     transform: translateX(0.5vw);
 }
 
-.card-title {
+.title {
     font-size: 2vmax;
     font-weight: 700;
 }
 
-.card-subtitle {
+.association {
     color: rgba(242, 242, 242, 100);
     font-size: 1.15vmax;
 }
 
-.card-subtitle-alt {
+.description {
     color: rgba(242, 242, 242, 0.5);
     font-size: 1.15vmax;
 

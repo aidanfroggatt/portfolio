@@ -1,6 +1,6 @@
 import '../styles/components/MacWindowCard.css';
 
-const MacWindowCard = () => {
+const MacWindowCard = ({children}) => {
     return (
         <div className="window-container">
             <div className="window">
@@ -9,11 +9,7 @@ const MacWindowCard = () => {
                     <div className="dot amber"></div>
                     <div className="dot green"></div>
                 </div>
-                <div className="name-container">Hi, I'm&nbsp;<span className="name">Aidan.</span></div>
-                <div className="additional-info-container">
-                    <text className="job">Frontend Developer at IBM.</text>
-                    <text className="location">Based in Toronto.</text>
-                </div>
+                {children}
             </div>
         </div>
     )

@@ -1,0 +1,36 @@
+
+.name-container {
+    display: inline-block;
+    position: absolute;
+    left: 15%;
+    top: 33%;
+    font-size: 6vmax;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: -2px;
+    line-height: 90%;
+}
+
+.name {
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+}
+
+.additional-info-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 15%;
+    bottom: 33%;
+    color: #f2f2f2;
+    font-size: 1.5vmax;
+}
+
+.job {
+    font-weight: 600;
+}
+
+.location {
+    font-weight: 400;
+    color: rgba(242, 242, 242, 0.5);
+}

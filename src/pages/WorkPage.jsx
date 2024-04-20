@@ -32,8 +32,8 @@ const WorkPage = () => {
                 <MacWindowCard>
                     <div className="name-container">Hi, I'm&nbsp;<span className="name">{generalInfo.firstName}.</span></div>
                     <div className="additional-info-container">
-                        <text className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</text>
-                        <text className="location">Based in {generalInfo.location}.</text>
+                        <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
+                        <div className="location">Based in {generalInfo.location}.</div>
                     </div>
                 </MacWindowCard>
             }

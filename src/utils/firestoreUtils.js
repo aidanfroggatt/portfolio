@@ -11,10 +11,6 @@ import { firestore } from "../config/firebase.config.js";
 
 export const getDataFromFirestore = async ({ collectionName, documentId, fields = [] }) => {
     try {
-        // Check if the collectionName is provided
-        if (!collectionName || collectionName === "") {
-            throw new Error("Collection name is required");
-        }
         // Initialize an object to store the JSON data
         const data = {};
 
@@ -37,8 +33,6 @@ export const getDataFromFirestore = async ({ collectionName, documentId, fields 
                     });
                     data[documentId] = filteredData;
                 }
-            } else {
-                throw new Error("Document does not exist");
             }
         } else {
             // If documentId is not provided, fetch all documents in the collection
@@ -60,11 +54,9 @@ export const getDataFromFirestore = async ({ collectionName, documentId, fields 
                 }
             });
         }
-
-        // Return the object containing the data
         return data;
     } catch (error) {
-        console.error('Error in getDataFromFirestore:', error);
-        throw error; // Rethrow the error to maintain consistency in error handling
+        console.log("Error fetching data from Firestore: ", error);
+        throw error;
     }
 };

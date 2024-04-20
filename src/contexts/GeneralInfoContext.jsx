@@ -16,17 +16,8 @@ const GeneralInfoProvider = ({ children }) => {
         };
     };
 
-    const getData = async ({ collection, setData, fields=[], documentId }) => {
-        try {
-            const response = await getDataFromFirestore({ collectionName: collection, fields, documentId: documentId });
-            setData(transformData(response));
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
-
     useEffect(() => {
-        getData({ collection: 'general-info', setData: setGeneralInfo, documentId }).then(() => console.log('General info fetched'));
+        getDataFromFirestore({collectionName: 'general-info', documentId: documentId}).then(data => setGeneralInfo(transformData(data)));
     }, []);
 
     return (

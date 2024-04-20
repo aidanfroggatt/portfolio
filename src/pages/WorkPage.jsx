@@ -15,15 +15,8 @@ const WorkPage = () => {
         navigate(`/project/${projectID}`);
     }
 
-    const getData = async ({collection, setData, fields=[], documentId}) => {
-        try {
-            const response = await getDataFromFirestore({collectionName: collection, fields: fields, documentId: documentId});
-            setData(response);
-        } catch (error) {console.error('Error fetching data:', error)}
-    }
-
     useEffect(() => {
-        getData({collection: 'projects', setData: setProjects}).then(r => console.log("Fetched projects"));
+        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'imageAlt']}).then(data => setProjects(data));
     }, []);
 
     return (

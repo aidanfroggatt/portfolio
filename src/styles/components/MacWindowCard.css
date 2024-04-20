@@ -13,12 +13,12 @@
 
 .window {
     display: flex;
+    position: relative;
     justify-content: center;
     justify-items: center;
     border: rgb(255, 255, 255, 0.5) 1px solid;
     width: 100%;
     height: 100%;
-    position: relative;
     border-radius: 1.25vmax;
 }
 
@@ -31,7 +31,7 @@
     height: 6vh;
     padding-left: 1.25vw;
     gap: 0.5vw;
-    background: linear-gradient(to right, #1E1E1E, #848484, #1E1E1E);
+    background-image: linear-gradient(to right, rgba(242, 242, 242, .1), rgba(242, 242, 242, .5) 50%, rgba(242, 242, 242, .1));
     border-top-left-radius: 1.25vmax;
     border-top-right-radius: 1.25vmax;
 }
@@ -70,10 +70,11 @@
     overflow: auto;
 }
 
+
 .name-container {
     display: inline-block;
     position: absolute;
-    left: 10%;
+    left: 15%;
     top: 33%;
     font-size: 6vmax;
     font-weight: bold;
@@ -91,7 +92,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 10%;
+    right: 15%;
     bottom: 33%;
     color: #f2f2f2;
     font-size: 1.5vmax;

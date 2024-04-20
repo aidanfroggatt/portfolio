@@ -2,18 +2,19 @@ import '../styles/pages/WorkPage.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import {useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
+import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 
 const WorkPage = () => {
+    const generalInfo = useContext(GeneralInfoContext)
+
     const navigate = useNavigate()
-    const userId = 'b8L4VSxJtJd8gcNUqOfJ'
     const handleProjectClick = ({projectID}) => {
         navigate(`/project/${projectID}`);
     }
 
     const [projects, setProjects] = useState();
-    const [generalInfo, setGeneralInfo] = useState();
 
     const getData = async ({collection, setData, fields, documentId}) => {
         try {
@@ -23,11 +24,8 @@ const WorkPage = () => {
     }
 
     useEffect(() => {
-        getData({collection: 'general-info', setData: setGeneralInfo, fields: ['firstName', 'currentCompany', 'currentJob', 'location'], documentId: userId}).then(r => console.log("Fetched general info"));
         getData({collection: 'projects', setData: setProjects}).then(r => console.log("Fetched projects"));
     }, []);
-
-    console.log(generalInfo)
 
     return (
         <div className="min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light" style={{paddingTop: '25vh', paddingBottom: '25vh', gap: '7.5vh'}}>
@@ -49,6 +47,8 @@ const WorkPage = () => {
                     title={projects[key].title}
                     association={projects[key].association}
                     description={projects[key].description}
+                    image={projects[key].image}
+                    imageAlt={projects[key].imageAlt}
                     handleClick={() => handleProjectClick({projectID: key})}
                 />
                 )) : <div>Loading...</div>

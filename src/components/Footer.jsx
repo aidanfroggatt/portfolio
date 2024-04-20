@@ -44,6 +44,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col justify-center items-center gap-y-4">
                         <div className="text-xs text-custom-light text-opacity-50">CONTACT</div>
+                        {generalInfo.github && <a className="text-sm" href={generalInfo.github} target="_blank" rel="noopener noreferrer">Github</a>}
                         {generalInfo.linkedIn && <a className="text-sm" href={generalInfo.linkedIn} target="_blank"
                             rel="noopener noreferrer">LinkedIn</a>}
                         {generalInfo.resume && <a className="text-sm" href="" target="_blank" rel="noopener noreferrer">Resume</a>}

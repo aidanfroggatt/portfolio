@@ -1,6 +1,5 @@
-// githubUtils.js
 
-export async function getLastUpdateTime() {
+export const getLastCommitInfo = async () => {
     const username = import.meta.env.VITE_GITHUB_USERNAME;
     const repository = import.meta.env.VITE_GITHUB_REPOSITORY;
     const token = import.meta.env.VITE_GITHUB_TOKEN;
@@ -14,14 +13,25 @@ export async function getLastUpdateTime() {
             }
         );
         const data = await response.json();
+        console.log('data:', data);
         if (data.length > 0) {
             const lastCommitDate = new Date(data[0].commit.author.date);
-            return lastCommitDate.toLocaleString();
+            const lastCommitAuthor = data[0].commit.author.name;
+            return {
+                time: lastCommitDate.toLocaleString(),
+                author: lastCommitAuthor
+            };
         } else {
-            return 'No commits found';
+            return {
+                time: 'No commits found',
+                author: 'No commits found'
+            };
         }
     } catch (error) {
         console.error('Error fetching last commit:', error);
-        return 'Error fetching last commit';
+        return {
+            time: 'Error fetching last commit',
+            author: 'Error fetching last commit'
+        };
     }
 }

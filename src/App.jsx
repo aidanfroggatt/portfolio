@@ -27,7 +27,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<WorkPage/>} />
                     <Route path="/info" element={<InfoPage/>} />
-                    <Route path="/project/:projectId" element={<ProjectPage/>}/>
+                    <Route path="/:projectId" element={<ProjectPage/>}/>
                 </Routes>
                 <Footer/>
             </Router>

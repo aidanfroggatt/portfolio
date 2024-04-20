@@ -12,7 +12,7 @@ const WorkPage = () => {
 
     const navigate = useNavigate()
     const handleProjectClick = ({projectID}) => {
-        navigate(`/project/${projectID}`);
+        navigate(`/${projectID}`);
     }
 
     useEffect(() => {

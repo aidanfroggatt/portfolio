@@ -30,7 +30,7 @@ const WorkPage = () => {
                     </div>
                 </MacWindowCard>
             }
-            { projects ? Object.keys(projects).map((key) => (
+            { projects && Object.keys(projects).map((key) => (
                 <ProjectCard
                     key={key}
                     title={projects[key].title}
@@ -40,8 +40,7 @@ const WorkPage = () => {
                     imageAlt={projects[key].imageAlt}
                     handleClick={() => handleProjectClick({projectID: key})}
                 />
-                )) : <div>Loading...</div>
-            }
+            ))}
         </div>
     )
 }

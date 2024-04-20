@@ -13,7 +13,6 @@ export const getLastCommitInfo = async () => {
             }
         );
         const data = await response.json();
-        console.log('data:', data);
         if (data.length > 0) {
             const lastCommitDate = new Date(data[0].commit.author.date);
             const lastCommitAuthor = data[0].commit.author.name;

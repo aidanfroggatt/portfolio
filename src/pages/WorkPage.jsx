@@ -16,7 +16,7 @@ const WorkPage = () => {
     }
 
     useEffect(() => {
-        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'imageAlt']}).then(data => setProjects(data));
+        getDataFromFirestore({collectionName: 'projects'}).then(data => setProjects(data));
     }, []);
 
     return (
@@ -39,6 +39,7 @@ const WorkPage = () => {
                     image={projects[key].image}
                     imageAlt={projects[key].imageAlt}
                     handleClick={() => handleProjectClick({projectID: key})}
+                    color={projects[key].color}
                 />
             ))}
         </div>

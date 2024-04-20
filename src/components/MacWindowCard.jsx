@@ -9,12 +9,10 @@ const MacWindowCard = () => {
                     <div className="dot amber"></div>
                     <div className="dot green"></div>
                 </div>
-                <div className="window-content">
-                    <div className="name-container">Hi, I'm&nbsp;<span className="name">Aidan.</span></div>
-                    <div className="additional-info-container">
-                        <text className="job">Frontend Developer at IBM.</text>
-                        <text className="location">Based in Toronto.</text>
-                    </div>
+                <div className="name-container">Hi, I'm&nbsp;<span className="name">Aidan.</span></div>
+                <div className="additional-info-container">
+                    <text className="job">Frontend Developer at IBM.</text>
+                    <text className="location">Based in Toronto.</text>
                 </div>
             </div>
         </div>

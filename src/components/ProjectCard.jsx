@@ -1,11 +1,11 @@
-
+import '../styles/components/ProjectCard.css'
 
 const ProjectCard = () => {
-
-
     return (
-        <div>
-            <h1>Project Card</h1>
+        <div className="card-container">
+            <div className="card">
+
+            </div>
         </div>
     )
 }

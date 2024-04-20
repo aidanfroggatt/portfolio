@@ -16,11 +16,11 @@ const WorkPage = () => {
     }
 
     useEffect(() => {
-        getDataFromFirestore({collectionName: 'projects'}).then(data => setProjects(data));
+        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'imageAlt', 'color']}).then(data => setProjects(data));
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light" style={{paddingTop: '25vh', paddingBottom: '25vh', gap: '7.5vh'}}>
+        <div className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
             { generalInfo &&
                 <MacWindowCard>
                     <div className="name-container">Hi, I'm&nbsp;<span className="name">{generalInfo.firstName}.</span></div>

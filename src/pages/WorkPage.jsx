@@ -15,7 +15,7 @@ const WorkPage = () => {
         navigate(`/project/${projectID}`);
     }
 
-    const getData = async ({collection, setData, fields, documentId}) => {
+    const getData = async ({collection, setData, fields=[], documentId}) => {
         try {
             const response = await getDataFromFirestore({collectionName: collection, fields: fields, documentId: documentId});
             setData(response);

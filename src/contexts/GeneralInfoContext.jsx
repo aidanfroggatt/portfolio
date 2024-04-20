@@ -16,9 +16,9 @@ const GeneralInfoProvider = ({ children }) => {
         };
     };
 
-    const getData = async ({ collection, setData, documentId }) => {
+    const getData = async ({ collection, setData, fields=[], documentId }) => {
         try {
-            const response = await getDataFromFirestore({ collectionName: collection, documentId: documentId });
+            const response = await getDataFromFirestore({ collectionName: collection, fields, documentId: documentId });
             setData(transformData(response));
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -20,10 +20,10 @@ const ProjectPage = () => {
         getDataFromFirestore({collectionName: 'projects', documentId: projectId}).then(data => setProjectInfo(transformData(data)));
     }, []);
 
-    console.log(projectInfo);
+    if (!projectInfo) return null;
 
     return (
-        <div className="project-page min-h-screen bg-custom-dark flex justify-center items-center text-custom-light">
+        <div className="project-page min-h-screen bg-custom-dark flex justify-center items-center text-custom-light" style={{'--project-color': hexToRGBA(projectInfo.color, 0.5)}}>
             test: {projectId}
         </div>
     )

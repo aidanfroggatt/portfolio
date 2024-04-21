@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)
@@ -20,29 +22,35 @@ const WorkPage = () => {
     }, []);
 
     return (
-        <div className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
-            { generalInfo &&
-                <MacWindowCard>
-                    <div className="name-container">Hi, I'm&nbsp;<span className="name">{generalInfo.firstName}.</span></div>
-                    <div className="additional-info-container">
-                        <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
-                        <div className="location">Based in {generalInfo.location}.</div>
-                    </div>
-                </MacWindowCard>
-            }
-            { projects && Object.keys(projects).map((key) => (
-                <ProjectCard
-                    key={key}
-                    title={projects[key].title}
-                    association={projects[key].association}
-                    description={projects[key].description}
-                    image={projects[key].image}
-                    imageAlt={projects[key].imageAlt}
-                    handleClick={() => handleProjectClick({projectID: key})}
-                    color={projects[key].color}
-                />
-            ))}
-        </div>
+        <>
+            <Header/>
+            <div
+                className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                {generalInfo &&
+                    <MacWindowCard>
+                        <div className="name-container">Hi, I'm&nbsp;<span
+                            className="name">{generalInfo.firstName}.</span></div>
+                        <div className="additional-info-container">
+                            <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
+                            <div className="location">Based in {generalInfo.location}.</div>
+                        </div>
+                    </MacWindowCard>
+                }
+                {projects && Object.keys(projects).map((key) => (
+                    <ProjectCard
+                        key={key}
+                        title={projects[key].title}
+                        association={projects[key].association}
+                        description={projects[key].description}
+                        image={projects[key].image}
+                        imageAlt={projects[key].imageAlt}
+                        handleClick={() => handleProjectClick({projectID: key})}
+                        color={projects[key].color}
+                    />
+                ))}
+            </div>
+            <Footer/>
+        </>
     )
 }
 

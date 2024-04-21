@@ -22,14 +22,12 @@ function App() {
     return (
         <GeneralInfoProvider>
             <Router>
-                <Header/>
                 <ScrollToTop/>
                 <Routes>
                     <Route path="/" element={<WorkPage/>} />
                     <Route path="/info" element={<InfoPage/>} />
                     <Route path="/:projectId" element={<ProjectPage/>}/>
                 </Routes>
-                <Footer/>
             </Router>
         </GeneralInfoProvider>
     )

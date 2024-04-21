@@ -8,7 +8,6 @@ import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
-import {ScrollToTop} from "../utils/scrollUtils.js";
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)

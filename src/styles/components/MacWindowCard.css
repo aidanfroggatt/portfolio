@@ -13,6 +13,8 @@
     outline-offset: -1px;
     overflow: hidden;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .window-overlay {
@@ -35,9 +37,10 @@
     width: 100%;
     height: 100%;
     border-radius: 1.25vmax;
-    background-color: rgba(242, 242, 242, 0.04);
+    background-color: rgba(16, 16, 16, .7);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, .1), 0 0 12px rgba(0, 0, 0, .4);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .window-header {
@@ -52,6 +55,9 @@
     background-image: linear-gradient(to right, rgba(242, 242, 242, .1), rgba(242, 242, 242, .5) 50%, rgba(242, 242, 242, .1));
     border-top-left-radius: 1.25vmax;
     border-top-right-radius: 1.25vmax;
+    box-shadow: 0 10px 20px 4px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
 }
 
 .dot {

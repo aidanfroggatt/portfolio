@@ -7,6 +7,7 @@ import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import {hexToRGBA} from "../utils/colorUtils.js";
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)
@@ -45,7 +46,7 @@ const WorkPage = () => {
                         image={projects[key].image}
                         imageAlt={projects[key].imageAlt}
                         handleClick={() => handleProjectClick({projectID: key})}
-                        color={projects[key].color}
+                        color={hexToRGBA(projects[key].color, 0.5)}
                     />
                 ))}
             </div>

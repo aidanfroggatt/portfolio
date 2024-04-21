@@ -8,10 +8,9 @@ const GeneralInfoProvider = ({ children }) => {
     const [generalInfo, setGeneralInfo] = useState(null);
 
     const transformData = (data) => {
-        const userId = Object.keys(data)[0]; // Assuming there's only one key, which is the user ID
-        const userInfo = data[userId];
+        const userInfo = data[documentId];
         return {
-            userID: userId,
+            userID: documentId,
             ...userInfo
         };
     };

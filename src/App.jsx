@@ -28,6 +28,7 @@ function App() {
                     <Route path="/info" element={<InfoPage/>} />
                     <Route path="/:projectId" element={<ProjectPage/>}/>
                 </Routes>
+                <Footer/>
             </Router>
         </GeneralInfoProvider>
     )

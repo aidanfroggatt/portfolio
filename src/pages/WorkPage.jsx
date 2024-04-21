@@ -50,7 +50,6 @@ const WorkPage = () => {
                     />
                 ))}
             </div>
-            <Footer/>
         </>
     )
 }

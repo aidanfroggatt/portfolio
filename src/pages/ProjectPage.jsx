@@ -25,7 +25,7 @@ const ProjectPage = () => {
     const handleBack = () => {
         setIsBackClicked(true);
         setTimeout(() => {
-            navigate(-1)
+            navigate('/')
         }, 500); // Adjust timing to match transition duration
     };
 

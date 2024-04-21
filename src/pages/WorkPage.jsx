@@ -26,36 +26,34 @@ const WorkPage = () => {
         });
     }, []);
 
-    return (
+    return ( isLoading ? <Loading/> :
         <>
             <Header/>
-            { isLoading ? <Loading/>:
-                <div
-                    className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
-                    {generalInfo &&
-                        <MacWindowCard>
-                            <div className="name-container">Hi, I'm&nbsp;<span
-                                className="name">{generalInfo.firstName}.</span></div>
-                            <div className="additional-info-container">
-                                <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
-                                <div className="location">Based in {generalInfo.location}.</div>
-                            </div>
-                        </MacWindowCard>
-                    }
-                    {projects && Object.keys(projects).map((key) => (
-                        <ProjectCard
-                            key={key}
-                            title={projects[key].title}
-                            association={projects[key].association}
-                            description={projects[key].description}
-                            image={projects[key].image}
-                            imageAlt={projects[key].imageAlt}
-                            handleClick={() => handleProjectClick({projectID: key})}
-                            color={hexToRGBA(projects[key].color, 0.5)}
-                        />
-                    ))}
-                </div>
-            }
+            <div
+                className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                {generalInfo &&
+                    <MacWindowCard>
+                        <div className="name-container">Hi, I'm&nbsp;<span
+                            className="name">{generalInfo.firstName}.</span></div>
+                        <div className="additional-info-container">
+                            <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
+                            <div className="location">Based in {generalInfo.location}.</div>
+                        </div>
+                    </MacWindowCard>
+                }
+                {projects && Object.keys(projects).map((key) => (
+                    <ProjectCard
+                        key={key}
+                        title={projects[key].title}
+                        association={projects[key].association}
+                        description={projects[key].description}
+                        image={projects[key].image}
+                        imageAlt={projects[key].imageAlt}
+                        handleClick={() => handleProjectClick({projectID: key})}
+                        color={hexToRGBA(projects[key].color, 0.5)}
+                    />
+                ))}
+            </div>
         </>
     )
 }

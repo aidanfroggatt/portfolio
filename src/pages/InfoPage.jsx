@@ -1,6 +1,5 @@
 import '../styles/pages/InfoPage.css';
 import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
 
 const InfoPage = () => {
 

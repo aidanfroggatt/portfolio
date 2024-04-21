@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../styles/components/Tooltip.css';
 
 const Tooltip = ({ children, content, alt }) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import Tooltip from "./Tooltip";
 import {motion} from "framer-motion";
 import '../styles/components/ExperienceCard.css';
-import {FaArrowDown} from "react-icons/fa";
 
 const ExperienceCard = ({alt, index, date, company, role, bulletPoints, technologies}) => {
     const [showMore, setShowMore] = React.useState(false);

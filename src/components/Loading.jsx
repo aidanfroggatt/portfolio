@@ -1,11 +1,15 @@
 import '../styles/components/Loading.css';
+import {ScrollToTop} from "../utils/scrollUtils.js";
 
 const Loading = () => {
 
     return (
-        <div className="min-h-screen bg-custom-dark flex justify-center items-center">
-            <div className="loader"></div>
-        </div>
+        <>
+            <ScrollToTop/>
+            <div className="min-h-screen bg-custom-dark flex justify-center items-center">
+                <div className="loader"></div>
+            </div>
+        </>
     )
 }
 

@@ -1,5 +1,5 @@
-import { getDoc, getDocs, collection, doc } from "firebase/firestore";
-import { firestore } from "../config/firebase.config.js";
+import {collection, doc, getDoc, getDocs} from "firebase/firestore";
+import {firestore} from "../config/firebase.config.js";
 
 /**
  * @param {Object} options - Options object.

@@ -1,0 +1,25 @@
+
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(242, 242, 242, 0.2);
+    border: rgb(255, 255, 255, 0.2) 1px solid;
+    border-radius: 9999px;
+    font-weight: bold;
+    padding: 10px 20px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.button-arrow {
+    transition: transform 0.5s ease;
+} .button:hover .button-arrow {
+    &.right {
+        transform: translateX(3px);
+    }
+    &.left {
+        transform: translateX(-3px);
+    }
+}

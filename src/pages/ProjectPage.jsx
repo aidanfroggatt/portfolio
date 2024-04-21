@@ -37,7 +37,7 @@ const ProjectPage = () => {
 
     return (
         <div className='project-page min-h-screen bg-custom-dark flex justify-center items-center text-custom-light' style={{ '--project-color': hexToRGBA(projectInfo.color, 0.5) }}>
-            <div className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked ? 'slide-off' : 'slide-on'}`}>
+            <div className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
                 <Button title="Back" leftArrow={true} handleClick={handleBack} />
             </div>
             <div>{projectInfo.title}</div>

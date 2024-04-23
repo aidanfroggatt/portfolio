@@ -5,6 +5,7 @@ import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
+import MarkdownRenderer from "../components/MarkdownRenderer.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -46,6 +47,7 @@ const ProjectPage = () => {
                     <Button title="Back" leftArrow={true} handleClick={handleBack}/>
                 </div>
                 <div>{projectInfo.title}</div>
+                <MarkdownRenderer filepath={'src/assets/SAMPLE.md'}/>
             </div>
     )
 }

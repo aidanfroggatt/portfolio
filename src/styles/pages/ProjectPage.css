@@ -2,6 +2,13 @@
 .project-page {
     --project-color: rgba(242, 242, 242, 0.1);
     background-image: radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));
+    background-size: 100% 125vh;
+    background-repeat: no-repeat;
+    padding-top: 17.5vh;
+    padding-bottom: 25vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    position: relative;
 }
 
 .slide-off {
@@ -10,8 +17,21 @@
 }
 
 .project-page-title {
-    font-size: 4vmax;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: 4.5vmax;
     text-shadow: 0 5px 15px rgba(0, 87, 255, .2), 0 -5px 15px rgba(255, 90, 0, .15), 0 -5px 25px rgba(255, 255, 255, .25);
 }
+
+.project-page-subtitle {
+    font-size: 1.25vmax;
+}
+
+.project-page-overview-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    column-gap: 10vw;
+}
+
+

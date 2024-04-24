@@ -45,7 +45,46 @@ const ProjectPage = () => {
                     className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
                     <Button title="Back" leftArrow={true} handleClick={handleBack}/>
                 </div>
-                <div className="project-card-title">{projectInfo.title}</div>
+                <div className="project-page-title font-bold">{projectInfo.title}</div>
+                <div className="project-page-subtitle font-normal text-custom-light text-opacity-50">Burloak
+                    Technologies — August 2023
+                </div>
+                <div className="flex justify-center items-center min-h-screen">
+                    <img src={projectInfo.heroImage} alt="Project Hero" className=""/>
+                </div>
+
+                <div className="project-page-overview-container">
+                    <div className="flex flex-col justify-between items-start gap-y-8 w-1/2">
+                        <div className="">
+                            <h2 className="text-sm text-custom-light">My Role</h2>
+                            <p className="text-md text-custom-light text-opacity-50">Frontend Developer - Blah, blah,
+                                blah!</p>
+                        </div>
+                        <div className="">
+                            <h2 className="text-sm text-custom-light">Team</h2>
+                            <p className="text-md text-custom-light text-opacity-50">Aidan Froggatt</p>
+                            <p className="text-md text-custom-light text-opacity-50">John Doe</p>
+                        </div>
+                        <div className="">
+                            <h2 className="text-sm text-custom-light">Timeline & Status</h2>
+                            <p className="text-md text-custom-light text-opacity-50">Couple months n stuff</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-1/2">
+                        <h2 className="text-sm text-custom-light">Overview</h2>
+                        <p className="text-md text-custom-light text-opacity-50">Long description here...</p>
+                    </div>
+                </div>
+
+                <div className="">
+                    <h1>Technologies - make a card with icons for technologies</h1>
+                </div>
+
+                <div className="">
+                    <h1>Highlights - make a long card with images and brief descriptions of key features</h1>
+                </div>
+
+
             </div>
     )
 }

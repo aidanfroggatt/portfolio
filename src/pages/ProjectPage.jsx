@@ -47,7 +47,7 @@ const ProjectPage = () => {
                     <Button title="Back" leftArrow={true} handleClick={handleBack}/>
                 </div>
                 <div>{projectInfo.title}</div>
-                <MarkdownRenderer filepath={'src/assets/SAMPLE.md'}/>
+                <MarkdownRenderer filepath={`src/assets/${projectId}/${projectId}.md`}/>
             </div>
     )
 }

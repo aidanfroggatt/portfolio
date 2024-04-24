@@ -1,5 +1,5 @@
 
-.card-container {
+.project-card-container {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -12,8 +12,8 @@
     box-shadow: inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8);
 }
 
-.card {
-    --card-color: rgba(242, 242, 242, 0.1);
+.project-card {
+    --project-card-color: rgba(242, 242, 242, 0.1);
     display: flex;
     position: relative;
     justify-content: center;
@@ -25,14 +25,14 @@
     background-color: rgba(242, 242, 242, 0.04);
     transition: background-color 0.5s ease;
 
-} .card:hover {
-    background-color: var(--card-color);
+} .project-card:hover {
+    background-color: var(--project-card-color);
     /*background-image: radial-gradient(circle farthest-side at 50% 0, rgba(0, 99, 155, .5), rgba(0, 0, 0, 0));*/
     transition: background-color 0.5s ease;
     cursor: pointer;
 }
 
-.card-header {
+.project-card-header {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -43,34 +43,34 @@
     gap: 1vh;
 }
 
-.card-arrow {
+.project-card-arrow {
     position: absolute;
     top: 0;
     right: 0;
     margin: 2.5vmax;
     font-size: 2vmax;
     transition: transform 0.5s ease;
-} .card:hover .card-arrow {
+} .project-card:hover .card-arrow {
     transform: translateX(0.5vw);
 }
 
-.title {
+.project-card-title {
     font-size: 2vmax;
     font-weight: 700;
 }
 
-.association {
+.project-association {
     color: rgba(242, 242, 242, 100);
     font-size: 1.15vmax;
 }
 
-.description {
+.project-description {
     color: rgba(242, 242, 242, 0.5);
     font-size: 1.15vmax;
 
 }
 
-.image-container {
+.project-image-container {
 
 }
 

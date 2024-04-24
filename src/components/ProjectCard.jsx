@@ -5,13 +5,13 @@ import {faArrowRightLong} from '@fortawesome/free-solid-svg-icons';
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
-        <div className="card-container">
-            <div onClick={handleClick} className="card" style={{'--card-color': color}}>
-                <div className="card-header">
-                    <div className="title">{title}</div>
-                    <div className="association">{association}&nbsp;<span className="description">- {description}</span></div>
-                    {arrow && <FontAwesomeIcon className="card-arrow" icon={faArrowRightLong}/>}
-                    <div className="image-container">
+        <div className="project-card-container">
+            <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
+                <div className="project-card-header">
+                    <div className="project-card-title">{title}</div>
+                    <div className="project-card-association">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
+                    {arrow && <FontAwesomeIcon className="project-card-arrow" icon={faArrowRightLong}/>}
+                    <div className="project-card-image-container">
                         <img src={image} alt={imageAlt}/>
                     </div>
                 </div>

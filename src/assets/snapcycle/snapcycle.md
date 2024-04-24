@@ -1,5 +1,5 @@
 # SnapCycle
-
+![snapcycle](assets/snapcycle.png)
 ## My Role
 - Founder and Developer
 ## The Team

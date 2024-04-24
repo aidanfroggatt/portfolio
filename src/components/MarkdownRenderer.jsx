@@ -29,12 +29,12 @@ const MarkdownRenderer = ({ filepath }) => {
             </pre>
                     ),
                 blockquote: ({ node, ...props }) => <blockquote className="border-l-4 pl-4 italic border-gray-300 mb-4" {...props} />,
-                hr: ({ node, ...props }) => <hr className="my-6" {...props} />,
-                h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mb-4" {...props} />,
-                h2: ({ node, ...props }) => <h2 className="text-2xl font-semibold mb-4" {...props} />,
-                h3: ({ node, ...props }) => <h3 className="text-xl font-semibold mb-4" {...props} />,
-                h4: ({ node, ...props }) => <h4 className="text-lg font-medium mb-4" {...props} />,
-                h5: ({ node, ...props }) => <h5 className="text-base font-medium mb-4" {...props} />,
+                hr: ({ node, ...props }) => <hr className="" {...props} />,
+                h1: ({ node, ...props }) => <h1 className="text-9xl font-bold mb-4 text-center" {...props} />,
+                h2: ({ node, ...props }) => <h2 className="text-8xl font-semibold mb-4" {...props} />,
+                h3: ({ node, ...props }) => <h3 className="text-7xl font-semibold mb-4" {...props} />,
+                h4: ({ node, ...props }) => <h4 className="text-6xl font-medium mb-4" {...props} />,
+                h5: ({ node, ...props }) => <h5 className="text-5xl font-medium mb-4" {...props} />,
                 h6: ({ node, ...props }) => <h6 className="text-sm font-medium mb-4" {...props} />,
             }}
         >

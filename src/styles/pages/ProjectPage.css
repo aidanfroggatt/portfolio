@@ -6,9 +6,10 @@
     background-repeat: no-repeat;
     padding-top: 17.5vh;
     padding-bottom: 25vh;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
     position: relative;
+    row-gap: 20vh;
 }
 
 .slide-off {
@@ -24,14 +25,3 @@
 .project-page-subtitle {
     font-size: 1.25vmax;
 }
-
-.project-page-overview-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
-    width: 100%;
-    column-gap: 10vw;
-}
-
-

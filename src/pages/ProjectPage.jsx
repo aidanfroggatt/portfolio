@@ -5,6 +5,7 @@ import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
+import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -45,36 +46,48 @@ const ProjectPage = () => {
                     className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
                     <Button title="Back" leftArrow={true} handleClick={handleBack}/>
                 </div>
-                <div className="project-page-title font-bold">{projectInfo.title}</div>
-                <div className="project-page-subtitle font-normal text-custom-light text-opacity-50">Burloak
-                    Technologies — August 2023
-                </div>
-                <div className="flex justify-center items-center min-h-screen">
-                    <img src={projectInfo.heroImage} alt="Project Hero" className=""/>
+
+                <div className="">
+                    <div className="project-page-title font-bold">{projectInfo.title}</div>
+                    <div className="project-page-subtitle font-normal text-custom-light text-opacity-50">Burloak
+                        Technologies — August 2023
+                    </div>
+                    <div className="flex justify-center items-center min-h-screen">
+                        <img src={projectInfo.heroImage} alt="Project Hero" className=""/>
+                    </div>
                 </div>
 
-                <div className="project-page-overview-container">
-                    <div className="flex flex-col justify-between items-start gap-y-8 w-1/2">
-                        <div className="">
+                <div className="flex flex-row justify-between items-stretch w-full gap-x-16">
+                    <div className="flex flex-col justify-between items-start w-1/2 gap-y-8">
+                        <div>
                             <h2 className="text-sm text-custom-light">My Role</h2>
                             <p className="text-md text-custom-light text-opacity-50">Frontend Developer - Blah, blah,
                                 blah!</p>
                         </div>
-                        <div className="">
+                        <div>
                             <h2 className="text-sm text-custom-light">Team</h2>
                             <p className="text-md text-custom-light text-opacity-50">Aidan Froggatt</p>
                             <p className="text-md text-custom-light text-opacity-50">John Doe</p>
                         </div>
-                        <div className="">
+                        <div>
                             <h2 className="text-sm text-custom-light">Timeline & Status</h2>
                             <p className="text-md text-custom-light text-opacity-50">Couple months n stuff</p>
                         </div>
                     </div>
-                    <div className="flex flex-col w-1/2">
-                        <h2 className="text-sm text-custom-light">Overview</h2>
-                        <p className="text-md text-custom-light text-opacity-50">Long description here...</p>
+                    <div className="flex flex-col justify-between w-1/2 gap-y-8">
+                        <div className="flex flex-col h-full">
+                            <div className="text-sm text-custom-light">Overview</div>
+                            <div className="text-md text-custom-light text-opacity-50 flex-grow">Long description here...</div>
+                        </div>
+                        <div className="flex flex-row justify-start gap-x-8 items-center">
+                            <SiFirebase className="w-10 h-10"/>
+                            <SiVite className="w-10 h-10"/>
+                            <SiReact className="w-10 h-10"/>
+                            <SiTailwindcss className="w-10 h-10"/>
+                        </div>
                     </div>
                 </div>
+
 
                 <div className="">
                     <h1>Technologies - make a card with icons for technologies</h1>

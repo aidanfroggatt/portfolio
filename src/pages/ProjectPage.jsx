@@ -6,6 +6,7 @@ import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
 import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
+import Tooltip from "../components/Tooltip.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -80,10 +81,18 @@ const ProjectPage = () => {
                             <div className="text-md text-custom-light text-opacity-50 flex-grow">Long description here...</div>
                         </div>
                         <div className="flex flex-row justify-start gap-x-8 items-center">
-                            <SiFirebase className="w-10 h-10"/>
-                            <SiVite className="w-10 h-10"/>
-                            <SiReact className="w-10 h-10"/>
-                            <SiTailwindcss className="w-10 h-10"/>
+                            <Tooltip text="Firebase">
+                                <SiFirebase className="w-10 h-10"/>
+                            </Tooltip>
+                            <Tooltip text="Vite">
+                                <SiVite className="w-10 h-10"/>
+                            </Tooltip>
+                            <Tooltip text="React">
+                                <SiReact className="w-10 h-10"/>
+                            </Tooltip>
+                            <Tooltip text="Tailwind CSS">
+                                <SiTailwindcss className="w-10 h-10"/>
+                            </Tooltip>
                         </div>
                     </div>
                 </div>

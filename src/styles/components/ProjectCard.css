@@ -20,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 0.1vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--primary), rgba(255, 255, 255, 0));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--primary) 50%, rgba(255, 255, 255, 0)) 100%;
     border-radius: 2vmax;
     z-index: 2; /* Ensure the line is above the card content */
 }
@@ -48,7 +48,7 @@
     left: 0;
     width: 100%;
     height: 0.1vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--primary), rgba(255, 255, 255, 0)); /* Use your accent color here */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, var(--primary) 50%, rgba(255, 255, 255, 0) 75%);
     border-radius: 1.25vmax;
     z-index: 2; /* Ensure the line is above the card content */
 }

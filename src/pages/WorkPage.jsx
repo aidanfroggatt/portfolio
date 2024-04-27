@@ -20,11 +20,13 @@ const WorkPage = () => {
     }
 
     useEffect(() => {
-        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'imageAlt', 'color']}).then(data => {
+        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'color']}).then(data => {
             setProjects(data);
             setIsLoading(false);
         });
     }, []);
+
+    console.log(projects)
 
     return (
         <>
@@ -48,8 +50,8 @@ const WorkPage = () => {
                             title={projects[key].title}
                             association={projects[key].association}
                             description={projects[key].description}
-                            image={projects[key].image}
-                            imageAlt={projects[key].imageAlt}
+                            image={projects[key].image.src}
+                            imageAlt={projects[key].image.alt}
                             handleClick={() => handleProjectClick({projectID: key})}
                             color={hexToRGBA(projects[key].color, 0.5)}
                         />

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Tooltip = ({ text, children }) => {
+const Tooltip = ({ backgroundColor, text, children }) => {
     const [showTooltip, setShowTooltip] = useState(false);
 
     const handleMouseEnter = () => {
@@ -19,7 +19,8 @@ const Tooltip = ({ text, children }) => {
         >
             {children}
             {showTooltip && (
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 p-2 bg-gray-800 text-white text-xs rounded-md shadow-md">
+                <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 p-2 bg-gray-800 text-white text-xs rounded-md shadow-md"
+                    style={{backgroundColor: backgroundColor}}>
                     {text}
                 </div>
             )}

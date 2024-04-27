@@ -65,7 +65,7 @@ const ProjectPage = () => {
 
                 {(projectInfo.overview) &&
                     <div className="flex flex-row justify-between items-stretch w-full gap-x-16">
-                        <div className="flex flex-col justify-between items-start w-1/2 gap-y-8">
+                        <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
                             {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
                                 <div>
                                     <h2 className="text-sm text-custom-light">My Role</h2>
@@ -107,16 +107,16 @@ const ProjectPage = () => {
                                 </div>
                             }
                             <div className="flex flex-row justify-start gap-x-8 items-center">
-                                <Tooltip text="Firebase">
+                                <Tooltip text="Firebase" backgroundColor={projectInfo.color}>
                                     <SiFirebase className="w-10 h-10"/>
                                 </Tooltip>
-                                <Tooltip text="Vite">
+                                <Tooltip text="Vite" backgroundColor={projectInfo.color}>
                                     <SiVite className="w-10 h-10"/>
                                 </Tooltip>
-                                <Tooltip text="React">
+                                <Tooltip text="ReactJS" backgroundColor={projectInfo.color}>
                                     <SiReact className="w-10 h-10"/>
                                 </Tooltip>
-                                <Tooltip text="Tailwind CSS">
+                                <Tooltip text="TailwindCSS" backgroundColor={projectInfo.color}>
                                     <SiTailwindcss className="w-10 h-10"/>
                                 </Tooltip>
                             </div>

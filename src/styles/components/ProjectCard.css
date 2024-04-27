@@ -10,7 +10,21 @@
     height: 95vh;
     background-color: rgba(242, 242, 242, 0.04);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8);
+    position: relative; /* Add position relative */
 }
+
+.project-card-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--primary), rgba(255, 255, 255, 0));
+    border-radius: 2vmax;
+    z-index: 2; /* Ensure the line is above the card content */
+}
+
 
 .project-card {
     --project-card-color: rgba(242, 242, 242, 0.1);
@@ -25,7 +39,21 @@
     background-color: rgba(242, 242, 242, 0.04);
     transition: background-color 0.5s ease;
 
-} .project-card:hover {
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--primary), rgba(255, 255, 255, 0)); /* Use your accent color here */
+    border-radius: 1.25vmax;
+    z-index: 2; /* Ensure the line is above the card content */
+}
+
+.project-card:hover {
     background-color: var(--project-card-color);
     /*background-image: radial-gradient(circle farthest-side at 50% 0, rgba(0, 99, 155, .5), rgba(0, 0, 0, 0));*/
     transition: background-color 0.5s ease;

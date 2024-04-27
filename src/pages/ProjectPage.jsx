@@ -8,6 +8,7 @@ import Loading from "../components/Loading.jsx";
 import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
+import HighlightCard from "../components/HighlightCard.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -125,9 +126,9 @@ const ProjectPage = () => {
                 }
 
                 {(projectInfo.highlights) &&
-                    <div className="">
-                        <h1>Highlights - make a long card with images and brief descriptions of key features</h1>
-                    </div>
+                    <HighlightCard accentColor={projectInfo.color}>
+
+                    </HighlightCard>
                 }
             </div>
     )

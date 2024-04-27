@@ -1,5 +1,5 @@
-
-.highlight-card-container {
+.highlight-card {
+    --highlight-card-accent-color: rgba(242, 242, 242, 0.1);
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -7,27 +7,19 @@
     padding: 0.75vmax;
     border-radius: 2vmax;
     width: 70vw;
-    height: 95vh;
+    height: auto;
     background-color: rgba(242, 242, 242, 0.04);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8);
+    position: relative; /* Ensure pseudo-element is positioned relative to the card */
 }
 
-.highlight-card {
-    --project-card-color: rgba(242, 242, 242, 0.1);
-    display: flex;
-    position: relative;
-    justify-content: center;
-    justify-items: center;
-    border: rgb(255, 255, 255, 0.2) 1px solid;
+.highlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 1.25vmax;
-    background-color: rgba(242, 242, 242, 0.04);
-    transition: background-color 0.5s ease;
-
-} .highlight-card:hover {
-      background-color: var(--project-card-color);
-      /*background-image: radial-gradient(circle farthest-side at 50% 0, rgba(0, 99, 155, .5), rgba(0, 0, 0, 0));*/
-      transition: background-color 0.5s ease;
-      cursor: pointer;
-  }
+    height: 0.1vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--highlight-card-accent-color), rgba(255, 255, 255, 0)); /* Use your accent color here */
+    border-radius: 2vmax;
+}

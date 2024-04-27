@@ -17,6 +17,18 @@
     -webkit-backdrop-filter: none;
 }
 
+.window-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--primary) 50%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 1.25vmax;
+    z-index: 2; /* Ensure the line is above the card content */
+}
+
 .window-overlay {
     z-index: 5;
     background-image: linear-gradient(to bottom, rgba(16, 16, 16, 0), var(--background) 60%);
@@ -41,6 +53,18 @@
     box-shadow: inset 0 0 10px rgba(0, 0, 0, .1), 0 0 12px rgba(0, 0, 0, .4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+}
+
+.window::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, var(--primary) 50%, rgba(255, 255, 255, 0) 75%);
+    border-radius: 1.25vmax;
+    z-index: 2; /* Ensure the line is above the card content */
 }
 
 .window-header {

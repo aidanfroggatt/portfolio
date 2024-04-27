@@ -24,7 +24,7 @@ const Header = () => {
                 </div>
             </div>
             <div
-                className="flex justify-center items-center font-medium bg-custom-light w-44 h-12 rounded-full bg-opacity-10 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20">
+                className="flex justify-center items-center font-medium bg-custom-light w-44 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20">
                 <div
                     className={`${'/' === location.pathname && 'bg-custom-light bg-opacity-10'} flex justify-center items-center w-20 h-9 rounded-full hover:cursor-pointer`}
                     onClick={() => handleNavigate('/')}

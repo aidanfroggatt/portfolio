@@ -9,7 +9,7 @@ import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
-import {FaLeaf, FaSeedling} from "react-icons/fa";
+import {FaSeedling} from "react-icons/fa";
 
 const ProjectPage = () => {
     const {projectId} = useParams();

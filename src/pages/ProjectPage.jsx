@@ -9,6 +9,7 @@ import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
+import {FaLeaf, FaSeedling} from "react-icons/fa";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -43,7 +44,7 @@ const ProjectPage = () => {
 
 
     return (
-        isLoading ? <Loading/> :
+        (isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
             <div
                 className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
@@ -89,12 +90,12 @@ const ProjectPage = () => {
                             {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
                                 <div>
                                     <h2 className="text-sm text-custom-light">Timeline & Status</h2>
-                                    <p className="text-md text-custom-light text-opacity-50">
+                                    <div className="text-md text-custom-light text-opacity-50">
                                         <p className="text-md text-custom-light text-opacity-50">
                                             {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
                                             <span className="text-md text-custom-light">{projectInfo.overview.status}</span>
                                         </p>
-                                    </p>
+                                    </div>
                                 </div>
                             }
                         </div>
@@ -127,7 +128,19 @@ const ProjectPage = () => {
 
                 {(projectInfo.highlights) &&
                     <HighlightCard accentColor={projectInfo.color}>
-
+                        <div className="flex flex-col justify-between items-center gap-y-4">
+                            <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
+                            <p className="text-sm text-center text-custom-light text-opacity-50">
+                                Highlights
+                            </p>
+                        </div>
+                        {
+                            projectInfo.highlights.map((highlight, index) => (
+                                <div key={index} className="flex flex-col justify-start items-start gap-y-4">
+                                    <h2 className="text-sm text-custom-light">{highlight.title}</h2>
+                                </div>
+                            ))
+                        }
                     </HighlightCard>
                 }
             </div>

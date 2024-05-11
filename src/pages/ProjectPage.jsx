@@ -1,6 +1,8 @@
 import '../styles/pages/ProjectPage.css';
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {storage} from "../config/firebase.config.js";
+import {getDownloadURL, ref} from "firebase/storage";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
@@ -21,6 +23,7 @@ const ProjectPage = () => {
 
     const transformData = (data) => {
         const userInfo = data[projectId];
+        console.log('User Info:', userInfo)
         return {
             userID: projectId,
             ...userInfo
@@ -38,9 +41,15 @@ const ProjectPage = () => {
         getDataFromFirestore({collectionName: 'projects', documentId: projectId}).then(data => {
             setProjectInfo(transformData(data));
             setIsLoading(false);
+            console.log('Project Info:', projectInfo)
         });
     }, []);
 
+    getDownloadURL(ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/burloak-insight/burloak_insight_hero.png")).then((url) => {
+        setProjectInfo({...projectInfo, image: {src: url, alt: projectInfo.image.alt}});
+    }).catch((error) => {
+        console.error(error);
+    });
 
 
     return (

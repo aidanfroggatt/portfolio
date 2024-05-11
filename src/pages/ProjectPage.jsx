@@ -12,6 +12,8 @@ import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
+import videoPlayer from "../components/VideoPlayer.jsx";
+import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -45,12 +47,14 @@ const ProjectPage = () => {
         });
     }, []);
 
-    getDownloadURL(ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/burloak-insight/burloak_insight_hero.png")).then((url) => {
-        setProjectInfo({...projectInfo, image: {src: url, alt: projectInfo.image.alt}});
-    }).catch((error) => {
-        console.error(error);
-    });
-
+    // const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/burloak-insight/burloak_insight_hero.png");
+    // const [videoURL, setVideoURL] = useState('');
+    // getDownloadURL(storageRef).then((url) => {
+    //     setVideoURL(url)
+    //     console.log('Video URL:', videoURL)
+    // }).catch((error) => {
+    //     console.error('Error fetching image:', error);
+    // });
 
     return (
         (isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
@@ -62,24 +66,22 @@ const ProjectPage = () => {
                     <Button title="Back" leftArrow={true} handleClick={handleBack}/>
                 </div>
 
-                <div className="">
-                    <div className="project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
-                    <div className="project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
+                <div className="flex flex-col justify-start items-center min-h-screen relative">
+                    <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
+                    <div className="flex justify-center items-center project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
                         {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
                     </div>
                     { projectInfo.image &&
-                        <div className="flex justify-center items-center min-h-screen">
-                            <img src={projectInfo.image.src} alt={projectInfo.image.alt} className=""/>
-                        </div>
+                        <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="project-page-hero-image"/>
                     }
                 </div>
 
                 {(projectInfo.overview) &&
-                    <div className="flex flex-row justify-between items-stretch w-full gap-x-16">
+                    <div className="flex flex-row justify-center items-center min-h-screen w-full gap-x-16">
                         <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
                             {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
                                 <div>
-                                    <h2 className="text-sm text-custom-light">My Role</h2>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
                                     <p className="text-md text-custom-light text-opacity-50">
                                         <span
                                             className="text-md text-custom-light">{projectInfo.overview.role.title}&nbsp;</span>
@@ -89,7 +91,7 @@ const ProjectPage = () => {
                             }
                             {(projectInfo.overview.team) &&
                                 <div>
-                                    <h2 className="text-sm text-custom-light">Team</h2>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
                                     {projectInfo.overview.team.map((member, index) => (
                                         <p key={index}
                                            className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
@@ -98,7 +100,7 @@ const ProjectPage = () => {
                             }
                             {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
                                 <div>
-                                    <h2 className="text-sm text-custom-light">Timeline & Status</h2>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
                                     <div className="text-md text-custom-light text-opacity-50">
                                         <p className="text-md text-custom-light text-opacity-50">
                                             {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
@@ -111,7 +113,7 @@ const ProjectPage = () => {
                         <div className="flex flex-col justify-between w-1/2 gap-y-8">
                             {(projectInfo.overview.overview) &&
                                 <div className="flex flex-col h-full">
-                                    <div className="text-sm text-custom-light">Overview</div>
+                                    <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
                                     <div className="text-md text-custom-light text-opacity-50 flex-grow">
                                         {projectInfo.overview.overview}
                                     </div>
@@ -139,17 +141,16 @@ const ProjectPage = () => {
                     <HighlightCard accentColor={projectInfo.color}>
                         <div className="flex flex-col justify-between items-center gap-y-4">
                             <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
-                            <p className="text-sm text-center text-custom-light text-opacity-50">
-                                Highlights
+                            <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
+                                HIGHLIGHTS
                             </p>
+                            <h1 className="text-center font-bold text-custom-light text-xl">
+                                {projectInfo.highlightsDescription}
+                            </h1>
                         </div>
-                        {
-                            projectInfo.highlights.map((highlight, index) => (
-                                <div key={index} className="flex flex-col justify-start items-start gap-y-4">
-                                    <h2 className="text-sm text-custom-light">{highlight.title}</h2>
-                                </div>
-                            ))
-                        }
+                        { projectInfo.highlights.map((highlight, index) => (
+                            <VideoPlayer src={highlight.asset.src}/>
+                        ))}
                     </HighlightCard>
                 }
             </div>

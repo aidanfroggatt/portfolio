@@ -12,36 +12,19 @@ import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear
 import HighlightCard from "../components/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
 import VideoPlayer from "../components/VideoPlayer.jsx";
-
-import * as SiIcons from "react-icons/si";
-
-export const getIconByName = ({iconName}) => {
-    const IconComponent = SiIcons[iconName];
-    return IconComponent ? <IconComponent className="w-10 h-10" /> : null;
-};
+import {getIconByName} from "../utils/iconUtils.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
     const [projectInfo, setProjectInfo] = useState();
-    const [isBackClicked, setIsBackClicked] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-
-    const navigate = useNavigate();
 
     const transformData = (data) => {
         const userInfo = data[projectId];
-        console.log('User Info:', userInfo)
         return {
             userID: projectId,
             ...userInfo
         };
-    };
-
-    const handleBack = () => {
-        setIsBackClicked(true);
-        setTimeout(() => {
-            navigate('/')
-        }, 500); // Adjust timing to match transition duration
     };
 
     useEffect(() => {
@@ -65,106 +48,140 @@ const ProjectPage = () => {
             <div
                 className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <div
-                    className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
-                    <Button title="Back" leftArrow={true} handleClick={handleBack}/>
-                </div>
+                <ProjectPageBackButton/>
+                <ProjectPageHero projectInfo={projectInfo}/>
+                <ProjectPageOverview projectInfo={projectInfo}/>
+                <ProjectPageHighlights projectInfo={projectInfo}/>
+            </div>
+    )
+}
 
-                <div className="flex flex-col justify-start items-center min-h-screen relative">
-                    <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
-                    <div className="flex justify-center items-center project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
-                        {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
-                    </div>
-                    { projectInfo.image &&
-                        <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="project-page-hero-image"/>
-                    }
-                </div>
+const ProjectPageBackButton = () => {
+    const navigate = useNavigate();
+    const [isBackClicked, setIsBackClicked] = useState(false);
+    const handleBack = () => {
+        setIsBackClicked(true);
+        setTimeout(() => {
+            navigate('/')
+        }, 500); // Adjust timing to match transition duration
+    };
 
-                {(projectInfo.overview) &&
-                    <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
-                        <div className="flex flex-row h-fit justify-center items-center">
-                            <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
-                                {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
-                                    <div>
-                                        <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
-                                        <p className="text-md text-custom-light text-opacity-50">
+    return (
+        <div
+            className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
+            <Button title="Back" leftArrow={true} handleClick={handleBack}/>
+        </div>
+    )
+}
+
+const ProjectPageHero = ({projectInfo}) => {
+    return (
+        <div className="flex flex-col justify-start items-center min-h-screen relative">
+            <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
+            <div className="flex justify-center items-center project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
+                {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
+            </div>
+            { projectInfo.image &&
+                <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="project-page-hero-image"/>
+            }
+        </div>
+    )
+}
+
+const ProjectPageOverview = ({projectInfo}) => {
+    return (
+        <>
+            {(projectInfo.overview) &&
+                <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
+                    <div className="flex flex-row h-fit justify-center items-center">
+                        <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
+                            {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
+                                <div>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
+                                    <p className="text-md text-custom-light text-opacity-50">
                                         <span
                                             className="text-md text-custom-light">{projectInfo.overview.role.title}&nbsp;</span>
-                                            — {projectInfo.overview.role.description}
-                                        </p>
-                                    </div>
-                                }
-                                {(projectInfo.overview.team) &&
-                                    <div>
-                                        <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
-                                        {projectInfo.overview.team.map((member, index) => (
-                                            <p key={index}
-                                               className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
-                                        ))}
-                                    </div>
-                                }
-                                {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
-                                    <div>
-                                        <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
-                                        <div className="text-md text-custom-light text-opacity-50">
-                                            <p className="text-md text-custom-light text-opacity-50">
-                                                {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
-                                                <span
-                                                    className="text-md text-custom-light">{projectInfo.overview.status}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                            <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
-                                {(projectInfo.overview.overview) &&
-                                    <div className="flex flex-col">
-                                        <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
-                                        <div className="text-md text-custom-light text-opacity-50 flex-grow">
-                                            {projectInfo.overview.overview}
-                                        </div>
-                                    </div>
-                                }
-                                <div className="flex flex-row justify-start gap-x-8 items-center">
-                                    {projectInfo.technologies.map((tech, index) => (
-                                        <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
-                                            {getIconByName(tech.icon)} {/* Define getIconByName function */}
-                                        </Tooltip>
+                                        — {projectInfo.overview.role.description}
+                                    </p>
+                                </div>
+                            }
+                            {(projectInfo.overview.team) &&
+                                <div>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
+                                    {projectInfo.overview.team.map((member, index) => (
+                                        <p key={index}
+                                           className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
                                     ))}
                                 </div>
+                            }
+                            {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
+                                <div>
+                                    <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
+                                    <div className="text-md text-custom-light text-opacity-50">
+                                        <p className="text-md text-custom-light text-opacity-50">
+                                            {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
+                                            <span
+                                                className="text-md text-custom-light">{projectInfo.overview.status}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
+                            {(projectInfo.overview.overview) &&
+                                <div className="flex flex-col">
+                                    <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
+                                    <div className="text-md text-custom-light text-opacity-50 flex-grow">
+                                        {projectInfo.overview.overview}
+                                    </div>
+                                </div>
+                            }
+                            <div className="flex flex-row justify-start gap-x-8 items-center">
+                                {projectInfo.technologies.map((tech, index) => (
+                                    <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
+                                        {getIconByName(tech.icon)}
+                                    </Tooltip>
+                                ))}
                             </div>
                         </div>
                     </div>
-                }
+                </div>
+            }
+        </>
+    )
+}
 
-                {(projectInfo.highlights) &&
-                    <HighlightCard accentColor={projectInfo.color}>
-                        <div className="flex flex-col justify-between items-center gap-y-4">
+const ProjectPageHighlights = ({projectInfo}) => {
+    return (
+        <>
+            {(projectInfo.highlights) &&
+                <HighlightCard accentColor={projectInfo.color}>
+                    <div className="flex flex-col justify-between items-center gap-y-4">
                         <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
-                            <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
-                                HIGHLIGHTS
-                            </p>
-                            <h1 className="text-center font-bold text-custom-light text-xl">
-                                {projectInfo.highlightsDescription}
-                            </h1>
+                        <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
+                            HIGHLIGHTS
+                        </p>
+                        <h1 className="text-center font-bold text-custom-light text-xl">
+                            {projectInfo.highlightsDescription}
+                        </h1>
+                    </div>
+                    {projectInfo.highlights.map((highlight, index) => (
+                        <div key={index}>
+                            {highlight.asset.type === 'video' ? (
+                                <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
+                            ) : highlight.asset.type === 'image' ? (
+                                <img src={highlight.asset.src} alt={highlight.asset.alt}/>
+                            ) : (
+                                <p>Invalid asset type: {highlight.asset.type}</p>
+                            )}
+                            <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                                {highlight.asset.alt} {highlight.asset.type}
+                            </h2>
                         </div>
-                        {projectInfo.highlights.map((highlight, index) => (
-                            <div key={index}>
-                                {highlight.asset.type === 'video' ? (
-                                    <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
-                                ) : highlight.asset.type === 'image' ? (
-                                    <img src={highlight.asset.src} alt={highlight.asset.alt}/>
-                                ) : (
-                                    <p>Invalid asset type: {highlight.asset.type}</p>
-                                )}
-                                <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
-                                    {highlight.asset.alt} {highlight.asset.type}
-                                </h2>
-                            </div>
-                        ))}
-                    </HighlightCard>
-                }
-            </div>
+                    ))}
+                </HighlightCard>
+            }
+        </>
     )
 }
 

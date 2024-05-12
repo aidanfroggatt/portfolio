@@ -149,7 +149,7 @@ const ProjectPage = () => {
                             </h1>
                         </div>
                         { projectInfo.highlights.map((highlight, index) => (
-                            <VideoPlayer src={highlight.asset.src}/>
+                            <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
                         ))}
                     </HighlightCard>
                 }

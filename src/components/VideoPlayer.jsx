@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-function VideoPlayer({ src }) {
+function VideoPlayer({ src, style, controls, loop }) {
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -36,7 +36,7 @@ function VideoPlayer({ src }) {
     }, []);
 
     return (
-        <video ref={videoRef} width="640" height="360" controls>
+        <video ref={videoRef} style={style} controls={controls} loop={loop}>
             <source src={src} type="video/mp4" />
             Your browser does not support the video tag.
         </video>

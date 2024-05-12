@@ -104,14 +104,16 @@
     justify-items: center;
     align-items: center;
     position: absolute;
-    bottom: -20vh;
+    bottom: -25vh; /* Change this value to adjust the initial position */
+    left: 50%; /* Center the image horizontally */
+    transform: translateX(-50%); /* Center the image horizontally */
     transition: bottom 0.25s ease;
-    left: 0;
-    width: 100%;
-    height: auto;
+    overflow: hidden; /* Hide any overflowing content */
+    height: 100%;
+    width: auto;
 }
 
 .project-card:hover .project-card-image {
-    bottom: -15vh;
+    bottom: -20vh; /* Change this value to adjust the hover position */
     transition: bottom 0.25s ease;
 }

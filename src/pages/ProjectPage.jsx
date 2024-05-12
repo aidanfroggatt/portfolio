@@ -1,6 +1,6 @@
 import '../styles/pages/ProjectPage.css';
 import {useNavigate, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {storage} from "../config/firebase.config.js";
 import {getDownloadURL, ref} from "firebase/storage";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
@@ -33,7 +33,7 @@ const ProjectPage = () => {
         });
     }, []);
 
-    // const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/burloak-insight/burloak_insight_hero.png");
+    // const storageRef = ref(storage, "");
     // const [videoURL, setVideoURL] = useState('');
     // getDownloadURL(storageRef).then((url) => {
     //     setVideoURL(url)
@@ -134,9 +134,9 @@ const ProjectPageOverview = ({projectInfo}) => {
                         </div>
                     }
                     <div className="flex flex-row justify-start gap-x-8 items-center">
-                        {projectInfo.technologies.map((tech, index) => (
-                            <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
-                                {getIconByName(tech.icon)}
+                        {projectInfo.overview.technologies.map((technology, index) => (
+                            <Tooltip key={index} text={technology.name} backgroundColor={projectInfo.color}>
+                                {getIconByName(technology.icon)}
                             </Tooltip>
                         ))}
                     </div>

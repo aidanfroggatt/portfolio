@@ -43,9 +43,9 @@ const Header = () => {
                 </div>
             </div>
             <div className="flex font-medium fixed right-12">
-                {generalInfo.github && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href={generalInfo.github} target="_blank" rel="noopener noreferrer">Github</a>}
-                {generalInfo.linkedIn && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href={generalInfo.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
-                {generalInfo.resume && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href="" target="_blank" rel="noopener noreferrer">Resume</a>}
+                {generalInfo.links.github && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href={generalInfo.github} target="_blank" rel="noopener noreferrer">Github</a>}
+                {generalInfo.links.linkedin && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href={generalInfo.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
+                {generalInfo.links.resume && <a className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full" href="" target="_blank" rel="noopener noreferrer">Resume</a>}
             </div>
         </div>
 

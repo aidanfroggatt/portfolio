@@ -26,6 +26,8 @@ const WorkPage = () => {
         });
     }, []);
 
+    console.log(generalInfo)
+
     return (
         <>
             <Header/>
@@ -37,7 +39,7 @@ const WorkPage = () => {
                             <div className="name-container">Hi, I'm&nbsp;<span
                                 className="name">{generalInfo.firstName}.</span></div>
                             <div className="additional-info-container">
-                                <div className="job">{generalInfo.currentJob} at {generalInfo.currentCompany}.</div>
+                                <div className="job">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
                                 <div className="location">Based in {generalInfo.location}.</div>
                             </div>
                         </MacWindowCard>

@@ -33,7 +33,7 @@ const ProjectPage = () => {
         });
     }, []);
 
-    // const storageRef = ref(storage, "");
+    // const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/snapcycle/snapcycle_hero.png");
     // const [videoURL, setVideoURL] = useState('');
     // getDownloadURL(storageRef).then((url) => {
     //     setVideoURL(url)

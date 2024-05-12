@@ -26,8 +26,6 @@ const WorkPage = () => {
         });
     }, []);
 
-    console.log(generalInfo)
-
     return (
         <>
             <Header/>

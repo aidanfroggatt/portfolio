@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 function VideoPlayer({ src, style, className, controls, loop }) {
     const videoRef = useRef(null);
+    const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -15,13 +16,9 @@ function VideoPlayer({ src, style, className, controls, loop }) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // When the video is in view, play and loop
-                    video.play();
-                    video.loop = true;
+                    setIsInView(true);
                 } else {
-                    // When the video is out of view, pause and stop looping
-                    video.pause();
-                    video.loop = false;
+                    setIsInView(false);
                     // Reset video to the beginning
                     video.currentTime = 0;
                 }
@@ -34,6 +31,18 @@ function VideoPlayer({ src, style, className, controls, loop }) {
             observer.unobserve(video);
         };
     }, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+
+        if (isInView) {
+            video.play();
+            video.loop = loop;
+        } else {
+            video.pause();
+            video.loop = false;
+        }
+    }, [isInView, loop]);
 
     return (
         <video ref={videoRef} style={style} className={className} controls={controls} loop={loop}>

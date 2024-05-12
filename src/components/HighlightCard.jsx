@@ -1,6 +1,6 @@
 import '../styles/components/HighlightCard.css'
 
-const ProjectCard = ({children, accentColor}) => {
+const HighlightCard = ({children, accentColor}) => {
     return (
         <div className="highlight-card" style={{'--highlight-card-accent-color': accentColor}}>
             {children}
@@ -8,4 +8,4 @@ const ProjectCard = ({children, accentColor}) => {
     )
 }
 
-export default ProjectCard;
+export default HighlightCard;

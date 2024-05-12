@@ -12,7 +12,6 @@ import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
-import videoPlayer from "../components/VideoPlayer.jsx";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectPage = () => {
@@ -149,7 +148,18 @@ const ProjectPage = () => {
                             </h1>
                         </div>
                         { projectInfo.highlights.map((highlight, index) => (
-                            <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
+                            <div key={index}>
+                                <h2 className="text-sm text-custom-light text-opacity-50 font-bold mb-2">
+                                    0.{index+1} {highlight.asset.alt} {highlight.asset.type}
+                                </h2>
+                                {highlight.asset.type === 'video' ? (
+                                    <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
+                                ) : highlight.asset.type === 'image' ? (
+                                    <img src={highlight.asset.src} alt={highlight.asset.alt} />
+                                ) : (
+                                    <p>Invalid asset type: {highlight.asset.type}</p>
+                                )}
+                            </div>
                         ))}
                     </HighlightCard>
                 }

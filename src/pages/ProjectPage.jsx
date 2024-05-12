@@ -149,16 +149,16 @@ const ProjectPage = () => {
                         </div>
                         { projectInfo.highlights.map((highlight, index) => (
                             <div key={index}>
-                                <h2 className="text-sm text-custom-light text-opacity-50 font-bold mb-2">
-                                    {highlight.asset.alt} {highlight.asset.type}
-                                </h2>
                                 {highlight.asset.type === 'video' ? (
                                     <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
                                 ) : highlight.asset.type === 'image' ? (
-                                    <img src={highlight.asset.src} alt={highlight.asset.alt} />
+                                    <img src={highlight.asset.src} alt={highlight.asset.alt}/>
                                 ) : (
                                     <p>Invalid asset type: {highlight.asset.type}</p>
                                 )}
+                                <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                                    {highlight.asset.alt} {highlight.asset.type}
+                                </h2>
                             </div>
                         ))}
                     </HighlightCard>

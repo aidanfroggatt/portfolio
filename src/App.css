@@ -9,7 +9,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-    width: 0.4vw;
+    width: 0.5vw;
     background-color: var(--background);
 }
 
@@ -17,17 +17,19 @@
 ::-webkit-scrollbar-track {
     border-radius: 1vmax;
     background-color: transparent;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: red;
+    background: rgba(242, 242, 242, 0.1);
     border-radius: 1vmax;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
+    cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
 }

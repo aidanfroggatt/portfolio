@@ -9,13 +9,13 @@
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0.4vw;
     background-color: var(--background);
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
+    border-radius: 1vmax;
     background-color: transparent;
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -24,8 +24,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: red;
-    border-radius: 10px;
-
+    border-radius: 1vmax;
 }
 
 /* Handle on hover */

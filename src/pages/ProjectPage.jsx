@@ -163,7 +163,6 @@ const ProjectPageHighlights = ({projectInfo}) => {
                     {highlight.asset.type === 'video' ? (
                         <video src={highlight.asset.src} loop controls>
                             <source src={highlight.asset.src} type="video/mp4"/>
-                            Your browser does not support the video tag.
                         </video>
                     ) : highlight.asset.type === 'image' ? (
                         <img src={highlight.asset.src} alt={highlight.asset.alt}/>

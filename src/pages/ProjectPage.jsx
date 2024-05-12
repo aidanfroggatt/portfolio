@@ -166,10 +166,6 @@ const ProjectPage = () => {
                         ))}
                     </HighlightCard>
                 }
-
-                <div>
-                    Links for project
-                </div>
             </div>
     )
 }

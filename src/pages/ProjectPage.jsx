@@ -7,12 +7,19 @@ import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
-import {SiFirebase, SiReact, SiTailwindcss, SiVite} from "react-icons/si";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
 import VideoPlayer from "../components/VideoPlayer.jsx";
+
+import * as SiIcons from "react-icons/si";
+
+const getIconByName = (iconName) => {
+    const IconComponent = SiIcons[iconName];
+    return IconComponent ? <IconComponent className="w-10 h-10" /> : null;
+};
+
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -121,18 +128,11 @@ const ProjectPage = () => {
                                     </div>
                                 }
                                 <div className="flex flex-row justify-start gap-x-8 items-center">
-                                    <Tooltip text="Firebase" backgroundColor={projectInfo.color}>
-                                        <SiFirebase className="w-10 h-10"/>
-                                    </Tooltip>
-                                    <Tooltip text="Vite" backgroundColor={projectInfo.color}>
-                                        <SiVite className="w-10 h-10"/>
-                                    </Tooltip>
-                                    <Tooltip text="ReactJS" backgroundColor={projectInfo.color}>
-                                        <SiReact className="w-10 h-10"/>
-                                    </Tooltip>
-                                    <Tooltip text="TailwindCSS" backgroundColor={projectInfo.color}>
-                                        <SiTailwindcss className="w-10 h-10"/>
-                                    </Tooltip>
+                                    {projectInfo.technologies.map((tech, index) => (
+                                        <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
+                                            {getIconByName(tech.icon)} {/* Define getIconByName function */}
+                                        </Tooltip>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@ const ProjectPage = () => {
                 {(projectInfo.highlights) &&
                     <HighlightCard accentColor={projectInfo.color}>
                         <div className="flex flex-col justify-between items-center gap-y-4">
-                            <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
+                        <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
                             <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
                                 HIGHLIGHTS
                             </p>

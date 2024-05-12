@@ -11,6 +11,7 @@
 ::-webkit-scrollbar {
     width: 0.5vw;
     background-color: var(--background);
+    scroll-behavior: smooth;
 }
 
 /* Track */

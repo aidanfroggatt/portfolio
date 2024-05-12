@@ -150,7 +150,7 @@ const ProjectPage = () => {
                         { projectInfo.highlights.map((highlight, index) => (
                             <div key={index}>
                                 <h2 className="text-sm text-custom-light text-opacity-50 font-bold mb-2">
-                                    0.{index+1} {highlight.asset.alt} {highlight.asset.type}
+                                    {highlight.asset.alt} {highlight.asset.type}
                                 </h2>
                                 {highlight.asset.type === 'video' ? (
                                     <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>

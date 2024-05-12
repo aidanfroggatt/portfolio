@@ -1,6 +1,6 @@
 import '../styles/pages/ProjectPage.css';
 import {useNavigate, useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {storage} from "../config/firebase.config.js";
 import {getDownloadURL, ref} from "firebase/storage";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
@@ -11,7 +11,6 @@ import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
-import VideoPlayer from "../components/VideoPlayer.jsx";
 import {getIconByName} from "../utils/iconUtils.jsx";
 
 const ProjectPage = () => {
@@ -50,8 +49,8 @@ const ProjectPage = () => {
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
                 <ProjectPageBackButton/>
                 <ProjectPageHero projectInfo={projectInfo}/>
-                <ProjectPageOverview projectInfo={projectInfo}/>
-                <ProjectPageHighlights projectInfo={projectInfo}/>
+                {(projectInfo.overview) && <ProjectPageOverview projectInfo={projectInfo}/>}
+                {(projectInfo.highlights) && <ProjectPageHighlights projectInfo={projectInfo}/>}
             </div>
     )
 }
@@ -90,98 +89,93 @@ const ProjectPageHero = ({projectInfo}) => {
 
 const ProjectPageOverview = ({projectInfo}) => {
     return (
-        <>
-            {(projectInfo.overview) &&
-                <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
-                    <div className="flex flex-row h-fit justify-center items-center">
-                        <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
-                            {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
-                                    <p className="text-md text-custom-light text-opacity-50">
-                                        <span
-                                            className="text-md text-custom-light">{projectInfo.overview.role.title}&nbsp;</span>
-                                        — {projectInfo.overview.role.description}
-                                    </p>
-                                </div>
-                            }
-                            {(projectInfo.overview.team) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
-                                    {projectInfo.overview.team.map((member, index) => (
-                                        <p key={index}
-                                           className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
-                                    ))}
-                                </div>
-                            }
-                            {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
-                                    <div className="text-md text-custom-light text-opacity-50">
-                                        <p className="text-md text-custom-light text-opacity-50">
-                                            {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
-                                            <span
-                                                className="text-md text-custom-light">{projectInfo.overview.status}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            }
+        <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
+            <div className="flex flex-row h-fit justify-center items-center">
+                <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
+                    {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
+                        <div>
+                            <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
+                            <p className="text-md text-custom-light text-opacity-50">
+                                <span
+                                    className="text-md text-custom-light">{projectInfo.overview.role.title}&nbsp;</span>
+                                — {projectInfo.overview.role.description}
+                            </p>
                         </div>
-                        <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
-                            {(projectInfo.overview.overview) &&
-                                <div className="flex flex-col">
-                                    <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
-                                    <div className="text-md text-custom-light text-opacity-50 flex-grow">
-                                        {projectInfo.overview.overview}
-                                    </div>
-                                </div>
-                            }
-                            <div className="flex flex-row justify-start gap-x-8 items-center">
-                                {projectInfo.technologies.map((tech, index) => (
-                                    <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
-                                        {getIconByName(tech.icon)}
-                                    </Tooltip>
-                                ))}
+                    }
+                    {(projectInfo.overview.team) &&
+                        <div>
+                            <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
+                            {projectInfo.overview.team.map((member, index) => (
+                                <p key={index}
+                                   className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
+                            ))}
+                        </div>
+                    }
+                    {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
+                        <div>
+                            <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
+                            <div className="text-md text-custom-light text-opacity-50">
+                                <p className="text-md text-custom-light text-opacity-50">
+                                    {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
+                                    <span
+                                        className="text-md text-custom-light">{projectInfo.overview.status}</span>
+                                </p>
                             </div>
                         </div>
+                    }
+                </div>
+                <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
+                    {(projectInfo.overview.overview) &&
+                        <div className="flex flex-col">
+                            <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
+                            <div className="text-md text-custom-light text-opacity-50 flex-grow">
+                                {projectInfo.overview.overview}
+                            </div>
+                        </div>
+                    }
+                    <div className="flex flex-row justify-start gap-x-8 items-center">
+                        {projectInfo.technologies.map((tech, index) => (
+                            <Tooltip key={index} text={tech.name} backgroundColor={projectInfo.color}>
+                                {getIconByName(tech.icon)}
+                            </Tooltip>
+                        ))}
                     </div>
                 </div>
-            }
-        </>
+            </div>
+        </div>
     )
 }
 
 const ProjectPageHighlights = ({projectInfo}) => {
     return (
-        <>
-            {(projectInfo.highlights) &&
-                <HighlightCard accentColor={projectInfo.color}>
-                    <div className="flex flex-col justify-between items-center gap-y-4">
-                        <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
-                        <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
-                            HIGHLIGHTS
-                        </p>
-                        <h1 className="text-center font-bold text-custom-light text-xl">
-                            {projectInfo.highlightsDescription}
-                        </h1>
-                    </div>
-                    {projectInfo.highlights.map((highlight, index) => (
-                        <div key={index}>
-                            {highlight.asset.type === 'video' ? (
-                                <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>
-                            ) : highlight.asset.type === 'image' ? (
-                                <img src={highlight.asset.src} alt={highlight.asset.alt}/>
-                            ) : (
-                                <p>Invalid asset type: {highlight.asset.type}</p>
-                            )}
-                            <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
-                                {highlight.asset.alt} {highlight.asset.type}
-                            </h2>
-                        </div>
-                    ))}
-                </HighlightCard>
-            }
-        </>
+        <HighlightCard accentColor={projectInfo.color}>
+            <div className="flex flex-col justify-between items-center gap-y-4">
+                <FaSeedling color={projectInfo.color} style={{width: '2.5vmax', height: '2.5vmax'}}/>
+                <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
+                    HIGHLIGHTS
+                </p>
+                <h1 className="text-center font-bold text-custom-light text-xl">
+                    {projectInfo.highlightsDescription}
+                </h1>
+            </div>
+            {projectInfo.highlights.map((highlight, index) => (
+                <div key={index}>
+                    {highlight.asset.type === 'video' ? (
+                        <video src={highlight.asset.src} loop controls>
+                            <source src={highlight.asset.src} type="video/mp4"/>
+                            Your browser does not support the video tag.
+                        </video>
+                    ) : highlight.asset.type === 'image' ? (
+                        <img src={highlight.asset.src} alt={highlight.asset.alt}/>
+                    ) : (
+                        <p>Invalid asset type: {highlight.asset.type}</p>
+                    )}
+                    <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                        {highlight.asset.alt} {highlight.asset.type}
+                    </h2>
+                </div>
+            ))}
+        </HighlightCard>
     )
 }
 

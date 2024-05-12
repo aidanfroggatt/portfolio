@@ -15,11 +15,10 @@ import VideoPlayer from "../components/VideoPlayer.jsx";
 
 import * as SiIcons from "react-icons/si";
 
-const getIconByName = (iconName) => {
+export const getIconByName = ({iconName}) => {
     const IconComponent = SiIcons[iconName];
     return IconComponent ? <IconComponent className="w-10 h-10" /> : null;
 };
-
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -49,7 +48,6 @@ const ProjectPage = () => {
         getDataFromFirestore({collectionName: 'projects', documentId: projectId}).then(data => {
             setProjectInfo(transformData(data));
             setIsLoading(false);
-            console.log('Project Info:', projectInfo)
         });
     }, []);
 

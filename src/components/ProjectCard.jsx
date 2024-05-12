@@ -11,9 +11,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
                     <div className="project-card-title">{title}</div>
                     <div className="project-card-association">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
                     {arrow && <FontAwesomeIcon className="project-card-arrow" icon={faArrowRightLong}/>}
-                    <div className="project-card-image-container">
-                        <img src={image} alt={imageAlt}/>
-                    </div>
+                    <img src={image} alt={imageAlt} className="project-card-image"/>
                 </div>
             </div>
         </div>

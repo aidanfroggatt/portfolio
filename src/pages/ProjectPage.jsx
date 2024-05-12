@@ -76,61 +76,64 @@ const ProjectPage = () => {
                 </div>
 
                 {(projectInfo.overview) &&
-                    <div className="flex flex-row justify-center items-center min-h-screen w-full gap-x-16">
-                        <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
-                            {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
-                                    <p className="text-md text-custom-light text-opacity-50">
+                    <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
+                        <div className="flex flex-row h-fit justify-center items-center">
+                            <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
+                                {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
+                                    <div>
+                                        <h2 className="text-sm text-custom-light font-bold mb-2">My Role</h2>
+                                        <p className="text-md text-custom-light text-opacity-50">
                                         <span
                                             className="text-md text-custom-light">{projectInfo.overview.role.title}&nbsp;</span>
-                                        — {projectInfo.overview.role.description}
-                                    </p>
-                                </div>
-                            }
-                            {(projectInfo.overview.team) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
-                                    {projectInfo.overview.team.map((member, index) => (
-                                        <p key={index}
-                                           className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
-                                    ))}
-                                </div>
-                            }
-                            {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
-                                <div>
-                                    <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
-                                    <div className="text-md text-custom-light text-opacity-50">
-                                        <p className="text-md text-custom-light text-opacity-50">
-                                            {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
-                                            <span className="text-md text-custom-light">{projectInfo.overview.status}</span>
+                                            — {projectInfo.overview.role.description}
                                         </p>
                                     </div>
-                                </div>
-                            }
-                        </div>
-                        <div className="flex flex-col justify-between w-1/2 gap-y-8">
-                            {(projectInfo.overview.overview) &&
-                                <div className="flex flex-col h-full">
-                                    <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
-                                    <div className="text-md text-custom-light text-opacity-50 flex-grow">
-                                        {projectInfo.overview.overview}
+                                }
+                                {(projectInfo.overview.team) &&
+                                    <div>
+                                        <h2 className="text-sm text-custom-light font-bold mb-2">Team</h2>
+                                        {projectInfo.overview.team.map((member, index) => (
+                                            <p key={index}
+                                               className="text-md text-custom-light text-opacity-50">{member.name}, {member.role}</p>
+                                        ))}
                                     </div>
+                                }
+                                {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
+                                    <div>
+                                        <h2 className="text-sm text-custom-light font-bold mb-2">Timeline & Status</h2>
+                                        <div className="text-md text-custom-light text-opacity-50">
+                                            <p className="text-md text-custom-light text-opacity-50">
+                                                {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
+                                                <span
+                                                    className="text-md text-custom-light">{projectInfo.overview.status}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
+                                {(projectInfo.overview.overview) &&
+                                    <div className="flex flex-col">
+                                        <div className="text-sm text-custom-light font-bold mb-2">Overview</div>
+                                        <div className="text-md text-custom-light text-opacity-50 flex-grow">
+                                            {projectInfo.overview.overview}
+                                        </div>
+                                    </div>
+                                }
+                                <div className="flex flex-row justify-start gap-x-8 items-center">
+                                    <Tooltip text="Firebase" backgroundColor={projectInfo.color}>
+                                        <SiFirebase className="w-10 h-10"/>
+                                    </Tooltip>
+                                    <Tooltip text="Vite" backgroundColor={projectInfo.color}>
+                                        <SiVite className="w-10 h-10"/>
+                                    </Tooltip>
+                                    <Tooltip text="ReactJS" backgroundColor={projectInfo.color}>
+                                        <SiReact className="w-10 h-10"/>
+                                    </Tooltip>
+                                    <Tooltip text="TailwindCSS" backgroundColor={projectInfo.color}>
+                                        <SiTailwindcss className="w-10 h-10"/>
+                                    </Tooltip>
                                 </div>
-                            }
-                            <div className="flex flex-row justify-start gap-x-8 items-center">
-                                <Tooltip text="Firebase" backgroundColor={projectInfo.color}>
-                                    <SiFirebase className="w-10 h-10"/>
-                                </Tooltip>
-                                <Tooltip text="Vite" backgroundColor={projectInfo.color}>
-                                    <SiVite className="w-10 h-10"/>
-                                </Tooltip>
-                                <Tooltip text="ReactJS" backgroundColor={projectInfo.color}>
-                                    <SiReact className="w-10 h-10"/>
-                                </Tooltip>
-                                <Tooltip text="TailwindCSS" backgroundColor={projectInfo.color}>
-                                    <SiTailwindcss className="w-10 h-10"/>
-                                </Tooltip>
                             </div>
                         </div>
                     </div>
@@ -147,7 +150,7 @@ const ProjectPage = () => {
                                 {projectInfo.highlightsDescription}
                             </h1>
                         </div>
-                        { projectInfo.highlights.map((highlight, index) => (
+                        {projectInfo.highlights.map((highlight, index) => (
                             <div key={index}>
                                 {highlight.asset.type === 'video' ? (
                                     <VideoPlayer src={highlight.asset.src} loop={true} controls={false}/>

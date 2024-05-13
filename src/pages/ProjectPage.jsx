@@ -33,14 +33,14 @@ const ProjectPage = () => {
         });
     }, []);
 
-    // const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/snapcycle/snapcycle_hero.png");
-    // const [videoURL, setVideoURL] = useState('');
-    // getDownloadURL(storageRef).then((url) => {
-    //     setVideoURL(url)
-    //     console.log('Video URL:', videoURL)
-    // }).catch((error) => {
-    //     console.error('Error fetching image:', error);
-    // });
+    const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/secure-chat-app/kerberos_authentication.mp4");
+    const [videoURL, setVideoURL] = useState('');
+    getDownloadURL(storageRef).then((url) => {
+        setVideoURL(url)
+        console.log('Video URL:', videoURL)
+    }).catch((error) => {
+        console.error('Error fetching image:', error);
+    });
 
     return (
         (isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
@@ -161,7 +161,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
             {projectInfo.highlights.map((highlight, index) => (
                 <div key={index}>
                     {highlight.asset.type === 'video' ? (
-                        <video src={highlight.asset.src} loop controls>
+                        <video src={highlight.asset.src} controls>
                             <source src={highlight.asset.src} type="video/mp4"/>
                         </video>
                     ) : highlight.asset.type === 'image' ? (

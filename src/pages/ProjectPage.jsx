@@ -33,7 +33,7 @@ const ProjectPage = () => {
         });
     }, []);
 
-    const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/secure-chat-app/kerberos_authentication.mp4");
+    const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/snapcycle/snapcycle_award.png");
     const [videoURL, setVideoURL] = useState('');
     getDownloadURL(storageRef).then((url) => {
         setVideoURL(url)
@@ -159,7 +159,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
                 </h1>
             </div>
             {projectInfo.highlights.map((highlight, index) => (
-                <div key={index}>
+                <div key={index} className="w-full flex flex-col">
                     {highlight.asset.type === 'video' ? (
                         <video src={highlight.asset.src} controls>
                             <source src={highlight.asset.src} type="video/mp4"/>

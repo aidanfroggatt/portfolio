@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col h-full w-full justify-end items-start">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
-                    <div className="text-sm text-custom-light text-opacity-50">Thanks for visiting</div>
+                    <div className="text-sm text-custom-light text-opacity-50">Thanks for visiting!</div>
                 </div>
             </div>
             <div className="h-full w-full flex flex-col justify-between items-end">

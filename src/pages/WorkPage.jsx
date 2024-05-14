@@ -1,6 +1,6 @@
 import '../styles/pages/WorkPage.css';
-import MacWindowCard from "../components/MacWindowCard.jsx";
-import ProjectCard from "../components/ProjectCard.jsx";
+import MacWindowCard from "../components/cards/MacWindowCard.jsx";
+import ProjectCard from "../components/cards/ProjectCard.jsx";
 import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";

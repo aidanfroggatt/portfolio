@@ -1,4 +1,4 @@
-import '../styles/components/ProjectCard.css'
+import '../../styles/components/ProjectCard.css'
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowRightLong} from '@fortawesome/free-solid-svg-icons';

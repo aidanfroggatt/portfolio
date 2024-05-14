@@ -1,4 +1,4 @@
-import '../styles/components/MacWindowCard.css';
+import '../../styles/components/MacWindowCard.css';
 
 const MacWindowCard = ({children}) => {
     return (

@@ -1,4 +1,4 @@
-import '../styles/components/HighlightCard.css'
+import '../../styles/components/HighlightCard.css'
 
 const HighlightCard = ({children, accentColor, className}) => {
     return (

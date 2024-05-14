@@ -9,7 +9,7 @@ import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
-import HighlightCard from "../components/HighlightCard.jsx";
+import HighlightCard from "../components/cards/HighlightCard.jsx";
 import {FaSeedling} from "react-icons/fa";
 import {getIconByName} from "../utils/iconUtils.jsx";
 

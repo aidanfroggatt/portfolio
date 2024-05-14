@@ -1,8 +1,8 @@
 import '../styles/components/HighlightCard.css'
 
-const HighlightCard = ({children, accentColor}) => {
+const HighlightCard = ({children, accentColor, className}) => {
     return (
-        <div className="highlight-card" style={{'--highlight-card-accent-color': accentColor}}>
+        <div className={`highlight-card ${className}`} style={{'--highlight-card-accent-color': accentColor}}>
             {children}
         </div>
     )

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 const Tooltip = ({ text, children }) => {
     const [showTooltip, setShowTooltip] = useState(false);

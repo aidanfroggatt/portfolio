@@ -10,9 +10,8 @@ import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/cards/HighlightCard.jsx";
-import {FaFire, FaMountain, FaSeedling} from "react-icons/fa";
 import {getIconByName} from "../utils/iconUtils.jsx";
-import {FaPersonHiking} from "react-icons/fa6";
+import {FaMountainSun} from "react-icons/fa6";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -150,7 +149,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
         <HighlightCard accentColor={projectInfo.color}>
             <div className="flex flex-col justify-between items-center gap-y-4">
                 <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 shadow-md shadow-custom-dark">
-                    <FaMountain color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>
+                    <FaMountainSun color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>
                 </div>
                 <p className="project-page-highlights-title">
                     HIGHLIGHTS

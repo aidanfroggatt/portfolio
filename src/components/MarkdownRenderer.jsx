@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import ReactMarkdown from "react-markdown";
 
 const MarkdownRenderer = ({ filepath }) => {

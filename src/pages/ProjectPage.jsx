@@ -149,10 +149,10 @@ const ProjectPageHighlights = ({projectInfo}) => {
         <HighlightCard accentColor={projectInfo.color}>
             <div className="flex flex-col justify-between items-center gap-y-4">
                 <FaSeedling color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>
-                <p className="text-xs text-center text-custom-light font-bold text-opacity-50">
+                <p className="project-page-highlights-title">
                     HIGHLIGHTS
                 </p>
-                <h1 className="text-center font-bold text-custom-light text-xl">
+                <h1 className="project-page-highlights-subtitle">
                     {projectInfo.highlightsDescription}
                 </h1>
             </div>

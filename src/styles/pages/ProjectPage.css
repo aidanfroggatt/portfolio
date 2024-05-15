@@ -30,3 +30,20 @@
     height: 100%;
     margin-top: 5vh;
 }
+
+.project-page-overview-subtitle {
+    font-size: 1.1vmax;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1vh;
+}
+
+.project-page-overview-body {
+    font-size: 1.25vmax;
+    color: var(--secondary);
+}
+
+.project-page-overview-body-span {
+    font-size: 1.25vmax;
+    color: var(--primary);
+}

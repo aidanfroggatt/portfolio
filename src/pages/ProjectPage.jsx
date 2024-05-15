@@ -160,18 +160,21 @@ const ProjectPageHighlights = ({projectInfo}) => {
             </div>
             {projectInfo.highlights.map((highlight, index) => (
                 <div key={index} className="w-full flex flex-col">
-                    {highlight.asset.type === 'video' ? (
+                    {highlight.asset.type === 'VIDEO' ? (
                         <video src={highlight.asset.src} controls>
                             <source src={highlight.asset.src} type="video/mp4"/>
                         </video>
-                    ) : highlight.asset.type === 'image' ? (
+                    ) : highlight.asset.type === 'IMAGE' ? (
                         <img src={highlight.asset.src} alt={highlight.asset.alt}/>
                     ) : (
                         <p>Invalid asset type: {highlight.asset.type}</p>
                     )}
-                    <h2 className="text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
-                        {highlight.asset.alt} {highlight.asset.type}
-                    </h2>
+                    <div className="flex flex-row justify-end items-center gap-x-2 text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                        {highlight.asset.alt}
+                        <span className="bg-custom-dark bg-opacity-50 rounded-full p-2">
+                            {highlight.asset.type}
+                        </span>
+                    </div>
                 </div>
             ))}
         </HighlightCard>

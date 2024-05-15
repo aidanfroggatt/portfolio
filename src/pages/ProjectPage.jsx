@@ -158,25 +158,28 @@ const ProjectPageHighlights = ({projectInfo}) => {
                     {projectInfo.highlightsDescription}
                 </h1>
             </div>
-            {projectInfo.highlights.map((highlight, index) => (
-                <div key={index} className="w-full flex flex-col">
-                    {highlight.asset.type === 'VIDEO' ? (
-                        <video src={highlight.asset.src} controls>
-                            <source src={highlight.asset.src} type="video/mp4"/>
-                        </video>
-                    ) : highlight.asset.type === 'IMAGE' ? (
-                        <img src={highlight.asset.src} alt={highlight.asset.alt}/>
-                    ) : (
-                        <p>Invalid asset type: {highlight.asset.type}</p>
-                    )}
-                    <div className="flex flex-row justify-end items-center gap-x-2 text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
-                        {highlight.asset.alt}
-                        <span className="bg-custom-dark bg-opacity-50 rounded-full p-2 shadow-inner shadow-custom-dark">
+            {projectInfo.highlights.map((highlight, index) => {
+                console.log('Highlight:', highlight)
+                return (
+                    <div key={index} className="w-full flex flex-col">
+                        {highlight.asset.type === 'VIDEO' ? (
+                            <video src={highlight.asset.src} controls>
+                                <source src={highlight.asset.src} type="video/mp4"/>
+                            </video>
+                        ) : highlight.asset.type === 'IMAGE' ? (
+                            <img src={highlight.asset.src} alt={highlight.asset.alt}/>
+                        ) : (
+                            <p>Invalid asset type: {highlight.asset.type}</p>
+                        )}
+                        <div className="flex flex-row justify-end items-center gap-x-2 text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                            {highlight.asset.alt}
+                            <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
                             {highlight.asset.type}
                         </span>
+                        </div>
                     </div>
-                </div>
-            ))}
+                )
+            })}
         </HighlightCard>
     )
 }

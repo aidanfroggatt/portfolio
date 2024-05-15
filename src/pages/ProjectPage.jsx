@@ -171,7 +171,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
                     )}
                     <div className="flex flex-row justify-end items-center gap-x-2 text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
                         {highlight.asset.alt}
-                        <span className="bg-custom-dark bg-opacity-50 rounded-full p-2">
+                        <span className="bg-custom-dark bg-opacity-50 rounded-full p-2 shadow-inner shadow-custom-dark">
                             {highlight.asset.type}
                         </span>
                     </div>

@@ -40,7 +40,7 @@ const InfoPage = () => {
                         <h1 className="info-page-title">Here's some more info&nbsp;<span
                             className="info-page-title-alt">about me.</span></h1>
                     </div>
-                    <div className="grid grid-cols-2 gap-20 justify-between items-stretch w-full">
+                    <div className="grid grid-cols-2 gap-20 justify-between w-full">
                         {info.aboutMe && Object.keys(info.aboutMe).map(key => {
                             if (info.aboutMe[key].type === 'text') {
                                 return (

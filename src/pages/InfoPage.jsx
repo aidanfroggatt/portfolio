@@ -25,8 +25,6 @@ const InfoPage = () => {
         });
     }, []);
 
-    console.log(info)
-
     return (
         <>
             <Header/>

@@ -94,15 +94,18 @@
     &.red {
         background: #FF6057;
         border: 0.1vmax solid #E14640;
+        box-shadow: 0 0 20px 2px #f46b5d;
     }
 
     &.amber {
         background: #FFBD2E;
         border: 0.1vmax solid #DFA123;
+        box-shadow: 0 0 20px 2px #f9bd4e
     }
 
     &.green {
         background: #27C93F;
         border: 0.1vmax solid #1DAD2B;
+        box-shadow: 0 0 20px 2px #57c353;
     }
 }

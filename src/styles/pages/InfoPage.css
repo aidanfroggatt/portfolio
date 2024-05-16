@@ -25,9 +25,20 @@
 .info-page-title-alt {
     font-style: italic;
     font-family: "Playfair Display", serif;
+    text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25);
 }
 
 .info-page-subtitle {
     font-size: 1.1vmax;
     color: var(--secondary);
+}
+
+.dot {
+    display: inline-block;
+    width: 0.75vmax;
+    height: 0.75vmax;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 0.1vmax solid var(--primary);
+    box-shadow: 0 0 20px var(--primary);
 }

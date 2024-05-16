@@ -32,9 +32,11 @@
 @keyframes shineAnimation {
     0% {
         transform: translateX(-100%) rotate(15deg);
+        opacity: 0.15;
     }
     45% {
         transform: translateX(100%) rotate(15deg);
+        opacity: 0.15;
     }
     55% {
         transform: translateX(100%) rotate(15deg);

@@ -10,20 +10,11 @@ const InfoPage = () => {
         <>
             <Header/>
             {isLoading ? <Loading/> :
-                <div className="info-page min-h-screen flex flex-row justify-around flex-wrap items-center bg-custom-dark text-custom-light">
+                <div className="info-page min-h-screen flex flex-row items-center bg-custom-dark text-custom-light">
                     <Card className="w-96 h-96">
                         <h2>Picture of me</h2>
                     </Card>
                     <h2>Description of me</h2>
-                    <Card className="w-96 h-96">
-                        <h2>test1</h2>
-                    </Card>
-                    <Card className="w-96 h-96">
-                        <h2>test2</h2>
-                    </Card>
-                    <Card className="w-96 h-96">
-                        <h2>test3</h2>
-                    </Card>
                 </div>
             }
         </>

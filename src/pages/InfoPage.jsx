@@ -4,6 +4,8 @@ import Loading from "../components/Loading.jsx";
 import Card from "../components/cards/Card.jsx";
 import {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
+import {getDownloadURL, ref} from "firebase/storage";
+import {storage} from "../config/firebase.config.js";
 
 const InfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -39,10 +41,23 @@ const InfoPage = () => {
                             className="info-page-title-alt">about me.</span></h1>
                     </div>
                     <div className="grid grid-cols-2 gap-20 justify-between items-stretch w-full">
-                        <Card className="w-full h-auto">
-                            <img className="info-page-profile-picture" src={info.profilePicture.src} alt={info.profilePicture.alt}/>
-                        </Card>
-                        <div className="info-page-body">Description of me DescriptionDesc riptionDescriptionDescrip tionDescriptionDe scriptionDescrip tionDescriptionDescription</div>
+                        {info.aboutMe && Object.keys(info.aboutMe).map(key => {
+                            if (info.aboutMe[key].type === 'text') {
+                                return (
+                                    <div className="info-page-text">{info.aboutMe[key].text}</div>
+                                )
+                            }
+                            else if (info.aboutMe[key].type === 'image') {
+                                    return (
+                                        <Card className="w-full h-auto" key={key}>
+                                            <img className="info-page-profile-picture" src={info.aboutMe[key].src} alt={info.aboutMe[key].alt} />
+                                        </Card>
+                                    );
+                            }
+                            else {
+                                return null;
+                            }
+                        })}
                     </div>
                 </div>
             }

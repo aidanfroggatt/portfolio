@@ -1,8 +1,6 @@
 import '../styles/pages/ProjectPage.css';
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {storage} from "../config/firebase.config.js";
-import {getDownloadURL, ref} from "firebase/storage";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Button from "../components/Button.jsx";
@@ -32,15 +30,6 @@ const ProjectPage = () => {
             setIsLoading(false);
         });
     }, []);
-
-    const storageRef = ref(storage, "gs://portfolio-aidan-froggatt.appspot.com/projects/snapcycle/snapcycle_award.png");
-    const [videoURL, setVideoURL] = useState('');
-    getDownloadURL(storageRef).then((url) => {
-        setVideoURL(url)
-        console.log('Video URL:', videoURL)
-    }).catch((error) => {
-        console.error('Error fetching image:', error);
-    });
 
     return (
         (isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :

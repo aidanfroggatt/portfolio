@@ -2,5 +2,32 @@
 .info-page {
     background-image: radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));
     padding: 25vh 15vw;
+    row-gap: 15vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--background);
+    color: var(--primary);
 }
 
+.info-page-title {
+    display: inline-block;
+    left: 15%;
+    top: 30%;
+    font-size: 6vmax;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: -2px;
+    line-height: 90%;
+}
+
+.info-page-title-alt {
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+}
+
+.info-page-subtitle {
+    font-size: 1.1vmax;
+    color: var(--secondary);
+}

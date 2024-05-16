@@ -2,12 +2,30 @@ import '../styles/pages/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/cards/Card.jsx";
-import {useContext} from "react";
-import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
+import {useEffect, useState} from "react";
+import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 
 const InfoPage = () => {
-    const isLoading = false;
-    const generalInfo = useContext(GeneralInfoContext);
+    const [isLoading, setIsLoading] = useState(true);
+    const [info, setInfo] = useState();
+    const documentId = import.meta.env.VITE_MY_FIRESTORE_GENERAL_INFO_DOCUMENT_ID;
+
+    const transformData = (data) => {
+        const userInfo = data[documentId];
+        return {
+            userID: documentId,
+            ...userInfo
+        };
+    };
+
+    useEffect(() => {
+        getDataFromFirestore({collectionName: 'general-info', documentId: documentId}).then(data => {
+            setInfo(transformData(data));
+            setIsLoading(false);
+        });
+    }, []);
+
+    console.log(info)
 
     return (
         <>
@@ -22,11 +40,11 @@ const InfoPage = () => {
                         <h1 className="info-page-title">Here's a little more info&nbsp;<span
                             className="info-page-title-alt">about me.</span></h1>
                     </div>
-                    <div className="flex flex-row justify-between items-stretch w-full">
-                        <Card className="w-96 h-96">
-                            {generalInfo.profilePicture && <img src={generalInfo.profilePicture.src} alt={generalInfo.profilePicture.alt}/>}
+                    <div className="grid grid-cols-2 gap-20 justify-between items-stretch w-full">
+                        <Card className="w-full h-auto">
+                            {info.profilePicture && <img className="info-page-profile-picture" src={info.profilePicture.src} alt={info.profilePicture.alt}/>}
                         </Card>
-                        <h2>Description of me</h2>
+                        <div className="info-page-body">Description of me DescriptionDesc riptionDescriptionDescrip tionDescriptionDe scriptionDescrip tionDescriptionDescription</div>
                     </div>
                 </div>
             }

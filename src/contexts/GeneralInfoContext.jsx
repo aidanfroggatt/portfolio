@@ -16,7 +16,7 @@ const GeneralInfoProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        getDataFromFirestore({collectionName: 'general-info', documentId: documentId}).then(data => setGeneralInfo(transformData(data)));
+        getDataFromFirestore({collectionName: 'general-info', documentId: documentId, fields: ["currentRole", "firstName", "lastName", "links", "location"]}).then(data => setGeneralInfo(transformData(data)));
     }, []);
 
     return (

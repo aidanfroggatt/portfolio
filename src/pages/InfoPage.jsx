@@ -35,12 +35,12 @@ const InfoPage = () => {
                             <div className="dot"></div>
                             <h2 className="info-page-subtitle">ABOUT ME</h2>
                         </div>
-                        <h1 className="info-page-title">Here's a little more info&nbsp;<span
+                        <h1 className="info-page-title">Here's some more info&nbsp;<span
                             className="info-page-title-alt">about me.</span></h1>
                     </div>
                     <div className="grid grid-cols-2 gap-20 justify-between items-stretch w-full">
                         <Card className="w-full h-auto">
-                            {info.profilePicture && <img className="info-page-profile-picture" src={info.profilePicture.src} alt={info.profilePicture.alt}/>}
+                            <img className="info-page-profile-picture" src={info.profilePicture.src} alt={info.profilePicture.alt}/>
                         </Card>
                         <div className="info-page-body">Description of me DescriptionDesc riptionDescriptionDescrip tionDescriptionDe scriptionDescrip tionDescriptionDescription</div>
                     </div>

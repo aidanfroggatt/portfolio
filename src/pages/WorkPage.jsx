@@ -8,6 +8,7 @@ import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
+import Card from "../components/cards/Card.jsx";
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)

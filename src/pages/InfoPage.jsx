@@ -100,8 +100,8 @@ const Experience = ({info}) => {
                             <div className="flex-grow info-page-experience-company">{exp.company}</div>
                             <div className="info-page-text flex flex-col items-start justify-start">
                                 <div className="info-page-experience-role">{exp.role}{exp.team && <span>, {exp.team}</span>}</div>
-                                <div className="info-page-experience-date">{exp.startDate} - {exp.endDate}</div>
-                                <div className="info-page-experience-date">{exp.description}</div>
+                                <div className="info-page-experience-date mt-2">{exp.startDate} - {exp.endDate}</div>
+                                <div className="info-page-experience-date mt-4">{exp.description}</div>
                             </div>
                         </div>
                     );
@@ -124,8 +124,8 @@ const Awards = ({info}) => {
                         return (
                             <div key={index} className="flex flex-col items-start justify-start">
                                 <div className="info-page-awards-title">{award.title}</div>
-                                <div className="info-page-awards-text">{award.association}</div>
-                                <a className="info-page-awards-link" href={award.link}>{extractDomain(award.link)}</a>
+                                <div className="info-page-awards-text mt-2">{award.association}</div>
+                                <a className="info-page-awards-link mt-2" href={award.link}>{extractDomain(award.link)}</a>
                             </div>
                         );
                     })}

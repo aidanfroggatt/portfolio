@@ -58,7 +58,7 @@ const AboutMe = ({ info }) => {
                         <h2>{info.aboutMe.education.title}</h2>
                         <p className="text-custom-light text-opacity-50">{info.aboutMe.education.text}</p>
                     </div>
-                    <Card><img src={info.aboutMe.concert2.src} alt={info.aboutMe.concert2.alt}/></Card>
+                    <Card><img src={info.aboutMe.cliff.src} alt={info.aboutMe.cliff.alt}/></Card>
                     <div className="info-page-text">
                         <h2>{info.aboutMe.freetime.title}</h2>
                         <p className="text-custom-light text-opacity-50">{info.aboutMe.freetime.text}</p>
@@ -75,7 +75,7 @@ const AboutMe = ({ info }) => {
                         <h2>{info.aboutMe.passion.title}</h2>
                         <p className="text-custom-light text-opacity-50">{info.aboutMe.passion.text}</p>
                     </div>
-                    <Card><img src={info.aboutMe.concert1.src} alt={info.aboutMe.concert1.alt}/></Card>
+                    <Card><img src={info.aboutMe.concert.src} alt={info.aboutMe.concert.alt}/></Card>
                     <div className="info-page-text">
                         <h2>{info.aboutMe.conclusion.title}</h2>
                         <p className="text-custom-light text-opacity-50">{info.aboutMe.conclusion.text}</p>

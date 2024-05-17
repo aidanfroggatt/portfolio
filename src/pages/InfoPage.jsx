@@ -51,21 +51,40 @@ const AboutMe = ({ info }) => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 justify-between w-full">
                 <div className="flex flex-col gap-y-20">
-                    <Card><img src={info.aboutMe[0].src} alt={info.aboutMe[0].alt}/></Card>
-                    <div className="info-page-text">{info.aboutMe[2].text}</div>
-                    <Card><img src={info.aboutMe[4].src} alt={info.aboutMe[4].alt}/></Card>
+                    <Card><img src={info.aboutMe.profilePicture.src} alt={info.aboutMe.profilePicture.alt}/></Card>
+                    <div className="info-page-text">
+                        <h2>{info.aboutMe.education.title}</h2>
+                        <p className="text-custom-light text-opacity-50">{info.aboutMe.education.text}</p>
+                    </div>
+                    <Card><img src={info.aboutMe.concert2.src} alt={info.aboutMe.concert2.alt}/></Card>
+                    <div className="info-page-text">
+                        <h2>{info.aboutMe.freetime.title}</h2>
+                        <p className="text-custom-light text-opacity-50">{info.aboutMe.freetime.text}</p>
+                    </div>
+                    <Card><img src={info.aboutMe.hikingBackpack.src} alt={info.aboutMe.hikingBackpack.alt}/></Card>
                 </div>
                 <div className="flex flex-col gap-y-20">
-                    <div className="info-page-text">{info.aboutMe[1].text}</div>
-                    <Card><img src={info.aboutMe[3].src} alt={info.aboutMe[3].alt}/></Card>
-                    <div className="info-page-text">{info.aboutMe[5].text}</div>
+                    <div className="info-page-text">
+                        <h2>{info.aboutMe.intro.title}</h2>
+                        <p className="text-custom-light text-opacity-50">{info.aboutMe.intro.text}</p>
+                    </div>
+                    <Card><img src={info.aboutMe.aidanHiking.src} alt={info.aboutMe.aidanHiking.alt}/></Card>
+                    <div className="info-page-text">
+                        <h2>{info.aboutMe.passion.title}</h2>
+                        <p className="text-custom-light text-opacity-50">{info.aboutMe.passion.text}</p>
+                    </div>
+                    <Card><img src={info.aboutMe.concert1.src} alt={info.aboutMe.concert1.alt}/></Card>
+                    <div className="info-page-text">
+                        <h2>{info.aboutMe.conclusion.title}</h2>
+                        <p className="text-custom-light text-opacity-50">{info.aboutMe.conclusion.text}</p>
+                    </div>
                 </div>
             </div>
         </>
     );
 }
 
-const Experience = ({ info }) => {
+const Experience = ({info}) => {
     return (
         <>
             <div className="flex flex-row justify-start items-center gap-x-4">

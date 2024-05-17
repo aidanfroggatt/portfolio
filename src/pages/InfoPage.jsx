@@ -32,6 +32,7 @@ const InfoPage = () => {
                 <div className="info-page">
                     <AboutMe info={info}/>
                     <Experience info={info}/>
+                    <Awards info={info}/>
                 </div>
             }
         </>
@@ -86,26 +87,52 @@ const AboutMe = ({ info }) => {
 
 const Experience = ({info}) => {
     return (
-        <>
-            <div className="flex flex-row justify-start items-center gap-x-4">
+        <div className="flex flex-col w-full gap-y-8">
+            <div className="flex flex-row justify-start items-center gap-x-4 w-full border-t border-opacity-20 border-custom-light" style={{paddingTop: '10vh'}}>
                 <div className="dot"></div>
                 <h2 className="info-page-subtitle">EXPERIENCE</h2>
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full gap-y-10">
                 { info.experience && info.experience.map((exp, index) => {
                     return (
                         <div key={index} className="grid grid-cols-2 gap-x-20 justify-start items-start">
-                            <div className="flex-grow">{exp.company}</div>
+                            <div className="flex-grow info-page-experience-company">{exp.company}</div>
                             <div className="info-page-text flex flex-col items-start justify-start">
-                                <div className="text-custom-light">{exp.role}</div>
-                                <div className="text-opacity-50 text-custom-light">{exp.startDate} - {exp.endDate}</div>
-                                <div className="text-opacity-50 text-custom-light">{exp.description}</div>
+                                <div className="info-page-experience-role">{exp.role}{exp.team && <span>, {exp.team}</span>}</div>
+                                <div className="info-page-experience-date">{exp.startDate} - {exp.endDate}</div>
+                                <div className="info-page-experience-date">{exp.description}</div>
                             </div>
                         </div>
                     );
                 })}
             </div>
-        </>
+        </div>
+    );
+}
+
+const Awards = ({info}) => {
+    return (
+        <div className="flex flex-col w-full gap-y-8">
+            <div className="flex flex-row justify-start items-center gap-x-4 w-full border-t border-opacity-20 border-custom-light" style={{paddingTop: '10vh'}}>
+                <div className="dot"></div>
+                <h2 className="info-page-subtitle">AWARDS</h2>
+            </div>
+            <div className="flex flex-col w-full">
+                <div className="grid grid-cols-3">
+                    <div>
+                        {/*<div className="info-page-awards-title">{info.awards.title}</div>*/}
+                        {/*<div className="info-page-awards-text">{info.awards.text}</div>*/}
+                        {/*<div className="info-page-awards-link">{info.awards.link}</div>*/}
+                        <div className="info-page-awards-title">Award Title</div>
+                        <div className="info-page-awards-text">Award Association</div>
+                        <div className="info-page-awards-link">Award Link</div>
+                    </div>
+                    <div>award 2</div>
+                    <div>award 3</div>
+                    <div>award 4</div>
+                </div>
+            </div>
+        </div>
     );
 }
 

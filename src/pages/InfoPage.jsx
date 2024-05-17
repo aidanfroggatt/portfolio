@@ -4,6 +4,7 @@ import Loading from "../components/Loading.jsx";
 import Card from "../components/cards/Card.jsx";
 import { useEffect, useState } from "react";
 import { getDataFromFirestore } from "../utils/firestoreUtils.js";
+import { extractDomain } from "../utils/urlUtils.js";
 
 const InfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -119,17 +120,15 @@ const Awards = ({info}) => {
             </div>
             <div className="flex flex-col w-full">
                 <div className="grid grid-cols-3">
-                    <div>
-                        {/*<div className="info-page-awards-title">{info.awards.title}</div>*/}
-                        {/*<div className="info-page-awards-text">{info.awards.text}</div>*/}
-                        {/*<div className="info-page-awards-link">{info.awards.link}</div>*/}
-                        <div className="info-page-awards-title">Award Title</div>
-                        <div className="info-page-awards-text">Award Association</div>
-                        <div className="info-page-awards-link">Award Link</div>
-                    </div>
-                    <div>award 2</div>
-                    <div>award 3</div>
-                    <div>award 4</div>
+                    { info.awards && info.awards.map((award, index) => {
+                        return (
+                            <div key={index} className="flex flex-col items-start justify-start">
+                                <div className="info-page-awards-title">{award.title}</div>
+                                <div className="info-page-awards-text">{award.association}</div>
+                                <a className="info-page-awards-link" href={award.link}>{extractDomain(award.link)}</a>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

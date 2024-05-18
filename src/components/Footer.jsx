@@ -24,7 +24,7 @@ const Footer = () => {
 
     if (!generalInfo) return null;
     return (
-        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-custom-light border-opacity-50 h-80 justify-evenly items-center flex flex-row lg:py-20 lg:px-40 lg:gap-x-32">
+        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-custom-light border-opacity-50 h-80 justify-evenly items-center flex flex-row p-10 lg:py-20 lg:px-40 lg:gap-x-32">
             <div className="h-full w-full flex flex-col justify-between">
                 <div className="flex h-full">
                     <LilypadIcon className={"w-20 h-20"}/>

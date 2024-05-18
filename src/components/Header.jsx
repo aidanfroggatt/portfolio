@@ -16,7 +16,7 @@ const Header = () => {
     if (!generalInfo) {return null}
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
-            <div className="flex flex-row gap-x-2 items-center fixed left-12">
+            <div className="hidden lg:flex flex-row gap-x-2 items-center fixed left-12">
                 <LilypadIcon className={"w-8 h-8"}/>
                 <div className="flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
@@ -42,7 +42,7 @@ const Header = () => {
                         className="tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
                 </div>
             </div>
-            <div className="flex font-medium fixed right-12">
+            <div className="hidden lg:flex font-medium fixed right-12">
                 { generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
                     <a
                         key={index}

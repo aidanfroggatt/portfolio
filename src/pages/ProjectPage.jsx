@@ -1,15 +1,15 @@
 import '../styles/pages/ProjectPage.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
-import Button from "../components/Button.jsx";
 import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/cards/HighlightCard.jsx";
 import {getIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
+import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -36,29 +36,11 @@ const ProjectPage = () => {
             <div
                 className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <ProjectPageBackButton/>
+                <AnimatedBackButton/>
                 <ProjectPageHero projectInfo={projectInfo}/>
                 {(projectInfo.overview) && <ProjectPageOverview projectInfo={projectInfo}/>}
                 {(projectInfo.highlights) && <ProjectPageHighlights projectInfo={projectInfo}/>}
             </div>
-    )
-}
-
-const ProjectPageBackButton = () => {
-    const navigate = useNavigate();
-    const [isBackClicked, setIsBackClicked] = useState(false);
-    const handleBack = () => {
-        setIsBackClicked(true);
-        setTimeout(() => {
-            navigate('/')
-        }, 500); // Adjust timing to match transition duration
-    };
-
-    return (
-        <div
-            className={`fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12 ${isBackClicked && 'slide-off'}`}>
-            <Button title="Back" leftArrow={true} handleClick={handleBack}/>
-        </div>
     )
 }
 
@@ -148,7 +130,6 @@ const ProjectPageHighlights = ({projectInfo}) => {
                 </h1>
             </div>
             {projectInfo.highlights.map((highlight, index) => {
-                console.log('Highlight:', highlight)
                 return (
                     <div key={index} className="w-full flex flex-col">
                         {highlight.asset.type === 'VIDEO' ? (

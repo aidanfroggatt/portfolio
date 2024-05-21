@@ -11,7 +11,7 @@ const ProjectPageBackButton = () => {
         if (isBackClicked) {
             const timer = setTimeout(() => {
                 navigate('/');
-            }, 250); // Duration of the exit animation
+            }, 0); // Duration of the exit animation
             return () => clearTimeout(timer);
         }
     }, [isBackClicked, navigate]);

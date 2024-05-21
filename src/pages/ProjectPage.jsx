@@ -10,6 +10,7 @@ import HighlightCard from "../components/cards/HighlightCard.jsx";
 import {getIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
+import {motion} from "framer-motion";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -46,7 +47,13 @@ const ProjectPage = () => {
 
 const ProjectPageHero = ({projectInfo}) => {
     return (
-        <div className="flex flex-col justify-start items-center min-h-screen relative">
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.5}}
+            exit={{opacity: 0}}
+            className="flex flex-col justify-start items-center min-h-screen relative"
+        >
             <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
             <div className="flex justify-center items-center project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
                 {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
@@ -54,7 +61,7 @@ const ProjectPageHero = ({projectInfo}) => {
             { projectInfo.image &&
                 <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="project-page-hero-image"/>
             }
-        </div>
+        </motion.div>
     )
 }
 

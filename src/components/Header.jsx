@@ -3,6 +3,7 @@ import LilypadIcon from "../assets/LilypadIcon.jsx";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
+import {FaArrowUpLong} from "react-icons/fa6";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -46,12 +47,13 @@ const Header = () => {
                 { generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
                     <a
                         key={index}
-                        className="text-sm px-3 py-2 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
+                        className="flex flex-row justify-start items-center text-sm px-3 py-2 gap-x-1 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
                         href={generalInfo.links[link]}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         {link}
+                        <FaArrowUpLong className="rotate-45" style={{height: "0.875rem", width: "auto"}}/>
                     </a>
                 ))}
             </div>

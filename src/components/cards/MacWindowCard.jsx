@@ -1,8 +1,25 @@
 import '../../styles/components/MacWindowCard.css';
+import {motion} from "framer-motion";
 
 const MacWindowCard = ({children}) => {
     return (
-        <div className="relative flex justify-center items-center p-[0.75vmax] rounded-[2vmax] w-full h-[95vh] bg-[radial-gradient(circle_farthest-side_at_50%_0,_rgba(242,242,242,0.2),rgba(0,0,0,0))] outline outline-[1px] outline-[rgba(242,242,242,0.15)] outline-offset-[-1px] overflow-hidden shadow-[inset_0_0_8px_rgba(0,0,0,0.4),_0_0_60px_rgba(0,0,0,0.2),_0_30px_120px_rgba(0,0,0,0.8)] backdrop-filter-none">
+        <motion.div
+            initial={{
+                y: 100,
+                // opacity: 0
+            }}
+            animate={{
+                y: 0,
+                // opacity: 1,
+                transition: {duration: 1.0, ease: 'easeInOut'}
+            }}
+            // exit={{
+            //     y: 100,
+            //     opacity: 0,
+            //     transition: {duration: 0.25, ease: 'easeInOut'}
+            // }}
+            className="relative flex justify-center items-center p-[0.75vmax] rounded-[2vmax] w-full h-[95vh] bg-[radial-gradient(circle_farthest-side_at_50%_0,_rgba(242,242,242,0.2),rgba(0,0,0,0))] outline outline-[1px] outline-[rgba(242,242,242,0.15)] outline-offset-[-1px] overflow-hidden shadow-[inset_0_0_8px_rgba(0,0,0,0.4),_0_0_60px_rgba(0,0,0,0.2),_0_30px_120px_rgba(0,0,0,0.8)] backdrop-filter-none"
+        >
             <div className="absolute bottom-0 left-0 right-0 flex h-[25vh] z-[5] bg-[linear-gradient(to_bottom,_rgba(16,16,16,0),_var(--background)_60%)]"></div>
             <div className="shine-wrapper">
                 <div className="shine-small"></div>
@@ -17,7 +34,7 @@ const MacWindowCard = ({children}) => {
                 </div>
                 {children}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

@@ -49,9 +49,16 @@ const ProjectPageHero = ({projectInfo}) => {
     return (
         <motion.div
             initial={{y: 100, opacity: 0}}
-            animate={{y: 0, opacity: 1}}
-            transition={{duration: 0.5}}
-            exit={{y: 100, opacity: 0}}
+            animate={{
+                y: 0,
+                opacity: 1,
+                transition: {duration: 1.0, ease: 'easeInOut'}
+            }}
+            exit={{
+                y: 100,
+                opacity: 0,
+                transition: {duration: 0.25, ease: 'easeInOut'}
+            }}
             className="flex flex-col justify-start items-center min-h-screen relative"
         >
             <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>

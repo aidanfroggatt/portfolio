@@ -22,13 +22,20 @@ const ProjectPageBackButton = () => {
 
     return (
         <motion.div
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            initial={{y: -100, opacity: 0}}
+            animate={{
+                y: 0,
+                opacity: 1,
+                transition: {duration: 1.0, ease: 'easeInOut'}
+            }}
+            exit={{
+                y: -100,
+                opacity: 0,
+                transition: {duration: 0.25, ease: 'easeInOut'}
+            }}
             className="fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12"
         >
-            <Button title="Back" leftArrow={true} handleClick={handleBack} />
+            <Button title="Back" leftArrow={true} handleClick={handleBack}/>
         </motion.div>
     );
 };

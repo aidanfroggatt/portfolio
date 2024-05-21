@@ -5,6 +5,7 @@ import Card from "../components/cards/Card.jsx";
 import { useEffect, useState } from "react";
 import { getDataFromFirestore } from "../utils/firestoreUtils.js";
 import { extractDomain } from "../utils/urlUtils.js";
+import {FaArrowUpLong} from "react-icons/fa6";
 
 const InfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -125,7 +126,10 @@ const Awards = ({info}) => {
                             <div key={index} className="flex flex-col items-start justify-start">
                                 <div className="info-page-awards-title">{award.title}</div>
                                 <div className="info-page-awards-text mt-2">{award.association}</div>
-                                <a className="info-page-awards-link mt-2" href={award.link}>{extractDomain(award.link)}</a>
+                                <a className="flex flex-row justify-start items-center gap-x-1 info-page-awards-link mt-2" href={award.link}>
+                                    {extractDomain(award.link)}
+                                    <FaArrowUpLong className="rotate-45" style={{height: "1.5vmax", width: "auto"}}/>
+                                </a>
                             </div>
                         );
                     })}

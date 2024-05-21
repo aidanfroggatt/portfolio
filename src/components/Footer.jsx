@@ -5,6 +5,7 @@ import {convertDateFormat} from "../utils/dateTimeUtils.js";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import {getLastCommitInfo} from "../utils/githubUtils.js";
 import {getFirstWord} from "../utils/stringUtils.js";
+import {FaArrowUpLong} from "react-icons/fa6";
 
 const Footer = () => {
     const generalInfo = useContext(GeneralInfoContext);
@@ -36,22 +37,23 @@ const Footer = () => {
             </div>
             <div className="h-full w-full flex flex-col justify-between items-end">
                 <div className="flex flex-row justify-end items-start gap-x-16 w-full h-full">
-                    <div className="flex flex-col justify-center items-center gap-y-4">
+                    <div className="flex flex-col justify-center items-start gap-y-4">
                         <div className="text-xs text-custom-light text-opacity-50">MAIN</div>
                         <div className="text-sm hover:cursor-pointer" onClick={() => handleNavigate("/")}>Work</div>
                         <div className="text-sm hover:cursor-pointer" onClick={() => handleNavigate("/info")}>Info</div>
                     </div>
-                    <div className="flex flex-col justify-center items-center gap-y-4">
+                    <div className="flex flex-col justify-center items-start gap-y-4">
                         <div className="text-xs text-custom-light text-opacity-50">CONTACT</div>
                         { generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
                                 <a
                                     key={index}
-                                    className="text-sm"
+                                    className="flex flex-row justify-start items-center text-sm gap-x-1"
                                     href={generalInfo.links[link]}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     {link}
+                                    <FaArrowUpLong className="rotate-45" style={{height: "0.875rem", width: "auto"}}/>
                                 </a>
                         ))}
                     </div>

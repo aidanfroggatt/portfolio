@@ -2,7 +2,7 @@
 .project-page {
     --project-color: rgba(242, 242, 242, 0.1);
     background-image: radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));
-    background-size: 100% 125vh;
+    background-size: 100% 135vh;
     background-repeat: no-repeat;
     padding-top: 15vh;
     padding-bottom: 25vh;

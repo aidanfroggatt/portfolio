@@ -30,9 +30,9 @@ const InfoPage = () => {
 
     return (
         <>
-            <Header />
+            <Header/>
             <ScrollToTop/>
-            {isLoading ? <Loading /> :
+            {isLoading ? <Loading/> :
                 <div className="info-page">
                     <AboutMe info={info}/>
                     <Experience info={info}/>
@@ -100,7 +100,7 @@ const Experience = ({info}) => {
                 { info.experience && info.experience.map((exp, index) => {
                     return (
                         <div key={index} className="grid grid-cols-2 gap-x-20 justify-start items-start">
-                            <div className="flex-grow info-page-experience-company">{exp.company}</div>
+                            <div className="flex-grow info-page-experience-company"><a href={exp.companyWebsite} target="_blank" rel="noopener noreferrer">{exp.company}</a></div>
                             <div className="info-page-text flex flex-col items-start justify-start">
                                 <div className="info-page-experience-role">{exp.role}{exp.team && <span>, {exp.team}</span>}</div>
                                 <div className="info-page-experience-date mt-2">{exp.startDate} - {exp.endDate}</div>

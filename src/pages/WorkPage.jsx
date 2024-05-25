@@ -46,7 +46,7 @@ const WorkPage = () => {
     return (
         <>
             <Header/>
-            {!isLoading ? <Loading/> :
+            {isLoading ? <Loading/> :
                 <div
                     className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&

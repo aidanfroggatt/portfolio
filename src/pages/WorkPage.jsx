@@ -1,16 +1,16 @@
 import '../styles/pages/WorkPage.css';
 import '../styles/components/MacWindowCard.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
-import {useNavigate} from "react-router-dom";
-import React, {useContext, useEffect, useState} from "react";
-import {getDataFromFirestore} from "../utils/firestoreUtils.js";
-import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
+import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { getDataFromFirestore } from "../utils/firestoreUtils.js";
+import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
-import {hexToRGBA} from "../utils/colorUtils.js";
+import { hexToRGBA } from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
-import {FaArrowRightLong} from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
@@ -36,17 +36,17 @@ const ProjectCard = ({ title='Title', association='Association', description='De
 }
 
 const WorkPage = () => {
-    const generalInfo = useContext(GeneralInfoContext)
+    const generalInfo = useContext(GeneralInfoContext);
     const [projects, setProjects] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
-    const navigate = useNavigate()
-    const handleProjectClick = ({projectID}) => {
+    const navigate = useNavigate();
+    const handleProjectClick = ({ projectID }) => {
         navigate(`/${projectID}`);
     }
 
     useEffect(() => {
-        getDataFromFirestore({collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'color']}).then(data => {
+        getDataFromFirestore({ collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'color'] }).then(data => {
             setProjects(data);
             setIsLoading(false);
         });
@@ -54,9 +54,9 @@ const WorkPage = () => {
 
     return (
         <>
-            <Header/>
-            <ScrollToTop/>
-            {isLoading ? <Loading/> :
+            <Header />
+            <ScrollToTop />
+            {isLoading ? <Loading /> :
                 <div
                     className="work-page gap-y-10 relative py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
@@ -70,21 +70,27 @@ const WorkPage = () => {
                                 y: 0,
                                 opacity: 1,
                                 backdropFilter: 'blur(40px)',
-                                transition: {duration: 0.5, ease: 'easeInOut'}
+                                transition: { duration: 0.5, ease: 'easeInOut' }
                             }}
                             exit={{
                                 opacity: 0,
                                 backdropFilter: 'blur(0px)',
-                                transition: {duration: 0.25, ease: 'easeInOut'}
+                                transition: { duration: 0.25, ease: 'easeInOut' }
                             }}>
-                            <MacWindowCard>
-                                <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
-                                    className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                                <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
-                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
-                                </div>
-                            </MacWindowCard>
+                            {/* Conditional rendering of MacWindowCard */}
+                            <div className="hidden md:block">
+                                <MacWindowCard>
+                                    <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
+                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                    <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
+                                        <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                        <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
+                                    </div>
+                                </MacWindowCard>
+                            </div>
+                            <div className="md:hidden block">
+                                <h2>AYO</h2>
+                            </div>
                         </motion.div>
                     }
                     {projects && Object.keys(projects).map((key) => (
@@ -95,7 +101,7 @@ const WorkPage = () => {
                             description={projects[key].description}
                             image={projects[key].image.src}
                             imageAlt={projects[key].image.alt}
-                            handleClick={() => handleProjectClick({projectID: key})}
+                            handleClick={() => handleProjectClick({ projectID: key })}
                             color={hexToRGBA(projects[key].color, 0.5)}
                         />
                     ))}

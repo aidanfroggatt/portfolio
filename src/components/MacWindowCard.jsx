@@ -1,4 +1,4 @@
-import '../../styles/components/MacWindowCard.css';
+import '../styles/components/MacWindowCard.css';
 import {motion} from "framer-motion";
 
 const MacWindowCard = ({children}) => {

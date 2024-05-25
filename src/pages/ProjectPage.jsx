@@ -6,7 +6,7 @@ import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
-import HighlightCard from "../components/cards/HighlightCard.jsx";
+import HighlightCard from "../components/HighlightCard.jsx";
 import {getIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";

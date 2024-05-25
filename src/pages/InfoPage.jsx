@@ -1,7 +1,7 @@
 import '../styles/pages/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
-import Card from "../components/cards/Card.jsx";
+import Card from "../components/Card.jsx";
 import { useEffect, useState } from "react";
 import { getDataFromFirestore } from "../utils/firestoreUtils.js";
 import { extractDomain } from "../utils/urlUtils.js";

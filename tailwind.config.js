@@ -26,11 +26,13 @@ export default {
         'work-card-2xl': '1275px',
         'work-card-lg': '850px',
         'work-card-md': '80vw',
+        'work-card-default': '90vw',
       },
       height: {
         'work-card-2xl': '825px',
         'work-card-lg': '550px',
         'work-card-md': '450px',
+        'work-card-default': '350px',
         'footer-2xl': '450px',
         'footer-lg': '300px',
       },

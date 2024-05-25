@@ -78,7 +78,7 @@ const WorkPage = () => {
                                 transition: { duration: 0.25, ease: 'easeInOut' }
                             }}>
                             {/* Conditional rendering of MacWindowCard */}
-                            <div className="hidden md:block">
+                            <div className="hidden md:flex">
                                 <MacWindowCard>
                                     <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
                                         className="name italic font-accent">{generalInfo.firstName}.</span></div>
@@ -88,8 +88,20 @@ const WorkPage = () => {
                                     </div>
                                 </MacWindowCard>
                             </div>
-                            <div className="md:hidden block">
-                                <h2>AYO</h2>
+                            <div className="md:hidden flex flex-col justify-center items-start">
+                                <div
+                                    className="font-bold text-left text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
+                                    I'm&nbsp;<span
+                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div
+                                    className="flex flex-col text-custom-light text-lg 2xl:text-2xl">
+                                    <div
+                                        className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
+                                    </div>
+                                    <div className="text-custom-light text-opacity-50">Based
+                                        in {generalInfo.location}.
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     }

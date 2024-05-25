@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import {FaAt} from "react-icons/fa";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -25,9 +26,9 @@ const Header = () => {
 
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
-            <div className="hidden md:flex flex-row gap-x-2 items-center fixed left-12">
+            <div className="flex flex-row gap-x-2 items-center fixed left-12">
                 <LilypadIcon className={"w-8 h-8"} />
-                <div className="flex flex-col">
+                <div className="hidden md:flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
                     {generalInfo.currentRole.title && <div className="text-xs text-custom-light text-opacity-50">{generalInfo.currentRole.title}</div>}
                 </div>
@@ -81,6 +82,9 @@ const Header = () => {
                         <FaArrowUpLong className="rotate-45" style={{ height: "0.875rem", width: "auto" }} />
                     </a>
                 ))}
+            </div>
+            <div className="md:hidden flex font-medium fixed right-12">
+                <FaAt className={"w-8 h-8"} />
             </div>
         </div>
     )

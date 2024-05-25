@@ -1,4 +1,3 @@
-import '../styles/components/Header.css';
 import LilypadIcon from "../assets/LilypadIcon.jsx";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useContext} from "react";
@@ -32,7 +31,7 @@ const Header = () => {
                 >
                     <div>Work</div>
                     {'/' === location.pathname && <div
-                        className="tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
+                        className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
                 </div>
                 <div
                     className={`${'/info' === location.pathname && 'bg-custom-light bg-opacity-10'} flex justify-center items-center w-20 h-9 rounded-full hover:cursor-pointer`}
@@ -40,7 +39,7 @@ const Header = () => {
                 >
                     <div>Info</div>
                     {'/info' === location.pathname && <div
-                        className="tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
+                        className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
                 </div>
             </div>
             <div className="hidden lg:flex font-medium fixed right-12">

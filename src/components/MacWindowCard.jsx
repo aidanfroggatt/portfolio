@@ -1,25 +1,8 @@
 import '../styles/components/MacWindowCard.css';
-import {motion} from "framer-motion";
 
 const MacWindowCard = ({children}) => {
     return (
-        <motion.div
-            initial={{
-                y: 100,
-                opacity: 0,
-                backdropFilter: 'blur(0px)',
-            }}
-            animate={{
-                y: 0,
-                opacity: 1,
-                backdropFilter: 'blur(40px)',
-                transition: {duration: 0.5, ease: 'easeInOut'}
-            }}
-            exit={{
-                opacity: 0,
-                backdropFilter: 'blur(0px)',
-                transition: {duration: 0.25, ease: 'easeInOut'}
-            }}
+        <div
             className="relative flex justify-center items-center p-[0.75vmax] rounded-[2vmax]
              w-full h-[95vh] 2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg
              bg-[radial-gradient(circle_farthest-side_at_50%_0,_rgba(242,242,242,0.2),rgba(0,0,0,0))] outline outline-[1px] outline-[rgba(242,242,242,0.15)] outline-offset-[-1px] overflow-hidden shadow-[inset_0_0_8px_rgba(0,0,0,0.4),_0_0_60px_rgba(0,0,0,0.2),_0_30px_120px_rgba(0,0,0,0.8)] backdrop-filter-none"
@@ -38,7 +21,7 @@ const MacWindowCard = ({children}) => {
                 </div>
                 {children}
             </div>
-        </motion.div>
+        </div>
     )
 }
 

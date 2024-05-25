@@ -10,7 +10,7 @@ import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
 import {FaArrowRightLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
-
+import {motion} from "framer-motion";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
@@ -60,14 +60,32 @@ const WorkPage = () => {
                 <div
                     className="work-page gap-y-10 relative py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
-                        <MacWindowCard>
-                            <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
-                                className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                            <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
-                                <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
-                            </div>
-                        </MacWindowCard>
+                        <motion.div
+                            initial={{
+                                y: 100,
+                                opacity: 0,
+                                backdropFilter: 'blur(0px)',
+                            }}
+                            animate={{
+                                y: 0,
+                                opacity: 1,
+                                backdropFilter: 'blur(40px)',
+                                transition: {duration: 0.5, ease: 'easeInOut'}
+                            }}
+                            exit={{
+                                opacity: 0,
+                                backdropFilter: 'blur(0px)',
+                                transition: {duration: 0.25, ease: 'easeInOut'}
+                            }}>
+                            <MacWindowCard>
+                                <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
+                                    className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
+                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
+                                </div>
+                            </MacWindowCard>
+                        </motion.div>
                     }
                     {projects && Object.keys(projects).map((key) => (
                         <ProjectCard

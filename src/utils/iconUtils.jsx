@@ -1,6 +1,6 @@
 import * as SiIcons from "react-icons/si";
 
-export const getIconByName = (iconName) => {
+export const getIconByName = ({iconName, style, className}) => {
     const IconComponent = SiIcons[iconName];
-    return IconComponent ? <IconComponent style={{width: "3vmax", height: "3vmax"}}/> : null;
+    return IconComponent ? <IconComponent style={style} className={className}/> : null;
 };

@@ -6,7 +6,6 @@ import WorkPage from "./pages/WorkPage.jsx";
 import ProjectPage from './pages/ProjectPage.jsx';
 import Footer from './components/Footer.jsx';
 import './App.css';
-import ScrollToTop from "./components/ScrollToTop.jsx";
 import {AnimatePresence} from "framer-motion";
 
 

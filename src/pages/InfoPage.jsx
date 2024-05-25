@@ -2,9 +2,9 @@ import '../styles/pages/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/Card.jsx";
-import React, { useEffect, useState } from "react";
-import { getDataFromFirestore } from "../utils/firestoreUtils.js";
-import { extractDomain } from "../utils/urlUtils.js";
+import React, {useEffect, useState} from "react";
+import {getDataFromFirestore} from "../utils/firestoreUtils.js";
+import {extractDomain} from "../utils/urlUtils.js";
 import {FaArrowUpLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 

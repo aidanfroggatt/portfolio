@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import {FaArrowUpLong} from "react-icons/fa6";
+import {motion} from "framer-motion";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -30,16 +31,48 @@ const Header = () => {
                     onClick={() => handleNavigate('/')}
                 >
                     <div>Work</div>
-                    {'/' === location.pathname && <div
-                        className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
+                    {'/' === location.pathname &&
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                            }}
+                            animate={{
+                                opacity: 1,
+                            }}
+                            exit={{
+                                opacity: 0,
+                            }}
+                            transition={{
+                                duration: 0.25,
+                                ease: "easeInOut",
+                            }}
+                            className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light">
+                        </motion.div>
+                    }
                 </div>
                 <div
                     className={`${'/info' === location.pathname && 'bg-custom-light bg-opacity-10'} flex justify-center items-center w-20 h-9 rounded-full hover:cursor-pointer`}
                     onClick={() => handleNavigate('/info')}
                 >
                     <div>Info</div>
-                    {'/info' === location.pathname && <div
-                        className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"></div>}
+                    {'/info' === location.pathname &&
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                            }}
+                            animate={{
+                                opacity: 1,
+                            }}
+                            exit={{
+                                opacity: 0,
+                            }}
+                            transition={{
+                                duration: 0.25,
+                                ease: "easeInOut",
+                            }}
+                            className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light">
+                        </motion.div>
+                    }
                 </div>
             </div>
             <div className="hidden lg:flex font-medium fixed right-12">

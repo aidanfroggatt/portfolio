@@ -1,6 +1,6 @@
 import '../styles/pages/WorkPage.css';
+import '../styles/components/MacWindowCard.css';
 import MacWindowCard from "../components/cards/MacWindowCard.jsx";
-import ProjectCard from "../components/cards/ProjectCard.jsx";
 import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
@@ -8,7 +8,23 @@ import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
-import Card from "../components/cards/Card.jsx";
+import {FaArrowRightLong} from "react-icons/fa6";
+
+
+const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
+    return (
+        <div className="project-card-container">
+            <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
+                <div className="project-card-header">
+                    <div className="project-card-title">{title}</div>
+                    <div className="project-card-association">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
+                    {arrow && <FaArrowRightLong className="project-card-arrow"/>}
+                    <img src={image} alt={imageAlt} className="project-card-image"/>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext)
@@ -30,7 +46,7 @@ const WorkPage = () => {
     return (
         <>
             <Header/>
-            {isLoading ? <Loading/> :
+            {!isLoading ? <Loading/> :
                 <div
                     className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&

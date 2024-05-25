@@ -1,13 +1,10 @@
 import '../styles/components/Loading.css';
 
 const Loading = () => {
-
     return (
-        <>
-            <div className="min-h-screen bg-custom-dark flex justify-center items-center">
-                <div className="loader"></div>
-            </div>
-        </>
+        <div className="min-h-screen bg-custom-dark flex justify-center items-center">
+            <div className="loader w-loader aspect-loader bg-loader animate-loader-animation"></div>
+        </div>
     )
 }
 

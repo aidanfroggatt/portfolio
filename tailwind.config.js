@@ -12,7 +12,35 @@ export default {
       },
       boxShadow: {
         '1': "inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8)"
-      }
+      },
+      width: {
+        'loader': '60px',
+      },
+      aspectRatio: {
+        'loader': '2',
+      },
+      backgroundSize: {
+        'loader': 'calc(100%/3) 50%'
+      },
+      animation: {
+        'loader-animation': 'loader-keyframes 1s infinite linear'
+      },
+      keyframes: {
+        'loader-keyframes': {
+          '20%': {
+            'backgroundPosition': '0% 0%, 50% 50%, 100% 50%'
+          },
+          '40%': {
+            'backgroundPosition': '0% 100%, 50% 0%, 100% 50%'
+          },
+          '60%': {
+            'backgroundPosition': '0% 50%, 50% 100%, 100% 0%'
+          },
+          '80%': {
+            'backgroundPosition': '0% 50%, 50% 50%, 100% 100%'
+          }
+        }
+      },
     },
   },
   plugins: [],

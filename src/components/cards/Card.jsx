@@ -1,6 +1,6 @@
 import '../../styles/components/Card.css'
 
-const ProjectCard = ({ className, children }) => {
+const Card = ({ className, children }) => {
     return (
         <div className="card-container shadow-1 ">
             <div className={`card ${className}`}>
@@ -10,4 +10,4 @@ const ProjectCard = ({ className, children }) => {
     )
 }
 
-export default ProjectCard;
+export default Card;

@@ -21,8 +21,10 @@ const ProjectCard = ({ title='Title', association='Association', description='De
                 <div className="project-card-header flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
                     <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
                     <div className="2xl:text-xl text-base">{association}&nbsp;<span className="text-custom-light text-opacity-50">- {description}</span></div>
-                    {arrow && <FaArrowRightLong className="project-card-arrow"/>}
-                    <img src={image} alt={imageAlt} className="project-card-image"/>
+                    {arrow && <FaArrowRightLong className="project-card-arrow 2xl:text-4xl text-2xl absolute top-0 right-0 2xl:m-10 m-8 transition-transform duration-500 ease-linear"/>}
+                    <img src={image} alt={imageAlt}
+                         className="project-card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
+                    />
                 </div>
             </div>
         </div>

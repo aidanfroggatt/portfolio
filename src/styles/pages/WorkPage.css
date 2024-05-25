@@ -68,30 +68,8 @@
     cursor: pointer;
 }
 
-.project-card-arrow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 2.5vmax;
-    font-size: 2vmax;
-    transition: transform 0.5s ease;
-} .project-card:hover .card-arrow {
-      transform: translateX(0.5vw);
-  }
-
 .project-card-image {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    position: absolute;
-    bottom: -25vh; /* Change this value to adjust the initial position */
-    left: 50%; /* Center the image horizontally */
-    transform: translateX(-50%); /* Center the image horizontally */
     transition: bottom 0.25s ease;
-    overflow: hidden; /* Hide any overflowing content */
-    height: 100%;
-    width: auto;
 }
 
 .project-card:hover .project-card-image {

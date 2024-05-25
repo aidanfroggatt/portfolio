@@ -56,9 +56,9 @@ const WorkPage = () => {
                         <MacWindowCard>
                             <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
                                 className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                            <div className="additional-info-container">
-                                <div className="job">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                <div className="location">Based in {generalInfo.location}.</div>
+                            <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
+                                <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
                             </div>
                         </MacWindowCard>
                     }

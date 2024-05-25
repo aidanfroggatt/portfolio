@@ -13,27 +13,6 @@
     text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25)
 }
 
-.additional-info-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 15%;
-    bottom: 35%;
-    color: #f2f2f2;
-    font-size: 1.5vmax;
-}
-
-.job {
-    font-weight: 600;
-}
-
-.location {
-    font-weight: 400;
-    color: rgba(242, 242, 242, 0.5);
-}
-
-
-
 .project-card-container {
     display: flex;
     justify-content: center;

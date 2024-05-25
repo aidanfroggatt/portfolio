@@ -29,6 +29,8 @@ export default {
       height: {
         'work-card-2xl': '825px',
         'work-card-lg': '550px',
+        'footer-2xl': '450px',
+        'footer-lg': '300px',
       },
       aspectRatio: {
         'loader': '2',

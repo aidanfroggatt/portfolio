@@ -1,6 +1,6 @@
 import '../styles/pages/ProjectPage.css';
 import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
@@ -11,6 +11,7 @@ import {getIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 import {motion} from "framer-motion";
+import ScrollToTop from "../components/ScrollToTop.jsx";
 
 const ProjectPage = () => {
     const {projectId} = useParams();
@@ -33,7 +34,9 @@ const ProjectPage = () => {
     }, []);
 
     return (
-        (isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
+        <>
+            <ScrollToTop/>
+            {(isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
             <div
                 className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
@@ -42,6 +45,8 @@ const ProjectPage = () => {
                 {(projectInfo.overview) && <ProjectPageOverview projectInfo={projectInfo}/>}
                 {(projectInfo.highlights) && <ProjectPageHighlights projectInfo={projectInfo}/>}
             </div>
+            }
+        </>
     )
 }
 

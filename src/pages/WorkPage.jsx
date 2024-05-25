@@ -2,13 +2,14 @@ import '../styles/pages/WorkPage.css';
 import '../styles/components/MacWindowCard.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
 import {useNavigate} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
 import {FaArrowRightLong} from "react-icons/fa6";
+import ScrollToTop from "../components/ScrollToTop.jsx";
 
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
@@ -54,6 +55,7 @@ const WorkPage = () => {
     return (
         <>
             <Header/>
+            <ScrollToTop/>
             {isLoading ? <Loading/> :
                 <div
                     className="work-page gap-y-10 relative py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">

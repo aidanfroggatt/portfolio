@@ -14,7 +14,6 @@ function App() {
     return (
         <GeneralInfoProvider>
             <Router>
-                <ScrollToTop/>
                 <RouteContainer/>
                 <Footer/>
             </Router>

@@ -84,7 +84,7 @@ const Header = () => {
                 ))}
             </div>
             <div className="md:hidden flex font-medium fixed right-12">
-                <FaAt className={"w-8 h-8"} />
+                <FaAt className={"w-8 h-8 bg-custom-dark bg-opacity-50 rounded-full p-1"} />
             </div>
         </div>
     )

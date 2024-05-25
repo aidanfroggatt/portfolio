@@ -17,10 +17,10 @@ const Header = () => {
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
             <div className="hidden lg:flex flex-row gap-x-2 items-center fixed left-12">
-                <LilypadIcon className={"w-8 h-8"}/>
+                <LilypadIcon className={"w-8 h-8 2xl:w-12 2xl:h-12"}/>
                 <div className="flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
-                    {generalInfo.currentJob && <div className="text-xs text-custom-light text-opacity-50">{generalInfo.currentJob}</div>}
+                    {generalInfo.currentRole.title && <div className="text-xs text-custom-light text-opacity-50">{generalInfo.currentRole.title}</div>}
                 </div>
             </div>
             <div

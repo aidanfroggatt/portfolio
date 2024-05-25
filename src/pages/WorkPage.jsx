@@ -13,7 +13,10 @@ import {FaArrowRightLong} from "react-icons/fa6";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
-        <div className="project-card-container">
+        <div className="
+            project-card-container
+            w-full h-[95vh] 2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg md:w-work-card-md md:h-work-card-md
+        ">
             <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
                 <div className="project-card-header">
                     <div className="project-card-title">{title}</div>

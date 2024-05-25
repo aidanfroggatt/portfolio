@@ -24,8 +24,8 @@ const Header = () => {
     const direction = location.pathname === '/' ? 'infoToWork' : 'workToInfo';
 
     return (
-        <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
-            <div className="hidden lg:flex flex-row gap-x-2 items-center fixed left-12">
+        <div className="flex flex-row absolute justify-center items-center h-20 w-full p-14 text-custom-light z-50">
+            <div className="hidden lg:flex flex-row gap-x-2 items-center left-12 absolute">
                 <LilypadIcon className={"w-8 h-8 2xl:w-12 2xl:h-12"} />
                 <div className="flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
@@ -68,7 +68,7 @@ const Header = () => {
                     )}
                 </div>
             </div>
-            <div className="hidden lg:flex font-medium fixed right-12">
+            <div className="hidden lg:flex font-medium absolute right-12">
                 {generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
                     <a
                         key={index}

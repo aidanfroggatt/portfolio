@@ -20,7 +20,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
             <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
                 <div className="project-card-header flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
                     <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
-                    <div className="2xl:text-xl text-base">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
+                    <div className="2xl:text-xl text-base">{association}&nbsp;<span className="text-custom-light text-opacity-50">- {description}</span></div>
                     {arrow && <FaArrowRightLong className="project-card-arrow"/>}
                     <img src={image} alt={imageAlt} className="project-card-image"/>
                 </div>

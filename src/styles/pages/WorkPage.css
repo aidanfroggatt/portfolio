@@ -79,12 +79,6 @@
       transform: translateX(0.5vw);
   }
 
-.project-description {
-    color: rgba(242, 242, 242, 0.5);
-    font-size: 1.15vmax;
-
-}
-
 .project-card-image {
     display: flex;
     justify-content: center;

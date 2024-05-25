@@ -25,10 +25,12 @@ export default {
         'loader': '60px',
         'work-card-2xl': '1275px',
         'work-card-lg': '850px',
+        'work-card-md': '80vw',
       },
       height: {
         'work-card-2xl': '825px',
         'work-card-lg': '550px',
+        'work-card-md': '450px',
         'footer-2xl': '450px',
         'footer-lg': '300px',
       },

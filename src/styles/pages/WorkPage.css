@@ -1,12 +1,6 @@
 
 .work-page {
     background-image: radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));
-    padding-left: 15vw;
-    padding-right: 15vw;
-    padding-top: 25vh;
-    padding-bottom: 25vh;
-    gap: 7.5vh;
-    position: relative;
 }
 
 .name {
@@ -74,17 +68,6 @@
     cursor: pointer;
 }
 
-.project-card-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    width: 100%;
-    border-bottom-left-radius: 1.25vmax;
-    border-bottom-right-radius: 1.25vmax;
-    margin: 2.5vmax;
-    gap: 1vh;
-}
-
 .project-card-arrow {
     position: absolute;
     top: 0;
@@ -95,16 +78,6 @@
 } .project-card:hover .card-arrow {
       transform: translateX(0.5vw);
   }
-
-.project-card-title {
-    font-size: 2vmax;
-    font-weight: 700;
-}
-
-.project-association {
-    color: rgba(242, 242, 242, 100);
-    font-size: 1.15vmax;
-}
 
 .project-description {
     color: rgba(242, 242, 242, 0.5);

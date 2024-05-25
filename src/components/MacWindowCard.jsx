@@ -19,7 +19,7 @@ const MacWindowCard = ({children}) => {
             //     transition: {duration: 0.25, ease: 'easeInOut'}
             // }}
             className="relative flex justify-center items-center p-[0.75vmax] rounded-[2vmax]
-             w-full h-[95vh] 2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg md:w-work-card-md md:h-work-card-md
+             w-full h-[95vh] 2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg
              bg-[radial-gradient(circle_farthest-side_at_50%_0,_rgba(242,242,242,0.2),rgba(0,0,0,0))] outline outline-[1px] outline-[rgba(242,242,242,0.15)] outline-offset-[-1px] overflow-hidden shadow-[inset_0_0_8px_rgba(0,0,0,0.4),_0_0_60px_rgba(0,0,0,0.2),_0_30px_120px_rgba(0,0,0,0.8)] backdrop-filter-none"
         >
             <div className="absolute bottom-0 left-0 right-0 flex h-[25vh] z-[5] bg-[linear-gradient(to_bottom,_rgba(16,16,16,0),_var(--background)_60%)]"></div>

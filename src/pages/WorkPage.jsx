@@ -18,9 +18,9 @@ const ProjectCard = ({ title='Title', association='Association', description='De
             w-full h-[95vh] 2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg md:w-work-card-md md:h-work-card-md
         ">
             <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
-                <div className="project-card-header">
-                    <div className="project-card-title">{title}</div>
-                    <div className="project-card-association">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
+                <div className="project-card-header flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
+                    <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
+                    <div className="2xl:text-xl text-base">{association}&nbsp;<span className="project-card-description">- {description}</span></div>
                     {arrow && <FaArrowRightLong className="project-card-arrow"/>}
                     <img src={image} alt={imageAlt} className="project-card-image"/>
                 </div>
@@ -51,7 +51,7 @@ const WorkPage = () => {
             <Header/>
             {isLoading ? <Loading/> :
                 <div
-                    className="work-page min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                    className="work-page gap-y-10 relative py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
                         <MacWindowCard>
                             <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span

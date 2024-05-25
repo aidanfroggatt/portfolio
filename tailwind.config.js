@@ -22,12 +22,10 @@ export default {
         'loader': '60px',
         'work-card-2xl': '1275px',
         'work-card-lg': '850px',
-        'work-card-md': '650px',
       },
       height: {
         'work-card-2xl': '825px',
         'work-card-lg': '550px',
-        'work-card-md': '450px',
       },
       aspectRatio: {
         'loader': '2',

@@ -33,7 +33,7 @@ const ProjectPageBackButton = () => {
                 opacity: 0,
                 transition: {duration: 0.25, ease: 'easeInOut'}
             }}
-            className="fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12"
+            className="z-50 fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12"
         >
             <Button title="Back" leftArrow={true} handleClick={handleBack}/>
         </motion.div>

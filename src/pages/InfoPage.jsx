@@ -122,7 +122,7 @@ const Awards = ({info}) => {
                 <h2 className="info-page-subtitle">AWARDS</h2>
             </div>
             <div className="flex flex-col w-full">
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-2 md:grid-cols-3">
                     { info.awards && info.awards.map((award, index) => {
                         return (
                             <div key={index} className="flex flex-col items-start justify-start">

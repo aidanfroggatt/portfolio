@@ -1,16 +1,16 @@
 import '../styles/pages/WorkPage.css';
 import '../styles/components/MacWindowCard.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
-import { useNavigate } from "react-router-dom";
-import React, { useContext, useEffect, useState } from "react";
-import { getDataFromFirestore } from "../utils/firestoreUtils.js";
-import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
+import {useNavigate} from "react-router-dom";
+import React, {useContext, useEffect, useState} from "react";
+import {getDataFromFirestore} from "../utils/firestoreUtils.js";
+import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
-import { hexToRGBA } from "../utils/colorUtils.js";
+import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
-import { FaArrowRightLong } from "react-icons/fa6";
+import {FaArrowRightLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (

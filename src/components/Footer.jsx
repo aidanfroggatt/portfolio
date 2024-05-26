@@ -5,7 +5,7 @@ import {convertDateFormat} from "../utils/dateTimeUtils.js";
 import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import {getLastCommitInfo} from "../utils/githubUtils.js";
 import {getFirstWord} from "../utils/stringUtils.js";
-import {FaArrowUpLong} from "react-icons/fa6";
+import {TfiArrowTopRight} from "react-icons/tfi";
 
 const Footer = () => {
     const generalInfo = useContext(GeneralInfoContext);
@@ -53,7 +53,7 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                 >
                                     {link}
-                                    <FaArrowUpLong className="rotate-45" style={{height: "0.875rem", width: "auto"}}/>
+                                    <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
                                 </a>
                         ))}
                     </div>

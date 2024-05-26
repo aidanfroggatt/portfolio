@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import {FaArrowRightLong, FaArrowUpLong} from "react-icons/fa6";
+import {useState} from "react";
+import {motion} from "framer-motion";
+import {TfiArrowTopRight} from "react-icons/tfi";
 
 const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
     const [isToggled, setIsToggled] = useState(false);
@@ -57,7 +57,7 @@ const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
                             >
                                 {name}
                             </a>
-                            <FaArrowUpLong className="rotate-45" style={{ height: "0.875rem", width: "auto" }} />
+                            <TfiArrowTopRight style={{ height: "0.875rem", width: "auto" }} />
                         </div>
                     ))}
                 </motion.div>

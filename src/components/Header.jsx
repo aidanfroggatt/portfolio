@@ -1,11 +1,11 @@
 import LilypadIcon from "../assets/LilypadIcon.jsx";
-import { useLocation, useNavigate } from "react-router-dom";
-import {useContext, useState} from "react";
-import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
-import { FaArrowUpLong } from "react-icons/fa6";
-import { motion } from "framer-motion";
-import {FaAt, FaTimes} from "react-icons/fa";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useContext} from "react";
+import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
+import {motion} from "framer-motion";
 import IconMenu from "./IconMenu.jsx";
+import {FiAtSign, FiX} from "react-icons/fi";
+import {TfiArrowTopRight} from "react-icons/tfi";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -80,12 +80,12 @@ const Header = () => {
                         rel="noopener noreferrer"
                     >
                         {link}
-                        <FaArrowUpLong className="rotate-45" style={{ height: "0.875rem", width: "auto" }} />
+                        <TfiArrowTopRight style={{ height: "0.875rem", width: "auto" }} />
                     </a>
                 ))}
             </div>
             <div className="fixed sm:right-12 right-6 md:hidden flex">
-                <IconMenu initialIcon={<FaTimes className="w-9 h-9"/>} toggleIcon={<FaAt className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
+                <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
             </div>
         </div>
     )

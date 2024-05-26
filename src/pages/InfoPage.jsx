@@ -2,11 +2,11 @@ import '../styles/pages/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/Card.jsx";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {extractDomain} from "../utils/urlUtils.js";
-import {FaArrowUpLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
+import {TfiArrowTopRight} from "react-icons/tfi";
 
 const InfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -130,7 +130,7 @@ const Awards = ({info}) => {
                                 <div className="info-page-awards-text mt-2">{award.association}</div>
                                 <a className="flex flex-row justify-start items-center gap-x-1 info-page-awards-link mt-2" href={award.link}>
                                     {extractDomain(award.link)}
-                                    <FaArrowUpLong className="rotate-45" style={{height: "1.5vmax", width: "auto"}}/>
+                                    <TfiArrowTopRight style={{height: "1.5vmax", width: "auto"}}/>
                                 </a>
                             </div>
                         );

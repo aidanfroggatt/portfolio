@@ -88,18 +88,10 @@ const WorkPage = () => {
                                 </MacWindowCard>
                             </div>
                             <div className="md:hidden flex flex-col justify-center items-start">
-                                <div
-                                    className="font-bold text-left text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
-                                    I'm&nbsp;<span
-                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                                <div
-                                    className="flex flex-col text-custom-light text-lg 2xl:text-2xl">
-                                    <div
-                                        className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
-                                    </div>
-                                    <div className="text-custom-light text-opacity-50">Based
-                                        in {generalInfo.location}.
-                                    </div>
+                                <div className="font-bold text-left text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div className="flex flex-col text-custom-light text-lg 2xl:text-2xl">
+                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
                                 </div>
                             </div>
                         </motion.div>

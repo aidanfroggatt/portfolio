@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {TfiArrowTopRight} from "react-icons/tfi";
 
 const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
@@ -8,7 +8,7 @@ const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
     return (
         <>
             {IconMorph(initialIcon, toggleIcon, [isToggled, setIsToggled])}
-            {isToggled && MenuModal(menuOptions)}
+            {MenuModal(menuOptions, isToggled)}
         </>
     );
 };
@@ -34,50 +34,54 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
     );
 };
 
-const MenuModal = (menuOptions) => {
+const MenuModal = (menuOptions, isToggled) => {
     return (
-        <motion.div
-            key={"menu-modal"}
-            className="absolute flex top-full w-32 mt-2 p-4 gap-y-4 right-0 flex-col justify-center items-start font-medium bg-custom-light rounded-xl bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur"
-            initial={{
-                opacity: 0,
-                scale: 0,
-                originX: 1,
-                originY: 0,
-            }}
-            animate={{
-                opacity: 1,
-                scale: 1,
-                transition: {
-                    duration: 0.5, // Animation duration for the "in" transition
-                },
-            }}
-            exit={{
-                opacity: 0,
-                scale: 0,
-                transition: {
-                    duration: 0.25, // Animation duration for the "out" transition
-                },
-            }}
-        >
-            {Object.entries(menuOptions).map(([name, link], index) => {
-                    return (
-                        <div className="flex flex-row w-full justify-between items-center">
-                            <a
-                                key={index}
-                                className="flex flex-row justify-start items-center text-sm"
-                                href={link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {name}
-                            </a>
-                            <TfiArrowTopRight style={{ height: "0.875rem", width: "auto" }} />
-                        </div>
-                    )
-                }
-            )}
-        </motion.div>
+        <AnimatePresence>
+            {isToggled &&
+                <motion.div
+                    key={"menu-modal"}
+                    className="absolute flex top-full w-32 mt-2 p-4 gap-y-4 right-0 flex-col justify-center items-start font-medium bg-custom-light rounded-xl bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur"
+                    initial={{
+                        opacity: 0,
+                        scale: 0,
+                        originX: 1,
+                        originY: 0,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        transition: {
+                            duration: 0.5, // Animation duration for the "in" transition
+                        },
+                    }}
+                    exit={{
+                        opacity: 0,
+                        scale: 0,
+                        transition: {
+                            duration: 0.25, // Animation duration for the "out" transition
+                        },
+                    }}
+                >
+                    {Object.entries(menuOptions).map(([name, link], index) => {
+                            return (
+                                <div className="flex flex-row w-full justify-between items-center">
+                                    <a
+                                        key={index}
+                                        className="flex flex-row justify-start items-center text-sm"
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {name}
+                                    </a>
+                                    <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
+                                </div>
+                            )
+                        }
+                    )}
+                </motion.div>
+            }
+        </AnimatePresence>
     );
 };
 

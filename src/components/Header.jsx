@@ -26,7 +26,7 @@ const Header = () => {
     const direction = location.pathname === '/' ? 'infoToWork' : 'workToInfo';
 
     return (
-        <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
+        <div className="flex flex-row fixed justify-center items-center w-full px-14 py-8 text-custom-light z-50">
             <div className="flex flex-row gap-x-2 items-center fixed sm:left-12 left-6">
                 <LilypadIcon className={"w-9 h-9"}/>
                 <div className="hidden md:flex flex-col">

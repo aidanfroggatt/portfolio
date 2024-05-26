@@ -1,10 +1,10 @@
 import LilypadIcon from "../assets/LilypadIcon.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import {useContext, useState} from "react";
 import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import {FaAt} from "react-icons/fa";
+import {FaAt, FaTimes} from "react-icons/fa";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -26,7 +26,7 @@ const Header = () => {
 
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
-            <div className="flex flex-row gap-x-2 items-center fixed left-12">
+            <div className="flex flex-row gap-x-2 items-center fixed sm:left-12 left-6">
                 <LilypadIcon className={"w-9 h-9"}/>
                 <div className="hidden md:flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
@@ -83,11 +83,31 @@ const Header = () => {
                     </a>
                 ))}
             </div>
-            <div className="md:hidden flex justify-center items-center font-medium bg-custom-light w-12 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">
-                <FaAt className={"w-9 h-9"}/>
-            </div>
+            {/*<div className="md:hidden fixed sm:right-12 right-6 flex justify-center items-center font-medium bg-custom-light w-12 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">*/}
+            {/*    <FaAt className={"w-9 h-9"}/>*/}
+            {/*</div>*/}
+            <MorphingIcon/>
         </div>
     )
 }
+
+const MorphingIcon = () => {
+    const [isToggled, setIsToggled] = useState(false);
+
+    const handleClick = () => {
+        setIsToggled(!isToggled);
+    };
+
+    return (
+        <div className="md:hidden fixed sm:right-12 right-6 flex justify-center items-center font-medium bg-custom-light w-12 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur" onClick={handleClick}>
+            <motion.div
+                animate={{ rotate: isToggled ? 360 : 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                {isToggled ? <FaTimes className="w-9 h-9" /> : <FaAt className="w-9 h-9" />}
+            </motion.div>
+        </div>
+    );
+};
 
 export default Header;

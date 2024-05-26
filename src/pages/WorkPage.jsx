@@ -64,17 +64,14 @@ const WorkPage = () => {
                             initial={{
                                 y: 100,
                                 opacity: 0,
-                                backdropFilter: 'blur(0px)',
                             }}
                             animate={{
                                 y: 0,
                                 opacity: 1,
-                                backdropFilter: 'blur(40px)',
                                 transition: { duration: 0.5, ease: 'easeInOut' }
                             }}
                             exit={{
                                 opacity: 0,
-                                backdropFilter: 'blur(0px)',
                                 transition: { duration: 0.25, ease: 'easeInOut' }
                             }}>
                             <div className="hidden md:flex">

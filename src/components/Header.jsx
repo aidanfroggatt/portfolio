@@ -5,7 +5,7 @@ import { GeneralInfoContext } from "../contexts/GeneralInfoContext.jsx";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import {FaAt, FaTimes} from "react-icons/fa";
-import MorphingIcon from "./MorphingIcon.jsx";
+import IconMenu from "./IconMenu.jsx";
 
 const Header = () => {
     const location = useLocation(); // Get current location
@@ -84,10 +84,9 @@ const Header = () => {
                     </a>
                 ))}
             </div>
-            {/*<div className="md:hidden fixed sm:right-12 right-6 flex justify-center items-center font-medium bg-custom-light w-12 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">*/}
-            {/*    <FaAt className={"w-9 h-9"}/>*/}
-            {/*</div>*/}
-            <MorphingIcon initialIcon={<FaTimes className="w-9 h-9"/>} toggleIcon={<FaAt className="w-9 h-9"/>}/>
+            <div className="fixed sm:right-12 right-6 md:hidden flex">
+                <IconMenu initialIcon={<FaTimes className="w-9 h-9"/>} toggleIcon={<FaAt className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
+            </div>
         </div>
     )
 }

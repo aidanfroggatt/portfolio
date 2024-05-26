@@ -27,7 +27,7 @@ const Header = () => {
     return (
         <div className="flex flex-row fixed justify-center items-center h-20 w-full p-14 text-custom-light z-50">
             <div className="flex flex-row gap-x-2 items-center fixed left-12">
-                <LilypadIcon className={"w-8 h-8"} />
+                <LilypadIcon className={"w-9 h-9"}/>
                 <div className="hidden md:flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
                     {generalInfo.currentRole.title && <div className="text-xs text-custom-light text-opacity-50">{generalInfo.currentRole.title}</div>}
@@ -83,8 +83,8 @@ const Header = () => {
                     </a>
                 ))}
             </div>
-            <div className="md:hidden flex font-medium fixed right-12">
-                <FaAt className={"w-8 h-8 bg-custom-dark bg-opacity-50 rounded-full p-1"} />
+            <div className="md:hidden flex justify-center items-center font-medium bg-custom-light w-12 h-12 rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">
+                <FaAt className={"w-9 h-9"}/>
             </div>
         </div>
     )

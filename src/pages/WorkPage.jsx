@@ -77,7 +77,6 @@ const WorkPage = () => {
                                 backdropFilter: 'blur(0px)',
                                 transition: { duration: 0.25, ease: 'easeInOut' }
                             }}>
-                            {/* Conditional rendering of MacWindowCard */}
                             <div className="hidden md:flex">
                                 <MacWindowCard>
                                     <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span

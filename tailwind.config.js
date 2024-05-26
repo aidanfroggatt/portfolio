@@ -27,6 +27,8 @@ export default {
         'work-card-lg': '850px',
         'work-card-md': '80vw',
         'work-card-default': '90vw',
+        'mac-window-header-2xl': '85px',
+        'mac-window-header-lg': '60px',
       },
       height: {
         'work-card-2xl': '825px',

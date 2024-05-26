@@ -14,7 +14,9 @@ const MacWindowCard = ({children}) => {
             </div>
             <div
                 className="relative flex justify-center items-center w-full h-full rounded-[1.25vmax] bg-[rgba(16,16,16,0.7)] border border-[rgba(242,242,242,0.3)] shadow-[inset_0_0_10px_rgba(0,0,0,0.1),_0_0_12px_rgba(0,0,0,0.4)]">
-                <div className="absolute top-0 flex items-center w-full h-[6vh] pl-[1.25vw] gap-[0.5vw] bg-[linear-gradient(to_right,_rgba(242,242,242,0.1),_rgba(242,242,242,0.5)_50%,_rgba(242,242,242,0.1))] rounded-t-[1.25vmax] shadow-[0_10px_20px_4px_rgba(0,0,0,0.2)]">
+                <div className="absolute top-0 flex items-center w-full pl-[1.25vw] gap-[0.5vw] bg-[linear-gradient(to_right,_rgba(242,242,242,0.1),_rgba(242,242,242,0.5)_50%,_rgba(242,242,242,0.1))] rounded-t-[1.25vmax] shadow-[0_10px_20px_4px_rgba(0,0,0,0.2)]
+                    sm:h-[6vh] 2xl:h-mac-window-header-2xl lg:h-mac-window-header-lg
+                ">
                     <div className="inline-block w-[0.75vmax] h-[0.75vmax] bg-[#FF6057] rounded-full border-[0.1vmax] border-[#E14640] shadow-[0_0_20px_2px_#f46b5d]"></div>
                     <div className="inline-block w-[0.75vmax] h-[0.75vmax] bg-[#FFBD2E] rounded-full border-[0.1vmax] border-[#DFA123] shadow-[0_0_20px_2px_#f9bd4e]"></div>
                     <div className="inline-block w-[0.75vmax] h-[0.75vmax] bg-[#27C93F] rounded-full border-[0.1vmax] border-[#1DAD2B] shadow-[0_0_20px_2px_#57c353]"></div>

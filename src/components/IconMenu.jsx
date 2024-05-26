@@ -36,10 +36,9 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
 
 const MenuModal = (menuOptions, isToggled) => {
     return (
-        <AnimatePresence>
+        <AnimatePresence key={"menu-modal"}>
             {isToggled &&
                 <motion.div
-                    key={"menu-modal"}
                     className="absolute flex top-full w-32 mt-2 p-4 gap-y-4 right-0 flex-col justify-center items-start font-medium bg-custom-light rounded-xl bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur"
                     initial={{
                         opacity: 0,

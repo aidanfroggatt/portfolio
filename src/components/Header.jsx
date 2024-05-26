@@ -71,24 +71,27 @@ const Header = () => {
                 </div>
             </div>
             <div className="hidden md:flex font-medium fixed right-12">
-                {generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
-                    <a
-                        key={index}
-                        className="flex flex-row justify-start items-center text-sm px-3 py-2 gap-x-1 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
-                        href={generalInfo.links[link]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {link}
-                        <TfiArrowTopRight style={{ height: "0.875rem", width: "auto" }} />
-                    </a>
-                ))}
-            </div>
-            <div className="fixed sm:right-12 right-6 md:hidden flex">
-                <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
-            </div>
+                {generalInfo.links && Object.entries(generalInfo.links).map(([name, link], index) => {
+                    return (
+                        <a
+                            key={index}
+                            className="flex flex-row justify-start items-center text-sm px-3 py-2 gap-x-1 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {name}
+                            <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
+                        </a>
+                    )
+                })}
+                    </div>
+                    <div className="fixed sm:right-12 right-6 md:hidden flex">
+                    <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>}
+                                                                       menuOptions={generalInfo.links}/>
         </div>
-    )
+</div>
+)
 }
 
 export default Header;

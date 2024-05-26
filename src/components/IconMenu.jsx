@@ -25,6 +25,7 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
             key={"icon-morph"}
         >
             <motion.div
+                key={"icon-morph-motion"}
                 animate={{rotate: isToggled ? 360 : 0}}
                 transition={{duration: 0.5}}
             >
@@ -36,9 +37,10 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
 
 const MenuModal = (menuOptions, isToggled) => {
     return (
-        <AnimatePresence key={"menu-modal"}>
+        <AnimatePresence key={"menu-modal-animate-presence"}>
             {isToggled &&
                 <motion.div
+                    key={"menu-modal-motion"}
                     className="absolute flex top-full w-32 mt-2 p-4 gap-y-4 right-0 flex-col justify-center items-start font-medium bg-custom-light rounded-xl bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur"
                     initial={{
                         opacity: 0,
@@ -63,9 +65,8 @@ const MenuModal = (menuOptions, isToggled) => {
                 >
                     {Object.entries(menuOptions).map(([name, link], index) => {
                             return (
-                                <div className="flex flex-row w-full justify-between items-center">
+                                <div key={index} className="flex flex-row w-full justify-between items-center">
                                     <a
-                                        key={index}
                                         className="flex flex-row justify-start items-center text-sm"
                                         href={link}
                                         target="_blank"

@@ -58,9 +58,11 @@ const WorkPage = () => {
             <ScrollToTop />
             {isLoading ? <Loading /> :
                 <div
-                    className="work-page gap-y-10 relative pb-16 md:py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                    className="work-page relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
                         <motion.div
+                            key={"work-page-hero"}
+                            className="w-full flex flex-col justify-center items-center relative z-10"
                             initial={{
                                 y: 100,
                                 opacity: 0,
@@ -74,37 +76,37 @@ const WorkPage = () => {
                                 opacity: 0,
                                 transition: { duration: 0.25, ease: 'easeInOut' }
                             }}>
-                            <div className="hidden md:flex">
-                                <MacWindowCard>
-                                    <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
-                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                                    <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
-                                        <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                        <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
-                                    </div>
-                                </MacWindowCard>
-                            </div>
-                            <div className="md:hidden flex flex-col justify-center items-start">
-                                <div className="font-bold text-left text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                                <div className="flex flex-col text-custom-light text-lg 2xl:text-2xl">
+                            <MacWindowCard className="hidden md:flex mt-32 2xl:mt-44">
+                                <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
+                                    className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
+                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
+                                </div>
+                            </MacWindowCard>
+                            <div className="md:hidden flex flex-col justify-center items-start pt-[20vh] pb-[6vh] w-page-default border-b border-opacity-10 border-custom-light">
+                                <div className="font-bold text-left text-4xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div className="flex flex-col text-custom-light text-sm md:text-lg 2xl:text-2xl">
                                     <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
                                     <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
                                 </div>
                             </div>
                         </motion.div>
                     }
-                    {projects && Object.keys(projects).map((key) => (
-                        <ProjectCard
-                            key={key}
-                            title={projects[key].title}
-                            association={projects[key].association}
-                            description={projects[key].description}
-                            image={projects[key].image.src}
-                            imageAlt={projects[key].image.alt}
-                            handleClick={() => handleProjectClick({ projectID: key })}
-                            color={hexToRGBA(projects[key].color, 0.5)}
-                        />
-                    ))}
+                    <div className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16">
+                        {projects && Object.keys(projects).map((key) => (
+                            <ProjectCard
+                                key={key}
+                                title={projects[key].title}
+                                association={projects[key].association}
+                                description={projects[key].description}
+                                image={projects[key].image.src}
+                                imageAlt={projects[key].image.alt}
+                                handleClick={() => handleProjectClick({ projectID: key })}
+                                color={hexToRGBA(projects[key].color, 0.5)}
+                            />
+                        ))}
+                    </div>
                 </div>
             }
         </>

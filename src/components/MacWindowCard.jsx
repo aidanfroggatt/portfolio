@@ -1,13 +1,14 @@
 import '../styles/components/MacWindowCard.css';
 
-const MacWindowCard = ({children}) => {
+const MacWindowCard = ({children, className}) => {
     return (
-        <div className="
-            relative flex justify-center items-center
+        <div className={`
+            flex justify-center items-center relative
             bg-[radial-gradient(circle_farthest-side_at_50%_0,_rgba(242,242,242,0.2),rgba(0,0,0,0))] outline outline-[1px] outline-[rgba(242,242,242,0.15)] outline-offset-[-1px] overflow-hidden backdrop-filter-none
             2xl:w-page-2xl 2xl:h-mac-window-card-2xl lg:w-page-lg lg:h-mac-window-card-lg md:w-page-md md:h-mac-window-card-md w-work-card-default h-work-card-default
             border-1 border-solid border-custom-light border-opacity-10 rounded-3xl p-2 bg-custom-light bg-opacity-4 shadow-card
-        ">
+            ${className}
+            `}>
             <div className="absolute bottom-0 left-0 right-0 flex h-[25vh] z-[5] bg-[linear-gradient(to_bottom,_rgba(16,16,16,0),_var(--background)_60%)]"></div>
             <div className="shine-wrapper">
                 <div className="shine-small"></div>

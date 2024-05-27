@@ -85,11 +85,10 @@ const Header = () => {
                         </a>
                     )
                 })}
-                    </div>
-                    <div className="fixed sm:right-12 right-6 md:hidden flex">
-                    <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>}
-                                                                       menuOptions={generalInfo.links}/>
-        </div>
+            </div>
+            <div className="fixed sm:right-12 right-6 md:hidden flex">
+                <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
+            </div>
 </div>
 )
 }

@@ -18,7 +18,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
             project-card-container
             flex justify-center items-center relative
             border-1 border-solid border-custom-light border-opacity-10 rounded-3xl p-2 bg-custom-light bg-opacity-4 shadow-card
-            2xl:w-work-card-2xl 2xl:h-work-card-2xl lg:w-work-card-lg lg:h-work-card-lg md:w-work-card-md md:h-work-card-md w-work-card-default h-work-card-default
+            2xl:w-page-2xl 2xl:h-work-card-2xl lg:w-page-lg lg:h-work-card-lg md:w-page-md md:h-work-card-md w-page-default h-work-card-default
             before:absolute before:top-0 before:left-0 before:w-full before:h-[0.15vh] before:z-10 before:rounded-3xl
         ">
             <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>

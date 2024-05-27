@@ -25,40 +25,47 @@ const Footer = () => {
 
     if (!generalInfo) return null;
     return (
-        <div className="relative bottom-0 bg-custom-dark text-custom-light border-t border-custom-light border-opacity-50 h-80 2xl:h-footer-2xl justify-evenly items-center flex flex-row p-10 lg:py-20 lg:px-40 2xl:px-60 2xl:py-24 lg:gap-x-32">
-            <div className="h-full w-full flex flex-col justify-between">
-                <div className="flex h-full">
-                    <LilypadIcon className={"w-20 h-20 2xl:h-24 2xl:w-24"}/>
-                </div>
-                <div className="flex flex-col h-full w-full justify-end items-start">
-                    {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-base 2xl:text-lg">{generalInfo.firstName} {generalInfo.lastName}</div>}
-                    <div className="text-sm 2xl:text-base text-custom-light text-opacity-50">Thanks for visiting!</div>
-                </div>
-            </div>
-            <div className="h-full w-full flex flex-col justify-between items-end">
-                <div className="flex flex-row justify-end items-start gap-x-16 w-full h-full">
+        <div className="flex justify-center items-center relative bottom-0 bg-custom-dark text-custom-light border-t border-opacity-10 border-custom-light 2xl:h-96 md:h-80 2xl:py-20 py-16">
+            <div className="h-full justify-evenly items-center flex flex-col md:grid md:grid-cols-2 2xl:w-page-2xl lg:w-page-lg md:w-page-md w-page-default gap-y-8">
+                <div className="flex flex-row justify-start md:justify-end items-start gap-x-16 w-full h-full row-start-1 col-start-2">
                     <div className="flex flex-col justify-center items-start gap-y-4">
                         <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50">MAIN</div>
-                        <div className="text-base 2xl:text-lg hover:cursor-pointer" onClick={() => handleNavigate("/")}>Work</div>
-                        <div className="text-base 2xl:text-lg hover:cursor-pointer" onClick={() => handleNavigate("/info")}>Info</div>
+                        <div className="text-base font-medium 2xl:text-lg hover:cursor-pointer"
+                             onClick={() => handleNavigate("/")}>
+                            Work
+                        </div>
+                        <div className="text-base font-medium 2xl:text-lg hover:cursor-pointer"
+                             onClick={() => handleNavigate("/info")}>
+                            Info
+                        </div>
                     </div>
                     <div className="flex flex-col justify-center items-start gap-y-4">
                         <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50">CONTACT</div>
-                        { generalInfo.links && Object.keys(generalInfo.links).map((link, index) => (
+                        {generalInfo.links && Object.entries(generalInfo.links).map(([name, link], index) => {
+                            return (
                                 <a
                                     key={index}
-                                    className="flex flex-row justify-start items-center text-base 2xl:text-lg gap-x-1"
-                                    href={generalInfo.links[link]}
+                                    className="flex flex-row justify-start items-center text-base 2xl:text-lg gap-x-1 font-medium"
+                                    href={link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {link}
+                                    {name}
                                     <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
                                 </a>
-                        ))}
+                            )
+                        })}
                     </div>
                 </div>
-                <div className="flex flex-col h-full w-full items-end justify-end">
+                <div className="w-full md:flex hidden h-full flex-col items-start justify-start row-start-1 col-start-1">
+                    <LilypadIcon className={"w-20 h-20 2xl:h-24 2xl:w-24"}/>
+                </div>
+                <div className="col-start-1 row-start-2 w-full h-full flex flex-col justify-end items-start">
+                    {(generalInfo.firstName && generalInfo.lastName) && <div
+                        className="font-medium text-base 2xl:text-lg">{generalInfo.firstName} {generalInfo.lastName}</div>}
+                    <div className="text-sm 2xl:text-base text-custom-light text-opacity-50">Thanks for visiting!</div>
+                </div>
+                <div className="col-start-2 row-start-2 flex flex-col h-full w-full items-start md:items-end justify-end">
                     {lastCommit &&
                         <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50">
                             Last updated by {getFirstWord(lastCommit.author)}, {convertDateFormat(lastCommit.time)}
@@ -67,6 +74,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 

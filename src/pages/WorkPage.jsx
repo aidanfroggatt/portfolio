@@ -58,7 +58,7 @@ const WorkPage = () => {
             <ScrollToTop />
             {isLoading ? <Loading /> :
                 <div
-                    className="work-page gap-y-10 relative py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                    className="work-page gap-y-10 relative pb-16 md:py-40 2xl:py-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
                         <motion.div
                             initial={{

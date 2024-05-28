@@ -65,17 +65,17 @@ const MenuModal = (menuOptions, isToggled) => {
                 >
                     {Object.entries(menuOptions).map(([name, link], index) => {
                             return (
-                                <div key={index} className="flex flex-row w-full justify-between items-center">
-                                    <a
-                                        className="flex flex-row justify-start items-center text-sm"
-                                        href={link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                <a key={index}
+                                   className="flex flex-row w-full justify-between items-center"
+                                   href={link}
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                >
+                                    <span className="flex flex-row justify-start items-center text-sm">
                                         {name}
-                                    </a>
+                                    </span>
                                     <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
-                                </div>
+                                </a>
                             )
                         }
                     )}

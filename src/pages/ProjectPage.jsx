@@ -53,36 +53,42 @@ const ProjectPage = () => {
 
 const ProjectPageHero = ({projectInfo}) => {
     return (
-        <motion.div
-            initial={{y: 100, opacity: 0}}
-            animate={{
-                y: 0,
-                opacity: 1,
-                transition: {duration: 1.0, ease: 'easeInOut'}
-            }}
-            exit={{
-                y: 100,
-                opacity: 0,
-                transition: {duration: 0.25, ease: 'easeInOut'}
-            }}
-            className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4"
-        >
-            <div className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
-            <div className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
-                {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
-            </div>
-            { projectInfo.image &&
-                <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12"/>
-            }
-        </motion.div>
+        <div className="relative">
+            {/*<div className="project-page-fade"></div>*/}
+            <motion.div
+                initial={{y: 100, opacity: 0}}
+                animate={{
+                    y: 0,
+                    opacity: 1,
+                    transition: {duration: 1.0, ease: 'easeInOut'}
+                }}
+                exit={{
+                    y: 100,
+                    opacity: 0,
+                    transition: {duration: 0.25, ease: 'easeInOut'}
+                }}
+                className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4"
+            >
+                <div
+                    className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
+                <div
+                    className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
+                    {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
+                </div>
+                {projectInfo.image &&
+                    <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12"/>
+                }
+            </motion.div>
+        </div>
     )
 }
 
 const ProjectPageOverview = ({projectInfo}) => {
     return (
-        <div className="flex flex-col justify-center items-center gap-x-16 py-16 md:p-0 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl ">
-            <div className="flex flex-col md:flex-row h-fit justify-center items-center gap-y-8 md:gap-y-0">
-                <div className="flex flex-col justify-start items-start md:w-1/2 gap-y-8">
+        <div
+            className="flex flex-col justify-center items-center gap-x-16 py-16 md:py-40 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl ">
+            <div className="flex flex-col md:flex-row h-fit justify-center items-center gap-y-10 md:gap-y-0">
+                <div className="flex flex-col justify-start items-start md:w-1/2 gap-y-10">
                     {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
                         <div className="flex flex-col">
                             <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">My Role</h2>
@@ -95,7 +101,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                     }
                     {(projectInfo.overview.team) &&
                         <div className="flex flex-col">
-                            <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Team</h2>
+                        <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Team</h2>
                             {projectInfo.overview.team.map((member, index) => (
                                 <p key={index}
                                    className="text-custom-light text-opacity-50 text-base 2xl:text-lg">{member.name}, {member.role}</p>
@@ -113,7 +119,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                         </div>
                     }
                 </div>
-                <div className="flex flex-col justify-start items-start h-full md:w-1/2 gap-y-8">
+                <div className="flex flex-col justify-start items-start h-full md:w-1/2 gap-y-10">
                     {(projectInfo.overview.overview) &&
                         <div className="flex flex-col">
                             <div className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Overview</div>

@@ -71,16 +71,16 @@ const Header = () => {
                 </div>
             </div>
             <div className="hidden md:flex font-medium fixed right-12">
-                {generalInfo.links && Object.entries(generalInfo.links).map(([name, link], index) => {
+                {generalInfo.links && generalInfo.links.map((link, index) => {
                     return (
                         <a
                             key={index}
                             className="flex flex-row justify-start items-center text-sm px-3 py-2 gap-x-1 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
-                            href={link}
+                            href={link.link}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {name}
+                            {link.name}
                             <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
                         </a>
                     )

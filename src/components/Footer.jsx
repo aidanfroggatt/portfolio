@@ -41,16 +41,16 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col justify-center items-start gap-y-4">
                         <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50">CONTACT</div>
-                        {generalInfo.links && Object.entries(generalInfo.links).map(([name, link], index) => {
+                        {generalInfo.links && generalInfo.links.map((link, index) => {
                             return (
                                 <a
                                     key={index}
                                     className="flex flex-row justify-start items-center text-base 2xl:text-lg gap-x-1 font-medium"
-                                    href={link}
+                                    href={link.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {name}
+                                    {link.name}
                                     <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
                                 </a>
                             )

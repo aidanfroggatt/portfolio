@@ -143,17 +143,17 @@ const ProjectPageOverview = ({projectInfo}) => {
 
 const ProjectPageHighlights = ({projectInfo}) => {
     return (
-        <HighlightCard accentColor={projectInfo.color} className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+        <HighlightCard accentColor={projectInfo.color} className="p-3 md:p-6 gap-y-8 md:gap-y-12 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
             <div className="flex flex-col justify-between items-center gap-y-4">
                 <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 shadow-md shadow-custom-dark">
                     <FaMountainSun color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>
                 </div>
-                <p className="project-page-highlights-title">
+                <div className="text-xs md:text-sm text-custom-light font-semibold text-opacity-50">
                     HIGHLIGHTS
-                </p>
-                <h1 className="project-page-highlights-subtitle">
+                </div>
+                <div className="text-base md:text-lg text-custom-light font-semibold text-center">
                     {projectInfo.highlightsDescription}
-                </h1>
+                </div>
             </div>
             {projectInfo.highlights.map((highlight, index) => {
                 return (
@@ -167,7 +167,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
                         ) : (
                             <p>Invalid asset type: {highlight.asset.type}</p>
                         )}
-                        <div className="flex flex-row justify-end items-center gap-x-2 text-xs text-custom-light text-opacity-50 font-bold mt-2 text-end">
+                        <div className="flex flex-row justify-end items-center gap-x-2 text-xs md:text-sm text-custom-light text-opacity-50 font-semibold mt-2 text-end">
                             {highlight.asset.alt}
                             <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
                             {highlight.asset.type}

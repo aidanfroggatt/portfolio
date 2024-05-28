@@ -36,7 +36,6 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
 };
 
 const MenuModal = (menuOptions, isToggled) => {
-    console.log(menuOptions)
     return (
         <AnimatePresence key={"menu-modal-animate-presence"}>
             {isToggled &&

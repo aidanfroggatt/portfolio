@@ -3,40 +3,15 @@
     --project-color: rgba(242, 242, 242, 0.1);
     background-image: radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));
     background-size: 100% 135vh;
-    background-repeat: no-repeat;
-    position: relative;
 }
 
 .project-page-title {
-    font-size: 4.5vmax;
     text-shadow: 0 5px 15px rgba(0, 87, 255, .2), 0 -5px 15px rgba(255, 90, 0, .15), 0 -5px 25px rgba(255, 255, 255, .25);
-}
-
-.project-page-subtitle {
-    font-size: 1.25vmax;
 }
 
 .project-page-hero-image {
     width: auto;
     height: 100%;
-    margin-top: 5vh;
-}
-
-.project-page-overview-subtitle {
-    font-size: 1.1vmax;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 1vh;
-}
-
-.project-page-overview-body {
-    font-size: 1.25vmax;
-    color: var(--secondary);
-}
-
-.project-page-overview-body-span {
-    font-size: 1.25vmax;
-    color: var(--primary);
 }
 
 .project-page-highlights-title {

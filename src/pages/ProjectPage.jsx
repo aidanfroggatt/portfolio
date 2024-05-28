@@ -37,10 +37,9 @@ const ProjectPage = () => {
         <>
             <ScrollToTop/>
             {(isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
-            <div
-                className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
+            <div className='project-page pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <div className="relative flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12">
+                <div className="relative flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
                     <AnimatedBackButton/>
                 </div>
                 <ProjectPageHero projectInfo={projectInfo}/>
@@ -66,14 +65,14 @@ const ProjectPageHero = ({projectInfo}) => {
                 opacity: 0,
                 transition: {duration: 0.25, ease: 'easeInOut'}
             }}
-            className="flex flex-col justify-start items-center min-h-screen relative"
+            className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4"
         >
-            <div className="flex justify-center items-center project-page-title font-bold text-center">{projectInfo.title && projectInfo.title}</div>
-            <div className="flex justify-center items-center project-page-subtitle font-normal text-custom-light text-opacity-50 text-center">
+            <div className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
+            <div className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
                 {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
             </div>
             { projectInfo.image &&
-                <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="project-page-hero-image"/>
+                <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12"/>
             }
         </motion.div>
     )
@@ -81,52 +80,52 @@ const ProjectPageHero = ({projectInfo}) => {
 
 const ProjectPageOverview = ({projectInfo}) => {
     return (
-        <div className="flex flex-col justify-center items-center h-screen w-full gap-x-16">
-            <div className="flex flex-row h-fit justify-center items-center">
-                <div className="flex flex-col justify-start items-start w-1/2 gap-y-8">
+        <div className="flex flex-col justify-center items-center gap-x-16 py-16 md:p-0 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl ">
+            <div className="flex flex-col md:flex-row h-fit justify-center items-center">
+                <div className="flex flex-col justify-start items-start md:w-1/2 gap-y-8">
                     {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
-                        <div>
-                            <h2 className="project-page-overview-subtitle">My Role</h2>
-                            <p className="project-page-overview-body">
+                        <div className="flex flex-col">
+                            <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">My Role</h2>
+                            <p className="text-custom-light text-opacity-50 text-base 2xl:text-lg">
                                 <span
-                                    className="project-page-overview-body-span">{projectInfo.overview.role.title}&nbsp;</span>
+                                    className="text-custom-light text-base 2xl:text-lg">{projectInfo.overview.role.title}&nbsp;</span>
                                 — {projectInfo.overview.role.description}
                             </p>
                         </div>
                     }
                     {(projectInfo.overview.team) &&
-                        <div>
-                            <h2 className="project-page-overview-subtitle">Team</h2>
+                        <div className="flex flex-col">
+                            <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Team</h2>
                             {projectInfo.overview.team.map((member, index) => (
                                 <p key={index}
-                                   className="project-page-overview-body">{member.name}, {member.role}</p>
+                                   className="text-custom-light text-opacity-50 text-base 2xl:text-lg">{member.name}, {member.role}</p>
                             ))}
                         </div>
                     }
                     {(projectInfo.overview.status && (projectInfo.endDate || projectInfo.startDate)) &&
-                        <div>
-                            <h2 className="project-page-overview-subtitle">Timeline & Status</h2>
-                            <p className="project-page-overview-body">
+                        <div className="flex flex-col">
+                            <h2 className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Timeline & Status</h2>
+                            <p className="text-custom-light text-opacity-50 text-base 2xl:text-lg">
                                 {calculateTimeElapsed((projectInfo.startDate), (projectInfo.endDate))},&nbsp;
                                 <span
-                                    className="project-page-overview-body-span">{projectInfo.overview.status}</span>
+                                    className="text-custom-light text-base 2xl:text-lg">{projectInfo.overview.status}</span>
                             </p>
                         </div>
                     }
                 </div>
-                <div className="flex flex-col justify-start items-start h-full w-1/2 gap-y-8">
+                <div className="flex flex-col justify-start items-start h-full md:w-1/2 gap-y-8">
                     {(projectInfo.overview.overview) &&
                         <div className="flex flex-col">
-                            <div className="project-page-overview-subtitle">Overview</div>
-                            <div className="project-page-overview-body">
+                            <div className="text-custom-light font-bold mb-1 text-sm 2xl:text-lg">Overview</div>
+                            <div className="text-custom-light text-opacity-50 text-base 2xl:text-lg">
                                 {projectInfo.overview.overview}
                             </div>
                         </div>
                     }
-                    <div className="flex flex-row justify-start gap-x-8 items-center">
+                    <div className="flex flex-wrap md:flex-row justify-between md:justify-start gap-x-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
-                                {getIconByName({iconName: technology.icon, style: {width: '3vmax', height: '3vmax'}})}
+                                {getIconByName({iconName: technology.icon, className: 'w-10 h-10 2xl:w-12 2xl:h-12'})}
                             </Tooltip>
                         ))}
                     </div>
@@ -138,7 +137,7 @@ const ProjectPageOverview = ({projectInfo}) => {
 
 const ProjectPageHighlights = ({projectInfo}) => {
     return (
-        <HighlightCard accentColor={projectInfo.color}>
+        <HighlightCard accentColor={projectInfo.color} className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
             <div className="flex flex-col justify-between items-center gap-y-4">
                 <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 shadow-md shadow-custom-dark">
                     <FaMountainSun color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>

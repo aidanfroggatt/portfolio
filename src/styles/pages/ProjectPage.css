@@ -4,6 +4,13 @@
     background-image: radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));
     background-size: 100% 135vh;
 }
+/*project page background responsive for mobile*/
+
+@media (max-width: 768px) {
+    .project-page {
+        background-size: 100% 65vh;
+    }
+}
 
 .project-page-title {
     text-shadow: 0 5px 15px rgba(0, 87, 255, .2), 0 -5px 15px rgba(255, 90, 0, .15), 0 -5px 25px rgba(255, 255, 255, .25);

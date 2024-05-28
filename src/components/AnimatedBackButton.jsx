@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import Button from "./Button.jsx";
 
-const ProjectPageBackButton = () => {
+const ProjectPageBackButton = ({className}) => {
     const navigate = useNavigate();
     const [isBackClicked, setIsBackClicked] = useState(false);
 
@@ -33,7 +33,7 @@ const ProjectPageBackButton = () => {
                 opacity: 0,
                 transition: {duration: 0.25, ease: 'easeInOut'}
             }}
-            className="z-50 fixed flex flex-row justify-center items-center top-0 left-0 h-20 p-12"
+            className={`z-50 ${className}`}
         >
             <Button title="Back" leftArrow={true} handleClick={handleBack}/>
         </motion.div>

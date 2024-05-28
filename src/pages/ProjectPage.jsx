@@ -40,7 +40,7 @@ const ProjectPage = () => {
             <div
                 className='project-page min-h-screen bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <AnimatedBackButton/>
+                <AnimatedBackButton className="top-4 left-4 md:top-8 md:left-12 fixed"/>
                 <ProjectPageHero projectInfo={projectInfo}/>
                 {(projectInfo.overview) && <ProjectPageOverview projectInfo={projectInfo}/>}
                 {(projectInfo.highlights) && <ProjectPageHighlights projectInfo={projectInfo}/>}

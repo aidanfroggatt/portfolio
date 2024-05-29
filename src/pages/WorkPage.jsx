@@ -92,7 +92,7 @@ const WorkPage = () => {
                                 </div>
                             </MacWindowCard>
                             <div
-                                className="md:hidden flex flex-col justify-center items-start pt-[20vh] pb-[6vh] w-page-default border-b border-opacity-10 border-custom-light">
+                                className="md:hidden flex flex-col justify-center items-start pt-32 pb-10 w-page-default border-b border-opacity-10 border-custom-light">
                                 <div className="flex flex-col text-custom-light text-sm md:text-lg 2xl:text-2xl">
                                     <div className="dot"></div>
                                     <div className="text-sm text-custom-light text-opacity-50 font-bold">{generalInfo.firstName} {generalInfo.lastName} — {generalInfo.currentRole.title}</div>

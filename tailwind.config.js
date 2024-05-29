@@ -16,6 +16,7 @@ export default {
       },
       boxShadow: {
         'card': 'inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8)',
+        'card-mobile': 'inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 10px 40px rgba(0, 0, 0, .8)',
         "tab": '0 2px 25px 2px rgba(255, 255, 255, 1)',
       },
       backgroundOpacity: {

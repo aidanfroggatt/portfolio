@@ -10,26 +10,3 @@
         background-repeat: no-repeat;
     }
 }
-
-.info-page-awards-link {
-    font-size: 1.5vmax;
-    color: var(--secondary);
-    transition: color 0.25s;
-}
-
-.info-page-awards-link:hover {
-    color: var(--primary);
-    cursor: pointer;
-    transition: color 0.25s;
-}
-
-.info-page-awards-text {
-    font-size: 1.25vmax;
-    color: var(--secondary);
-}
-
-.info-page-awards-title {
-    font-size: 1.5vmax;
-    font-weight: bold;
-    color: var(--primary);
-}

@@ -81,7 +81,7 @@ const Header = () => {
                             rel="noopener noreferrer"
                         >
                             {link.name}
-                            <TfiArrowTopRight style={{height: "0.875rem", width: "auto"}}/>
+                            <TfiArrowTopRight/>
                         </a>
                     )
                 })}

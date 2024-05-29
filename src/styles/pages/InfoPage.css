@@ -11,28 +11,6 @@
     }
 }
 
-.info-page-title-alt {
-    font-style: italic;
-    font-family: "Playfair Display", serif;
-    text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25);
-}
-
-.info-page-experience-role {
-    font-size: 1.5vmax;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.info-page-experience-date {
-    font-size: 1.25vmax;
-    color: var(--secondary);
-}
-
-.info-page-experience-description {
-    font-size: 1.5vmax;
-    color: var(--secondary);
-}
-
 .info-page-awards-link {
     font-size: 1.5vmax;
     color: var(--secondary);

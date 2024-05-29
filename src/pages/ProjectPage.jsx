@@ -37,9 +37,9 @@ const ProjectPage = () => {
         <>
             <ScrollToTop/>
             {(isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
-            <div className='project-page pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
+            <div className='project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <div className="relative flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
+                <div className="fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
                     <AnimatedBackButton/>
                 </div>
                 <ProjectPageHero projectInfo={projectInfo}/>
@@ -143,8 +143,8 @@ const ProjectPageHighlights = ({projectInfo}) => {
     return (
         <HighlightCard accentColor={projectInfo.color} className="p-3 md:p-6 gap-y-8 md:gap-y-12 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
             <div className="flex flex-col justify-between items-center gap-y-4">
-                <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 shadow-md shadow-custom-dark">
-                    <FaMountainSun color={projectInfo.color} style={{width: '3vmax', height: '3vmax'}}/>
+                <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 2xl:p-2.5 shadow-md shadow-custom-dark">
+                    <FaMountainSun color={projectInfo.color} className="h-10 w-10 2xl:w-12 2xl:h-12"/>
                 </div>
                 <div className="text-xs md:text-sm text-custom-light font-semibold text-opacity-50">
                     HIGHLIGHTS

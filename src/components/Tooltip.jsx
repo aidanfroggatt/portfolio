@@ -19,8 +19,8 @@ const Tooltip = ({ text, children }) => {
         >
             {children}
             {showTooltip && (
-                <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 p-2 bg-gray-800 rounded-md shadow-md text-center"
-                    style={{backgroundColor: "var(--background)", fontSize: "1vmax", color: "var(--primary)"}}>
+                <div className="text-xs md:text-sm absolute top-full mt-2 left-1/2 transform -translate-x-1/2 p-2 bg-gray-800 rounded-md shadow-md text-center"
+                    style={{backgroundColor: "var(--background)", color: "var(--primary)"}}>
                     {text}
                 </div>
             )}

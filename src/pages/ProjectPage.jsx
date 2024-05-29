@@ -53,32 +53,30 @@ const ProjectPage = () => {
 
 const ProjectPageHero = ({projectInfo}) => {
     return (
-        <div className="relative">
-            {/*<div className="project-page-fade"></div>*/}
-            <motion.div
-                initial={{y: 100, opacity: 0}}
-                animate={{
-                    y: 0,
-                    opacity: 1,
-                    transition: {duration: 1.0, ease: 'easeInOut'}
-                }}
-                exit={{
-                    y: 100,
-                    opacity: 0,
-                    transition: {duration: 0.25, ease: 'easeInOut'}
-                }}
-                className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4"
-            >
-                <div
-                    className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
-                <div
-                    className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
-                    {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
-                </div>
-                {projectInfo.image &&
+        <div className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
+            <div
+                className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
+            <div
+                className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
+                {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}
+            </div>
+            {projectInfo.image &&
+                <motion.div
+                    initial={{y: 100, opacity: 0}}
+                    animate={{
+                        y: 0,
+                        opacity: 1,
+                        transition: {duration: 1.0, ease: 'easeInOut'}
+                    }}
+                    exit={{
+                        y: 100,
+                        opacity: 0,
+                        transition: {duration: 0.25, ease: 'easeInOut'}
+                    }}
+                >
                     <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12"/>
-                }
-            </motion.div>
+                </motion.div>
+            }
         </div>
     )
 }

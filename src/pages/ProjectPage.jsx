@@ -126,10 +126,10 @@ const ProjectPageOverview = ({projectInfo}) => {
                             </div>
                         </div>
                     }
-                    <div className="flex flex-wrap md:flex-row justify-between md:justify-start gap-x-8 items-center">
+                    <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-x-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
-                                {getIconByName({iconName: technology.icon, className: 'w-10 h-10 2xl:w-12 2xl:h-12'})}
+                                {getIconByName({iconName: technology.icon, className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'})}
                             </Tooltip>
                         ))}
                     </div>
@@ -144,7 +144,7 @@ const ProjectPageHighlights = ({projectInfo}) => {
         <HighlightCard accentColor={projectInfo.color} className="p-3 md:p-6 gap-y-8 md:gap-y-12 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
             <div className="flex flex-col justify-between items-center gap-y-4">
                 <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 2xl:p-2.5 shadow-md shadow-custom-dark">
-                    <FaMountainSun color={projectInfo.color} className="h-10 w-10 2xl:w-12 2xl:h-12"/>
+                    <FaMountainSun color={projectInfo.color} className="w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12"/>
                 </div>
                 <div className="text-xs md:text-sm text-custom-light font-semibold text-opacity-50">
                     HIGHLIGHTS

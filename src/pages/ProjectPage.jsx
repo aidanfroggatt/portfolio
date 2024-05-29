@@ -39,7 +39,7 @@ const ProjectPage = () => {
             {(isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
             <div className='project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
-                <div className="fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
+                <div className="z-50 fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
                     <AnimatedBackButton/>
                 </div>
                 <ProjectPageHero projectInfo={projectInfo}/>
@@ -157,11 +157,11 @@ const ProjectPageHighlights = ({projectInfo}) => {
                 return (
                     <div key={index} className="w-full flex flex-col">
                         {highlight.asset.type === 'VIDEO' ? (
-                            <video src={highlight.asset.src} controls>
+                            <video className="z-10" src={highlight.asset.src} controls>
                                 <source src={highlight.asset.src} type="video/mp4"/>
                             </video>
                         ) : highlight.asset.type === 'IMAGE' ? (
-                            <img src={highlight.asset.src} alt={highlight.asset.alt}/>
+                            <img className="z-10" src={highlight.asset.src} alt={highlight.asset.alt}/>
                         ) : (
                             <p>Invalid asset type: {highlight.asset.type}</p>
                         )}

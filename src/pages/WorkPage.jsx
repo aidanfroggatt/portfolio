@@ -70,25 +70,42 @@ const WorkPage = () => {
                             animate={{
                                 y: 0,
                                 opacity: 1,
-                                transition: { duration: 0.5, ease: 'easeInOut' }
+                                transition: {duration: 0.5, ease: 'easeInOut'}
                             }}
                             exit={{
                                 opacity: 0,
-                                transition: { duration: 0.25, ease: 'easeInOut' }
+                                transition: {duration: 0.25, ease: 'easeInOut'}
                             }}>
-                            <MacWindowCard className="hidden md:flex lg:mt-36 2xl:mt-48">
-                                <div className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span
-                                    className="name italic font-accent">{generalInfo.firstName}.</span></div>
-                                <div className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
-                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
+                            <MacWindowCard className="hidden md:flex lg:mt-40 2xl:mt-48">
+                                <div
+                                    className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
+                                    I'm&nbsp;<span
+                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                <div
+                                    className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
+                                    <div
+                                        className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
+                                    </div>
+                                    <div className="text-custom-light text-opacity-50">Based
+                                        in {generalInfo.location}.
+                                    </div>
                                 </div>
                             </MacWindowCard>
-                            <div className="md:hidden flex flex-col justify-center items-start pt-[20vh] pb-[6vh] w-page-default border-b border-opacity-10 border-custom-light">
-                                <div className="font-bold text-left text-4xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi, I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                            <div
+                                className="md:hidden flex flex-col justify-center items-start pt-[20vh] pb-[6vh] w-page-default border-b border-opacity-10 border-custom-light">
                                 <div className="flex flex-col text-custom-light text-sm md:text-lg 2xl:text-2xl">
-                                    <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
-                                    <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
+                                    <div className="dot"></div>
+                                    <div className="text-sm text-custom-light text-opacity-50 font-bold">{generalInfo.firstName} {generalInfo.lastName} — {generalInfo.currentRole.title}</div>
+                                </div>
+                                <div
+                                    className="font-bold text-left text-4xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
+                                    I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span>
+                                </div>
+                                <div
+                                    className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
+                                </div>
+                                <div className="text-custom-light text-opacity-50">Based
+                                    in {generalInfo.location}.
                                 </div>
                             </div>
                         </motion.div>

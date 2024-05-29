@@ -1,56 +1,19 @@
 
 .info-page {
     background-image: radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));
-    padding: 25vh 15vw;
-    row-gap: 15vh;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: var(--background);
-    color: var(--primary);
 }
 
-.info-page-title {
-    display: inline-block;
-    left: 15%;
-    top: 30%;
-    font-size: 4.5vmax;
-    font-weight: bold;
-    text-align: left;
-    letter-spacing: -2px;
-    line-height: 90%;
+@media (max-width: 768px) {
+    .info-page {
+        background-image: radial-gradient(circle farthest-side at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));
+        background-size: 100% 65vh;
+        background-repeat: no-repeat;
+    }
 }
 
 .info-page-title-alt {
     font-style: italic;
     font-family: "Playfair Display", serif;
-    text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25);
-}
-
-.info-page-subtitle {
-    font-size: 1.1vmax;
-    color: var(--secondary);
-}
-
-.dot {
-    display: inline-block;
-    width: 0.75vmax;
-    height: 0.75vmax;
-    background: var(--primary);
-    border-radius: 50%;
-    border: 0.1vmax solid var(--primary);
-    box-shadow: 0 0 20px var(--primary);
-}
-
-.info-page-text {
-    font-size: 1.5vmax;
-}
-
-.info-page-experience-company {
-    font-size: 2.75vmax;
-    font-weight: bold;
-    color: var(--primary);
     text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25);
 }
 

@@ -17,7 +17,7 @@ import {TfiArrowRight} from "react-icons/tfi";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
-        <Card cardContainerClassName="h-80" cardContentClassName={"project-card"} onClick={handleClick} cardContentStyle={{'--project-card-color': color}}>
+        <Card cardContainerClassName="h-80" cardContentClassName={"project-card"} onClick={handleClick} cardContentStyle={{'--card-color': color}}>
             <div className="flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
                 <div className="flex flex-row w-full justify-between items-center">
                     <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
@@ -27,7 +27,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
                 <div className="2xl:text-xl md:text-base text-sm">{association}&nbsp;<span
                     className="text-custom-light text-opacity-50">— {description}</span></div>
                 <img src={image} alt={imageAlt}
-                     className="project-card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
+                     className="card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
                 />
             </div>
         </Card>

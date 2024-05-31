@@ -88,16 +88,28 @@ const AboutMe = ({ info }) => {
                     Here's some more info&nbsp;<span className="text-shadow italic font-accent">about me.</span>
                 </h1>
             </motion.div>
-            <div className="hidden md:py-20 2xl:py-32 md:grid md:grid-cols-2 md:gap-x-12 2xl:gap-x-20">
+            <motion.div
+                className="hidden md:py-20 2xl:py-32 md:grid md:grid-cols-2 md:gap-x-12 2xl:gap-x-20"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+            >
                 <div className="flex flex-col md:gap-y-20">
-                    <Card><img src={info.aboutMe.profilePicture.src} alt={info.aboutMe.profilePicture.alt}/></Card>
+                    <motion.div
+                        key={"0"}
+                        variants={itemVariants}
+                        transition={{duration: 0.5, ease: 'easeInOut', delay: 0.25}}
+                        exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
+                    >
+                        <Card><img src={info.aboutMe.profilePicture.src} alt={info.aboutMe.profilePicture.alt}/></Card>
+                    </motion.div>
                     <div>
                         <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.education.title}</div>
                         <div
                             className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.education.text}</div>
                     </div>
                     <Card><img src={info.aboutMe.cliff.src} alt={info.aboutMe.cliff.alt}/></Card>
-                    <div className="">
+                    <div>
                         <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.freetime.title}</div>
                         <div
                             className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.freetime.text}</div>
@@ -105,12 +117,25 @@ const AboutMe = ({ info }) => {
                     <Card><img src={info.aboutMe.hikingBackpack.src} alt={info.aboutMe.hikingBackpack.alt}/></Card>
                 </div>
                 <div className="flex flex-col md:gap-y-20">
-                    <div className="">
+                    <motion.div
+                        key={"1"}
+                        variants={itemVariants}
+                        transition={{duration: 0.5, ease: 'easeInOut', delay: 0.5}}
+                        exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
+                        className=""
+                    >
                         <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.intro.title}</div>
                         <div
                             className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.intro.text}</div>
-                    </div>
-                    <Card><img src={info.aboutMe.aidanHiking.src} alt={info.aboutMe.aidanHiking.alt}/></Card>
+                    </motion.div>
+                    <motion.div
+                        key={"2"}
+                        variants={itemVariants}
+                        transition={{duration: 0.5, ease: 'easeInOut', delay: 0.75}}
+                        exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
+                    >
+                        <Card><img src={info.aboutMe.aidanHiking.src} alt={info.aboutMe.aidanHiking.alt}/></Card>
+                    </motion.div>
                     <div className="">
                         <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.passion.title}</div>
                         <div
@@ -123,7 +148,7 @@ const AboutMe = ({ info }) => {
                             className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.conclusion.text}</div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
             <motion.div
                 className="md:hidden flex flex-col gap-y-16 md:grid-cols-2 md:py-20 2xl:py-32 md:gap-x-12 2xl:gap-x-20"
                 variants={containerVariants}
@@ -131,7 +156,7 @@ const AboutMe = ({ info }) => {
                 animate="show"
             >
                 <motion.div
-                    key={0}
+                    key={"mobile-0"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 0.25}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -140,7 +165,7 @@ const AboutMe = ({ info }) => {
                         src={info.aboutMe.profilePicture.src} alt={info.aboutMe.profilePicture.alt}/></Card>
                 </motion.div>
                 <motion.div
-                    key={1}
+                    key={"mobile-1"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 0.5}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -150,7 +175,7 @@ const AboutMe = ({ info }) => {
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.intro.text}</div>
                 </motion.div>
                 <motion.div
-                    key={2}
+                    key={"mobile-2"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 0.75}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -159,7 +184,7 @@ const AboutMe = ({ info }) => {
                         src={info.aboutMe.aidanHiking.src} alt={info.aboutMe.aidanHiking.alt}/></Card>
                 </motion.div>
                 <motion.div
-                    key={3}
+                    key={"mobile-3"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 1.0}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -170,7 +195,7 @@ const AboutMe = ({ info }) => {
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.education.text}</div>
                 </motion.div>
                 <motion.div
-                    key={4}
+                    key={"mobile-4"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 1.25}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -179,7 +204,7 @@ const AboutMe = ({ info }) => {
                         src={info.aboutMe.cliff.src} alt={info.aboutMe.cliff.alt}/></Card>
                 </motion.div>
                 <motion.div
-                    key={5}
+                    key={"mobile-5"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 1.5}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -190,7 +215,7 @@ const AboutMe = ({ info }) => {
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.passion.text}</div>
                 </motion.div>
                 <motion.div
-                    key={6}
+                    key={"mobile-6"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 1.75}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -199,7 +224,7 @@ const AboutMe = ({ info }) => {
                         src={info.aboutMe.concert.src} alt={info.aboutMe.concert.alt}/></Card>
                 </motion.div>
                 <motion.div
-                    key={7}
+                    key={"mobile-7"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 2.0}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -210,7 +235,7 @@ const AboutMe = ({ info }) => {
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.freetime.text}</div>
                 </motion.div>
                 <motion.div
-                    key={8}
+                    key={"mobile-8"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 2.25}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
@@ -219,7 +244,7 @@ const AboutMe = ({ info }) => {
                         src={info.aboutMe.hikingBackpack.src} alt={info.aboutMe.hikingBackpack.alt}/></Card>
                 </motion.div>
                 <motion.div
-                    key={9}
+                    key={"mobile-9"}
                     variants={itemVariants}
                     transition={{duration: 0.5, ease: 'easeInOut', delay: 2.5}}
                     exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}

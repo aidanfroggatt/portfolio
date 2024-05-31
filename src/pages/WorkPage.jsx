@@ -63,7 +63,7 @@ const WorkPage = () => {
                     {generalInfo &&
                         <motion.div
                             key={"work-page-hero"}
-                            className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10"
+                            className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-opacity-10 border-custom-light"
                             initial={{
                                 y: 100,
                                 opacity: 0,
@@ -92,7 +92,7 @@ const WorkPage = () => {
                                     </div>
                                 </div>
                             </MacWindowCard>
-                            <div className="md:hidden flex flex-col justify-start items-start lg:mt-40 2xl:mt-48 mt-32 pb-10 md:pb-0 border-b border-opacity-10 border-custom-light">
+                            <div className="md:hidden flex flex-col justify-start items-start lg:mt-40 2xl:mt-48 mt-32 pb-10 md:pb-0">
                                 <div className="flex flex-row justify-center items-center text-custom-light text-sm md:text-lg 2xl:text-2xl gap-x-2">
                                     <Dot/>
                                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">WELCOME</div>

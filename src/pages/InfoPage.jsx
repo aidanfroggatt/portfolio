@@ -183,76 +183,33 @@ const AboutMe = ({ info }) => {
                     <Card cardContainerClassName="col-start-2 row-start-2 w-full h-fit"><img
                         src={info.aboutMe.aidanHiking.src} alt={info.aboutMe.aidanHiking.alt}/></Card>
                 </motion.div>
-                <motion.div
-                    key={"mobile-3"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 1.0}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                    className="col-start-1 row-start-2 flex flex-col gap-y-4"
-                >
+                <div className="col-start-1 row-start-2 flex flex-col gap-y-4">
                     <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.education.title}</div>
                     <div
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.education.text}</div>
-                </motion.div>
-                <motion.div
-                    key={"mobile-4"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 1.25}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                >
-                    <Card cardContainerClassName="col-start-1 row-start-3 w-full h-fit"><img
-                        src={info.aboutMe.cliff.src} alt={info.aboutMe.cliff.alt}/></Card>
-                </motion.div>
-                <motion.div
-                    key={"mobile-5"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 1.5}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                    className="col-start-2 row-start-3 flex flex-col gap-y-4"
-                >
+                </div>
+                <Card cardContainerClassName="col-start-1 row-start-3 w-full h-fit"><img
+                    src={info.aboutMe.cliff.src} alt={info.aboutMe.cliff.alt}/></Card>
+                <div className="col-start-2 row-start-3 flex flex-col gap-y-4">
                     <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.passion.title}</div>
                     <div
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.passion.text}</div>
-                </motion.div>
-                <motion.div
-                    key={"mobile-6"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 1.75}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                >
-                    <Card cardContainerClassName="col-start-2 row-start-4 w-full h-fit"><img
-                        src={info.aboutMe.concert.src} alt={info.aboutMe.concert.alt}/></Card>
-                </motion.div>
-                <motion.div
-                    key={"mobile-7"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 2.0}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                    className="col-start-1 row-start-4 flex flex-col gap-y-4"
-                >
+                </div>
+
+                <Card cardContainerClassName="col-start-2 row-start-4 w-full h-fit"><img
+                    src={info.aboutMe.concert.src} alt={info.aboutMe.concert.alt}/></Card>
+                <div className="col-start-1 row-start-4 flex flex-col gap-y-4">
                     <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.freetime.title}</div>
                     <div
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.freetime.text}</div>
-                </motion.div>
-                <motion.div
-                    key={"mobile-8"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 2.25}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                >
-                    <Card cardContainerClassName="col-start-1 row-start-5 w-full h-fit"><img
-                        src={info.aboutMe.hikingBackpack.src} alt={info.aboutMe.hikingBackpack.alt}/></Card>
-                </motion.div>
-                <motion.div
-                    key={"mobile-9"}
-                    variants={itemVariants}
-                    transition={{duration: 0.5, ease: 'easeInOut', delay: 2.5}}
-                    exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
-                    className="col-start-2 row-start-5 flex flex-col gap-y-4">
+                </div>
+                <Card cardContainerClassName="col-start-1 row-start-5 w-full h-fit"><img
+                    src={info.aboutMe.hikingBackpack.src} alt={info.aboutMe.hikingBackpack.alt}/></Card>
+                <div className="col-start-2 row-start-5 flex flex-col gap-y-4">
                     <div className="text-custom-light text-lg 2xl:text-2xl">{info.aboutMe.conclusion.title}</div>
                     <div
                         className="text-custom-light text-opacity-50 text-base 2xl:text-xl">{info.aboutMe.conclusion.text}</div>
-                </motion.div>
+                </div>
             </motion.div>
         </div>
 );

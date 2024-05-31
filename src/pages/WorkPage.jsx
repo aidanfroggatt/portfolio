@@ -11,6 +11,7 @@ import Loading from "../components/Loading.jsx";
 import {FaArrowRightLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 import {motion} from "framer-motion";
+import Dot from "../components/Dot.jsx";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
@@ -62,7 +63,7 @@ const WorkPage = () => {
                     {generalInfo &&
                         <motion.div
                             key={"work-page-hero"}
-                            className="w-full flex flex-col justify-center items-center relative z-10"
+                            className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10"
                             initial={{
                                 y: 100,
                                 opacity: 0,
@@ -80,7 +81,7 @@ const WorkPage = () => {
                                 <div
                                     className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
                                     I'm&nbsp;<span
-                                        className="name italic font-accent">{generalInfo.firstName}.</span></div>
+                                        className="text-shadow italic font-accent">{generalInfo.firstName}.</span></div>
                                 <div
                                     className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
                                     <div
@@ -91,22 +92,17 @@ const WorkPage = () => {
                                     </div>
                                 </div>
                             </MacWindowCard>
-                            <div
-                                className="md:hidden flex flex-col justify-center items-start pt-32 pb-10 w-page-default border-b border-opacity-10 border-custom-light">
-                                <div className="flex flex-col text-custom-light text-sm md:text-lg 2xl:text-2xl">
-                                    <div className="dot"></div>
-                                    <div className="text-sm text-custom-light text-opacity-50 font-bold">{generalInfo.firstName} {generalInfo.lastName} — {generalInfo.currentRole.title}</div>
+                            <div className="md:hidden flex flex-col justify-start items-start lg:mt-40 2xl:mt-48 mt-32 pb-10 md:pb-0 border-b border-opacity-10 border-custom-light">
+                                <div className="flex flex-row justify-center items-center text-custom-light text-sm md:text-lg 2xl:text-2xl gap-x-2">
+                                    <Dot/>
+                                    <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">WELCOME</div>
                                 </div>
                                 <div
-                                    className="font-bold text-left text-4xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
-                                    I'm&nbsp;<span className="name italic font-accent">{generalInfo.firstName}.</span>
+                                    className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10">Hi,
+                                    I'm&nbsp;<span className="text-shadow italic font-accent">{generalInfo.firstName}.</span>
                                 </div>
-                                <div
-                                    className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
-                                </div>
-                                <div className="text-custom-light text-opacity-50">Based
-                                    in {generalInfo.location}.
-                                </div>
+                                <div className="font-bold">{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</div>
+                                <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
                             </div>
                         </motion.div>
                     }

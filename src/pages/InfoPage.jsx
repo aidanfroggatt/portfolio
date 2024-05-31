@@ -48,7 +48,7 @@ const AboutMe = ({ info }) => {
     return (
         <div className="flex flex-col pb-10 md:pb-0 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
             <div className="flex flex-col justify-center items-start lg:mt-40 2xl:mt-48 mt-32 pb-10 md:pb-0">
-                <div className="flex justify-center items-center flex-row text-custom-light gap-x-3">
+                <div className="flex justify-center items-center flex-row text-custom-light gap-x-2">
                     <Dot/>
                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">ABOUT ME</div>
                 </div>

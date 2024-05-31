@@ -11,15 +11,10 @@
     }
 }
 
-.name {
-    text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25)
-}
-
 .project-card-container::before {
     content: "";
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--primary) 50%, rgba(255, 255, 255, 0)) 100%;
 }
-
 
 .project-card {
     --project-card-color: rgba(242, 242, 242, 0.1);

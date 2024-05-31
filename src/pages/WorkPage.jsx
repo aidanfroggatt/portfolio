@@ -12,27 +12,25 @@ import {FaArrowRightLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 import {motion} from "framer-motion";
 import Dot from "../components/Dot.jsx";
+import Card from "../components/Card.jsx";
+import {TfiArrowRight} from "react-icons/tfi";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
-        <div className="
-            project-card-container
-            flex justify-center items-center relative
-            border-1 border-solid border-custom-light border-opacity-10 rounded-3xl p-2 bg-custom-light bg-opacity-4 shadow-card
-            2xl:w-page-2xl 2xl:h-work-card-2xl lg:w-page-lg lg:h-work-card-lg md:w-page-md md:h-work-card-md w-page-default h-work-card-default
-            before:absolute before:top-0 before:left-0 before:w-full before:h-[0.15vh] before:z-10 before:rounded-3xl
-        ">
-            <div onClick={handleClick} className="project-card" style={{'--project-card-color': color}}>
-                <div className="flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
+        <Card cardContainerClassName="h-80" cardContentClassName={"project-card"} onClick={handleClick} style={{'--project-card-color': color}}>
+            <div className="flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
+                <div className="flex flex-row w-full justify-between items-center">
                     <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
-                    <div className="2xl:text-xl text-base">{association}&nbsp;<span className="text-custom-light text-opacity-50">- {description}</span></div>
-                    {arrow && <FaArrowRightLong className="2xl:text-4xl text-2xl absolute top-0 right-0 2xl:m-10 m-8 transition-transform duration-500 ease-linear"/>}
-                    <img src={image} alt={imageAlt}
-                         className="project-card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
-                    />
+                    {arrow && <TfiArrowRight
+                        className="2xl:text-4xl text-2xl 2xl:m-10 transition-transform duration-500 ease-linear"/>}
                 </div>
+                <div className="2xl:text-xl md:text-base text-sm">{association}&nbsp;<span
+                    className="text-custom-light text-opacity-50">— {description}</span></div>
+                <img src={image} alt={imageAlt}
+                     className="project-card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
+                />
             </div>
-        </div>
+        </Card>
     )
 }
 
@@ -42,12 +40,15 @@ const WorkPage = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
-    const handleProjectClick = ({ projectID }) => {
+    const handleProjectClick = ({projectID}) => {
         navigate(`/${projectID}`);
     }
 
     useEffect(() => {
-        getDataFromFirestore({ collectionName: 'projects', fields: ['title', 'association', 'description', 'image', 'color'] }).then(data => {
+        getDataFromFirestore({
+            collectionName: 'projects',
+            fields: ['title', 'association', 'description', 'image', 'color']
+        }).then(data => {
             setProjects(data);
             setIsLoading(false);
         });
@@ -55,9 +56,9 @@ const WorkPage = () => {
 
     return (
         <>
-            <Header />
-            <ScrollToTop />
-            {isLoading ? <Loading /> :
+            <Header/>
+            <ScrollToTop/>
+            {isLoading ? <Loading/> :
                 <div
                     className="work-page relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
@@ -106,7 +107,7 @@ const WorkPage = () => {
                             </div>
                         </motion.div>
                     }
-                    <div className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16">
+                    <div className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
                         {projects && Object.keys(projects).map((key) => (
                             <ProjectCard
                                 key={key}

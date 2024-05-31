@@ -8,13 +8,11 @@ import {GeneralInfoContext} from "../contexts/GeneralInfoContext.jsx";
 import Header from "../components/Header.jsx";
 import {hexToRGBA} from "../utils/colorUtils.js";
 import Loading from "../components/Loading.jsx";
-import {FaArrowRightLong} from "react-icons/fa6";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 import {motion} from "framer-motion";
 import Dot from "../components/Dot.jsx";
 import Card from "../components/Card.jsx";
 import {TfiArrowRight} from "react-icons/tfi";
-import {SiIbm} from "react-icons/si";
 import {getIconByName} from "../utils/iconUtils.jsx";
 
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
@@ -55,6 +53,22 @@ const WorkPage = () => {
             setIsLoading(false);
         });
     }, []);
+
+
+    const containerVariants = {
+        hidden: { opacity: 1 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 100, opacity: 0 },
+        show: { y: 0, opacity: 1 }
+    };
 
     return (
         <>
@@ -110,20 +124,32 @@ const WorkPage = () => {
                             </div>
                         </motion.div>
                     }
-                    <div className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+                    <motion.div
+                        className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="show"
+                    >
                         {projects && Object.keys(projects).map((key) => (
-                            <ProjectCard
+                            <motion.div
                                 key={key}
-                                title={projects[key].title}
-                                association={projects[key].association}
-                                description={projects[key].description}
-                                image={projects[key].image.src}
-                                imageAlt={projects[key].image.alt}
-                                handleClick={() => handleProjectClick({ projectID: key })}
-                                color={hexToRGBA(projects[key].color, 0.5)}
-                            />
+                                variants={itemVariants}
+                                transition={{duration: 0.5, ease: 'easeInOut', delay: 0.25}}
+                                exit={{opacity: 0, transition: {duration: 0.25, ease: 'easeInOut'}}}
+                            >
+                                <ProjectCard
+                                    key={key}
+                                    title={projects[key].title}
+                                    association={projects[key].association}
+                                    description={projects[key].description}
+                                    image={projects[key].image.src}
+                                    imageAlt={projects[key].image.alt}
+                                    handleClick={() => handleProjectClick({projectID: key})}
+                                    color={hexToRGBA(projects[key].color, 0.5)}
+                                />
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             }
         </>

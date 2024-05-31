@@ -26,7 +26,7 @@
 
 
 .card {
-    --card-color: rgba(242, 242, 242, 0.1);
+    --project-card-color: rgba(242, 242, 242, 0.1);
     display: flex;
     position: relative;
     justify-content: center;
@@ -35,7 +35,7 @@
     width: 100%;
     height: 100%;
     border-radius: 1.25vmax;
-    background-color: transparent;
+    background-color: var(--project-card-color);
     transition: background-color 0.5s ease;
     overflow: hidden;
 }

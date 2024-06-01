@@ -266,7 +266,10 @@ const Awards = ({info}) => {
                             <div key={index} className="flex flex-col items-start justify-start">
                                 <div className="font-semibold text-custom-light text-base">{award.title}</div>
                                 <div className="text-sm md:text-base 2xl:text-xl text-custom-light text-opacity-50 mt-0.5 md:mt-2">{award.association}</div>
-                                <a className="flex flex-row justify-start items-center gap-x-1 text-sm md:text-base duration-200 transition-colors hover:text-custom-light 2xl:text-xl text-custom-light text-opacity-60 mt-2 md:mt-2" href={award.link}>
+                                <a className="flex flex-row justify-start items-center gap-x-1 text-sm md:text-base duration-200 transition-colors hover:text-custom-light 2xl:text-xl text-custom-light text-opacity-60 mt-2 md:mt-2"
+                                   href={award.link}
+                                   target="_blank"
+                                >
                                     {extractDomain(award.link)}
                                     <TfiArrowTopRight/>
                                 </a>

@@ -1,4 +1,10 @@
+// Description: This file contains GitHub utility functions.
 
+/**
+ * @author Aidan Froggatt
+ * @description Fetches the last commit information from a GitHub repository.
+ * @returns {Promise<{author: *, time: string}|{author: string, time: string}>}
+ */
 export const getLastCommitInfo = async () => {
     const username = import.meta.env.VITE_GITHUB_USERNAME;
     const repository = import.meta.env.VITE_GITHUB_REPOSITORY;

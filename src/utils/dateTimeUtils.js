@@ -1,6 +1,11 @@
-// dateTimeUtils.js
+// Description: This file contains utility functions for date and time operations.
 
-// Function to convert date string from 'M/D/YYYY, h:m:s A' format to 'Month Day, Year, h:m A Timezone' format
+/**
+ * @author Aidan Froggatt
+ * @description Converts a date string to a formatted date string.
+ * @param dateString - The date string to convert. Format 'YYYY-MM-DDTHH:MM:SSZ'
+ * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
+ */
 export const convertDateFormat = (dateString) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const date = new Date(dateString);
@@ -30,12 +35,22 @@ export const convertDateFormat = (dateString) => {
     return `${month} ${day}, ${year}, ${hour}:${minutes < 10 ? '0' : ''}${minutes} ${ampm} ${timezone}`;
 };
 
-// Function to convert Firestore timestamp to JavaScript Date object
+/**
+ * @author Aidan Froggatt
+ * @description Converts a Firestore timestamp to a JavaScript date.
+ * @param timestamp - The Firestore timestamp to convert.
+ * @returns {*} - The JavaScript date.
+ */
 export const convertFirestoreTimestampToJSDate = (timestamp) => {
     return timestamp.toDate();
 }
 
-// Function to format date string to 'Month, Year' format
+/**
+ * @author Aidan Froggatt
+ * @description Converts a JavaScript date to a Firestore timestamp.
+ * @param dateString
+ * @returns {`${string}, ${number}`}
+ */
 export const formatMonthYear = (dateString) => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const date = new Date(dateString);
@@ -50,7 +65,13 @@ export const formatMonthYear = (dateString) => {
     return `${month}, ${year}`;
 };
 
-// Function to calculate time elapsed between two Firestore timestamps
+/**
+ * @author Aidan Froggatt
+ * @description Calculates the time elapsed between two dates.
+ * @param startDate - Format 'YYYY-MM-DDTHH:MM:SSZ'
+ * @param endDate - Format 'YYYY-MM-DDTHH:MM:SSZ'
+ * @returns {string} - The time elapsed between the two dates.
+ */
 export const calculateTimeElapsed = (startDate, endDate) => {
     const start = startDate.toDate();
     const end = endDate.toDate();

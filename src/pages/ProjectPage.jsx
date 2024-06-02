@@ -7,7 +7,7 @@ import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
-import {getIconByName} from "../utils/iconUtils.jsx";
+import {getSiIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 import {motion} from "framer-motion";
@@ -129,7 +129,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                     <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-x-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
-                                {getIconByName({iconName: technology.icon, className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'})}
+                                {getSiIconByName({iconName: technology.icon, className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'})}
                             </Tooltip>
                         ))}
                     </div>

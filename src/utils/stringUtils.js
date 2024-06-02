@@ -1,4 +1,11 @@
+// Description: This file contains string utility functions.
 
+/**
+ * @author Aidan Froggatt
+ * @description Capitalizes the first letter of a string.
+ * @param str - The string to capitalize.
+ * @returns {*|string} - The capitalized string.
+ */
 export const getFirstWord = (str) => {
     // Remove leading and trailing whitespace
     str = str.trim();

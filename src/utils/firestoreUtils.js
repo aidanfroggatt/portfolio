@@ -1,14 +1,17 @@
 import {collection, doc, getDoc, getDocs} from "firebase/firestore";
 import {firestore} from "../config/firebase.config.js";
 
+// Description: This file contains Firestore utility functions.
+
 /**
+ * @author Aidan Froggatt
+ * @description Fetches data from Firestore.
  * @param {Object} options - Options object.
  * @param {string} options.collectionName - Name of the collection to fetch data from.
  * @param {string} [options.documentId] - ID of the specific document to fetch.
  * @param {string[]} [options.fields=[]] - Array of fields to include in the result.
  * @returns {Promise<Object>} - A promise that resolves to the fetched data.
  */
-
 export const getDataFromFirestore = async ({ collectionName, documentId, fields = [] }) => {
     // Initialize an object to store the JSON data
     const data = {};

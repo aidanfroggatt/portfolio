@@ -1,5 +1,4 @@
-import '../styles/pages/WorkPage.css';
-import '../styles/components/MacWindowCard.css';
+import '../styles/WorkPage.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
 import {useNavigate} from "react-router-dom";
 import React, {useContext, useEffect, useState} from "react";
@@ -31,7 +30,7 @@ import {getSiIconByName} from "../utils/iconUtils.jsx";
  */
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
-        <Card cardContainerClassName="2xl:h-work-card-2xl lg:h-work-card-lg md:h-work-card-md h-work-card-default" cardContentClassName={"project-card hover:cursor-pointer md:bg-transparent"} onClick={handleClick} cardContentStyle={{'--card-color': color}}>
+        <Card cardContainerClassName="2xl:h-work-card-2xl lg:h-work-card-lg md:h-work-card-md h-work-card-default" cardContentClassName={"hover:cursor-pointer md:bg-transparent"} onClick={handleClick} cardContentStyle={{'--card-color': color}}>
             <div className="flex flex-col justify-start w-full 2xl:gap-y-4 2xl:m-10 gap-y-2 m-8">
                 <div className="flex flex-row w-full justify-between items-center">
                     <div className="2xl:text-4xl text-2xl font-extrabold">{title}</div>
@@ -40,9 +39,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
                 </div>
                 <div className="2xl:text-xl md:text-base text-sm">{association}&nbsp;<span
                     className="text-custom-light text-opacity-50">— {description}</span></div>
-                <img src={image} alt={imageAlt}
-                     className="card-image flex justify-center items-center content-center bottom-[-150px] 2xl:bottom-[-200px] absolute left-1/2 transform -translate-x-1/2 h-full w-auto overflow-hidden"
-                />
+                <img src={image} alt={imageAlt} className="card-image"/>
             </div>
         </Card>
     )

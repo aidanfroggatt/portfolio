@@ -1,4 +1,4 @@
-import '../styles/components/Loading.css';
+import '../styles/Loading.css';
 
 /**
  * @author Aidan Froggatt

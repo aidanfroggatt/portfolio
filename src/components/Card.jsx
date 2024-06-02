@@ -1,4 +1,4 @@
-import '../styles/components/Card.css'
+import '../styles/Card.css'
 
 /**
  * @author Aidam Froggatt

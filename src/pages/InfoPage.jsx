@@ -1,4 +1,4 @@
-import '../styles/pages/InfoPage.css';
+import '../styles/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/Card.jsx";

@@ -1,4 +1,4 @@
-import '../styles/pages/ProjectPage.css';
+import '../styles/ProjectPage.css';
 import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";

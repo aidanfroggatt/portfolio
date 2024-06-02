@@ -1,4 +1,4 @@
-import '../styles/components/HighlightCard.css'
+import '../styles/Card.css'
 
 /**
  * @author Aidan Froggatt

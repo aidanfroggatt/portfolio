@@ -1,4 +1,4 @@
-import '../styles/components/Dot.css';
+import '../styles/Dot.css';
 
 /**
  * @author Aidan Froggatt

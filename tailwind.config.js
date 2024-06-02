@@ -30,6 +30,8 @@ export default {
       },
       backgroundSize: {
         'loader': 'calc(100%/3) 50%',
+        'work-page': '100% 135vh',
+        'info-page': '100% 135vh',
         'project-page-md': '100% 135vh',
         'project-page-default': '100% 65vh',
         'main-page-mobile': '100% 65vh',

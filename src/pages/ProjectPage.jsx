@@ -123,7 +123,7 @@ const ProjectPageOverview = ({projectInfo}) => {
     return (
         <div
             className="flex flex-col justify-center items-center gap-x-16 py-16 md:py-40 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl ">
-            <div className="flex flex-col md:flex-row h-fit justify-center items-center gap-y-10 md:gap-y-0">
+            <div className="flex flex-col md:flex-row justify-center items-stretch gap-y-10 md:gap-y-0">
                 <div className="flex flex-col justify-start items-start md:w-1/2 gap-y-10">
                     {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
                         <div className="flex flex-col">

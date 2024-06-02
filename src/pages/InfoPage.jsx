@@ -62,6 +62,7 @@ const AboutMe = ({ info }) => {
         show: { y: 0, opacity: 1 },
     };
 
+    // Render content based on the type of item
     const renderContent = (item, index) => {
         const commonMotionProps = {
             key: `item-${index}`,

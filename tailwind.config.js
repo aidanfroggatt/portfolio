@@ -24,6 +24,7 @@ export default {
       },
       backgroundImage: {
         'work-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
+        'info-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
         'project-page': 'radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));',
       },
       backgroundSize: {

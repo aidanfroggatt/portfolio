@@ -1,4 +1,3 @@
-import '../styles/InfoPage.css';
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/Card.jsx";
@@ -40,7 +39,7 @@ const InfoPage = () => {
             <Header/>
             <ScrollToTop/>
             {isLoading ? <Loading/> :
-                <div className="info-page flex flex-col justify-start items-center bg-custom-dark text-custom-light">
+                <div className="bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
                     <AboutMe info={info.aboutMe}/>
                     <Experience info={info.experience}/>
                     <Awards info={info.awards}/>

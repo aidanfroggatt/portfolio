@@ -42,8 +42,8 @@ const InfoPage = () => {
                 </div>
             }
         </>
-    )
-}
+    );
+};
 
 const AboutMe = ({ info }) => {
 
@@ -162,12 +162,10 @@ const AboutMe = ({ info }) => {
             </motion.div>
         </div>
     );
-}
+};
 
 
-const Experience = ({
-    info
-}) => {
+const Experience = ({info}) => {
     return (
         <div
             className="flex border-t border-opacity-20 border-custom-light py-10 md:py-16 flex-col gap-y-2 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
@@ -199,7 +197,7 @@ const Experience = ({
             </div>
         </div>
     );
-}
+};
 
 const Awards = ({info}) => {
     return (
@@ -230,6 +228,6 @@ const Awards = ({info}) => {
             </div>
         </div>
     );
-}
+};
 
 export default InfoPage;

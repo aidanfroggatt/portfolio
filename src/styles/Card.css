@@ -64,10 +64,10 @@
     transform: translateX(-50%);
 }
 
-/*.card:hover .card-image {*/
-/*    bottom: -25vh; !* Change this value to adjust the hover position *!*/
-/*    transition: bottom 0.25s ease;*/
-/*}*/
+.card:hover .card-image {
+    bottom: -10%;
+    transition: bottom 0.25s ease;
+}
 
 
 /*HIGHLIGHT CARD*/

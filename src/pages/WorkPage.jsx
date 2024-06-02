@@ -1,4 +1,5 @@
 import '../styles/WorkPage.css';
+import '../styles/Card.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
 import {useNavigate} from "react-router-dom";
 import React, {useContext, useEffect, useState} from "react";

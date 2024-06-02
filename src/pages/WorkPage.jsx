@@ -39,7 +39,15 @@ const ProjectCard = ({ title='Title', association='Association', description='De
                 </div>
                 <div className="2xl:text-xl md:text-base text-sm">{association}&nbsp;<span
                     className="text-custom-light text-opacity-50">— {description}</span></div>
-                <img src={image} alt={imageAlt} className="card-image"/>
+                <img
+                    src={image}
+                    alt={imageAlt}
+                    className="
+                        card-image w-auto left-1/2 overflow-hidden absolute flex justify-end items-center content-center
+                        2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default
+                        -bottom-[15%]
+                        "
+                />
             </div>
         </Card>
     )

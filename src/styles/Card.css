@@ -61,23 +61,13 @@
 
 .card-image {
     transition: bottom 0.25s ease;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-    bottom: -30vh;
-    position:absolute;
-    left: 50%;
     transform: translateX(-50%);
-    overflow: hidden;
-    width: 100%;
-    height: auto;
 }
 
-.card:hover .card-image {
-    bottom: -25vh; /* Change this value to adjust the hover position */
-    transition: bottom 0.25s ease;
-}
+/*.card:hover .card-image {*/
+/*    bottom: -25vh; !* Change this value to adjust the hover position *!*/
+/*    transition: bottom 0.25s ease;*/
+/*}*/
 
 
 /*HIGHLIGHT CARD*/

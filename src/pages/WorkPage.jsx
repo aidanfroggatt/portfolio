@@ -1,4 +1,3 @@
-import '../styles/WorkPage.css';
 import '../styles/Card.css';
 import MacWindowCard from "../components/MacWindowCard.jsx";
 import {useNavigate} from "react-router-dom";
@@ -93,7 +92,7 @@ const WorkPage = () => {
             <ScrollToTop/>
             {isLoading ? <Loading/> :
                 <div
-                    className="work-page relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+                    className="bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
                     {generalInfo &&
                         <motion.div
                             key={"work-page-hero"}

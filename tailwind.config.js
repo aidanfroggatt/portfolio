@@ -22,6 +22,15 @@ export default {
       backgroundOpacity: {
         '4': '0.04',
       },
+      backgroundImage: {
+        'work-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
+        'project-page': 'radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));',
+      },
+      backgroundSize: {
+        'loader': 'calc(100%/3) 50%',
+        'project-page-md': '100% 135vh',
+        'project-page-default': '100% 65vh',
+      },
       width: {
         'loader': '60px',
         'page-2xl': '1440px',
@@ -54,9 +63,6 @@ export default {
       },
       aspectRatio: {
         'loader': '2',
-      },
-      backgroundSize: {
-        'loader': 'calc(100%/3) 50%'
       },
       animation: {
         'loader-animation': 'loader-keyframes 1s infinite linear'

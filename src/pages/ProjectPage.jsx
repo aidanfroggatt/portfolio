@@ -1,4 +1,3 @@
-import '../styles/ProjectPage.css';
 import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
@@ -42,7 +41,7 @@ const ProjectPage = () => {
         <>
             <ScrollToTop/>
             {(isLoading || !projectInfo || !projectInfo.color) ? <Loading/> :
-            <div className='project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
+            <div className='md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} : {}}>
                 <div className="z-50 fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12">
                     <AnimatedBackButton/>
@@ -71,7 +70,7 @@ const ProjectPageHero = ({projectInfo}) => {
     return (
         <div className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
             <div
-                className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl project-page-title font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
+                className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl text-shadow font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
             <div
                 className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
                 {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}

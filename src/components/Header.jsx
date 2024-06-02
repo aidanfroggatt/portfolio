@@ -53,7 +53,7 @@ const Header = () => {
                             variants={tabVariants}
                             custom={direction}
                             transition={{ duration: 0.25, ease: "easeInOut" }}
-                            className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"
+                            className="shadow-tab fixed top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"
                         />
                     )}
                 </div>
@@ -70,7 +70,7 @@ const Header = () => {
                             variants={tabVariants}
                             custom={direction}
                             transition={{ duration: 0.25, ease: "easeInOut" }}
-                            className="shadow-tab absolute top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"
+                            className="shadow-tab fixed top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light"
                         />
                     )}
                 </div>

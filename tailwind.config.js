@@ -25,12 +25,14 @@ export default {
       backgroundImage: {
         'work-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
         'info-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
+        'main-page-mobile': 'radial-gradient(circle farthest-side at 50% 0, rgba(242, 242, 242, .25), rgba(0, 0, 0, 0) 80%);',
         'project-page': 'radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));',
       },
       backgroundSize: {
         'loader': 'calc(100%/3) 50%',
         'project-page-md': '100% 135vh',
         'project-page-default': '100% 65vh',
+        'main-page-mobile': '100% 65vh',
       },
       width: {
         'loader': '60px',

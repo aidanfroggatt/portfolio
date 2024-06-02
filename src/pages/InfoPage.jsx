@@ -39,7 +39,7 @@ const InfoPage = () => {
             <Header/>
             <ScrollToTop/>
             {isLoading ? <Loading/> :
-                <div className="bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
+                <div className="bg-main-page-mobile md:bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
                     <AboutMe info={info.aboutMe}/>
                     <Experience info={info.experience}/>
                     <Awards info={info.awards}/>

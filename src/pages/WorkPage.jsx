@@ -15,6 +15,20 @@ import Card from "../components/Card.jsx";
 import {TfiArrowRight} from "react-icons/tfi";
 import {getSiIconByName} from "../utils/iconUtils.jsx";
 
+/**
+ * @author Aidan Froggatt
+ * @description ProjectCard component
+ * @param {Object} props
+ * @param {string} props.title
+ * @param {string} props.association
+ * @param {string} props.description
+ * @param {string} props.image
+ * @param {string} props.imageAlt
+ * @param {boolean} props.arrow
+ * @param {function} props.handleClick
+ * @param {string} props.color
+ * @returns {JSX.Element} ProjectCard
+ */
 const ProjectCard = ({ title='Title', association='Association', description='Description', image, imageAlt, arrow=true, handleClick, color }) => {
     return (
         <Card cardContainerClassName="2xl:h-work-card-2xl lg:h-work-card-lg md:h-work-card-md h-work-card-default" cardContentClassName={"project-card hover:cursor-pointer"} onClick={handleClick} cardContentStyle={{'--card-color': color}}>
@@ -34,6 +48,11 @@ const ProjectCard = ({ title='Title', association='Association', description='De
     )
 }
 
+/**
+ * @author Aidan Froggatt
+ * @description WorkPage component
+ * @returns {JSX.Element} WorkPage
+ */
 const WorkPage = () => {
     const generalInfo = useContext(GeneralInfoContext);
     const [projects, setProjects] = useState();

@@ -3,6 +3,12 @@ import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {FaArrowLeftLong} from "react-icons/fa6";
 
+/**
+ * @author Aidan Froggatt
+ * @description Animated back button component
+ * @param className {string} Additional classes/tailwind styling to apply to the button
+ * @returns {JSX.Element} Animated back button
+ */
 const AnimatedBackButton = ({className}) => {
     const navigate = useNavigate();
     const [isBackClicked, setIsBackClicked] = useState(false);

@@ -1,5 +1,10 @@
 import '../styles/components/Loading.css';
 
+/**
+ * @author Aidan Froggatt
+ * @description Loading component
+ * @returns {JSX.Element} Loading component
+ */
 const Loading = () => {
     return (
         <div className="min-h-screen bg-custom-dark flex justify-center items-center">

@@ -3,6 +3,12 @@ import {getDataFromFirestore} from '../utils/firestoreUtils.js';
 
 const GeneralInfoContext = createContext();
 
+/**
+ * @author Aidan Froggatt
+ * @description GeneralInfoProvider component to provide general info to the app
+ * @param children
+ * @returns {JSX.Element} GeneralInfoProvider
+ */
 const GeneralInfoProvider = ({ children }) => {
     const documentId = import.meta.env.VITE_MY_FIRESTORE_GENERAL_INFO_DOCUMENT_ID;
     const [generalInfo, setGeneralInfo] = useState(null);

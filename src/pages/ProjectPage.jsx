@@ -13,6 +13,11 @@ import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 import {motion} from "framer-motion";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 
+/**
+ * @author Aidan Froggatt
+ * @description ProjectPage component
+ * @returns {JSX.Element} ProjectPage
+ */
 const ProjectPage = () => {
     const {projectId} = useParams();
     const [projectInfo, setProjectInfo] = useState();
@@ -51,6 +56,17 @@ const ProjectPage = () => {
     )
 }
 
+/**
+ * @author Aidan Froggatt
+ * @description ProjectPageHero component
+ * @param {Object} props
+ * @param {Object} props.projectInfo
+ * @param {string} props.projectInfo.title
+ * @param {string} props.projectInfo.association
+ * @param {string} props.projectInfo.endDate
+ * @param {string} props.projectInfo.image
+ * @returns {JSX.Element} ProjectPageHero
+ */
 const ProjectPageHero = ({projectInfo}) => {
     return (
         <div className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
@@ -81,6 +97,29 @@ const ProjectPageHero = ({projectInfo}) => {
     )
 }
 
+/**
+ * @author
+ * @description ProjectPageOverview component
+ * @param {Object} props
+ * @param {Object} props.projectInfo
+ * @param {Object} props.projectInfo.overview
+ * @param {Object} props.projectInfo.overview.role
+ * @param {string} props.projectInfo.overview.role.name
+ * @param {string} props.projectInfo.overview.role.description
+ * @param {string} props.projectInfo.overview.role.title
+ * @param {Object[]} props.projectInfo.overview.team
+ * @param {string} props.projectInfo.overview.team[].name
+ * @param {string} props.projectInfo.overview.team[].role
+ * @param {string} props.projectInfo.overview.overview
+ * @param {Object} props.projectInfo.overview.status
+ * @param {string} props.projectInfo.overview.status
+ * @param {Object} props.projectInfo.startDate
+ * @param {Object} props.projectInfo.endDate
+ * @param {Object[]} props.projectInfo.overview.technologies
+ * @param {Object} props.projectInfo.overview.technologies[].name
+ * @param {Object} props.projectInfo.overview.technologies[].icon
+ * @returns {JSX.Element} ProjectPageOverview
+ */
 const ProjectPageOverview = ({projectInfo}) => {
     return (
         <div
@@ -139,6 +178,20 @@ const ProjectPageOverview = ({projectInfo}) => {
     )
 }
 
+/**
+ * @author Aidan Froggatt
+ * @description ProjectPageHighlights component
+ * @param {Object} props
+ * @param {Object} props.projectInfo
+ * @param {Object[]} props.projectInfo.highlights
+ * @param {Object} props.projectInfo.highlights[].asset
+ * @param {string} props.projectInfo.highlights[].asset.src
+ * @param {string} props.projectInfo.highlights[].asset.alt
+ * @param {string} props.projectInfo.highlights[].asset.type
+ * @param {string} props.projectInfo.highlightsDescription
+ * @param {string} props.projectInfo.color
+ * @returns {JSX.Element} ProjectPageHighlights
+ */
 const ProjectPageHighlights = ({projectInfo}) => {
     return (
         <HighlightCard accentColor={projectInfo.color} className="p-3 md:p-6 gap-y-8 md:gap-y-12 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">

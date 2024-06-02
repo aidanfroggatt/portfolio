@@ -10,6 +10,11 @@ import {TfiArrowTopRight} from "react-icons/tfi";
 import Dot from "../components/Dot.jsx";
 import {motion} from "framer-motion";
 
+/**
+ * @author Aidan Froggatt
+ * @description InfoPage component
+ * @returns {JSX.Element} InfoPage
+ */
 const InfoPage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [info, setInfo] = useState();
@@ -37,14 +42,21 @@ const InfoPage = () => {
             {isLoading ? <Loading/> :
                 <div className="info-page flex flex-col justify-start items-center bg-custom-dark text-custom-light">
                     <AboutMe info={info.aboutMe}/>
-                    <Experience info={info}/>
-                    <Awards info={info}/>
+                    <Experience info={info.experience}/>
+                    <Awards info={info.awards}/>
                 </div>
             }
         </>
     );
 };
 
+/**
+ * @author Aidan Froggatt
+ * @description AboutMe component
+ * @param {Object} props
+ * @param {Object[]} props.info
+ * @returns {JSX.Element} AboutMe
+ */
 const AboutMe = ({ info }) => {
 
     const containerVariants = {
@@ -164,7 +176,13 @@ const AboutMe = ({ info }) => {
     );
 };
 
-
+/**
+ * @author Aidan Froggatt
+ * @description Experience component
+ * @param {Object} props
+ * @param {Object[]} props.info
+ * @returns {JSX.Element} Experience
+ */
 const Experience = ({info}) => {
     return (
         <div
@@ -174,7 +192,7 @@ const Experience = ({info}) => {
                 <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">EXPERIENCE</div>
             </div>
             <div className="flex flex-col gap-y-16 md:gap-y-20 2xl:gap-y-28">
-                {info.experience && info.experience.map((exp, index) => {
+                {info && info.map((exp, index) => {
                     return (
                         <div key={index}
                              className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
@@ -199,6 +217,13 @@ const Experience = ({info}) => {
     );
 };
 
+/**
+ * @author Aidan Froggatt
+ * @description Awards component
+ * @param {Object} props
+ * @param {Object[]} props.info
+ * @returns {JSX.Element} Awards
+ */
 const Awards = ({info}) => {
     return (
         <div
@@ -209,7 +234,7 @@ const Awards = ({info}) => {
             </div>
             <div className="flex flex-col">
                 <div className="grid grid-cols-2 md:grid-cols-3">
-                    {info.awards && info.awards.map((award, index) => {
+                    {info && info.map((award, index) => {
                         return (
                             <div key={index} className="flex flex-col items-start justify-start">
                                 <div className="font-semibold text-custom-light text-base">{award.title}</div>

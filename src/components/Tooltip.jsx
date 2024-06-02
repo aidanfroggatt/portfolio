@@ -1,5 +1,13 @@
 import {useState} from 'react';
 
+/**
+ * @author Aidan Froggatt
+ * @description Tooltip component
+ * @param {Object} props
+ * @param {string} props.text
+ * @param {string} props.children
+ * @returns {JSX.Element} Tooltip
+ */
 const Tooltip = ({ text, children }) => {
     const [showTooltip, setShowTooltip] = useState(false);
 

@@ -7,6 +7,11 @@ import IconMenu from "./IconMenu.jsx";
 import {FiAtSign, FiX} from "react-icons/fi";
 import {TfiArrowTopRight} from "react-icons/tfi";
 
+/**
+ * @author Aidan Froggatt
+ * @description Header component
+ * @returns {JSX.Element|null} Header component
+ */
 const Header = () => {
     const location = useLocation(); // Get current location
     const navigate = useNavigate(); // Get navigate function

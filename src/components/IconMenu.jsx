@@ -2,6 +2,17 @@ import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {TfiArrowTopRight} from "react-icons/tfi";
 
+/**
+ * @author Aidan Froggatt
+ * @description A menu component that toggles a list of links when clicked
+ * @param {Object} props
+ * @param {ReactNode} props.initialIcon The icon to display when the menu is closed
+ * @param {ReactNode} props.toggleIcon The icon to display when the menu is open
+ * @param {Object[]} props.menuOptions The links to display in the menu
+ * @param {string} props.menuOptions[].name The name of the link
+ * @param {string} props.menuOptions[].link The URL of the link
+ * @returns {ReactNode} The IconMenu component
+ */
 const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
     const [isToggled, setIsToggled] = useState(false);
 
@@ -13,6 +24,15 @@ const IconMenu = ({ initialIcon, toggleIcon, menuOptions }) => {
     );
 };
 
+/**
+ * @author Aidan Froggatt
+ * @description A morphing icon component that toggles between two icons
+ * @param {ReactNode} initialIcon The icon to display when the menu is closed
+ * @param {ReactNode} toggleIcon The icon to display when the menu is open
+ * @param {boolean} isToggled The state of the menu
+ * @param {Function} setIsToggled The function to update the state of the menu
+ * @returns {ReactNode} The IconMorph component
+ */
 const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
     const handleClick = () => {
         setIsToggled(!isToggled);
@@ -35,6 +55,15 @@ const IconMorph = (initialIcon, toggleIcon, [isToggled, setIsToggled]) => {
     );
 };
 
+/**
+ * @author Aidan Froggatt
+ * @description A modal component that displays a list of links
+ * @param {Object[]} menuOptions The links to display in the menu
+ * @param {string} menuOptions[].name The name of the link
+ * @param {string} menuOptions[].link The URL of the link
+ * @param {boolean} isToggled The state of the menu
+ * @returns {ReactNode} The MenuModal component
+ */
 const MenuModal = (menuOptions, isToggled) => {
     return (
         <AnimatePresence key={"menu-modal-animate-presence"}>

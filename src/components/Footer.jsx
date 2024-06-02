@@ -7,6 +7,11 @@ import {getLastCommitInfo} from "../utils/githubUtils.js";
 import {getFirstWord} from "../utils/stringUtils.js";
 import {TfiArrowTopRight} from "react-icons/tfi";
 
+/**
+ * @author Aidan Froggatt
+ * @description Footer component
+ * @returns {JSX.Element|null} Footer component
+ */
 const Footer = () => {
     const generalInfo = useContext(GeneralInfoContext);
 

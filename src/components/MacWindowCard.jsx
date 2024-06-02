@@ -1,5 +1,13 @@
 import '../styles/components/MacWindowCard.css';
 
+/**
+ * @author Aidan Froggatt
+ * @description MacWindowCard component
+ * @param {Object} props
+ * @param {string} props.children
+ * @param {string} props.className
+ * @returns {JSX.Element} MacWindowCard
+ */
 const MacWindowCard = ({children, className}) => {
     return (
         <div className={`

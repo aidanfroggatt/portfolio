@@ -27,6 +27,8 @@ export default {
         'info-page': 'radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, .15), rgba(0, 0, 0, 0));',
         'main-page-mobile': 'radial-gradient(circle farthest-side at 50% 0, rgba(242, 242, 242, .25), rgba(0, 0, 0, 0) 80%);',
         'project-page': 'radial-gradient(circle farthest-side at 50% 0, var(--project-color), rgba(0, 0, 0, 0));',
+        'header-mobile': 'linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0))',
+        'header': 'linear-gradient(rgba(0, 0, 0, .7), rgba(16, 16, 16, 0))',
       },
       backgroundSize: {
         'loader': 'calc(100%/3) 50%',

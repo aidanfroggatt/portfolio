@@ -1,15 +1,23 @@
 import React from 'react';
 import {
-    FaLinkedin,
-    FaGithub,
-    FaRegEnvelopeOpen,
-    FaReact,
+    FaAws,
+    FaChalkboardTeacher,
+    FaChartLine,
     FaCss3,
-    FaJira,
-    FaGit,
+    FaDatabase,
+    FaDownload,
     FaFigma,
+    FaGit,
+    FaGithub,
     FaJava,
-    FaPython, FaAws, FaShopify, FaDatabase, FaChartLine, FaNodeJs, FaChalkboardTeacher, FaDownload, FaJs
+    FaJira,
+    FaJs,
+    FaLinkedin,
+    FaNodeJs,
+    FaPython,
+    FaReact,
+    FaRegEnvelopeOpen,
+    FaShopify
 } from 'react-icons/fa';
 import SnapCycleImage from "../assets/projects/snapcycle-home.jpg";
 import CodeWarriorsImage from "../assets/projects/codewarriors-home.jpg";

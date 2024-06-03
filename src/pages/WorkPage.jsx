@@ -121,7 +121,7 @@ const WorkPage = () => {
                             <MacWindowCard className="hidden md:flex lg:mt-40 2xl:mt-48">
                                 <div
                                     className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
-                                    I'm&nbsp;<span
+                                    I&apos;m&nbsp;<span
                                         className="text-shadow italic font-accent">{generalInfo.firstName}.</span></div>
                                 <div
                                     className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">

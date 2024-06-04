@@ -139,7 +139,7 @@ const WorkPage = () => {
                                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">WELCOME</div>
                                 </div>
                                 <div
-                                    className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10 text-shadow">Hi,
+                                    className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10 text-shadow-mobile md:text-shadow">Hi,
                                     I&apos;m&nbsp;<span className="italic font-accent">{generalInfo.firstName}.</span>
                                 </div>
                                 <div className="flex flex-row justify-center items-center font-bold">{generalInfo.currentRole.title} at &nbsp;{getSiIconByName({iconName: generalInfo.currentRole.company.icon, className: "h-8 w-auto"})}

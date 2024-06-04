@@ -70,7 +70,7 @@ const ProjectPageHero = ({projectInfo}) => {
     return (
         <div className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
             <div
-                className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl text-shadow font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
+                className="flex justify-center items-center text-5xl lg:text-6xl 2xl:text-7xl text-shadow-mobile md:text-shadow font-semibold text-center">{projectInfo.title && projectInfo.title}</div>
             <div
                 className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
                 {projectInfo.association && projectInfo.association} — {projectInfo.endDate && formatMonthYear(convertFirestoreTimestampToJSDate(projectInfo.endDate))}

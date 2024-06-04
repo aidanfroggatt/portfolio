@@ -196,7 +196,7 @@ const Experience = ({info}) => {
                         <div key={index}
                              className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
                             <div
-                                className="md:flex-grow text-custom-light font-semibold text-2xl 2xl:text-5xl md:text-4xl text-shadow">
+                                className="md:flex-grow text-custom-light font-semibold text-2xl 2xl:text-5xl md:text-4xl text-shadow-mobile md:text-shadow">
                                 <a href={exp.companyWebsite} target="_blank" rel="noopener noreferrer">{exp.company}</a>
                             </div>
                             <div className="flex flex-col items-start justify-start">

@@ -140,7 +140,7 @@ const WorkPage = () => {
                                 </div>
                                 <div
                                     className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10 text-shadow">Hi,
-                                    I'm&nbsp;<span className="italic font-accent">{generalInfo.firstName}.</span>
+                                    I&apos;m&nbsp;<span className="italic font-accent">{generalInfo.firstName}.</span>
                                 </div>
                                 <div className="flex flex-row justify-center items-center font-bold">{generalInfo.currentRole.title} at &nbsp;{getSiIconByName({iconName: generalInfo.currentRole.company.icon, className: "h-8 w-auto"})}
                                 </div>

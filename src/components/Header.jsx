@@ -32,7 +32,7 @@ const Header = () => {
 
     return (
         <div className="bg-header-mobile md:bg-header flex flex-row fixed justify-center items-center w-full px-14 py-8 text-custom-light z-50">
-            <div className="flex flex-row gap-x-2 items-center fixed sm:left-12 left-6">
+            <div className="flex flex-row gap-x-2 items-center fixed sm:left-12 md:left-3 lg:left-12 left-6">
                 <LilypadIcon className={"w-9 h-9"}/>
                 <div className="hidden md:flex flex-col">
                     {(generalInfo.firstName && generalInfo.lastName) && <div className="font-semibold text-md">{generalInfo.firstName} {generalInfo.lastName}</div>}
@@ -75,7 +75,7 @@ const Header = () => {
                     )}
                 </div>
             </div>
-            <div className="hidden md:flex font-medium fixed right-12">
+            <div className="hidden md:flex font-medium fixed md:right-3 lg:right-12">
                 {generalInfo.links && generalInfo.links.map((link, index) => {
                     return (
                         <a
@@ -94,8 +94,8 @@ const Header = () => {
             <div className="fixed sm:right-12 right-6 md:hidden flex">
                 <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>} menuOptions={generalInfo.links}/>
             </div>
-</div>
-)
+        </div>
+    )
 }
 
 export default Header;

@@ -41,5 +41,5 @@
 }
 
 .text-shadow-mobile {
-    text-shadow: 0 5px 15px rgba(0, 87, 255, .25), 0 -5px 15px rgba(255, 90, 0, .2), 0 0 30px rgba(255, 255, 255, .4)
+    text-shadow: 0 4px 6px rgba(0, 87, 255, .15), 0 -4px 6px rgba(255, 90, 0, .1), 0 0 20px rgba(255, 255, 255, .25);
 }

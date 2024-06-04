@@ -120,9 +120,9 @@ const WorkPage = () => {
                             }}>
                             <MacWindowCard className="hidden md:flex lg:mt-40 2xl:mt-48">
                                 <div
-                                    className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px]">Hi,
+                                    className="font-bold text-left top-[30%] left-[15%] inline-block absolute text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">Hi,
                                     I&apos;m&nbsp;<span
-                                        className="text-shadow italic font-accent">{generalInfo.firstName}.</span></div>
+                                        className="italic font-accent">{generalInfo.firstName}.</span></div>
                                 <div
                                     className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
                                     <div
@@ -139,8 +139,8 @@ const WorkPage = () => {
                                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">WELCOME</div>
                                 </div>
                                 <div
-                                    className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10">Hi,
-                                    I'm&nbsp;<span className="text-shadow italic font-accent">{generalInfo.firstName}.</span>
+                                    className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10 text-shadow">Hi,
+                                    I'm&nbsp;<span className="italic font-accent">{generalInfo.firstName}.</span>
                                 </div>
                                 <div className="flex flex-row justify-center items-center font-bold">{generalInfo.currentRole.title} at &nbsp;{getSiIconByName({iconName: generalInfo.currentRole.company.icon, className: "h-8 w-auto"})}
                                 </div>

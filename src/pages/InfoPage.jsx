@@ -1,7 +1,7 @@
 import Header from "../components/Header.jsx";
 import Loading from "../components/Loading.jsx";
 import Card from "../components/Card.jsx";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getDataFromFirestore} from "../utils/firestoreUtils.js";
 import {extractDomain} from "../utils/urlUtils.js";
 import ScrollToTop from "../components/ScrollToTop.jsx";
@@ -191,7 +191,7 @@ const Experience = ({info}) => {
                 <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">EXPERIENCE</div>
             </div>
             <div className="flex flex-col gap-y-16 md:gap-y-20 2xl:gap-y-28">
-                {info && info.map((exp, index) => {
+                {info && info.slice().reverse().map((exp, index) => {
                     return (
                         <div key={index}
                              className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
@@ -233,7 +233,7 @@ const Awards = ({info}) => {
             </div>
             <div className="flex flex-col">
                 <div className="grid grid-cols-2 md:grid-cols-3">
-                    {info && info.map((award, index) => {
+                    {info && info.slice().reverse().map((award, index) => {
                         return (
                             <div key={index} className="flex flex-col items-start justify-start">
                                 <div className="font-semibold text-custom-light text-base">{award.title}</div>

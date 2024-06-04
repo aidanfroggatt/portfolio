@@ -142,8 +142,8 @@ const AboutMe = ({ info }) => {
                     <Dot />
                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">ABOUT ME</div>
                 </div>
-                <h1 className="font-bold text-left text-3xl md:text-5xl 2xl:text-7xl leading-[90%] tracking-[-2px] text-shadow">
-                    Here's some more info&nbsp;<span className="italic font-accent">about me.</span>
+                <h1 className="font-bold text-left text-3xl md:text-5xl 2xl:text-7xl leading-[90%] tracking-[-2px] text-shadow-mobile md:text-shadow">
+                    Here&apos;s some more info&nbsp;<span className="italic font-accent">about me.</span>
                 </h1>
             </motion.div>
 

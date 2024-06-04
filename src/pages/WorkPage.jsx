@@ -54,7 +54,7 @@ const ProjectCard = ({ title='Title', association='Association', description='De
 
 const MacWindowCard = ({generalInfo}) => {
     return (
-        <Card cardContainerClassName="hidden md:flex lg:mt-40 2xl:mt-48 2xl:w-page-2xl 2xl:h-mac-window-card-2xl lg:w-page-lg lg:h-mac-window-card-lg md:w-page-md md:h-mac-window-card-md w-work-card-default h-work-card-default" cardContentClassName="flex justify-center items-center relative">
+        <Card cardContainerClassName="hidden md:flex mt-32 lg:mt-40 2xl:mt-48 2xl:w-page-2xl 2xl:h-mac-window-card-2xl lg:w-page-lg lg:h-mac-window-card-lg md:w-page-md md:h-mac-window-card-md w-work-card-default h-work-card-default" cardContentClassName="flex justify-center items-center relative">
             <div
                 className="absolute bottom-0 left-0 right-0 flex h-[25vh] z-[5] bg-[linear-gradient(to_bottom,_rgba(16,16,16,0),_var(--background)_60%)]"></div>
             <div className="shine-wrapper">

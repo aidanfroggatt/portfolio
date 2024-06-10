@@ -123,7 +123,7 @@ const ProjectPageOverview = ({projectInfo}) => {
     return (
         <div
             className="flex flex-col justify-center items-center gap-x-16 py-16 md:py-40 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl ">
-            <div className="flex flex-col md:flex-row justify-center items-stretch gap-y-10 md:gap-y-0">
+            <div className="flex flex-col md:flex-row justify-center items-stretch gap-x-10 gap-y-10 md:gap-y-0">
                 <div className="flex flex-col justify-start items-start md:w-1/2 gap-y-10">
                     {(projectInfo.overview.role.name || projectInfo.overview.role.description) &&
                         <div className="flex flex-col">
@@ -167,7 +167,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                     <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
-                                {getSiIconByName({iconName: technology.icon, className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'})}
+                                {getSiIconByName({iconName: technology.icon, className: 'w-8 h-8 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12'})}
                             </Tooltip>
                         ))}
                     </div>

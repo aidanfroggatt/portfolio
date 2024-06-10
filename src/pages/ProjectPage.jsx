@@ -164,7 +164,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                             </div>
                         </div>
                     }
-                    <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-x-8 items-center">
+                    <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
                                 {getSiIconByName({iconName: technology.icon, className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'})}

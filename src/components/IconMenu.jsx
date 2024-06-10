@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {TfiArrowTopRight} from "react-icons/tfi";
+import PropTypes from "prop-types";
 
 /**
  * @author Aidan Froggatt

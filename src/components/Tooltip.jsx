@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import PropTypes from "prop-types";
 
 /**
  * @author Aidan Froggatt
@@ -34,6 +35,11 @@ const Tooltip = ({ text, children }) => {
             )}
         </div>
     );
+};
+
+Tooltip.propTypes = {
+    text: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
 };
 
 export default Tooltip;

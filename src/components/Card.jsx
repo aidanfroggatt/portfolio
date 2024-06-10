@@ -1,4 +1,5 @@
 import '../styles/Card.css'
+import PropTypes from "prop-types";
 
 /**
  * @author Aidam Froggatt
@@ -19,6 +20,15 @@ const Card = ({ cardContainerClassName, cardContentClassName, children, onClick,
             </div>
         </div>
     )
+}
+
+Card.propTypes = {
+    cardContainerClassName: PropTypes.string,
+    cardContentClassName: PropTypes.string,
+    cardContainerStyle: PropTypes.object,
+    cardContentStyle: PropTypes.object,
+    onClick: PropTypes.func,
+    children: PropTypes.node
 }
 
 export default Card;

@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {FaArrowLeftLong} from "react-icons/fa6";
+import PropTypes from "prop-types";
 
 /**
  * @author Aidan Froggatt
@@ -45,7 +46,11 @@ const AnimatedBackButton = ({className}) => {
             <FaArrowLeftLong className="left"/>
             Back
         </motion.div>
-    );
-};
+    )
+}
+
+AnimatedBackButton.propTypes = {
+    className: PropTypes.string.isRequired,
+}
 
 export default AnimatedBackButton;

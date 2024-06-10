@@ -89,7 +89,7 @@ const ProjectPageHero = ({projectInfo}) => {
                         transition: {duration: 0.25, ease: 'easeInOut'}
                     }}
                 >
-                    <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12"/>
+                    <img src={projectInfo.image.src} alt={projectInfo.image.alt} className="pt-4 2xl:py-12 h-work-card-image-default md:h-work-card-image-md lg:h-work-card-image-lg 2xl:h-work-card-image-2xl"/>
                 </motion.div>
             }
         </div>

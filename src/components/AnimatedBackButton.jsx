@@ -50,7 +50,7 @@ const AnimatedBackButton = ({className}) => {
 }
 
 AnimatedBackButton.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
 }
 
 export default AnimatedBackButton;

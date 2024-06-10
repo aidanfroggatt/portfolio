@@ -11,6 +11,7 @@ import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 import {motion} from "framer-motion";
 import ScrollToTop from "../components/ScrollToTop.jsx";
+import {getDownloadURLFromStorage} from "../utils/firebaseStorageUtils.jsx";
 
 /**
  * @author Aidan Froggatt

@@ -7,32 +7,21 @@
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
-    const [datePart, timePart] = dateString.split(', ');
-    const [month, day, year] = datePart.split('/');
-    const [time, ampm] = timePart.split(' ');
-
-    // Convert time from AM/PM to 24-hour format
-    let [hour, minute, second] = time.split(':');
-    if (ampm === 'PM' && hour !== '12') {
-        hour = String(parseInt(hour) + 12);
-    } else if (ampm === 'AM' && hour === '12') {
-        hour = '00';
-    }
-
-    // Construct the Date object using UTC to avoid timezone issues
-    const dateObj = new Date(Date.UTC(year, month - 1, day, hour, minute, second));
-
-    // Get month name
+    const dateObj = new Date(dateString);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const monthName = months[dateObj.getUTCMonth()];
 
-    // Format output string
-    const formattedHour = dateObj.getUTCHours() % 12 || 12; // Convert hour to 12-hour format
-    const formattedMinute = dateObj.getUTCMinutes().toString().padStart(2, '0'); // Ensure minute is two digits
-    const formattedAMPM = dateObj.getUTCHours() < 12 ? 'AM' : 'PM'; // Determine AM/PM
-    const formattedTimezone = 'EST'; // Hardcoded timezone as it seems constant in your case
+    const month = months[dateObj.getMonth()];
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    let hour = dateObj.getHours();
+    const minute = dateObj.getMinutes();
+    const ampm = hour >= 12 ? 'PM' : 'AM';
 
-    return `${monthName} ${dateObj.getUTCDate()}, ${dateObj.getUTCFullYear()}, ${formattedHour}:${formattedMinute} ${formattedAMPM} ${formattedTimezone}`;
+    // Convert hour to 12-hour format
+    hour = hour % 12;
+    hour = hour ? hour : 12; // '0' should be '12'
+
+    return `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' + minute : minute} ${ampm} EST`;
 };
 
 /**

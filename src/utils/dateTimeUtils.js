@@ -7,15 +7,28 @@
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    // Create a date object from the input string
     const date = new Date(dateString);
 
-    // Handle time zone conversion to EST
-    const options = { timeZone: 'America/New_York', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+    // Define options for formatting the date
+    const options = {
+        timeZone: 'America/New_York',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+    };
+
+    // Format the date to parts using the specified options
     const formatter = new Intl.DateTimeFormat('en-US', options);
     const formattedParts = formatter.formatToParts(date);
 
+    // Initialize variables to hold the formatted date components
     let month, day, year, hour, minute, ampm;
+
+    // Extract the relevant date components from the formatted parts
     formattedParts.forEach(part => {
         switch (part.type) {
             case 'month':
@@ -39,11 +52,10 @@ export const convertDateFormat = (dateString) => {
         }
     });
 
-    // Format the timezone
-    const timezone = 'EST'; // You can change this to your desired timezone
-
     // Construct the formatted date string
-    return `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' : ''}${minute} ${ampm} ${timezone}`;
+    const formattedDate = `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' : ''}${minute} ${ampm} EST`;
+
+    return formattedDate;
 };
 
 /**

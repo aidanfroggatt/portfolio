@@ -7,12 +7,21 @@
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
+    const dateObj = new Date(dateString);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const [date, timeampm] = dateString.split(', ');
-    const [month, day, year] = date.split('/');
-    const [time, ampm] = timeampm.split(' ');
-    const [hour, minute, second] = time.split(':');
-    return `${months[parseInt(month) - 1]} ${day}, ${year}, ${hour}:${minute} ${ampm} EST`;
+
+    const month = months[dateObj.getMonth()];
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    let hour = dateObj.getHours();
+    const minute = dateObj.getMinutes();
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+
+    // Convert hour to 12-hour format
+    hour = hour % 12;
+    hour = hour ? hour : 12; // '0' should be '12'
+
+    return `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' + minute : minute} ${ampm} EST`;
 };
 
 /**

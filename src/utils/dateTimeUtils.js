@@ -1,18 +1,18 @@
 // Description: This file contains utility functions for date and time operations.
-import moment from 'moment-timezone';
 
 /**
  * @author Aidan Froggatt
  * @description Converts a date string to a formatted date string.
- * @param dateString - The date string to convert. Format 'YYYY-MM-DDTHH:MM:SSZ'
+ * @param dateString - The date string to convert. Format 'MM/DD/YYYY, HH:MM:SS PM EST'
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
-    // Parse and convert the date to the desired timezone (EST)
-    const date = moment(dateString).tz('America/New_York');
-
-    // Format the date string
-    return date.format('MMMM D, YYYY, h:mm A [EST]');
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const [date, timeampm] = dateString.split(', ');
+    const [month, day, year] = date.split('/');
+    const [time, ampm] = timeampm.split(' ');
+    const [hour, minute, second] = time.split(':');
+    return `${months[parseInt(month) - 1]} ${day}, ${year}, ${hour}:${minute} ${ampm} EST`;
 };
 
 /**

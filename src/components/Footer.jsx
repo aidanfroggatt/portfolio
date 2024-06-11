@@ -73,7 +73,7 @@ const Footer = () => {
                 <div className="col-start-2 row-start-2 flex flex-col h-full w-full items-start md:items-end justify-end">
                     {lastCommit &&
                         <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50">
-                            Last updated by {getFirstWord(lastCommit.author)}, {convertDateFormat(lastCommit.time)}
+                            Last updated by {getFirstWord(lastCommit.author)} on {convertDateFormat(lastCommit.time)}
                         </div>
                     }
                 </div>

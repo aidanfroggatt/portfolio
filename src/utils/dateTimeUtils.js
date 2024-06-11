@@ -1,3 +1,4 @@
+import moment from 'moment';
 // Description: This file contains utility functions for date and time operations.
 
 /**
@@ -7,21 +8,17 @@
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
-    const dateObj = new Date(dateString);
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const dateObj = moment(dateString, 'MM/DD/YYYY, HH:mm:ss A z');
 
-    const month = months[dateObj.getMonth()];
-    const day = dateObj.getDate();
-    const year = dateObj.getFullYear();
-    let hour = dateObj.getHours();
-    const minute = dateObj.getMinutes();
-    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const month = dateObj.format('MMMM');
+    const day = dateObj.format('D');
+    const year = dateObj.format('YYYY');
+    const hour = dateObj.format('h');
+    const minute = dateObj.format('mm');
+    const ampm = dateObj.format('A');
+    const timezone = dateObj.format('z');
 
-    // Convert hour to 12-hour format
-    hour = hour % 12;
-    hour = hour ? hour : 12; // '0' should be '12'
-
-    return `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' + minute : minute} ${ampm} EST`;
+    return `${month} ${day}, ${year}, ${hour}:${minute} ${ampm} ${timezone}`;
 };
 
 /**

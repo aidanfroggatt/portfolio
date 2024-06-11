@@ -1,4 +1,5 @@
 // Description: This file contains utility functions for date and time operations.
+import moment from 'moment-timezone';
 
 /**
  * @author Aidan Froggatt
@@ -7,55 +8,11 @@
  * @returns {string} - The formatted date string. Format: 'Month Day, Year, Hour:Minute AM/PM Timezone'
  */
 export const convertDateFormat = (dateString) => {
-    // Create a date object from the input string
-    const date = new Date(dateString);
+    // Parse and convert the date to the desired timezone (EST)
+    const date = moment(dateString).tz('America/New_York');
 
-    // Define options for formatting the date
-    const options = {
-        timeZone: 'America/New_York',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true,
-    };
-
-    // Format the date to parts using the specified options
-    const formatter = new Intl.DateTimeFormat('en-US', options);
-    const formattedParts = formatter.formatToParts(date);
-
-    // Initialize variables to hold the formatted date components
-    let month, day, year, hour, minute, ampm;
-
-    // Extract the relevant date components from the formatted parts
-    formattedParts.forEach(part => {
-        switch (part.type) {
-            case 'month':
-                month = part.value;
-                break;
-            case 'day':
-                day = part.value;
-                break;
-            case 'year':
-                year = part.value;
-                break;
-            case 'hour':
-                hour = part.value;
-                break;
-            case 'minute':
-                minute = part.value;
-                break;
-            case 'dayPeriod':
-                ampm = part.value;
-                break;
-        }
-    });
-
-    // Construct the formatted date string
-    const formattedDate = `${month} ${day}, ${year}, ${hour}:${minute < 10 ? '0' : ''}${minute} ${ampm} EST`;
-
-    return formattedDate;
+    // Format the date string
+    return date.format('MMMM D, YYYY, h:mm A [EST]');
 };
 
 /**

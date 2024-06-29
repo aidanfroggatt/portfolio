@@ -40,7 +40,7 @@ const AnimatedBackButton = ({className}) => {
                 opacity: 0,
                 transition: {duration: 0.25, ease: 'easeInOut'}
             }}
-            className={`cursor-pointer min-w-20 min-h-8 flex flex-row gap-x-2 items-center px-4 py-2 bg-custom-light bg-opacity-10 border-custom-light border border-opacity-20 rounded-full hover:bg-opacity-30 transition-all duration-300 ease-in-out z-50 ${className}`}
+            className={`cursor-pointer min-w-20 min-h-8 flex flex-row gap-x-2 items-center px-4 py-2 bg-custom-light bg-opacity-10 border-custom-light border border-opacity-20 rounded-full hover:bg-opacity-30 transition-all duration-300 ease-in-out z-50 pointer-events-auto ${className}`}
             onClick={handleBack}
         >
             <FaArrowLeftLong className="left"/>

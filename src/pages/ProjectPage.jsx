@@ -6,11 +6,12 @@ import Loading from "../components/Loading.jsx";
 import Tooltip from "../components/Tooltip.jsx";
 import {calculateTimeElapsed, convertFirestoreTimestampToJSDate, formatMonthYear} from "../utils/dateTimeUtils.js";
 import HighlightCard from "../components/HighlightCard.jsx";
-import {getSiIconByName} from "../utils/iconUtils.jsx";
+import {getReactIconByName} from "../utils/iconUtils.jsx";
 import {FaMountainSun} from "react-icons/fa6";
 import AnimatedBackButton from "../components/AnimatedBackButton.jsx";
 import {motion} from "framer-motion";
 import ScrollToTop from "../components/ScrollToTop.jsx";
+import {DiVim} from "react-icons/di";
 
 /**
  * @author Aidan Froggatt
@@ -167,7 +168,7 @@ const ProjectPageOverview = ({projectInfo}) => {
                     <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-8 items-center">
                         {projectInfo.overview.technologies.map((technology, index) => (
                             <Tooltip key={index} text={technology.name}>
-                                {getSiIconByName({iconName: technology.icon, className: 'w-8 h-8 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12'})}
+                                {getReactIconByName({iconName: technology.icon, className: 'w-8 h-8 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12'})}
                             </Tooltip>
                         ))}
                     </div>
@@ -226,6 +227,26 @@ const ProjectPageHighlights = ({projectInfo}) => {
                     </div>
                 )
             })}
+            <div className="flex flex-row border-t border-opacity-10 border-custom-light w-full justify-center items-center gap-x-8 md:gap-x-12 py-8 md:py-12">
+                {projectInfo.links ?
+                    projectInfo.links.map((link, index) => {
+                        return (
+                            <Tooltip text={link.name} key={index} >
+                                <a href={link.link} target="_blank" rel="noopener noreferrer" className="">
+                                    {getReactIconByName({
+                                        iconName: link.icon,
+                                        className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'
+                                    })}
+                                </a>
+                            </Tooltip>
+                        )})
+                    :
+                    <div className="flex flex-col">
+                        <p className="text-custom-light text-base 2xl:text-lg">This project is not publicly available.</p>
+                        <p className="text-custom-light text-base 2xl:text-lg">Feel free to reach out for more information.</p>
+                    </div>
+                }
+            </div>
         </HighlightCard>
     )
 }

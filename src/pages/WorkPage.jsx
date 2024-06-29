@@ -11,7 +11,7 @@ import {motion} from "framer-motion";
 import Dot from "../components/Dot.jsx";
 import Card from "../components/Card.jsx";
 import {TfiArrowRight} from "react-icons/tfi";
-import {getSiIconByName} from "../utils/iconUtils.jsx";
+import {getReactIconByName} from "../utils/iconUtils.jsx";
 
 /**
  * @author Aidan Froggatt
@@ -87,7 +87,7 @@ const MacWindowCard = ({generalInfo}) => {
                 <div
                     className="right-[15%] bottom-[35%] flex flex-col absolute text-custom-light text-lg 2xl:text-2xl">
                     <div
-                        className="font-bold flex flex-row justify-center items-center">{generalInfo.currentRole.title} at &nbsp;{getSiIconByName({iconName: generalInfo.currentRole.company.icon, className: "md:h-10 2xl:h-14 w-auto"})}
+                        className="font-bold flex flex-row justify-center items-center">{generalInfo.currentRole.title} at &nbsp;{getReactIconByName({iconName: generalInfo.currentRole.company.icon, className: "md:h-10 2xl:h-14 w-auto"})}
                     </div>
                     <div className="text-custom-light text-opacity-50">Based
                         in {generalInfo.location}.
@@ -173,7 +173,7 @@ const WorkPage = () => {
                                     className="font-bold text-left text-5xl md:text-7xl 2xl:text-8xl leading-[90%] tracking-[-2px] pb-10 text-shadow-mobile md:text-shadow">Hi,
                                     I&apos;m&nbsp;<span className="italic font-accent">{generalInfo.firstName}.</span>
                                 </div>
-                                <div className="flex flex-row justify-center items-center font-bold">{generalInfo.currentRole.title} at &nbsp;{getSiIconByName({iconName: generalInfo.currentRole.company.icon, className: "h-8 w-auto"})}
+                                <div className="flex flex-row justify-center items-center font-bold">{generalInfo.currentRole.title} at &nbsp;{getReactIconByName({iconName: generalInfo.currentRole.company.icon, className: "h-8 w-auto"})}
                                 </div>
                                 <div className="text-custom-light text-opacity-50">Based in {generalInfo.location}.</div>
                             </div>

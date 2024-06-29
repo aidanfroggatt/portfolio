@@ -232,10 +232,10 @@ const ProjectPageHighlights = ({projectInfo}) => {
                     projectInfo.links.map((link, index) => {
                         return (
                             <Tooltip text={link.name} key={index} >
-                                <a href={link.link} target="_blank" rel="noopener noreferrer" className="">
+                                <a href={link.link} target="_blank" rel="noopener noreferrer" className="icon-link" style={{'--link-color': projectInfo.color}}>
                                     {getReactIconByName({
                                         iconName: link.icon,
-                                        className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12'
+                                        className: 'w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12',
                                     })}
                                 </a>
                             </Tooltip>

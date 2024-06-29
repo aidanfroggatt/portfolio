@@ -159,12 +159,21 @@
     unicode-bidi: isolate;
 }
 
+
 .icon-link {
     --link-color: var(--primary);
     transition: color 0.3s ease;
 }
 
-.icon-link:hover {
-    color: var(--link-color);
-    transition: color 0.3s ease;
+@media (max-width: 768px) {
+    .icon-link:hover {
+
+    }
+}
+
+@media (min-width: 768px) {
+    .icon-link:hover {
+        color: var(--link-color);
+        transition: color 0.3s ease;
+    }
 }

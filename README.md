@@ -1,13 +1,40 @@
-# Portfolio
+# Welcome to Remix!
 
-## Description
-This is my personal portfolio website containing a brief overview of my skills, projects, and experience. It is a single page application built with React and hosted on AWS using AWS Amplify for deployment and AWS Route 53 for DNS management. Tailwind CSS is used for styling.
+- 📖 [Remix docs](https://remix.run/docs)
 
-## Technologies
-![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=React&logoColor=white)
-![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat&logo=Amazon-AWS&logoColor=white)
-![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?style=flat&logo=Firebase&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=flat&logo=Tailwind-CSS&logoColor=white)
+## Development
 
-## Contributing
-### [Aidan Froggatt](https://github.com/aidanfroggatt)
+Run the dev server:
+
+```shellscript
+npm run dev
+```
+
+## Deployment
+
+First, build your app for production:
+
+```sh
+npm run build
+```
+
+Then run the app in production mode:
+
+```sh
+npm start
+```
+
+Now you'll need to pick a host to deploy it to.
+
+### DIY
+
+If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+- `build/server`
+- `build/client`
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.

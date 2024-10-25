@@ -134,6 +134,8 @@ const WorkItemHighlights = () => {
                                     src={highlight.asset.src}
                                     controls
                                     poster={highlight.asset.poster}
+                                    playsInline
+                                    muted
                                 >
                                     <source src={highlight.asset.src} type="video/mp4"/>
                                     <track kind="captions" srcLang="en" default />

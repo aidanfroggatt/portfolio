@@ -21,8 +21,8 @@ export const links: LinksFunction = () => [
     href: "/favicon.svg",
     type: "image/svg+xml",
   },
-  { rel: "stylesheet", href: stylesheet },
-  { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: stylesheet, as: "style" },
+  { rel: "stylesheet", href: styles, as: "style" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {

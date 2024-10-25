@@ -4,48 +4,75 @@ interface Work {
   title: string;
   association: string;
   description: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  image: Image;
   color: string;
   spotlight: boolean;
   award?: string;
   startDate: Date;
   endDate?: Date;
-  overview: {
-    description: string;
-    role: {
-      title: string;
-      description: string;
-    };
-    team?: {
-      name: string;
-      role: string;
-    }[];
-    technologies: {
-      icon: string;
-      name: string;
-    }[];
-  };
-  highlights: {
-    description: string;
-    items: {
-      asset: {
-        alt: string;
-        src: string;
-        type: string;
-      };
-    }[];
-  };
-  context?: {
-    description: string;
-  };
-  links?: {
-    icon: string;
-    link: string;
-    name: string;
-  }[];
+  overview: Overview;
+  highlights: Highlights;
+  context?: Context;
+  links?: Link[];
+}
+
+interface Image {
+  src: string;
+  alt: string;
+}
+
+interface Overview {
+  description: string;
+  role: Role;
+  team?: TeamMember[];
+  technologies: Technology[];
+}
+
+interface Role {
+  title: string;
+  description: string;
+}
+
+interface TeamMember {
+  name: string;
+  role: string;
+}
+
+interface Technology {
+  icon: string;
+  name: string;
+}
+
+interface Highlights {
+  description: string;
+  items: HighlightItem[];
+}
+
+type HighlightItem = {
+  asset: VideoAsset | ImageAsset;
+};
+
+interface ImageAsset {
+  alt: string;
+  src: string;
+  type: "IMAGE";
+}
+
+interface VideoAsset {
+  alt: string;
+  src: string;
+  type: "VIDEO";
+  poster: string; // Required for VIDEO type
+}
+
+interface Context {
+  description: string;
+}
+
+interface Link {
+  icon: string;
+  link: string;
+  name: string;
 }
 
 export const work: Work[] = [
@@ -116,22 +143,25 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Raw Data Dashboard",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fburloak_insight_database_video.mp4?alt=media&token=37aa19dc-2072-4b79-8a9d-5e8d9b89bdbd",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak_insight_database_video.mp4?alt=media&token=95786266-73ca-4d74-b5cf-70cb3f157fe1",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fposter.png?alt=media&token=a4fea23f-ffd6-4275-a2d0-f5025c77200b"
           }
         },
         {
           asset: {
             alt: "Data Analysis Dashboard",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fburloak_insight_data_analysis_video.mp4?alt=media&token=02e2267b-566f-4b73-9a53-5be7b0c9dfa4",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fburloak_insight_data_analysis_video.mp4?alt=media&token=d551b535-3f33-4ca0-9e66-ad9252251dec",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fposter.png?alt=media&token=296c9f1a-c8d1-4209-bf21-9e46ffe1db53"
           }
         },
         {
           asset: {
             alt: "Report Generation Dashboard",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fburloak_insight_report_generation_video.mp4?alt=media&token=682d26f4-eb06-41e7-9001-be94e4c2bc8b",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fburloak_insight_report_generation_video.mp4?alt=media&token=a0811749-bba1-4651-9503-6303612acb52",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fposter.png?alt=media&token=c9ba4891-d23d-4fc7-850f-a99b3a8bd610"
           }
         }
       ]
@@ -200,15 +230,17 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Realtime Group Chat",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Frealtime_groupchat.mp4?alt=media&token=01d4ed27-b008-42a7-b6a2-259a4c7fcde4",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Frealtime_groupchat%2Frealtime_groupchat.mp4?alt=media&token=804427e7-62db-4e74-ae82-4c866b98ce15",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Frealtime_groupchat%2Fposter.png?alt=media&token=9c01f97c-3614-4bbe-aab8-5af3eaaa756b"
           }
         },
         {
           asset: {
             alt: "Kerberos Authentication",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fkerberos_authentication.mp4?alt=media&token=b2ae7c27-68ed-40c4-9868-d48577debe7d",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fkerberos_authentication%2Fkerberos_authentication.mp4?alt=media&token=74ad5a7e-eb52-4e31-9a99-d994689865b6",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fkerberos_authentication%2Fposter.png?alt=media&token=13a2e578-8715-41f8-bcdf-e3a67ca01cc8"
           }
         },
       ]
@@ -285,15 +317,17 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Plastic bottle detection",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fplastic_bottle_detection.mp4?alt=media&token=dacced5d-6b42-4712-ad9e-4691fd53356f",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fplastic_bottle_detection%2Fplastic_bottle_detection.mp4?alt=media&token=201327a9-2c96-48f6-a425-8103d06f9892",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fplastic_bottle_detection%2Fposter.png?alt=media&token=a85bd536-9e26-44a1-a782-7e6a10eadd33"
           }
         },
         {
           asset: {
             alt: "Website demo",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fsnapcycle-website.mp4?alt=media&token=5a5ac764-92da-402e-9343-c18068875b4e",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fwebsite_demo%2Fsnapcycle-website.mp4?alt=media&token=7e4563ee-c418-444a-81d2-5ddfbd402fa2",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fwebsite_demo%2Fposter.png?alt=media&token=70c4dfc6-cb38-488b-a1bf-34e6173e813e"
           }
         },
       ]
@@ -410,15 +444,17 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Client Side Validation",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fclient-side-validation.mp4?alt=media&token=74811104-5102-47aa-880c-420b6431a278",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fclient-side-validation%2Fclient-side-validation.mp4?alt=media&token=629d97b4-0e0b-4e93-bfc3-be83d1d805e8",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fclient-side-validation%2Fposter.png?alt=media&token=b042e35f-038d-4a17-ae01-fa1dba487b2a"
           }
         },
         {
           asset: {
             alt: "Email Verification",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Femail-verification.mp4?alt=media&token=62977464-528b-4b4d-a7da-e392438bd6ff",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Femail-verification%2Femail-verification.mp4?alt=media&token=ceb65e43-bc2c-44c7-a159-8277002be0ce",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Femail-verification%2Fposter.png?alt=media&token=8fe00d04-4e7c-4afa-a80f-403ca5acdb7b"
           }
         }
       ]
@@ -529,15 +565,17 @@ export const work: Work[] = [
         {
           asset: {
             alt: "GDSC Website",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fgdsc-website.mp4?alt=media&token=877106dd-1d23-44db-97da-5fe19ef32974",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fgdsc-website.mp4?alt=media&token=10253a9e-1dff-475b-838e-50b4d50be440",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fposter.png?alt=media&token=6bcf8a65-c55a-49bd-8b0f-ef94c3873c30"
           }
         },
         {
           asset: {
             alt: "GDSC Hackathon Website",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fgdsc-hackathon-website.mp4?alt=media&token=9a0f9d4a-7d8c-43b4-859c-1f7b04d6acec",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fgdsc-hackathon-website.mp4?alt=media&token=f32e5432-401d-4c71-9515-3d936954b9f3",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fposter.png?alt=media&token=bcb69a3b-839c-41a9-8af3-c0c5ea7af73e"
           }
         },
         {
@@ -742,8 +780,9 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Hero Animation",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fhero-animation.mp4?alt=media&token=5e38dee8-00ed-42f6-8c0f-a805d6a414a4",
-            type: "VIDEO"
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fhero-animation%2Fhero-animation.mp4?alt=media&token=7116c3fd-ff5a-44ab-8c86-93be08f76bf8",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fhero-animation%2Fposter.png?alt=media&token=56a707c7-121d-4b7b-88ac-7a0bb2a56ccb"
           }
         },
         {

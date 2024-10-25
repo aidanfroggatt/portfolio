@@ -129,7 +129,12 @@ const WorkItemHighlights = () => {
                     return (
                         <div key={index} className="w-full flex flex-col items-center">
                             {highlight.asset.type === 'VIDEO' ? (
-                                <video className="z-10 max-h-[75vh] w-full" src={highlight.asset.src} controls>
+                                <video
+                                    className="z-10 max-h-[75vh] w-full"
+                                    src={highlight.asset.src}
+                                    controls
+                                    poster={highlight.asset.poster}
+                                >
                                     <source src={highlight.asset.src} type="video/mp4"/>
                                     <track kind="captions" srcLang="en" default />
                                 </video>
@@ -175,7 +180,7 @@ const WorkItemHighlights = () => {
 const WorkItem = () => {
 
     const { projectInfo } = useLoaderData<typeof loader>();
-    
+
     return (
         <>
             <div className="z-50 fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12 bg-header-mobile md:bg-header pointer-events-none">

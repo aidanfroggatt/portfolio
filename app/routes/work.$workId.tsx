@@ -175,7 +175,7 @@ const WorkItemHighlights = () => {
 const WorkItem = () => {
 
     const { projectInfo } = useLoaderData<typeof loader>();
-
+    
     return (
         <>
             <div className="z-50 fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12 bg-header-mobile md:bg-header pointer-events-none">

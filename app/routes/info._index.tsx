@@ -26,23 +26,23 @@ const About = () => {
     ) => {
         if (item.type === 'image') {
             return (
-                // <motion.div
-                //     key={index}
-                //     initial={{ opacity: 0, y: 20 }}
-                //     whileInView={{
-                //         opacity: 1, y: 0,
-                //         transition: {
-                //             duration: 0.5,
-                //         }
-                //     }}
-                //     viewport={{
-                //         once: true,
-                //     }}
-                // >
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{
+                        opacity: 1, y: 0,
+                        transition: {
+                            duration: 0.5,
+                        }
+                    }}
+                    viewport={{
+                        once: true,
+                    }}
+                >
                     <ImageCard key={index}>
                         <img src={item.src} alt={item.alt} />
                     </ImageCard>
-                // </motion.div>
+                </motion.div>
             );
         } else if (item.type === 'text') {
             return (

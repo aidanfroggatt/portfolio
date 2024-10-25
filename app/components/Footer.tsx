@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="w-full md:flex hidden h-full flex-col items-start justify-start row-start-1 col-start-1">
-                    <LilypadIcon className="w-20 h-20 2xl:h-24 2xl:w-24 hover:rotate-[360deg] transition-all duration-500 ease-in-out" />
+                    <LilypadIcon className="w-20 h-20 2xl:h-24 2xl:w-24" />
                 </div>
                 <div className="col-start-1 row-start-2 w-full h-full flex flex-col justify-end items-start">
                     <div className="font-medium text-base 2xl:text-lg">Aidan Froggatt</div>

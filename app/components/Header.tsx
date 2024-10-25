@@ -29,7 +29,7 @@ const Header = () => {
     return (
         <header className="bg-header-mobile md:bg-header flex flex-row fixed justify-center items-center w-full px-14 py-8 text-custom-light z-50 pointer-events-none">
             <div className="pointer-events-auto flex flex-row gap-x-2 items-center fixed sm:left-12 left-6">
-                <LilypadIcon className={"w-9 h-9 hover:rotate-[360deg] transition-all duration-500 ease-in-out"}/>
+                <LilypadIcon className={"w-9 h-9"}/>
                 <div className="hidden md:flex flex-col">
                     <div className="font-semibold text-md">Aidan Froggatt</div>
                     <div className="text-xs text-custom-light text-opacity-50">Software Engineer Intern</div>

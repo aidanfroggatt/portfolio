@@ -131,7 +131,6 @@ const WorkItemHighlights = () => {
                             {highlight.asset.type === 'VIDEO' ? (
                                 <video
                                     className="z-10 max-h-[75vh] w-full"
-                                    src={highlight.asset.src}
                                     controls
                                     poster={highlight.asset.poster}
                                     playsInline

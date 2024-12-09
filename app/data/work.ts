@@ -572,7 +572,7 @@ export const work: Work[] = [
         },
         {
           asset: {
-            alt: "GDSC Hackathon Website",
+            alt: "Mac-a-thon Website",
             src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fgdsc-hackathon-website.mp4?alt=media&token=f32e5432-401d-4c71-9515-3d936954b9f3",
             type: "VIDEO",
             poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fposter.png?alt=media&token=bcb69a3b-839c-41a9-8af3-c0c5ea7af73e"
@@ -600,8 +600,8 @@ export const work: Work[] = [
       },
       {
         icon: "FaGlobe",
-        link: "https://solutionchallenge.gdscmcmasteru.ca",
-        name: "Hackathon Website"
+        link: "https://mac-a-thon.gdscmcmasteru.ca",
+        name: "Mac-a-thon Website"
       },
     ]
   },

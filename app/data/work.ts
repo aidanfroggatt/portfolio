@@ -464,7 +464,12 @@ export const work: Work[] = [
         icon: "SiGithub",
         link: "https://github.com/swingersgolf",
         name: "GitHub"
-      }
+      },
+      {
+        icon: "FaGlobe",
+        link: "https://swingersgolfapp.com/",
+        name: "Website"
+      },
     ]
   },
   {

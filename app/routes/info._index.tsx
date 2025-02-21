@@ -160,8 +160,9 @@ const Experience = () => {
                                         once: true,
                                     }}
                                 >
-                                    <h4 className="mt-3 md:mt-0">{exp.role}{exp.team &&<span>, {exp.team}</span>}</h4>
-                                    <span className="text-custom-light text-opacity-50 text-sm md:text-base 2xl:text-lg mt-0.5 md:mt-1.5 2xl:mt-2">{exp.startDate} - {exp.endDate}</span>
+                                    <h4 className="mt-3 md:mt-0">{exp.role}</h4>
+                                    <h5>{exp.team &&<span className="text-custom-light text-opacity-70">{exp.team}</span>}</h5>
+                                    <span className="text-custom-light text-opacity-50 text-sm md:text-base 2xl:text-lg mt-2 md:mt-1.5 2xl:mt-2">{exp.startDate} - {exp.endDate}</span>
                                     <p className="text-custom-light text-opacity-60 mt-3 md:mt-4 2xl:mt-6">{exp.description}</p>
                                 </motion.div>
                             </div>

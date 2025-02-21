@@ -94,7 +94,7 @@ export const work: Work[] = [
       description: `Burloak Insight integrates PDF scrapers, a centralized database, and data analysis dashboards to streamline data access and analysis, enabling informed decision-making based on diverse data sets. By automating tasks like report retrieval and data access, it enhances operational efficiency within the organization.`,
       role: {
         title: "Software Architect and Developer",
-        description: "Architecture, Stack Selection, Development, and Testing."
+        description: "Architecture, stack selection, development, and testing."
       },
       team: [
         {
@@ -272,7 +272,7 @@ export const work: Work[] = [
       description: "SnapCycle is a web app where the user can scan an item to receive info on its recyclability and how to dispose of it! Say no more to scientific articles going into detail on things you don't need to know, SnapCycle tells you exactly what you need to do on the spot!",
       role: {
         title: "Software Developer",
-        description: "Ideation, design, and developement."
+        description: "Ideation, design, and development."
       },
       team: [
         {
@@ -354,7 +354,7 @@ export const work: Work[] = [
     id: "swingers-golf",
     index: 0,
     title: "Swingers Golf",
-    association: "Links Connect",
+    association: "Links Connect Inc.",
     description: "Cross platform social networking app for connecting golfers.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.svg?alt=media&token=f1c50a13-3c8e-456c-9172-1d68376a2e0a",
@@ -367,7 +367,7 @@ export const work: Work[] = [
       description: "A cross-platform golf social networking app that connects golfers improving their golfing experience. The platform allows for golfers with similar interests to connect and golf together.",
       role: {
         title: "Co-Founder and CTO",
-        description: "Architecture, Stack Selection, and Development"
+        description: "Architecture, design, development, testing, and deployment."
       },
       team: [
         {
@@ -417,6 +417,10 @@ export const work: Work[] = [
           name: "Tailwind CSS"
         },
         {
+          icon: "SiAmazons3",
+          name: "Amazon S3"
+        },
+        {
           icon: "SiMysql",
           name: "MySQL"
         },
@@ -427,6 +431,14 @@ export const work: Work[] = [
         {
           icon: "SiVercel",
           name: "Vercel"
+        },
+        {
+          icon: "SiAmazonroute53",
+          name: "Amazon Route 53"
+        },
+        {
+          icon: "SiDigitalocean",
+          name: "Digital Ocean"
         },
         {
           icon: "SiJira",
@@ -497,24 +509,16 @@ export const work: Work[] = [
           role: "Software Developer"
         },
         {
-          name: "Clara Wong",
+          name: "Willie Pai",
           role: "Software Developer"
         },
         {
-          name: "MD Nafieu Hossain Alif",
+          name: "Joseph Maltese",
           role: "Software Developer"
         },
         {
-          name: "Raj Rehman",
-          role: "Software Developer"
-        },
-        {
-          name: "Aarohan Batra",
-          role: "Software Developer"
-        },
-        {
-          name: "Sandhya Sasitharan",
-          role: "Software Developer"
+          name: "Ameya Gupta",
+          role: "Web Designer"
         }
       ],
       technologies: [
@@ -628,7 +632,7 @@ export const work: Work[] = [
       description: "A gamified platform for teaching coding to new coders in a fun and interactive way. The platform is designed to be engaging and educational, with a focus on teaching coding concepts through interactive challenges and games.",
       role: {
         title: "Software Developer",
-        description: "Designed and developed the platform"
+        description: "Designed and developed the platform."
       },
       team: [
         {

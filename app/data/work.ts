@@ -351,14 +351,14 @@ export const work: Work[] = [
     ],
   },
   {
-    id: "swingers",
+    id: "swingers-golf",
     index: 0,
-    title: "Swingers",
+    title: "Swingers Golf",
     association: "Links Connect",
     description: "Cross platform social networking app for connecting golfers.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.svg?alt=media&token=f1c50a13-3c8e-456c-9172-1d68376a2e0a",
-      alt: "Swingers Mockup",
+      alt: "Swingers Golf Mockup",
     },
     color: "#07663B",
     spotlight: true,
@@ -473,14 +473,14 @@ export const work: Work[] = [
     ]
   },
   {
-    id: "gdsc",
+    id: "gdg",
     index: 1,
-    title: "Google DSC",
+    title: "Google Developer Group",
     association: "McMaster University",
     description: "Enhancing digital presence and engagement on all platforms.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fgdsc-mockup.png?alt=media&token=77fae6de-4935-41ec-9308-e68d563f6dee",
-      alt: "GDSC Icon"
+      alt: "GDG Icon"
     },
     color: "#FBBC04",
     spotlight: true,
@@ -569,7 +569,7 @@ export const work: Work[] = [
       items: [
         {
           asset: {
-            alt: "GDSC Website",
+            alt: "Google Developer Group Website",
             src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fgdsc-website.mp4?alt=media&token=10253a9e-1dff-475b-838e-50b4d50be440",
             type: "VIDEO",
             poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fposter.png?alt=media&token=6bcf8a65-c55a-49bd-8b0f-ef94c3873c30"
@@ -888,82 +888,82 @@ export const work: Work[] = [
       }
     ]
   },
-  {
-    index: 8,
-    id: "cotern",
-    title: "Cotern",
-    association: "Freelance",
-    description: "",
-    image: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fcotern-mockup.png?alt=media&token=70d03dde-c2a1-4311-9a21-836660642c14",
-      alt: "Cotern Mockup"
-    },
-    color: "#6366f1",
-    spotlight: false,
-    startDate: new Date("2024-02-08"),
-    endDate: new Date("2024-03-17"),
-    overview: {
-      description: "A mobile platform for connecting students on co-op and internship terms. The platform allows students to connect with others on similar terms, share experiences, find reviews about opportunities, and build relationships",
-      role: {
-        title: "Software Developer and Designer",
-        description: "Created a platform for connecting students on co-op and internship terms."
-      },
-      technologies: [
-        {
-          icon: "SiReact",
-          name: "React Native"
-        },
-        {
-          icon: "SiExpo",
-          name: "Expo"
-        },
-        {
-          icon: "SiJavascript",
-          name: "JavaScript"
-        },
-        {
-          icon: "SiFirebase",
-          name: "Firebase"
-        },
-        {
-          icon: "SiTailwindcss",
-          name: "Tailwind CSS"
-        },
-        {
-          icon: "SiJest",
-          name: "Jest"
-        },
-        {
-          icon: "SiTestinglibrary",
-          name: "React Testing Library"
-        }
-      ]
-    },
-    highlights: {
-      description: "A platform for connecting students on co-op and internship terms.",
-      items: [
-        {
-          asset: {
-            alt: "Authentication",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fhighlights%2Fauthentication.png?alt=media&token=64f7f486-6acb-40b9-900d-92868bd96398",
-            type: "IMAGE"
-          }
-        },
-        {
-          asset: {
-            alt: "User Profile",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fhighlights%2FIMG_5865.PNG?alt=media&token=392d19af-918f-4745-ab92-d0be70167aba",  
-            type: "IMAGE"
-          }
-        }
-      ]
-    },
-    links: [
-      {
-        icon: "SiGithub",
-        link: "https://github.com/aidanfroggatt/cotern",
-        name: "GitHub"
-      }
-    ]
-  },
+  // {
+  //   index: 8,
+  //   id: "cotern",
+  //   title: "Cotern",
+  //   association: "Freelance",
+  //   description: "",
+  //   image: {
+  //     src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fcotern-mockup.png?alt=media&token=70d03dde-c2a1-4311-9a21-836660642c14",
+  //     alt: "Cotern Mockup"
+  //   },
+  //   color: "#6366f1",
+  //   spotlight: false,
+  //   startDate: new Date("2024-02-08"),
+  //   endDate: new Date("2024-03-17"),
+  //   overview: {
+  //     description: "A mobile platform for connecting students on co-op and internship terms. The platform allows students to connect with others on similar terms, share experiences, find reviews about opportunities, and build relationships",
+  //     role: {
+  //       title: "Software Developer and Designer",
+  //       description: "Created a platform for connecting students on co-op and internship terms."
+  //     },
+  //     technologies: [
+  //       {
+  //         icon: "SiReact",
+  //         name: "React Native"
+  //       },
+  //       {
+  //         icon: "SiExpo",
+  //         name: "Expo"
+  //       },
+  //       {
+  //         icon: "SiJavascript",
+  //         name: "JavaScript"
+  //       },
+  //       {
+  //         icon: "SiFirebase",
+  //         name: "Firebase"
+  //       },
+  //       {
+  //         icon: "SiTailwindcss",
+  //         name: "Tailwind CSS"
+  //       },
+  //       {
+  //         icon: "SiJest",
+  //         name: "Jest"
+  //       },
+  //       {
+  //         icon: "SiTestinglibrary",
+  //         name: "React Testing Library"
+  //       }
+  //     ]
+  //   },
+  //   highlights: {
+  //     description: "A platform for connecting students on co-op and internship terms.",
+  //     items: [
+  //       {
+  //         asset: {
+  //           alt: "Authentication",
+  //           src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fhighlights%2Fauthentication.png?alt=media&token=64f7f486-6acb-40b9-900d-92868bd96398",
+  //           type: "IMAGE"
+  //         }
+  //       },
+  //       {
+  //         asset: {
+  //           alt: "User Profile",
+  //           src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcotern%2Fhighlights%2FIMG_5865.PNG?alt=media&token=392d19af-918f-4745-ab92-d0be70167aba",  
+  //           type: "IMAGE"
+  //         }
+  //       }
+  //     ]
+  //   },
+  //   links: [
+  //     {
+  //       icon: "SiGithub",
+  //       link: "https://github.com/aidanfroggatt/cotern",
+  //       name: "GitHub"
+  //     }
+  //   ]
+  // },
 ];

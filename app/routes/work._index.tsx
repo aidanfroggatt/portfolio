@@ -26,7 +26,7 @@ const WorkCards = () => {
                     </div>
                     <h1 className="text-shadow-mobile md:text-shadow">See what I&apos;ve been&nbsp;<span className="h1-accent">working on.</span></h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:py-20 2xl:py-32 gap-2 md:gap-12 lg:gap-6" >
+                <div className="grid grid-cols-1 md:grid-cols-2 md:py-20 2xl:py-32 gap-2 md:gap-12 lg:gap-6" >
                     {work
                      .sort((a, b) => a.index - b.index)
                      .map((item, index) => (

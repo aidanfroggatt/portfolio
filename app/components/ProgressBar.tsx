@@ -1,4 +1,4 @@
-import { FiArrowRight, FiArrowUpRight, FiX } from "react-icons/fi";
+import { FiArrowUpRight, FiX } from "react-icons/fi";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { Link } from "@remix-run/react";
 import { useState } from "react";
@@ -7,11 +7,14 @@ import { Work } from "~/data/work";
 interface ProgressBarProps {
   work: Work;
   nextWork: Work;
+  targetRef: React.RefObject<HTMLElement>;
 }
 
-const ProgressBar = ({ work, nextWork }: ProgressBarProps) => {
-    const { scrollYProgress } = useScroll();
-    
+const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
+    const { scrollYProgress } = useScroll({
+        target: targetRef,  // Use the passed or default ref
+    });    
+
     // Map scroll progress to percentage
     const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const progressPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
@@ -52,8 +55,11 @@ const ProgressBar = ({ work, nextWork }: ProgressBarProps) => {
                 >
                     {progressState === "start" && (
                         <>
-                            <span className="font-medium text-xs">{work.title}</span>
-                            <span className="font-medium text-xs">{work.association}</span>
+                            <span className="font-medium text-xs text-custom-light text-opacity-60">{work.title}</span>
+                            <div className="flex flex-row items-center gap-x-1.5 text-end">
+                                <span className="font-medium text-xs w-full">{work.association}</span>
+                                <div className="w-[7px] h-[7px] rounded-full" style={{backgroundColor: work.color}} />
+                            </div>
                         </>
                     )}
                     {progressState === "scrolling" && (
@@ -65,13 +71,16 @@ const ProgressBar = ({ work, nextWork }: ProgressBarProps) => {
                                 />
                                 <div className="absolute top-[50%] translate-y-[-50%] h-full w-full bg-custom-light bg-opacity-30 z-10" />
                             </div>
-                            <motion.span className="font-medium text-xs">{displayPercentage}%</motion.span>
+                            <motion.span className="font-medium text-xs text-custom-light text-opacity-60">{displayPercentage}%</motion.span>
                         </>
                     )}
                     {progressState === "complete" && (
                         <>
-                            <span className="font-medium text-xs">Next</span>
-                            <span className="font-medium text-xs">{nextWork.title}</span>
+                            <span className="font-medium text-xs text-custom-light text-opacity-60">Next</span>
+                            <div className="flex flex-row items-center gap-x-1.5">
+                                <span className="font-medium text-xs">{nextWork.title}</span>
+                                <div className="w-[7px] h-[7px] rounded-full" style={{backgroundColor: nextWork.color}} />
+                            </div>
                         </>
                     )}
                 </motion.div>
@@ -88,7 +97,7 @@ const ProgressBar = ({ work, nextWork }: ProgressBarProps) => {
                 }}
                 target={progressState === "start" ? "_blank" : undefined}
                 rel={progressState === "start" ? "noreferrer" : undefined}
-                className="flex pointer-events-auto justify-center items-center font-medium text-xs bg-custom-light rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20 w-12 h-12"
+                className="flex pointer-events-auto justify-center items-center font-medium bg-custom-light rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20 w-12 h-12"
                 aria-label="Next action"
             >
                 <motion.div 

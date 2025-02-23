@@ -9,6 +9,7 @@ import { FaMountainSun } from "react-icons/fa6";
 import Tooltip from "~/components/Tooltip";
 import { calculateDateDifference, formatMonthYear } from "~/utils/Date";
 import ProgressBar from "~/components/ProgressBar";
+import { useRef } from "react";
 
 export async function loader({ params }: LoaderFunctionArgs) { 
     const currentProject = work.find((item) => item.id === params.workId);
@@ -47,7 +48,7 @@ const WorkItemHero = () => {
     }
     
     return (
-        <section id="work-item-hero" className="flex flex-col justify-start items-center relative w-page-default pt-12 md:pt-0 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
+        <section id="work-item-hero" className="flex flex-col justify-start items-center relative w-page-default pt-16 md:pt-12 md:w-page-md lg:w-page-lg 2xl:w-page-2xl gap-y-4">
             <h1 id="work-item-hero-content" className="flex justify-center items-center text-shadow-mobile md:text-shadow text-center">{projectInfo.title && projectInfo.title}</h1>
             <span className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
                 {projectInfo.association && projectInfo.association} — {projectInfo.endDate ? `${formatMonthYear(projectInfo.endDate)}` : "In development"}
@@ -197,12 +198,16 @@ const WorkItem = () => {
 
     const { projectInfo, nextProject } = useLoaderData<typeof loader>();
 
+    const mainRef = useRef<HTMLDivElement>(null);
+
     return (
         <>
-            {projectInfo && nextProject && <ProgressBar work={projectInfo} nextWork={nextProject}/>}
+            {projectInfo && nextProject && <ProgressBar work={projectInfo} nextWork={nextProject} targetRef={mainRef}/>}
             <main 
                 className='md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
-                style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} as React.CSSProperties : {}}>
+                style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} as React.CSSProperties : {}}
+                ref={mainRef}
+            >
                     <WorkItemHero />
                     <WorkItemOverview />
                     <WorkItemHighlights />

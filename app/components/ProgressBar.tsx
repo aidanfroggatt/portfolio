@@ -78,14 +78,14 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                     )}
                     {progressState === "scrolling" && (
                         <>
-                            <div className="relative flex overflow-hidden rounded-full w-full h-1">
+                            <div className="relative flex overflow-hidden rounded-full w-[8.5rem] md:w-[11.5rem] h-1">
                                 <motion.div
                                     className="absolute top-[50%] translate-y-[-50%] left-0 h-full bg-custom-light z-20"
                                     style={{ width: progressWidth }}
                                 />
                                 <div className="absolute top-[50%] translate-y-[-50%] h-full w-full bg-custom-light bg-opacity-30 z-10" />
                             </div>
-                            <motion.span className="font-medium text-xs text-custom-light text-opacity-60 ml-1.5">{displayPercentage}%</motion.span>
+                            <motion.span className="font-medium text-xs text-custom-light text-opacity-60">{displayPercentage}%</motion.span>
                         </>
                     )}
                     {progressState === "complete" && (

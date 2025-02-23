@@ -370,7 +370,7 @@ export const work: Work[] = [
     association: "Links Connect Inc.",
     description: "Cross platform social networking app for connecting golfers.",
     image: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.svg?alt=media&token=f1c50a13-3c8e-456c-9172-1d68376a2e0a",
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.png?alt=media&token=968b2e35-f2d7-4ae5-84ef-a4f903589a1e",
       alt: "Swingers Golf Mockup",
     },
     color: "#07663B",
@@ -515,7 +515,7 @@ export const work: Work[] = [
     association: "McMaster University",
     description: "Enhancing digital presence and engagement on all platforms.",
     image: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fgdsc-mockup.png?alt=media&token=77fae6de-4935-41ec-9308-e68d563f6dee",
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fgdsc-mockup.png?alt=media&token=1e6a2f84-013c-40ed-8f5a-ec31b0ad4f7f",
       alt: "GDG Icon"
     },
     color: "#FBBC04",

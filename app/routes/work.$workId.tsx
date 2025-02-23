@@ -204,7 +204,7 @@ const WorkItem = () => {
         <>
             {projectInfo && nextProject && <ProgressBar work={projectInfo} nextWork={nextProject} targetRef={mainRef}/>}
             <main 
-                className='md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
+                className="md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
                 style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} as React.CSSProperties : {}}
                 ref={mainRef}
             >

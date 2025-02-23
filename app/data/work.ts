@@ -93,7 +93,7 @@ export const work: Work[] = [
     association: "Burloak Technologies",
     description: "Data analytics and report generation platform for additive manufacturing.",
     image: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fburloak_insight_hero.png?alt=media&token=6c0bc79c-4213-4853-923d-ed380eb12cba",
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2FOneDeviceMockup.png?alt=media&token=79440f2b-c2e6-499e-8475-576bafdf8be0",
       alt: "Burloak Insight Mockup",
     },
     color: "#8884D8",
@@ -515,7 +515,7 @@ export const work: Work[] = [
     association: "McMaster University",
     description: "Enhancing digital presence and engagement on all platforms.",
     image: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fgdsc-mockup.png?alt=media&token=1e6a2f84-013c-40ed-8f5a-ec31b0ad4f7f",
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2FTwoDeviceMockup.png?alt=media&token=83f28f08-929a-403f-9522-b97d28bc592d",
       alt: "GDG Icon"
     },
     color: "#FBBC04",

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "@remix-run/react";
+import { motion } from "framer-motion";
 import { FiX, FiAtSign } from "react-icons/fi";
 import { TfiArrowTopRight } from "react-icons/tfi";
 import LilypadIcon from "~/assets/LilypadIcon";
@@ -13,14 +14,21 @@ const Header = () => {
             routes.map((route, index) => {
                 const active = location.pathname === route.to;
                 return (
-                    <Link
+                    <motion.div
                         key={index}
-                        className={`relative ${active ? 'bg-custom-light bg-opacity-10' : ''} flex justify-center items-center w-20 h-9 rounded-full`}
-                        to={route.to}
+                        initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -10, filter: "blur(10px)" }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
-                        {route.name}
-                        {active && <div id="nav-indicator" className="shadow-tab fixed top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light" />}
-                    </Link>
+                        <Link
+                            className={`relative ${active ? 'bg-custom-light bg-opacity-10' : ''} flex justify-center items-center w-20 h-9 rounded-full`}
+                            to={route.to}
+                        >
+                            {route.name}
+                            {active && <div id="nav-indicator" className="shadow-tab fixed top-0 transform -mt-0.5 w-6 h-0.5 rounded-t-full bg-custom-light" />}
+                        </Link>
+                    </motion.div>
                 )
             })
         )

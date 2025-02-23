@@ -1,4 +1,4 @@
-interface Work {
+export interface Work {
   index: number;
   id: string;
   title: string;
@@ -13,7 +13,9 @@ interface Work {
   overview: Overview;
   highlights: Highlights;
   context?: Context;
+  theProblem?: TheProblem;
   links?: Link[];
+  navLink: string;
 }
 
 interface Image {
@@ -66,7 +68,15 @@ interface VideoAsset {
 }
 
 interface Context {
-  description: string;
+  background: string;
+  targetAudience: string;
+  goals: string;
+}
+
+interface TheProblem {
+  painPoints: string;
+  userNeeds: string;
+  marketGaps: string;
 }
 
 interface Link {
@@ -165,7 +175,8 @@ export const work: Work[] = [
           }
         }
       ]
-    }
+    },
+    navLink: "https://www.burloaktech.com/"
   },
   {
     id: "secure-chat-app",
@@ -252,6 +263,7 @@ export const work: Work[] = [
         name: "GitHub"
       },
     ],
+    navLink: "https://github.com/SE3A04-Project-Team/secure-chat-app"
   },
   {
     id: "snapcycle",
@@ -349,6 +361,7 @@ export const work: Work[] = [
         name: "Devpost"
       }
     ],
+    navLink: "https://devpost.com/software/snapcycle-hyx3qv",
   },
   {
     id: "swingers-golf",
@@ -482,7 +495,18 @@ export const work: Work[] = [
         link: "https://swingersgolfapp.com/",
         name: "Website"
       },
-    ]
+    ],
+    navLink: "https://swingersgolfapp.com/",
+    context: {
+      background: "Golf is a social sport, but many golfers struggle to find playing partners, track their progress, or engage with the broader golfing community. Swingers Golf bridges this gap by offering a digital-first way for golfers to connect.",
+      targetAudience: "Swingers Golf is built for: Casual golfers looking for new playing partners, Competitive players who want to track progress and engage in challenges.",
+      goals: "Create a seamless way for golfers to find and connect with others. Build an engaging platform with real-time interactions."
+    },
+    theProblem: {
+      painPoints: "Many golfers struggle with: Finding playing partners outside of their usual group. Organizing matches and events without a centralized platform. Building a golfing network beyond in-person connections.",
+      userNeeds: "Golfers need a way to: Connect with other golfers based on skill level, availability, and location. Organize and join games effortlessly. Track and share their golfing experiences.",
+      marketGaps: "Existing golf apps focus on tee-time bookings or score tracking but lack a strong social networking aspect. Swingers Golf fills this gap by prioritizing community-building and engagement.",
+    },
   },
   {
     id: "gdg",
@@ -612,7 +636,8 @@ export const work: Work[] = [
         link: "https://mac-a-thon.gdscmcmasteru.ca",
         name: "Mac-a-thon Website"
       },
-    ]
+    ],
+    navLink: "https://gdscmcmasteru.ca",
   },
   {
     index: 6,
@@ -709,7 +734,8 @@ export const work: Work[] = [
         link: "https://devpost.com/software/code-warriors",
         name: "Devpost"
       }
-    ]
+    ],
+    navLink: "https://devpost.com/software/code-warriors"
   },
   {
     index: 3,
@@ -815,7 +841,8 @@ export const work: Work[] = [
         link: "https://aidanfroggatt.com",
         name: "Website"
       }
-    ]
+    ],
+    navLink: "https://aidanfroggatt.com"
   },
   {
     index: 7,
@@ -890,7 +917,8 @@ export const work: Work[] = [
         name: "Github",
         link: "https://github.com/aidanfroggatt/IslandGenerator"
       }
-    ]
+    ],
+    navLink: "https://github.com/aidanfroggatt/IslandGenerator"
   },
   // {
   //   index: 8,

@@ -8,13 +8,28 @@ import { getReactIconByName } from "~/utils/Icon";
 import { FaMountainSun } from "react-icons/fa6";
 import Tooltip from "~/components/Tooltip";
 import { calculateDateDifference, formatMonthYear } from "~/utils/Date";
+import ProgressBar from "~/components/ProgressBar";
 
 export async function loader({ params }: LoaderFunctionArgs) { 
+    const currentProject = work.find((item) => item.id === params.workId);
+
+    if (!currentProject) {
+        return { projectInfo: null, nextProject: null };
+    }
+
+    // Find the next project by index
+    let nextProject = work.find((item) => item.index === currentProject.index + 1);
+
+    // If no next project, wrap around to the first project
+    if (!nextProject) {
+        nextProject = work.reduce((prev, curr) => (curr.index < prev.index ? curr : prev), work[0]);
+    }
+
     return {
-        projectInfo: work.find((item) => item.id === params.workId),
+        projectInfo: currentProject,
+        nextProject,
     };
 }
-
 
 export const meta: MetaFunction = ({ data }) => {
     const { projectInfo } = data;
@@ -180,13 +195,11 @@ const WorkItemHighlights = () => {
 
 const WorkItem = () => {
 
-    const { projectInfo } = useLoaderData<typeof loader>();
+    const { projectInfo, nextProject } = useLoaderData<typeof loader>();
 
     return (
         <>
-            <div className="z-50 fixed top-0 left-0 flex w-full justify-start items-center py-4 px-4 md:py-8 md:px-12 2xl:py-12 bg-header-mobile md:bg-header pointer-events-none">
-                <Back/>
-            </div>
+            {projectInfo && nextProject && <ProgressBar work={projectInfo} nextWork={nextProject}/>}
             <main 
                 className='md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light'
                 style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} as React.CSSProperties : {}}>

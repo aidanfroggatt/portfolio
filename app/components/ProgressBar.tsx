@@ -45,7 +45,7 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
     });
 
     return (
-        <header className="bg-header-mobile md:bg-header flex flex-row fixed justify-center items-center w-full md:px-14 py-8 text-custom-light z-50 pointer-events-none gap-x-2">
+        <header className="bg-header-mobile md:bg-header flex flex-row fixed justify-between px-6 md:px-0 md:justify-center items-center w-full py-8 text-custom-light z-50 pointer-events-none gap-x-2">
             {/* Close button */}
             <Link to="/" className="flex pointer-events-auto justify-center items-center font-medium bg-custom-light rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20 w-12 h-12">
                 <FiX className="w-6 h-6 font-medium text-xs" />
@@ -59,14 +59,20 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     exit={{ opacity: 0, y: -10, filter: "blur(10px)" }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="relative flex justify-between items-center w-60 h-12 rounded-full gap-x-2 overflow-hidden px-4"
+                    className="relative flex justify-between items-center w-52 md:w-64 h-12 rounded-full gap-x-2 overflow-hidden px-4"
                 >
                     {progressState === "start" && (
                         <>
                             <span className="font-medium text-xs text-custom-light text-opacity-60">{work.title}</span>
                             <div className="flex flex-row items-center gap-x-1.5 text-end">
-                                <span className="font-medium text-xs w-full">{work.association}</span>
-                                <div className="w-[7px] h-[7px] rounded-full" style={{backgroundColor: work.color}} />
+                                <span className="font-medium text-xs w-fit">{work.association}</span>
+                                <div 
+                                    className="shrink-0 w-[6px] h-[6px] rounded-full"
+                                    style={{
+                                        backgroundColor: work.color,
+                                        boxShadow: `0 0 3px ${work.color}` 
+                                    }}
+                                />
                             </div>
                         </>
                     )}
@@ -85,9 +91,15 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                     {progressState === "complete" && (
                         <>
                             <span className="font-medium text-xs text-custom-light text-opacity-60">Next</span>
-                            <div className="flex flex-row items-center gap-x-1.5">
-                                <span className="font-medium text-xs">{nextWork.title}</span>
-                                <div className="w-[7px] h-[7px] rounded-full" style={{backgroundColor: nextWork.color}} />
+                            <div className="flex flex-row items-center gap-x-1.5 text-end">
+                                <span className="font-medium text-xs w-full">{nextWork.title}</span>
+                                <div 
+                                    className="shrink-0 w-[6px] h-[6px] rounded-full"
+                                    style={{
+                                        backgroundColor: nextWork.color,
+                                        boxShadow: `0 0 3px ${nextWork.color}` 
+                                    }}
+                                />
                             </div>
                         </>
                     )}

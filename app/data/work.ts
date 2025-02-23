@@ -366,7 +366,7 @@ export const work: Work[] = [
   {
     id: "swingers-golf",
     index: 0,
-    title: "Swingers",
+    title: "Swingers Golf",
     association: "Links Connect Inc.",
     description: "Cross platform social networking app for connecting golfers.",
     image: {

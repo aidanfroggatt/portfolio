@@ -72,3 +72,7 @@ p {
 ::-webkit-scrollbar-thumb:active {
     cursor: grabbing;
 }
+
+.dot {
+    @apply border-[0.1vmax] shadow-[0_0_20px] rounded-full inline-block w-2 h-2 lg:w-2.5 lg:h-2.5 2xl:h-3 2xl:w-3 ;
+}

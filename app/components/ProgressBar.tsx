@@ -1,7 +1,7 @@
 import { FiArrowUpRight, FiX } from "react-icons/fi";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { Link } from "@remix-run/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Work } from "~/data/work";
 
 interface ProgressBarProps {
@@ -11,9 +11,17 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
+    const [validTarget, setValidTarget] = useState<React.RefObject<HTMLElement> | null>(null);
+
+    useEffect(() => {
+        if (targetRef?.current) {
+            setValidTarget(targetRef);
+        }
+    }, [targetRef]);
+
     const { scrollYProgress } = useScroll({
-        target: targetRef,  // Use the passed or default ref
-    });    
+        target: validTarget || undefined, // Ensures `useScroll` only runs when `targetRef` is ready
+    });
 
     // Map scroll progress to percentage
     const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);

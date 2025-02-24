@@ -103,6 +103,29 @@
     border-radius: 2vmax;
 }
 
+.highlight-card-asset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: rgba(255, 255, 255, 0.1) 1px solid;
+    border-radius: 2vmax;
+    height: auto;
+    position: relative;
+}
+
+.highlight-card-asset::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.15vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(242, 242, 242, 0.1), rgba(255, 255, 255, 0)); /* Use your accent color here */
+    border-radius: 2vmax;
+}
+
 /*MAC WINDOW CARD*/
 @keyframes shineAnimation {
     0% {

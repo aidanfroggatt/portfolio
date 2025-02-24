@@ -177,7 +177,7 @@ const Experience = () => {
 const Awards = () => {
     return (
         <section id="awards">
-            <div id="awards-content" className="flex flex-col border-t border-opacity-20 border-custom-light gap-y-2 py-10 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+            <div id="awards-content" className="flex flex-col border-t border-opacity-20 border-custom-light gap-y-2 py-16 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
                 <div className="flex flex-row justify-start items-center gap-x-4">
                     <Dot/>
                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">AWARDS</div>

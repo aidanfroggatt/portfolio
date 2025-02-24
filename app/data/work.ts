@@ -13,7 +13,12 @@ export interface Work {
   overview: Overview;
   highlights: Highlights;
   context?: Context;
-  theProblem?: TheProblem;
+  problem?: Problem;
+  ideation?: Ideation;
+  design?: Design;
+  building?: Building;
+  testing?: Testing;
+  status?: Status;
   links?: Link[];
   navLink: string;
 }
@@ -68,17 +73,44 @@ interface VideoAsset {
 }
 
 interface Context {
-  background: string;
-  targetAudience: string;
-  goals: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  asset?: ImageAsset | VideoAsset;
 }
 
-interface TheProblem {
+interface Problem {
   painPoints: string;
   userNeeds: string;
   marketGaps: string;
 }
 
+interface Ideation {
+  brainstorming: string;
+  features: string;
+  wireframes: string;
+}
+
+interface Design {
+  layout: string;
+  mockups: ImageAsset[];
+}
+
+interface Building {
+  architecture: string;
+  stack: string;
+  development: string;
+}
+
+interface Testing {
+  internalTesting: string;
+  betaTesting: string;
+}
+
+interface Status {
+  currentStatus: string;
+  nextSteps: string;
+}
 interface Link {
   icon: string;
   link: string;
@@ -468,20 +500,26 @@ export const work: Work[] = [
       items: [
         {
           asset: {
-            alt: "Client Side Validation",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fclient-side-validation%2Fclient-side-validation.mp4?alt=media&token=629d97b4-0e0b-4e93-bfc3-be83d1d805e8",
-            type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fclient-side-validation%2Fposter.png?alt=media&token=b042e35f-038d-4a17-ae01-fa1dba487b2a"
+            alt: "Round Management",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fmobile-user-interface%2Fswingers-three-screen-mockup.png?alt=media&token=9be9e2f3-d2bb-4762-871e-a48418f5ca23",
+            type: "IMAGE"
           }
         },
+        // {
+        //   asset: {
+        //     alt: "Realtime Messaging",
+        //     src: "",
+        //     poster: "",
+        //     type: "VIDEO"
+        //   }
+        // },
         {
           asset: {
-            alt: "Email Verification",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Femail-verification%2Femail-verification.mp4?alt=media&token=ceb65e43-bc2c-44c7-a159-8277002be0ce",
-            type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Femail-verification%2Fposter.png?alt=media&token=8fe00d04-4e7c-4afa-a80f-403ca5acdb7b"
+            alt: "User Flow",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fuser-flow%2Fswingers-user-flow.png?alt=media&token=90024556-e009-4cd8-8af6-1d54123b5848",
+            type: "IMAGE"
           }
-        }
+        },
       ]
     },
     links: [
@@ -498,15 +536,68 @@ export const work: Work[] = [
     ],
     navLink: "https://swingersgolfapp.com/",
     context: {
-      background: "Golf is a social sport, but many golfers struggle to find playing partners, track their progress, or engage with the broader golfing community. Swingers Golf bridges this gap by offering a digital-first way for golfers to connect.",
-      targetAudience: "Swingers Golf is built for: Casual golfers looking for new playing partners, Competitive players who want to track progress and engage in challenges.",
-      goals: "Create a seamless way for golfers to find and connect with others. Build an engaging platform with real-time interactions."
+      title: "An opportunity to make our game better.",
+      subtitle: "The dissatisfaction is clear",
+      description: "Creating a way for golfers to find like-minded individuals to play with has been long overdue.",
+      asset: {
+        alt: "Community Requests",
+        src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc",
+        type: "IMAGE"
+      }
     },
-    theProblem: {
-      painPoints: "Many golfers struggle with: Finding playing partners outside of their usual group. Organizing matches and events without a centralized platform. Building a golfing network beyond in-person connections.",
-      userNeeds: "Golfers need a way to: Connect with other golfers based on skill level, availability, and location. Organize and join games effortlessly. Track and share their golfing experiences.",
-      marketGaps: "Existing golf apps focus on tee-time bookings or score tracking but lack a strong social networking aspect. Swingers Golf fills this gap by prioritizing community-building and engagement.",
-    },
+    // problem: {
+    //   painPoints: "Many golfers struggle with: Finding playing partners outside of their usual group. Organizing matches and events without a centralized platform. Building a golfing network beyond in-person connections.",
+    //   userNeeds: "Golfers need a way to: Connect with other golfers based on skill level, availability, and location. Organize and join games effortlessly. Track and share their golfing experiences.",
+    //   marketGaps: "Existing golf apps focus on tee-time bookings or score tracking but lack a strong social networking aspect. Swingers Golf fills this gap by prioritizing community-building and engagement.",
+    // },
+    // ideation: {
+    //   brainstorming: "I started by researching the golf community and existing solutions. Through surveys and discussions with golfers, I identified a need for a digital-first way to connect.",
+    //   features: "I mapped out the core features: Profile Creation – Users can showcase their golfing experience. Matchmaking – Find golfers with similar skill levels nearby. Live Score Sharing – Share scores and track progress.",
+    //   wireframes: "I created low-fidelity wireframes in Figma to visualize the user journey and iterate based on feedback."
+    // },
+    // design: {
+    //   layout: "A clean, intuitive layout ensures easy navigation. The main tabs include: Home – Personalized feed with updates from the golfing community. Matches – Suggested playing partners based on skill and availability. Events – Browse and join local golf events. Profile – Track achievements and game history.",
+    //   mockups: [
+    //     {
+    //       alt: "Landing Screen",
+    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-landing-mockup.png?alt=media&token=bebbacff-81dc-46f0-a68a-7e9f77670cfa",
+    //       type: "IMAGE"
+    //     },
+    //     {
+    //       alt: "Rounds Screen",
+    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-round-mockup.png?alt=media&token=fc51bea9-4a85-436d-a1bb-c86d196c68bf",
+    //       type: "IMAGE"
+    //     },
+    //     {
+    //       alt: "Round Details Screen",
+    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-round-details-mockup.png?alt=media&token=66b557f6-4c4b-4815-a40f-606c5bb5e095",
+    //       type: "IMAGE"
+    //     },
+    //     {
+    //       alt: "Create Round Screen",
+    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-create-round-mockup.png?alt=media&token=cf26a0f9-9f21-4c8e-b9d3-c16ea48c7a73",
+    //       type: "IMAGE"
+    //     },
+    //     {
+    //       alt: "Profile Screen",
+    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-profile-mockup.png?alt=media&token=97842eb4-68d7-4a08-a189-750f7f441551",
+    //       type: "IMAGE"
+    //     }
+    //   ]
+    // },
+    // building: {
+    //   stack: "Frontend: React Native (Expo) & TypeScript, Backend: Laravel (PHP) & MySQL, Real-time Communication: WebSockets",
+    //   architecture: "Architecture blah blah blah ...",
+    //   development: "Development blah blah blah ..."
+    // },
+    // testing: {
+    //   internalTesting: "I ran early tests to identify performance bottlenecks and usability issues.",
+    //   betaTesting: "Currently, OSU golf management students are testing the app. Their feedback helps refine the matchmaking and event organization features.",
+    // },
+    // status: {
+    //   currentStatus: "The app is in beta testing with OSU golf management students. We're refining the matchmaking algorithm and event organization features based on their feedback.",
+    //   nextSteps: "After beta testing, we plan to launch the app to the broader golfing community. We'll continue to iterate based on user feedback and expand to other golfing markets."
+    // }
   },
   {
     id: "gdg",

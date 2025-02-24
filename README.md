@@ -1,40 +1,20 @@
-# Welcome to Remix!
+# Aidan Froggatt - Portfolio Website
 
-- 📖 [Remix docs](https://remix.run/docs)
+Welcome to my personal portfolio website! This site showcases my experience, projects, and interests in software development.
 
-## Development
+## 🛠 Tech Stack
+- **Framework:** [Remix](https://remix.run/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/)
+- **Design:** [Figma](https://www.figma.com/)
+- **Hosting & Deployment:** [Vercel](https://vercel.com/), [AWS Route 53](https://aws.amazon.com/route53/)
+- **Database & Backend:** [Firebase Firestore](https://firebase.google.com/docs/firestore)
+- **Language & Tooling:** [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/)
 
-Run the dev server:
+## 📌 About Me
+Hi, I'm **Aidan Froggatt**, a **Software Engineer Intern at IBM**, based in **Toronto**. I enjoy building software solutions that enhance user experiences. My journey into software started with a passion for building—whether it was Lego sets, IKEA furniture, or now, scalable applications.
 
-```shellscript
-npm run dev
-```
+## 📬 Contact
+- [GitHub](https://github.com/aidanfroggatt)
+- [LinkedIn](https://linkedin.com/in/aidanfroggatt)
+- [Resume](#)
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.

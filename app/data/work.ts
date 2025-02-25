@@ -49,29 +49,29 @@ interface Highlights {
   items: HighlightItem[];
 }
 
-type HighlightItem = {
+export interface HighlightItem {
   asset: VideoAsset | ImageAsset;
-};
+}
 
-interface ImageAsset {
+export interface ImageAsset {
   alt: string;
   src: string;
   type: "IMAGE";
 }
 
-interface VideoAsset {
+export interface VideoAsset {
   alt: string;
   src: string;
   type: "VIDEO";
   poster: string; // Required for VIDEO type
 }
 
-interface Content {
+export interface Content {
   type: string;
   title: string;
   subtitle: string;
   description: string;
-  asset?: ImageAsset | VideoAsset;
+  assets?: (ImageAsset | VideoAsset) [];
 }
 
 interface Link {
@@ -147,17 +147,17 @@ export const work: Work[] = [
       items: [
         {
           asset: {
-            alt: "Demo Video",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video.mov?alt=media&token=c1339d96-b832-43f0-9e9f-4b7ba5211d1b",
-            type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video-poster.png?alt=media&token=b0c9e70a-5c8c-4247-befe-899e940fc72f"
+            alt: "Architecture Overview",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Farchitecture-overview%2Fburloak-insight-architecture-overview.svg?alt=media&token=09729ff1-b549-4e78-a1fc-fceac1484c84",
+            type: "IMAGE"
           },
         },
         {
           asset: {
-            alt: "Architecture Overview",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Farchitecture-overview%2Fburloak-insight-architecture-overview.svg?alt=media&token=09729ff1-b549-4e78-a1fc-fceac1484c84",
-            type: "IMAGE"
+            alt: "Demo Video",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video.mov?alt=media&token=c1339d96-b832-43f0-9e9f-4b7ba5211d1b",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video-poster.png?alt=media&token=b0c9e70a-5c8c-4247-befe-899e940fc72f"
           },
         },
       ]
@@ -174,48 +174,67 @@ export const work: Work[] = [
         title: "Data entry was entirely manual.",
         subtitle: "A time-consuming and error-prone process, wasting engineering hours.",
         description: "I automated data entry, increasing speed by over 200x, entering 500+ pdfs of secure data, and centralizing 30+ data stores.",
-        asset: {
-          alt: "Raw Data Dashboard",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak_insight_database_video.mp4?alt=media&token=95786266-73ca-4d74-b5cf-70cb3f157fe1",
-            type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fposter.png?alt=media&token=a4fea23f-ffd6-4275-a2d0-f5025c77200b"
-        }
+        assets: [
+          {
+            alt: "Simple Flowchart",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak-insight-data-entry-simple-diagram.png?alt=media&token=1eb98b87-1ef0-42e7-880e-1d5b33225e47",
+            type: "IMAGE",
+          },
+          {
+            alt: "Compelte Flowchart",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak-insight-data-entry-complete-diagram.png?alt=media&token=e67056a4-604d-44cf-9430-e1a38fb914e1",
+            type: "IMAGE",
+          },
+          {
+            alt: "Raw Data Dashboard",
+              src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak_insight_database_video.mp4?alt=media&token=95786266-73ca-4d74-b5cf-70cb3f157fe1",
+              type: "VIDEO",
+              poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fposter.png?alt=media&token=a4fea23f-ffd6-4275-a2d0-f5025c77200b"
+          },
+
+        ]
       },
       {
         type: "DATA ANALYSIS",
         title: "Data analysis was not happening.",
         subtitle: "Without analysis, engineering decisions were not data-driven.",
         description: "I implemented a data analysis dashboard to analyze data, enabling informed engineering decisions.",
-        asset: {
-          alt: "Data Analysis Dashboard",
-          src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fburloak_insight_data_analysis_video.mp4?alt=media&token=d551b535-3f33-4ca0-9e66-ad9252251dec",
-          type: "VIDEO",
-          poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fposter.png?alt=media&token=296c9f1a-c8d1-4209-bf21-9e46ffe1db53"
-        }
+        assets: [
+          {
+            alt: "Data Analysis Dashboard",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fburloak_insight_data_analysis_video.mp4?alt=media&token=d551b535-3f33-4ca0-9e66-ad9252251dec",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdata_analysis_video%2Fposter.png?alt=media&token=296c9f1a-c8d1-4209-bf21-9e46ffe1db53"
+          },
+        ]
       },
       {
         type: "REPORT GENERATION",
         title: "Reports generation was done by hand.",
         subtitle: "This manual process was time-consuming and error-prone.",
         description: "I automated report generation, continuing to generate reports in seconds, saving engineering hours and reducing errors.",
-        asset: {
-          alt: "Report Generation Dashboard",
-          src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fburloak_insight_report_generation_video.mp4?alt=media&token=a0811749-bba1-4651-9503-6303612acb52",
-          type: "VIDEO",
-          poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fposter.png?alt=media&token=c9ba4891-d23d-4fc7-850f-a99b3a8bd610"
-        }
+        assets: [
+          {
+            alt: "Report Generation Dashboard",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fburloak_insight_report_generation_video.mp4?alt=media&token=a0811749-bba1-4651-9503-6303612acb52",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Freport_generation_video%2Fposter.png?alt=media&token=c9ba4891-d23d-4fc7-850f-a99b3a8bd610"
+          }
+        ]
       },
       {
         type: "MACHINE VERIFICATION",
         title: "Machine verification was a reactive process.",
         subtitle: "Only after a machine failed was maintenance performed.",
         description: "I implemented a machine verification dashboard to monitor and predict maintenance needs. This proactive approach reduced downtime.",
-        asset: {
-          type: "VIDEO",
-          src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fmachine-verification-dashboard%2Fburloak-insight-machine-verification-dashboard.mp4?alt=media&token=9fc8b82a-8b17-49fd-b9ac-ccec66431a7a",
-          alt: "Machine Verification Dashboard",
-          poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fmachine-verification-dashboard%2Fburloak-insight-machine-verification-dashboard-poster.png?alt=media&token=f10a9f10-4bad-4064-8bb6-6ba9bd4845de"
-        }
+        assets: [
+          {
+            type: "VIDEO",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fmachine-verification-dashboard%2Fburloak-insight-machine-verification-dashboard.mp4?alt=media&token=9fc8b82a-8b17-49fd-b9ac-ccec66431a7a",
+            alt: "Machine Verification Dashboard",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fmachine-verification-dashboard%2Fburloak-insight-machine-verification-dashboard-poster.png?alt=media&token=f10a9f10-4bad-4064-8bb6-6ba9bd4845de"
+          }
+        ]
       },
       {
         type: "RETROSPECTIVE",

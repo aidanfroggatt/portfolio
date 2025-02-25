@@ -1,8 +1,7 @@
 import { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import Back from "~/components/Back";
 import Footer from "~/components/Footer";
-import { work } from "~/data/work";
+import { Content, VideoAsset, ImageAsset, work, HighlightItem } from "~/data/work";
 import { hexToRGBA } from "~/utils/Color";
 import { getReactIconByName } from "~/utils/Icon";
 import { FaMountainSun } from "react-icons/fa6";
@@ -142,7 +141,7 @@ const WorkItemHighlights = () => {
                     <h5 className="text-custom-light text-opacity-50">HIGHLIGHTS</h5>
                     <h5 className="text-center">{projectInfo?.highlights?.description}</h5>
                 </div>
-                {projectInfo.highlights?.items.map((highlight: { asset: { type: string; src: string; alt: string; poster?: string } }, index) => {
+                {projectInfo.highlights?.items.map((highlight: HighlightItem, index) => {
                     return (
                         <div key={index} className="w-full flex flex-col items-center">
                             {highlight.asset.type === 'VIDEO' ? (
@@ -165,7 +164,7 @@ const WorkItemHighlights = () => {
                                     alt={highlight.asset.alt}
                                 />
                             ) : (
-                                <p>Invalid asset type: {highlight.asset.type}</p>
+                                <p>Invalid asset type.</p>
                             )}
                             <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light text-opacity-50">
                                 {highlight.asset.alt}
@@ -210,7 +209,7 @@ const WorkItemContent = () => {
 
     return (
         <div id="work-item-content" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            {projectInfo.content.map((contentSection: { type: string; title?: string; subtitle?: string; description?: string; asset?: { type: string; src: string; alt: string; poster?: string } }, index) => (
+            {projectInfo.content.map((contentSection: Content, index) => (
                 <section
                     id="work-item-content"
                     key={index}
@@ -235,37 +234,36 @@ const WorkItemContent = () => {
                             )}
                         </div>
                     </div>
-                    {contentSection.asset && (
-                        <div className="w-full flex flex-col items-center">
-                            {contentSection.asset.type === 'VIDEO' ? (
+                    {contentSection.assets && contentSection.assets.map((asset: ImageAsset | VideoAsset, index) => (
+                        <div key={index} className="w-full flex flex-col items-center">
+                            {asset.type === 'VIDEO' ? (
                                 <video
                                     className="z-10 max-h-[75vh] w-full highlight-card-asset"
                                     controls
-                                    poster={contentSection.asset.poster}
+                                    poster={asset.poster}
                                     playsInline
                                     muted
                                 >
-                                    <source src={contentSection.asset.src} type="video/mp4"/>
+                                    <source src={asset.src} type="video/mp4"/>
                                     <track kind="captions" srcLang="en" default />
                                 </video>
-                            ) : contentSection.asset.type === 'IMAGE' ? (
+                            ) : asset.type === 'IMAGE' ? (
                                 <img
-                                className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
-                                src={contentSection.asset.src}
-                                alt={contentSection.asset.alt}
-                            />
+                                    className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
+                                    src={asset.src}
+                                    alt={asset.alt}
+                                />
                             ) : (
-                                <p>Invalid asset type: {contentSection.asset.type}</p>
+                                <p>Invalid asset type.</p>
                             )}
-
                             <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light text-opacity-50">
-                                {contentSection.asset.alt}
+                                {asset.alt}
                                 <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
-                                    {contentSection.asset.type}
+                                    {asset.type}
                                 </span>
                             </h5>
                         </div>
-                    )}
+                    ))}
                 </section>
             ))}
         </div>

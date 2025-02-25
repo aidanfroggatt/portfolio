@@ -201,164 +201,61 @@ const WorkItemHighlights = () => {
     )
 }
 
-const WorkItemContext = () => {
+const WorkItemContent = () => {
     const { projectInfo } = useLoaderData<typeof loader>();
 
-    if (!projectInfo || !projectInfo.context) {
+    if (!projectInfo || !projectInfo.content) {
         return null;
     }
 
     return (
-        <section id="work-item-context" className="border-t border-opacity-20 pt-10 md:pt-16 border-custom-light flex flex-col md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <div className="flex flex-row justify-start items-center gap-x-4">
-                <Dot/>
-                <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">CONTEXT</div>
-            </div>
-            {projectInfo.context.title && <h2 className="text-shadow-mobile md:text-shadow">{projectInfo.context.title}</h2>}
-            <div className="flex flex-col py-8 md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
-                <div>
-                    {projectInfo.context.subtitle && <h4 className="md:flex-grow text-shadow-mobile md:text-shadow">{projectInfo.context.subtitle}</h4>}
-                </div>
-                <div className="flex flex-col items-start justify-start">
-                    {projectInfo.context.description && <p className="text-custom-light text-opacity-50">{projectInfo.context.description}</p>}
-                </div>
-            </div>
-            {projectInfo.context.asset &&
-                <div className="w-full flex flex-col items-center">
-                    <img 
-                        className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
-                        src={projectInfo.context.asset.src}
-                        alt={projectInfo.context.asset.alt}
-                    />
-                    <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light text-opacity-50">
-                        {projectInfo.context.asset.alt}
-                        <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
-                        {projectInfo.context.asset.type}
-                    </span>
-                    </h5>
-                </div>
-            }
-        </section>
-    )
-}
+        <div id="work-item-content" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+            {projectInfo.content.map((contentSection, index) => (
+                <section
+                    id="work-item-content"
+                    key={index}
+                    className="border-t border-opacity-20 pt-10 md:pt-16 border-custom-light flex flex-col md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl"
+                >
+                    <div className="flex flex-row justify-start items-center gap-x-4">
+                        <Dot />
+                        <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">
+                            {contentSection.type}
+                        </div>
+                    </div>
+                    {contentSection.title && <h2 className="text-shadow-mobile md:text-shadow">{contentSection.title}</h2>}
+                    <div className="flex flex-col py-8 md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
+                        <div>
+                            {contentSection.subtitle && (
+                                <h4 className="md:flex-grow text-shadow-mobile md:text-shadow">{contentSection.subtitle}</h4>
+                            )}
+                        </div>
+                        <div className="flex flex-col items-start justify-start">
+                            {contentSection.description && (
+                                <p className="text-custom-light text-opacity-50">{contentSection.description}</p>
+                            )}
+                        </div>
+                    </div>
+                    {contentSection.asset && (
+                        <div className="w-full flex flex-col items-center">
+                            <img
+                                className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
+                                src={contentSection.asset.src}
+                                alt={contentSection.asset.alt}
+                            />
+                            <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light text-opacity-50">
+                                {contentSection.asset.alt}
+                                <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
+                                    {contentSection.asset.type}
+                                </span>
+                            </h5>
+                        </div>
+                    )}
+                </section>
+            ))}
+        </div>
+    );
+};
 
-const WorkItemProblem = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.problem) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-the-problem" className="border-t border-opacity-20 pt-10 md:pt-16 border-custom-light flex flex-col gap-y-2 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <div className="flex flex-row justify-start items-center gap-x-4">
-                <Dot/>
-                <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">THE PROBLEM</div>
-            </div>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Market Gaps:</strong> {projectInfo.problem.marketGaps}</p>
-                <p><strong>Pain Points:</strong> {projectInfo.problem.painPoints}</p>
-                <p><strong>User Needs:</strong> {projectInfo.problem.userNeeds}</p>
-            </div>
-        </section>
-    )
-}
-
-const WorkItemIdeation = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.ideation) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-ideation" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <h5 className="text-custom-light text-opacity-50">IDEATION</h5>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Research:</strong> {projectInfo.ideation.brainstorming}</p>
-                <p><strong>Concepts:</strong> {projectInfo.ideation.features}</p>
-                <p><strong>Validation:</strong> {projectInfo.ideation.wireframes}</p>
-            </div>
-        </section>
-    )
-}
-
-const WorkItemDesign = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.design) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-design" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <h5 className="text-custom-light text-opacity-50">DESIGN</h5>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Layout:</strong> {projectInfo.design.layout}</p>
-                <div className="flex flex-row items-center">
-                    { projectInfo.design.mockups.map((mockup, index) => (
-                        <img key={index} src={mockup.src} alt={mockup.alt} className="max-w-40 max-h-96"/>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
-
-const WorkItemBuilding = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.building) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-building" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <h5 className="text-custom-light text-opacity-50">BUILDING</h5>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Design:</strong> {projectInfo.building.stack}</p>
-                <p><strong>Architecture:</strong> {projectInfo.building.architecture}</p>
-                <p><strong>Development:</strong> {projectInfo.building.development}</p>
-            </div>
-        </section>
-    )
-}
-
-const WorkItemTesting = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.testing) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-testing" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <h5 className="text-custom-light text-opacity-50">TESTING</h5>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Internal testing:</strong> {projectInfo.testing.internalTesting}</p>
-                <p><strong>Beta Testing:</strong> {projectInfo.testing.betaTesting}</p>
-            </div>
-        </section>
-    )
-}
-
-const WorkItemStatus = () => {
-    const { projectInfo } = useLoaderData<typeof loader>();
-
-    if (!projectInfo || !projectInfo.status) {
-        return null;
-    }
-
-    return (
-        <section id="work-item-status" className="flex flex-col justify-center items-center gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
-            <h5 className="text-custom-light text-opacity-50">STATUS</h5>
-            <div className="text-custom-light text-opacity-50">
-                <p><strong>Current Status:</strong> {projectInfo.status.currentStatus}</p>
-                <p><strong>Next Steps:</strong> {projectInfo.status.nextSteps}</p>
-            </div>
-        </section>
-    )
-}
 
 const WorkItem = () => {
 
@@ -377,13 +274,7 @@ const WorkItem = () => {
                     <WorkItemHero />
                     <WorkItemOverview />
                     <WorkItemHighlights />
-                    <WorkItemContext />
-                    <WorkItemProblem />
-                    <WorkItemIdeation />
-                    <WorkItemDesign />
-                    <WorkItemBuilding />
-                    <WorkItemTesting />
-                    <WorkItemStatus />
+                    <WorkItemContent />
             </main> 
             <Footer />
         </>

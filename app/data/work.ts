@@ -12,13 +12,7 @@ export interface Work {
   endDate?: Date;
   overview: Overview;
   highlights: Highlights;
-  context?: Context;
-  problem?: Problem;
-  ideation?: Ideation;
-  design?: Design;
-  building?: Building;
-  testing?: Testing;
-  status?: Status;
+  content?: Content[];
   links?: Link[];
   navLink: string;
 }
@@ -72,45 +66,14 @@ interface VideoAsset {
   poster: string; // Required for VIDEO type
 }
 
-interface Context {
+interface Content {
+  type: string;
   title: string;
   subtitle: string;
   description: string;
   asset?: ImageAsset | VideoAsset;
 }
 
-interface Problem {
-  painPoints: string;
-  userNeeds: string;
-  marketGaps: string;
-}
-
-interface Ideation {
-  brainstorming: string;
-  features: string;
-  wireframes: string;
-}
-
-interface Design {
-  layout: string;
-  mockups: ImageAsset[];
-}
-
-interface Building {
-  architecture: string;
-  stack: string;
-  development: string;
-}
-
-interface Testing {
-  internalTesting: string;
-  betaTesting: string;
-}
-
-interface Status {
-  currentStatus: string;
-  nextSteps: string;
-}
 interface Link {
   icon: string;
   link: string;
@@ -184,6 +147,13 @@ export const work: Work[] = [
       items: [
         {
           asset: {
+            alt: "Architecture Overview",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Farchitecture-overview%2Fburloak-insight-architecture-overview.svg?alt=media&token=09729ff1-b549-4e78-a1fc-fceac1484c84",
+            type: "IMAGE"
+          },
+        },
+        {
+          asset: {
             alt: "Raw Data Dashboard",
             src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak_insight_database_video.mp4?alt=media&token=95786266-73ca-4d74-b5cf-70cb3f157fe1",
             type: "VIDEO",
@@ -208,6 +178,44 @@ export const work: Work[] = [
         }
       ]
     },
+    content: [
+      {
+        type: "CONTEXT",
+        title: "An opportunity to improve company operations.",
+        subtitle: "A need for automation and consolidation was evident",
+        description: "Data access, storage, analsysis, and report generation were fragmented processes. I centralized these tasks, enhancing operational efficiency and informing engineering decisions.",
+      },
+      {
+        type: "DATA ENTRY",
+        title: "Data entry was entirely manual.",
+        subtitle: "A time-consuming and error-prone process, wasting engineering hours.",
+        description: "I automated data entry, increasing speed by over 200x, entering 500+ pdfs of secure data, and centralizing 30+ data stores.",
+      },
+      {
+        type: "DATA ANALYSIS",
+        title: "Data analysis was not happening.",
+        subtitle: "Without analysis, engineering decisions were not data-driven.",
+        description: "I implemented a data analysis dashboard to analyze data, enabling informed engineering decisions.",
+      },
+      {
+        type: "REPORT GENERATION",
+        title: "Reports generation was done by hand.",
+        subtitle: "This manual process was time-consuming and error-prone.",
+        description: "I automated report generation, continuing to generate reports in seconds, saving engineering hours and reducing errors.",
+      },
+      {
+        type: "MACHINE VERIFICATION",
+        title: "Machine verification was a reactive process.",
+        subtitle: "Only after a machine failed was maintenance performed.",
+        description: "I implemented a machine verification dashboard to monitor and predict maintenance needs. This proactive approach reduced downtime.",
+      },
+      {
+        type: "RETROSPECTIVE",
+        title: "A great experience with many lessons learned.",
+        subtitle: "Tangible results and valuable insights, but always room for improvement",
+        description: "Increasing data entry speed by over 200x, entering 500+ pdfs of secure data, centralizing 30+ data stores, and continuing to generate reports in seconds.",
+      },
+    ],
     navLink: "https://www.burloaktech.com/"
   },
   {
@@ -535,16 +543,19 @@ export const work: Work[] = [
       },
     ],
     navLink: "https://swingersgolfapp.com/",
-    context: {
-      title: "An opportunity to make our game better.",
-      subtitle: "The dissatisfaction is clear",
-      description: "Creating a way for golfers to find like-minded individuals to play with has been long overdue.",
-      asset: {
-        alt: "Community Requests",
-        src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc",
-        type: "IMAGE"
+    content: [
+      {
+        type: "CONTEXT",
+        title: "An opportunity to make our game better.",
+        subtitle: "The dissatisfaction is clear",
+        description: "Creating a way for golfers to find like-minded individuals to play with has been long overdue.",
+        asset: {
+          alt: "Community Requests",
+          src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc",
+          type: "IMAGE"
+        }
       }
-    },
+    ],
     // problem: {
     //   painPoints: "Many golfers struggle with: Finding playing partners outside of their usual group. Organizing matches and events without a centralized platform. Building a golfing network beyond in-person connections.",
     //   userNeeds: "Golfers need a way to: Connect with other golfers based on skill level, availability, and location. Organize and join games effortlessly. Track and share their golfing experiences.",

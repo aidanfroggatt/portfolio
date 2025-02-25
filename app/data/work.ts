@@ -576,11 +576,13 @@ export const work: Work[] = [
         title: "An opportunity to make our game better.",
         subtitle: "The dissatisfaction is clear",
         description: "Creating a way for golfers to find like-minded individuals to play with has been long overdue.",
-        asset: {
-          alt: "Community Requests",
-          src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc",
-          type: "IMAGE"
-        }
+        assets: [
+          {
+            alt: "Community Requests",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc",
+            type: "IMAGE"
+          }
+        ]
       }
     ],
     // problem: {

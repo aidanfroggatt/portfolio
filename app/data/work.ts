@@ -181,7 +181,7 @@ export const work: Work[] = [
             type: "IMAGE",
           },
           {
-            alt: "Compelte Flowchart",
+            alt: "Complete Flowchart",
             src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdatabase_video%2Fburloak-insight-data-entry-complete-diagram.png?alt=media&token=e67056a4-604d-44cf-9430-e1a38fb914e1",
             type: "IMAGE",
           },

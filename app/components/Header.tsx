@@ -102,29 +102,30 @@ interface TabProps {
 const Tab = ({ label, to, setPosition }: TabProps) => {
   const ref = useRef<HTMLLIElement>(null);
 
+  const updateCursor = () => {
+    if (!ref?.current) return;
+
+    const { width } = ref.current.getBoundingClientRect();
+    setPosition({
+      left: ref.current.offsetLeft,
+      width,
+      opacity: 1,
+    });
+  };
+
   return (
-    <li
-      ref={ref}
-      onMouseEnter={() => {
-        if (!ref?.current) return;
-
-        const { width } = ref.current.getBoundingClientRect();
-
-        setPosition({
-          left: ref.current.offsetLeft,
-          width,
-          opacity: 1,
-        });
-      }}
-    >
+    <li ref={ref}>
       <Link
         to={to}
         className="relative z-10 flex items-center flex-row cursor-pointer mix-blend-difference text-sm px-3 py-2 gap-x-1 rounded-full"
         target="_blank"
-        rel="noopener noreferrer"    
-    >
+        rel="noopener noreferrer"
+        onMouseEnter={updateCursor}
+        onFocus={updateCursor} // Handles keyboard navigation
+        onBlur={() => setPosition((prev) => ({ ...prev, opacity: 0 }))} // Hide cursor on blur
+      >
         {label}
-        <TfiArrowTopRight/>
+        <TfiArrowTopRight />
       </Link>
     </li>
   );

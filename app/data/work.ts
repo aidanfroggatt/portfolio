@@ -698,6 +698,10 @@ export const work: Work[] = [
           name: "Tailwind CSS"
         },
         {
+          icon: "SiFramer",
+          name: "Framer Motion",
+        },
+        {
           icon: "SiFigma",
           name: "Figma"
         },

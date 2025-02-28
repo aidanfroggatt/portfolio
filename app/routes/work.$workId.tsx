@@ -10,6 +10,7 @@ import { calculateDateDifference, formatMonthYear } from "~/utils/Date";
 import ProgressBar from "~/components/ProgressBar";
 import { useRef } from "react";
 import Dot from "~/components/Dot";
+import VideoWithAutoplay from "~/components/VideoWithAutoplay";
 
 export async function loader({ params }: LoaderFunctionArgs) { 
     const currentProject = work.find((item) => item.id === params.workId);
@@ -143,19 +144,13 @@ const WorkItemHighlights = () => {
                 </div>
                 {projectInfo.highlights?.items.map((highlight: HighlightItem, index) => {
                     return (
-                        <div key={index} className="w-full flex flex-col items-center">
+                        <div key={index} className="relative w-full flex flex-col items-center">
                             {highlight.asset.type === 'VIDEO' ? (
-                                <video
-                                    className="z-10 max-h-[75vh] w-full highlight-card-asset bg-highlight-card-asset"
+                                <VideoWithAutoplay
+                                    className={"z-10 max-h-[75vh] w-full highlight-card-asset bg-highlight-card-asset"}
                                     style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.4)} as React.CSSProperties : {}}
-                                    controls
-                                    poster={highlight.asset.poster}
-                                    playsInline
-                                    muted
-                                >
-                                    <source src={highlight.asset.src} type="video/mp4"/>
-                                    <track kind="captions" srcLang="en" default />
-                                </video>
+                                    asset={highlight.asset} 
+                                />
                             ) : highlight.asset.type === 'IMAGE' ? (
                                 <img 
                                     className="z-10 max-h-[75vh] w-full highlight-card-asset bg-highlight-card-asset object-contain"
@@ -238,18 +233,9 @@ const WorkItemContent = () => {
                     </div>
                     <div className="flex flex-col gap-y-8 md:gap-y-16">
                         {contentSection.assets && contentSection.assets.map((asset: ImageAsset | VideoAsset, index) => (
-                            <div key={index} className="w-full flex flex-col items-center">
+                            <div key={index} className="relative w-full flex flex-col items-center">
                                 {asset.type === 'VIDEO' ? (
-                                    <video
-                                        className="z-10 max-h-[75vh] w-full highlight-card-asset"
-                                        controls
-                                        poster={asset.poster}
-                                        playsInline
-                                        muted
-                                    >
-                                        <source src={asset.src} type="video/mp4"/>
-                                        <track kind="captions" srcLang="en" default />
-                                    </video>
+                                    <VideoWithAutoplay asset={asset} />
                                 ) : asset.type === 'IMAGE' ? (
                                     <img
                                         className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
@@ -273,7 +259,6 @@ const WorkItemContent = () => {
         </div>
     );
 };
-
 
 const WorkItem = () => {
 

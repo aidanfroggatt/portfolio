@@ -157,7 +157,7 @@ export const work: Work[] = [
             alt: "Demo Video",
             src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video.mov?alt=media&token=c1339d96-b832-43f0-9e9f-4b7ba5211d1b",
             type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video-poster.png?alt=media&token=b0c9e70a-5c8c-4247-befe-899e940fc72f"
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video-poster.png?alt=media&token=b0c9e70a-5c8c-4247-befe-899e940fc72f",
           },
         },
       ]
@@ -729,28 +729,86 @@ export const work: Work[] = [
         {
           asset: {
             alt: "Google Developer Group Website",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fgdsc-website.mp4?alt=media&token=10253a9e-1dff-475b-838e-50b4d50be440",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fgdg-website.mp4?alt=media&token=785927fe-7203-4c09-8900-aa677616c7b4",
             type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fposter.png?alt=media&token=6bcf8a65-c55a-49bd-8b0f-ef94c3873c30"
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fwebsite%2Fposter.jpg?alt=media&token=4e6629ec-e3cb-48c5-b06e-982d6ada1aeb"
           }
         },
         {
           asset: {
             alt: "Mac-a-thon Website",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fgdsc-hackathon-website.mp4?alt=media&token=f32e5432-401d-4c71-9515-3d936954b9f3",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fmac-a-thon-website.mp4?alt=media&token=81db8fe5-1362-4277-a911-0aa29036b0b8",
             type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fposter.png?alt=media&token=bcb69a3b-839c-41a9-8af3-c0c5ea7af73e"
-          }
-        },
-        {
-          asset: {
-            alt: "Sanity CMS",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fsanity-cms.png?alt=media&token=2ebbb76b-9814-4305-a555-bbe0437ce731",
-            type: "IMAGE"
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fhighlights%2Fhackathon-website%2Fposter.jpg?alt=media&token=907d4fac-1eb5-4e6e-bfc2-fd21c68f789d"
           }
         },
       ]
     },
+    content: [
+      {
+        type: "CONTEXT",
+        title: "A complete club exposure overhaul.",
+        subtitle: "Rebranding, expanding, and enhancing the digital presence",
+        description: "Google Developer Group rebranded to Google Developer Group on Campus. Our chapter further expanded to include an annual hackathon that required a digital presence.",
+      },
+      {
+        type: "DESIGN",
+        title: "Designing for engagement.",
+        subtitle: "Creating websites that engage and inform",
+        description: "Designed websites that engaged users and informed them about the Google Developer Group on Campus and our annual hackathon, Mac-a-thon.",
+        assets: [
+          {
+            alt: "Card Components",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fdesign%2Fgdg-cards.svg?alt=media&token=d2a68992-38fe-4d23-ba3f-56cb912860e7",
+            type: "IMAGE",
+          },
+          {
+            alt: "Navbar Components",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fdesign%2Fgdg-navbars.svg?alt=media&token=abc36eee-9c62-4c20-914f-1525d3fecdee",
+            type: "IMAGE",
+          }
+        ]
+      },
+      {
+        type: "REBRAND",
+        title: "A new name, a new chapter.",
+        subtitle: "Google Developer Group on Campus",
+        description: "The Google Developer Group rebranded to Google Developer Group on Campus to better reflect our focus on student engagement and learning.",
+        assets: [
+          {
+            alt: "Google Developer Group on Campus Globe",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Frebrand%2Fgdg-globe.mp4?alt=media&token=3ed2fcbc-10cc-487a-9b68-33d575a804f1",
+            type: "VIDEO",
+            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Frebrand%2Fposter.jpg?alt=media&token=2b472efd-8a33-4523-a52b-1c985f1dc1f6",
+          }
+        ]
+      },
+      {
+        type: "HACKATHON",
+        title: "Mac-a-thon",
+        subtitle: "Our first annual AI hackathon",
+        description: "We hosted our first annual AI hackathon, Mac-a-thon, to engage students and foster a community of learning and innovation.",
+        assets: [
+          {
+            alt: "Mac-a-thon Banner",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fmac-a-thon%2Fgdg-mac-a-thon-banner.webp?alt=media&token=17840953-c3e6-42ec-9f99-a81c824cdfa2",
+            type: "IMAGE",
+          }
+        ],
+      },
+      {
+        type: "NEWSLETTER",
+        title: "Informing our community.",
+        subtitle: "Our first year delivering a monthly newsletter",
+        description: "We launched a monthly newsletter to inform our community about the latest and greatest in the tech industry.",
+      },
+      {
+        type: "RETROSPECTIVE",
+        title: "A successful year of growth.",
+        subtitle: "Enhanced engagement and visibility",
+        description: "Our rebranding and expansion efforts have led to increased engagement and visibility for the Google Developer Group on Campus. Our community has grown to over 2000 members across all platforms.",
+      }
+    ],
     links: [
       {
         icon: "FaGlobe",

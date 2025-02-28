@@ -52,7 +52,7 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
             </Link>
 
             {/* Progress bar / Content */}
-            <div className="flex pointer-events-auto justify-center items-center font-medium bg-custom-light w-fit h-fit rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">
+            <div className="relative flex pointer-events-auto justify-center items-center font-medium bg-custom-light w-fit h-fit rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">
                 <motion.div
                     key={progressState} // Ensures animation only happens when state changes
                     initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
@@ -117,7 +117,7 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                 }}
                 target={progressState === "start" ? "_blank" : undefined}
                 rel={progressState === "start" ? "noreferrer" : undefined}
-                className="flex pointer-events-auto justify-center items-center font-medium bg-custom-light rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20 w-12 h-12"
+                className="flex relative pointer-events-auto justify-center items-center font-medium bg-custom-light rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur hover:border-opacity-20 w-12 h-12"
                 aria-label="Next action"
             >
                 <motion.div 

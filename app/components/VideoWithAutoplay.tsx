@@ -9,7 +9,7 @@ interface VideoWithAutoplay {
     className?: string
 }
 
-const VideoWithAutoplay = ({ asset, style, className }: VideoWithAutoplay) => {
+const VideoWithAutoplay = ({ asset, style, className = "" }: VideoWithAutoplay) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const isInView = useInView(videoRef, { amount: 0.25 });
 
@@ -26,7 +26,7 @@ const VideoWithAutoplay = ({ asset, style, className }: VideoWithAutoplay) => {
     return (
         <video
             ref={videoRef}
-            className={`relative z-10 max-h-[75vh] w-full highlight-card-assets ${className}`}
+            className={`relative z-10 max-h-[75vh] w-full h-full object-contain highlight-card-asset ${className}`}
             style={style}
             poster={asset.poster}
             playsInline

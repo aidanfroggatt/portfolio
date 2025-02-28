@@ -1,4 +1,34 @@
-export const about = [
+interface about {
+    type: string,
+    src?: string,
+    alt?: string,
+    title?: string,
+    text?: string,
+}
+
+interface experience {
+    company: string,
+    companyWebsite: string,
+    role: string,
+    team: string,
+    startDate: string,
+    endDate: string,
+    description: string,
+}
+
+interface award {
+    title: string,
+    association: string,
+    link: string,
+}
+
+
+export const about: about[] = [
+    // {
+    //     type: 'image',
+    //     src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/general_info%2Fimages%2Flake.JPG?alt=media&token=5fec35ba-2e93-4a6e-b006-f59c0bf6d4b0",
+    //     alt: "Standing by Lake"
+    // },
     {
         type: 'image',
         src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/general_info%2Fimages%2Fprofile_picture.jpg?alt=media&token=60ec3fd2-fa19-49d2-8415-09de9b701b86",
@@ -51,7 +81,7 @@ export const about = [
     },
 ];
 
-export const experience = [
+export const experience: experience[] = [
     {
         company: "IBM",
         companyWebsite: "https://www.ibm.com/products/watsonx-orchestrate",
@@ -90,7 +120,7 @@ export const experience = [
     }
 ];
 
-export const awards = [
+export const awards: award[] = [
     {
         title: "Best Environmental Hack",
         association: "MacHacks 3",

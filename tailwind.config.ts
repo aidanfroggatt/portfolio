@@ -35,7 +35,7 @@ export default {
         'work-page': '100% 135vh',
         'info-page': '100% 135vh',
         'project-page-md': '100% 135vh',
-        'project-page-default': '100% 65vh',
+        'project-page-default': '100% 450px',
         'main-page-mobile': '100% 450px',
       },
       width: {

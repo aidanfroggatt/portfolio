@@ -6,7 +6,7 @@ import { ImageCard } from "~/components/Card";
 import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { about, awards, experience } from "~/data/info";
+import { about, award, awards, experience } from "~/data/info";
 import { extractDomain } from "~/utils/Url";
 
 export const meta: MetaFunction = () => {
@@ -19,11 +19,7 @@ export const meta: MetaFunction = () => {
 const About = () => {
 
     // Render content based on the type of item
-    const renderContent = (
-        item: { type: string; src: string; alt: string; title?: undefined; text?: undefined; } | 
-        { type: string; title: string; text: string; src?: undefined; alt?: undefined; }, 
-        index: number
-    ) => {
+    const renderContent = (item: about, index: number) => {
         if (item.type === 'image') {
             return (
                 <motion.div
@@ -130,7 +126,7 @@ const Experience = () => {
                     <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">EXPERIENCE</div>
                 </div>
                 <div className="flex flex-col gap-y-16 md:gap-y-20 2xl:gap-y-28">
-                    {experience && experience.map((exp, index) => {
+                    {experience && experience.map((exp: experience, index) => {
                         return (
                             <div key={index} className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
                                 <motion.div
@@ -184,7 +180,7 @@ const Awards = () => {
                 </div>
                 <div className="flex flex-col">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-x-2">
-                        {awards && awards.map((award, index) => {
+                        {awards && awards.map((award: award, index) => {
                             return (
                                 <motion.div 
                                     key={index} 

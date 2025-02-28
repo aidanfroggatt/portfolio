@@ -1,4 +1,4 @@
-interface about {
+export interface about {
     type: string,
     src?: string,
     alt?: string,
@@ -6,7 +6,7 @@ interface about {
     text?: string,
 }
 
-interface experience {
+export interface experience {
     company: string,
     companyWebsite: string,
     role: string,
@@ -16,7 +16,7 @@ interface experience {
     description: string,
 }
 
-interface award {
+export interface award {
     title: string,
     association: string,
     link: string,

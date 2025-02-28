@@ -5,6 +5,7 @@ import { TfiArrowTopRight } from "react-icons/tfi";
 import LilypadIcon from "~/assets/LilypadIcon";
 import IconMenu from "~/components/IconMenu";
 import { mobileRoutes, routes, socials } from "~/data/general";
+import { useState, useRef } from "react";
 
 const Header = () => {
     const location = useLocation();
@@ -50,20 +51,7 @@ const Header = () => {
                 {mobileRoutes && navbarContent({routes: mobileRoutes})}
             </nav>
             <div className="pointer-events-auto hidden lg:flex font-medium fixed md:right-3 lg:right-12">
-                {socials && socials.map((social, index) => {
-                    return (
-                        <Link
-                            key={index}
-                            className="flex flex-row justify-start items-center text-sm px-3 py-2 gap-x-1 hover:bg-custom-light hover:bg-opacity-10 rounded-full"
-                            to={social.to}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {social.name}
-                            <TfiArrowTopRight/>
-                        </Link>
-                    )
-                })}
+                <SlideTabs tabs={socials}/>
             </div>
             <div className="pointer-events-auto fixed right-6 sm:right-12 lg:hidden flex">
                 <IconMenu initialIcon={<FiX className="w-9 h-9"/>} toggleIcon={<FiAtSign className="w-9 h-9"/>} menuOptions={socials}/>
@@ -72,5 +60,93 @@ const Header = () => {
         
     )
 }
+
+interface SlideTabsProps {
+    tabs: {
+        name: string;
+        to: string;
+    }[]
+}
+
+const SlideTabs = ({tabs}: SlideTabsProps) => {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  return (
+    <ul
+      onMouseLeave={() => {
+        setPosition((pv) => ({
+          ...pv,
+          opacity: 0,
+        }));
+      }}
+      className="relative mx-auto flex w-fit rounded-full"
+    >
+        {tabs.map((tab, index) => (
+            <Tab key={index} setPosition={setPosition} label={tab.name} to={tab.to}/>
+        ))}
+      <Cursor position={position} />
+    </ul>
+  );
+};
+
+interface TabProps {
+  label: string;
+  to: string;
+  setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number; opacity: number }>>;
+}
+
+const Tab = ({ label, to, setPosition }: TabProps) => {
+  const ref = useRef<HTMLLIElement>(null);
+
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref?.current) return;
+
+        const { width } = ref.current.getBoundingClientRect();
+
+        setPosition({
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }}
+    >
+      <Link
+        to={to}
+        className="relative z-10 flex items-center flex-row cursor-pointer mix-blend-difference text-sm px-3 py-2 gap-x-1 rounded-full"
+        target="_blank"
+        rel="noopener noreferrer"    
+    >
+        {label}
+        <TfiArrowTopRight/>
+      </Link>
+    </li>
+  );
+};
+
+interface CursorProps {
+  position: {
+    left: number;
+    width: number;
+    opacity: number;
+  };
+}
+
+const Cursor = ({ position }: CursorProps) => {
+  return (
+    <motion.li
+      animate={{
+        ...position,
+      }}
+      className="absolute h-9 rounded-full bg-custom-light bg-opacity-10"
+    />
+  );
+};
 
 export default Header;

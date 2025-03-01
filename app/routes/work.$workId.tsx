@@ -1,7 +1,7 @@
 import { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import Footer from "~/components/Footer";
-import { Content, VideoAsset, ImageAsset, work, HighlightItem } from "~/data/work";
+import { Content, VideoAsset, ImageAsset, work, HighlightItem, PDFAsset } from "~/data/work";
 import { hexToRGBA } from "~/utils/Color";
 import { getReactIconByName } from "~/utils/Icon";
 import { FaMountainSun } from "react-icons/fa6";
@@ -232,7 +232,7 @@ const WorkItemContent = () => {
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-8 md:gap-y-16">
-                        {contentSection.assets && contentSection.assets.map((asset: ImageAsset | VideoAsset, index) => (
+                        {contentSection.assets && contentSection.assets.map((asset: ImageAsset | VideoAsset | PDFAsset, index) => (
                             <div key={index} className="relative w-full flex flex-col items-center">
                                 {asset.type === 'VIDEO' ? (
                                     <VideoWithAutoplay asset={asset} />
@@ -241,6 +241,12 @@ const WorkItemContent = () => {
                                         className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
                                         src={asset.src}
                                         alt={asset.alt}
+                                    />
+                                ) : asset.type === 'PDF' ? (
+                                    <iframe
+                                        src={asset.src}
+                                        className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
+                                        title={asset.alt}
                                     />
                                 ) : (
                                     <p>Invalid asset type.</p>

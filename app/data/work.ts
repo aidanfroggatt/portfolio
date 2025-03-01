@@ -66,12 +66,18 @@ export interface VideoAsset {
   poster: string; // Required for VIDEO type
 }
 
+export interface PDFAsset {
+  src: string;
+  alt: string;
+  type: "PDF"
+}
+
 export interface Content {
   type: string;
   title: string;
   subtitle: string;
   description: string;
-  assets?: (ImageAsset | VideoAsset) [];
+  assets?: (ImageAsset | VideoAsset | PDFAsset) [];
 }
 
 interface Link {
@@ -276,6 +282,10 @@ export const work: Work[] = [
         {
           name: "Daniel Franze Da Silva",
           role: "Software Developer"
+        },
+        {
+          name: "Edward Gao",
+          role: "Software Developer"
         }
       ],
       technologies: [
@@ -322,6 +332,53 @@ export const work: Work[] = [
         },
       ]
     },
+    content: [
+      {
+        type: "Deliverable 1",
+        title: "Software Requirement Specification",
+        subtitle: "A cross platform secure chat application.",
+        description: "An outline of the purpose, product description, use case diagram, functional, and non functional requirements.",
+        assets: [
+          {
+            type: "PDF",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fdeliverables%2FSoftware_Requirement_Specification_D1.pdf?alt=media&token=a123fe2a-f9fe-40fc-ace5-0bb258fd8298",
+            alt: "Software Requirement Specification Report",
+          }
+        ]
+      },
+      {
+        type: "Deliverable 2",
+        title: "High Level Architecture",
+        subtitle: "Enabling encrypted communitcation for sensitive information.",
+        description: "Analysis class diagram, architectural design and rationale behind design decisions, and class responsibility collaboration cards detailing class responsibilities and interactions.",
+        assets: [
+          {
+            type: "PDF",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fdeliverables%2FHigh_Level_Architecture_D2.pdf?alt=media&token=021b639e-a8c1-4f05-8baa-ba7632c6b2fc",
+            alt: "High Level Architecture Report",
+          }
+        ]
+      },
+      {
+        type: "Deliverable 3",
+        title: "Detailed Architecture",
+        subtitle: "PAC architecture with repository sub-system.",
+        description: "Furthering the definition of the architecture through state chart diagrams, sequence diagrams, and a detailed class diagram.",
+        assets: [
+          {
+            type: "PDF",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fdeliverables%2FDetailed_Architecture_D3.pdf?alt=media&token=1298e687-70e1-4544-9da0-dee27cebd602",
+            alt: "Detailed Architecture Report",
+          }
+        ]
+      },
+      {
+        type: "Retrospective",
+        title: "A successful project with valuable insights.",
+        subtitle: "A secure chat app with Kerberos authentication and AES encryption.",
+        description: "The secure chat app was a success, providing valuable insights into secure chat applications and encryption.",
+      }
+    ],
     links: [
       {
         icon: "SiGithub",

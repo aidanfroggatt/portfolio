@@ -243,9 +243,10 @@ const WorkItemContent = () => {
                                         alt={asset.alt}
                                     />
                                 ) : asset.type === 'PDF' ? (
-                                    <iframe
-                                        src={asset.src}
+                                    <object
+                                        data={asset.src}
                                         className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
+                                        type="text/html"
                                         title={asset.alt}
                                     />
                                 ) : (

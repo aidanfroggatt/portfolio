@@ -154,11 +154,10 @@ export const work: Work[] = [
         },
         {
           asset: {
-            alt: "Demo Video",
-            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video.mov?alt=media&token=c1339d96-b832-43f0-9e9f-4b7ba5211d1b",
-            type: "VIDEO",
-            poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Fdemo-video%2Fburloak-insight-demo-video-poster.png?alt=media&token=b0c9e70a-5c8c-4247-befe-899e940fc72f",
-          },
+            alt: "Manager Recommendation",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2Frecommendation%2Feric-tenuta-recommendation.png?alt=media&token=8a52a2d7-cad1-447d-b3a6-3237b2dadc25",
+            type: "IMAGE"
+          }
         },
       ]
     },

@@ -37,7 +37,7 @@ export const meta: MetaFunction = ({ data }) => {
     const { projectInfo } = data;
     return [
         { title: `Aidan Froggatt — ${projectInfo ? projectInfo.title : "Work Item"}` },
-        { name: "description", content: "This is a list of all work samples." },
+        { name: "description", content: projectInfo.description ? projectInfo.description : "This is a work item." },
     ];
 };
 
@@ -150,6 +150,14 @@ const WorkItemHighlights = () => {
                                     className={"z-10 max-h-[75vh] w-full highlight-card-asset bg-highlight-card-asset"}
                                     style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.4)} as React.CSSProperties : {}}
                                     asset={highlight.asset} 
+                                />
+                            ) : highlight.asset.type === 'PDF' ? (
+                                <object
+                                    data={highlight.asset.src}
+                                    className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset bg-highlight-card-asset"
+                                    style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.4)} as React.CSSProperties : {}}
+                                    type="text/html"
+                                    title={highlight.asset.alt}
                                 />
                             ) : highlight.asset.type === 'IMAGE' ? (
                                 <img 

@@ -2,6 +2,7 @@ export interface Work {
   index: number;
   id: string;
   title: string;
+  subtitle?: string;
   association: string;
   description: string;
   image: Image;
@@ -50,7 +51,7 @@ interface Highlights {
 }
 
 export interface HighlightItem {
-  asset: VideoAsset | ImageAsset;
+  asset: VideoAsset | ImageAsset | PDFAsset;
 }
 
 export interface ImageAsset {
@@ -92,7 +93,8 @@ export const work: Work[] = [
     id: "burloak-insight",
     title: "Burloak Insight",
     association: "Burloak Technologies",
-    description: "Data analytics and report generation platform for additive manufacturing.",
+    subtitle: "Data analytics and report generation platform for additive manufacturing.",
+    description: "Burloak Insight is a powerful data analytics and report generation platform designed for additive manufacturing. By integrating PDF scrapers, a centralized database, and dynamic dashboards, it automates data access and analysis, enhancing operational efficiency and driving data-driven engineering decisions at Burloak Technologies.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fburloak-insight%2FOneDeviceMockup.png?alt=media&token=f330367d-4854-46b7-b62c-756dfec51f55",
       alt: "Burloak Insight Mockup",
@@ -255,7 +257,8 @@ export const work: Work[] = [
     index: 4,
     title: "Secure Chat App",
     association: "McMaster University",
-    description: "Kerberos authentication, AES encryption, and real-time chat.",
+    subtitle: "Kerberos authentication, AES encryption, and real-time chat.",
+    description: "A secure chat application featuring Kerberos authentication and AES encryption for real-time, protected messaging. Built with React Native, Firebase, Python, and Flask, this app ensures a robust and encrypted communication experience.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsecure-chat-app%2Fsecure_chat_app_hero.png?alt=media&token=a539da5f-142a-44f2-b6c1-181391f03ed6",
       alt: "Secure Chat App Mockup",
@@ -393,7 +396,8 @@ export const work: Work[] = [
     index: 5,
     title: "SnapCycle",
     association: "MacHacks 3",
-    description: "Award winning AI-powered recyclability detection app.",
+    subtitle: "Award winning AI-powered recyclability detection app.",
+    description: "SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fsnapcycle_hero.png?alt=media&token=e946bed8-2205-440a-b82e-687cc2dfdd6b",
       alt: "SnapCycle Mockup",
@@ -491,7 +495,8 @@ export const work: Work[] = [
     index: 0,
     title: "Swingers Golf",
     association: "Links Connect Inc.",
-    description: "Cross platform social networking app for connecting golfers.",
+    subtitle: "Cross platform social networking app for connecting golfers.",
+    description: "Swingers Golf is a cross-platform social networking app designed to connect golfers, making it easier to find like-minded players and improve their golfing experience. Built with React Native and TypeScript, it is the perfect platform to enhance your game.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.png?alt=media&token=968b2e35-f2d7-4ae5-84ef-a4f903589a1e",
       alt: "Swingers Golf Mockup",
@@ -641,66 +646,14 @@ export const work: Work[] = [
         ]
       }
     ],
-    // problem: {
-    //   painPoints: "Many golfers struggle with: Finding playing partners outside of their usual group. Organizing matches and events without a centralized platform. Building a golfing network beyond in-person connections.",
-    //   userNeeds: "Golfers need a way to: Connect with other golfers based on skill level, availability, and location. Organize and join games effortlessly. Track and share their golfing experiences.",
-    //   marketGaps: "Existing golf apps focus on tee-time bookings or score tracking but lack a strong social networking aspect. Swingers Golf fills this gap by prioritizing community-building and engagement.",
-    // },
-    // ideation: {
-    //   brainstorming: "I started by researching the golf community and existing solutions. Through surveys and discussions with golfers, I identified a need for a digital-first way to connect.",
-    //   features: "I mapped out the core features: Profile Creation – Users can showcase their golfing experience. Matchmaking – Find golfers with similar skill levels nearby. Live Score Sharing – Share scores and track progress.",
-    //   wireframes: "I created low-fidelity wireframes in Figma to visualize the user journey and iterate based on feedback."
-    // },
-    // design: {
-    //   layout: "A clean, intuitive layout ensures easy navigation. The main tabs include: Home – Personalized feed with updates from the golfing community. Matches – Suggested playing partners based on skill and availability. Events – Browse and join local golf events. Profile – Track achievements and game history.",
-    //   mockups: [
-    //     {
-    //       alt: "Landing Screen",
-    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-landing-mockup.png?alt=media&token=bebbacff-81dc-46f0-a68a-7e9f77670cfa",
-    //       type: "IMAGE"
-    //     },
-    //     {
-    //       alt: "Rounds Screen",
-    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-round-mockup.png?alt=media&token=fc51bea9-4a85-436d-a1bb-c86d196c68bf",
-    //       type: "IMAGE"
-    //     },
-    //     {
-    //       alt: "Round Details Screen",
-    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-round-details-mockup.png?alt=media&token=66b557f6-4c4b-4815-a40f-606c5bb5e095",
-    //       type: "IMAGE"
-    //     },
-    //     {
-    //       alt: "Create Round Screen",
-    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-create-round-mockup.png?alt=media&token=cf26a0f9-9f21-4c8e-b9d3-c16ea48c7a73",
-    //       type: "IMAGE"
-    //     },
-    //     {
-    //       alt: "Profile Screen",
-    //       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fmockups%2Fswingers-profile-mockup.png?alt=media&token=97842eb4-68d7-4a08-a189-750f7f441551",
-    //       type: "IMAGE"
-    //     }
-    //   ]
-    // },
-    // building: {
-    //   stack: "Frontend: React Native (Expo) & TypeScript, Backend: Laravel (PHP) & MySQL, Real-time Communication: WebSockets",
-    //   architecture: "Architecture blah blah blah ...",
-    //   development: "Development blah blah blah ..."
-    // },
-    // testing: {
-    //   internalTesting: "I ran early tests to identify performance bottlenecks and usability issues.",
-    //   betaTesting: "Currently, OSU golf management students are testing the app. Their feedback helps refine the matchmaking and event organization features.",
-    // },
-    // status: {
-    //   currentStatus: "The app is in beta testing with OSU golf management students. We're refining the matchmaking algorithm and event organization features based on their feedback.",
-    //   nextSteps: "After beta testing, we plan to launch the app to the broader golfing community. We'll continue to iterate based on user feedback and expand to other golfing markets."
-    // }
   },
   {
     id: "gdg",
     index: 1,
     title: "Google Developer Group",
     association: "McMaster University",
-    description: "Enhancing digital presence and engagement on all platforms.",
+    subtitle: "Enhancing digital presence and engagement on all platforms.",
+    description: "Led the design and development of the Google Developer Group at McMaster University's digital presence. Enhanced engagement and visibility across all platforms with websites, rebranding, and a successful annual hackathon, Mac-a-thon.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2FThreeDeviceMockup.png?alt=media&token=721ae497-1052-4088-b747-98556f4d71fc",
       alt: "GDG Icon"
@@ -893,7 +846,8 @@ export const work: Work[] = [
     id: "code-warriors",
     title: "CodeWarriors",
     association: "DeltaHacks IX",
-    description: "A gamified platform for teaching coding.",
+    subtitle: "A gamified platform for teaching coding.",
+    description: "CodeWarriors is a gamified platform designed to teach coding through fun and interactive challenges. Developed for new coders, it makes learning programming concepts engaging and accessible.",
     image: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fcodewarriors-mockup.png?alt=media&token=5c09848e-0984-4188-9954-8dce2b4ea900",
       alt: "CodeWarriors Mockup"
@@ -990,6 +944,7 @@ export const work: Work[] = [
     index: 3,
     id: "portfolio",
     title: "Portfolio",
+    subtitle: "",
     association: "Aidan Froggatt",
     description: "",
     image: {
@@ -1253,26 +1208,122 @@ export const work: Work[] = [
     id: "acme-run",
     title: "ACME Run",
     association: "McMaster University",
-    description: "",
+    description: "ACME Run is a gamified fitness platform combining curated running trails and heart rate monitoring to provide a dynamic fitness experience. Designed for North American users, it promotes community engagement and user safety through local partnerships. The project focuses on requirements engineering and system architecture, with a vision to make fitness more accessible and enjoyable.",
     image: {
-      src: "",
-      alt: ""
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Facme-run-index-mockup.png?alt=media&token=02444408-c982-49e7-ab0f-61a8f7fd45dd",
+      alt: "ACME Run Mockup"
     },
     color: "#7A003C",
     spotlight: false,
-    startDate: new Date(),
+    startDate: new Date('2023-09-07'),
+    endDate: new Date('2023-12-06'),
     overview: {
-      description: "",
+      description: "ACME Run aims to address the unmet need for an engaging fitness solution in North America. It combines gamified workouts with curated running trails and heart rate monitoring to create a dynamic fitness experience, while fostering community engagement and user safety through local partnerships like McMaster.",
       role: {
-        title: "",
-        description: ""
+        title: "Architect",
+        description: "Project planning, architecture, requirements engineering."
       },
-      technologies: []
+      team: [
+        {
+          name: "Monica Bazina-Grolinger",
+          role: "Architect"
+        },
+        {
+          name: "Kate Min",
+          role: "Architect"
+        }
+      ],
+      technologies: [
+        {
+          icon: "SiAsciidoctor",
+          name: "Asciidoctor"
+        },
+        {
+          icon: "SiUml",
+          name: "UML"
+        }
+      ]
     },
     highlights: {
-      description: "",
-      items: []
+      description: "Requirements engineering for a dynamic fitness solution.",
+      items: [
+        {
+          asset: {
+            alt: "Project Report",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Findex.pdf?alt=media&token=349699e4-ac09-4072-8193-38810e926140",
+            type: "PDF"
+          }
+        }
+      ]
     },
+    content: [
+      {
+        type: "CONTEXT",
+        title: "A need for a dynamic fitness solution.",
+        subtitle: "Reimagining fitness in North America",
+        description: "ACME Run aims to address the unmet need for an engaging fitness solution in North America. The platform combines gamified workouts with curated running trails and heart rate monitoring to create a dynamic fitness experience.",
+      },
+      {
+        type: "GOALS",
+        title: "Making fitness more accessible.",
+        subtitle: "Creating a dynamic and enjoyable fitness experience for all",
+        description: "ACME RUN is a gamified fitness app offering personalized workouts through curated trails and heart rate monitoring, aiming to make fitness more accessible, enjoyable, and community-focused.",
+        assets: [
+          {
+            alt: "High Level Use Case Diagram",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fuse-case-diagram.svg?alt=media&token=1b318af1-e61b-4180-b186-ab9558dce7bf",
+            type: "IMAGE"
+          }
+        ]
+      },
+      {
+        type: "ENVIRONMENT",
+        title: "Domain in focus.",
+        subtitle: "Understanding the fitness ecosystem and user needs",
+        description: "Defining the components, constraints, assumptions, effects, and invariants of the ACME Run domain to understand the fitness ecosystem and user needs.",
+        assets: [
+          {
+            alt: "Domain Model",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fdomain-model.svg?alt=media&token=a40b887d-3fed-40b7-8ec3-6407ffbea9ee",
+            type: "IMAGE"
+          }
+        ]
+      },
+      {
+        type: "SYSTEM",
+        title: "Constructing the architecture.",
+        subtitle: "The components required to create a dynamic fitness solution",
+        description: "Illustrating the components, functionality, interfaces, usage scenarios, and prioritization of the ACME Run system.",
+        assets: [
+          {
+            alt: "Components Model",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fcomponents-model.svg?alt=media&token=740db715-7d70-4ea3-9e84-6009e0eefd75",
+            type: "IMAGE"
+          },
+          {
+            alt: "API Diagram",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fapi-diagram.svg?alt=media&token=51eca081-ecff-4919-b842-dbae48802afd",
+            type: "IMAGE"
+          },
+          {
+            alt: "Activity Update Diagram",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Factivity-update-diagram.svg?alt=media&token=0bda1243-73d2-4361-ad7e-615b942746d2",
+            type: "IMAGE"
+          },
+          {
+            alt: "Activity Run Diagram",
+            src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Factivity-run-diagram.svg?alt=media&token=718ad6cc-f640-4694-92ae-df3101ecbad8",
+            type: "IMAGE"
+          }
+        ]
+      }, 
+      {
+        type: "RETROSPECTIVE",
+        title: "A learning experience in requirements engineering.",
+        subtitle: "The importance and impact of requirements engineering",
+        description: "ACME Run was a valuable learning experience in requirements engineering. The project required a deep understanding of user needs and system requirements to create a successful fitness solution.",
+      }
+    ],
     navLink: ""
   }
 ];

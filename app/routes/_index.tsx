@@ -125,7 +125,7 @@ const WorkCards = () => {
                   </div>
                   <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
                     {item.association}&nbsp;
-                    <span className="text-custom-light text-opacity-50">— {item.description}</span>
+                    <span className="text-custom-light text-opacity-50">— {item.subtitle}</span>
                   </div>
                 </div>
                 <div className="pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">

@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-mot
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { Work } from "~/data/work";
+import { hexToRGBA } from "~/utils/Color";
 
 interface ProgressBarProps {
   work: Work;
@@ -59,7 +60,20 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     exit={{ opacity: 0, y: -10, filter: "blur(10px)" }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="relative flex justify-between items-center w-52 md:w-64 h-12 rounded-full gap-x-2 overflow-hidden px-4"
+                    style={
+                        progressState === "start" && work.color
+                          ? {
+                              "--project-color": hexToRGBA(work.color, 0.5),
+                              "--selection-text-color": "#f2f2f2",
+                            } as React.CSSProperties
+                          : progressState === "complete" && nextWork.color
+                          ? {
+                              "--project-color": hexToRGBA(nextWork.color, 0.5),
+                              "--selection-text-color": "#f2f2f2",
+                            } as React.CSSProperties
+                          : {}
+                    }                      
+                    className="project-selection relative flex justify-between items-center w-52 md:w-64 h-12 rounded-full gap-x-2 overflow-hidden px-4"
                 >
                     {progressState === "start" && (
                         <>

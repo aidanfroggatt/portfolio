@@ -212,3 +212,8 @@
     border-radius: 2vmax;
     z-index: 2;
 }
+
+.project-selection::selection {
+    background-color: var(--project-color);
+    color: #f2f2f2;
+}  

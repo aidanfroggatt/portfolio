@@ -158,6 +158,7 @@ const WorkItemHighlights = () => {
                                     style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.4)} as React.CSSProperties : {}}
                                     type="text/html"
                                     title={highlight.asset.alt}
+                                    aria-label={highlight.asset.alt}
                                 />
                             ) : highlight.asset.type === 'IMAGE' ? (
                                 <img 
@@ -256,6 +257,7 @@ const WorkItemContent = () => {
                                         className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
                                         type="text/html"
                                         title={asset.alt}
+                                        aria-label={asset.alt}
                                     />
                                 ) : (
                                     <p>Invalid asset type.</p>
@@ -285,8 +287,15 @@ const WorkItem = () => {
         <>
             {projectInfo && nextProject && <ProgressBar work={projectInfo} nextWork={nextProject} targetRef={mainRef}/>}
             <main 
-                className="md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page gap-y-16 md:gap-y-40 pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
-                style={projectInfo?.color ? {'--project-color': hexToRGBA(projectInfo.color, 0.5)} as React.CSSProperties : {}}
+                className="project-selection md:bg-project-page-md bg-project-page-default md:bg-project-page bg-project-page gap-y-16 md:gap-y-40 pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
+                style={
+                    projectInfo?.color
+                      ? {
+                          '--project-color': hexToRGBA(projectInfo.color, 0.5),
+                          '--selection-text-color': '#f2f2f2', // white text when project color exists
+                        } as React.CSSProperties
+                      : {}
+                  }
                 ref={mainRef}
             >
                     <WorkItemHero />

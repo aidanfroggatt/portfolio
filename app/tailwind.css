@@ -72,3 +72,8 @@ p {
 ::-webkit-scrollbar-thumb:active {
     cursor: grabbing;
 }
+
+::selection {
+    background-color: var(--project-color, #f2f2f2);
+    color: var(--selection-text-color, #101010); /* white if set, black if not */
+}  

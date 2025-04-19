@@ -87,7 +87,7 @@ export const experience: experience[] = [
         companyWebsite: "https://www.ibm.com/products/watsonx-orchestrate",
         role: "Software Engineer Intern",
         team: "Human Centric Processing",
-        startDate: "May 2024",
+        startDate: "05/'24",
         endDate: "Present",
         description: "watsonx Orchestrate and Business Automation Workflow.",
     },

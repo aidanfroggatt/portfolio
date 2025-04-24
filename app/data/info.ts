@@ -16,6 +16,16 @@ export interface experience {
     description: string,
 }
 
+export interface involvement { 
+    company: string,
+    companyWebsite: string,
+    role: string,
+    team: string,
+    startDate: string,
+    endDate: string,
+    description: string,
+}
+
 export interface award {
     title: string,
     association: string,
@@ -83,22 +93,22 @@ export const about: about[] = [
 
 export const experience: experience[] = [
     {
+        company: "Tesla",
+        companyWebsite: "https://www.tesla.com/we-robot",
+        role: "Software Engineer Intern",
+        team: "Engineering Automation Software",
+        startDate: "05/'25",
+        endDate: "Present",
+        description: "Having some fun making useful tools.",
+    },
+    {
         company: "IBM",
         companyWebsite: "https://www.ibm.com/products/watsonx-orchestrate",
         role: "Software Engineer Intern",
         team: "Human Centric Processing",
         startDate: "05/'24",
-        endDate: "Present",
+        endDate: "04/'25",
         description: "watsonx Orchestrate and Business Automation Workflow.",
-    },
-    {
-        company: "Google Developer Group",
-        companyWebsite: "https://gdg.community.dev/gdg-on-campus-mcmaster-university-hamilton-canada/",
-        role: "Team Lead",
-        team: "Marketing & Branding",
-        startDate: "05/'24",
-        endDate: "Present",
-        description: "Enhancing digital presence and engagement through design and development.",
     },
     {
         company: "Burloak Technologies",
@@ -119,6 +129,18 @@ export const experience: experience[] = [
         description: "Developed Shopify theme app extension and plugin to help launch startup.",
     }
 ];
+
+export const involvement: involvement[] = [
+    {
+        company: "Google Developer Group",
+        companyWebsite: "https://gdg.community.dev/gdg-on-campus-mcmaster-university-hamilton-canada/",
+        role: "Team Lead",
+        team: "Marketing & Branding",
+        startDate: "05/'24",
+        endDate: "Present",
+        description: "Enhancing digital presence and engagement through design and development.",
+    },
+]
 
 export const awards: award[] = [
     {

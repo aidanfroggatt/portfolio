@@ -11,22 +11,11 @@ import { motion } from "framer-motion";
 export const meta: MetaFunction = () => {
   return [
     { title: "Aidan Froggatt — Software Engineer Intern" },
-    { name: "description", content: "Hi, I'm Aidan. Currently a Software Engineer Intern at IBM." },
+    { name: "description", content: "Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM." },
   ];
 };
 
 const Hero = () => {
-  const generalInfo = {
-    firstName: "Aidan",
-    currentRole: {
-      title: "Software Engineer Intern",
-      company: {
-        name: "IBM",
-        icon: "SiIbm",
-      },
-    },
-    location: "Toronto",
-  };
   return (
     <section id="hero">
       <div id="hero-content" className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-opacity-10 border-custom-light">
@@ -47,10 +36,10 @@ const Hero = () => {
             Hi, I&apos;m <span className="h1-accent">Aidan.</span>
           </h1>
           <div className="flex flex-row justify-center items-center font-bold">
-            {generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.
+            Software Engineer Intern at Tesla.
           </div>
           <div className="text-custom-light text-opacity-50">
-            Based in {generalInfo.location}.
+            Previously at IBM.
           </div>
         </motion.div>
         <motion.div 
@@ -85,8 +74,8 @@ const Hero = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end text-custom-light">
-                  <h4>{generalInfo.currentRole.title} at {generalInfo.currentRole.company.name}.</h4>
-                  <div className="text-custom-light text-opacity-50"> Based&nbsp;in&nbsp;{generalInfo.location}. </div>
+                  <span className="font-semibold text-base md:text-xl 2xl:text-2xl">Software Engineer Intern at Tesla.</span>
+                  <span className="text-sm md:text-base 2xl:text-lg text-custom-light text-opacity-50"> Previously&nbsp;at&nbsp;IBM. </span>
               </div>
             </div>
           </MacWindowCard>

@@ -6,7 +6,7 @@ import { ImageCard } from "~/components/Card";
 import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
-import { about, award, awards, experience } from "~/data/info";
+import { about, award, awards, experience, involvement } from "~/data/info";
 import { extractDomain } from "~/utils/Url";
 
 export const meta: MetaFunction = () => {
@@ -170,6 +170,59 @@ const Experience = () => {
     )
 }
 
+const Involvement = () => {
+    return (
+        <section id="involvement">
+            <div id="involvement-content" className="flex border-t border-opacity-20 border-custom-light py-10 md:py-16 flex-col gap-y-2 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+                <div className="flex flex-row justify-start items-center gap-x-2 md:gap-x-4">
+                    <Dot/>
+                    <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">INVOLVEMENT</div>
+                </div>
+                <div className="flex flex-col gap-y-16 md:gap-y-20 2xl:gap-y-28">
+                    {involvement && involvement.map((inv: involvement, index) => {
+                        return (
+                            <div key={index} className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 justify-start items-start">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.5,
+                                    }}
+                                    viewport={{
+                                        amount: 0.5,
+                                        once: true,
+                                    }}
+                                >
+                                    <h2 className="md:flex-grow text-shadow-mobile md:text-shadow">
+                                        <a href={inv.companyWebsite} target="_blank" rel="noopener noreferrer">{inv.company}</a>
+                                    </h2>
+                                </motion.div>
+                                <motion.div
+                                    className="flex flex-col items-start justify-start"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.5,
+                                    }}
+                                    viewport={{
+                                        amount: "some",
+                                        once: true,
+                                    }}
+                                >
+                                    <h4 className="mt-3 md:mt-0">{inv.role}</h4>
+                                    <h5>{inv.team &&<span className="text-custom-light text-opacity-70">{inv.team}</span>}</h5>
+                                    <span className="text-custom-light text-opacity-50 text-sm md:text-base 2xl:text-lg mt-2 md:mt-1.5 2xl:mt-2">{inv.startDate} - {inv.endDate}</span>
+                                    <p className="text-custom-light text-opacity-60 mt-3 md:mt-4 2xl:mt-6">{inv.description}</p>
+                                </motion.div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    )
+}
+
 const Awards = () => {
     return (
         <section id="awards">
@@ -223,6 +276,7 @@ export default function Info() {
             <main className="relative bg-main-page-mobile md:bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
                 <About />
                 <Experience />
+                <Involvement />
                 <Awards />
             </main>
             <Footer />

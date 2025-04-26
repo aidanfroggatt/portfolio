@@ -108,7 +108,7 @@ export const experience: experience[] = [
         team: "Human Centric Processing",
         startDate: "05/'24",
         endDate: "04/'25",
-        description: "watsonx Orchestrate and Business Automation Workflow.",
+        description: "Building watsonx Orchestrate and Business Automation Workflow.",
     },
     {
         company: "Burloak Technologies",
@@ -117,7 +117,7 @@ export const experience: experience[] = [
         team: "Burloak Insight",
         startDate: "05/'23",
         endDate: "06/'23",
-        description: "Architected an internal company platform for data entry, data analysis, report generation, and guiding engineering decisions.",
+        description: "Architected and created an internal company platform for data entry, data analysis, report generation, and guiding engineering decisions.",
     },
     {
         company: "Universole Fit",

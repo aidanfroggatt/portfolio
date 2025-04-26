@@ -89,7 +89,7 @@ interface Link {
 
 export const work: Work[] = [
   {
-    index: 2,
+    index: 3,
     id: "burloak-insight",
     title: "Burloak Insight",
     association: "Burloak Technologies",
@@ -254,7 +254,7 @@ export const work: Work[] = [
   },
   {
     id: "secure-chat-app",
-    index: 4,
+    index: 5,
     title: "Secure Chat App",
     association: "McMaster University",
     subtitle: "Kerberos authentication, AES encryption, and real-time chat.",
@@ -393,7 +393,7 @@ export const work: Work[] = [
   },
   {
     id: "snapcycle",
-    index: 5,
+    index: 6,
     title: "SnapCycle",
     association: "MacHacks 3",
     subtitle: "Award winning AI-powered recyclability detection app.",
@@ -492,7 +492,7 @@ export const work: Work[] = [
   },
   {
     id: "swingers-golf",
-    index: 0,
+    index: 1,
     title: "Swingers Golf",
     association: "Links Connect Inc.",
     subtitle: "Cross platform social networking app for connecting golfers.",
@@ -649,7 +649,7 @@ export const work: Work[] = [
   },
   {
     id: "gdg",
-    index: 1,
+    index: 2,
     title: "Google Developer Group",
     association: "McMaster University",
     subtitle: "Enhancing digital presence and engagement on all platforms.",
@@ -842,7 +842,7 @@ export const work: Work[] = [
     navLink: "https://gdscmcmasteru.ca",
   },
   {
-    index: 6,
+    index: 7,
     id: "code-warriors",
     title: "CodeWarriors",
     association: "DeltaHacks IX",
@@ -941,7 +941,7 @@ export const work: Work[] = [
     navLink: "https://devpost.com/software/code-warriors"
   },
   {
-    index: 3,
+    index: 4,
     id: "portfolio",
     title: "Portfolio",
     subtitle: "",
@@ -1049,7 +1049,7 @@ export const work: Work[] = [
     navLink: "https://aidanfroggatt.com"
   },
   {
-    index: 7,
+    index: 8,
     id: "island-generator",
     title: "Island Generator",
     association: "McMaster University",
@@ -1125,7 +1125,7 @@ export const work: Work[] = [
     navLink: "https://github.com/aidanfroggatt/IslandGenerator"
   },
   // {
-  //   index: 8,
+  //   index: 000000,
   //   id: "cotern",
   //   title: "Cotern",
   //   association: "Freelance",
@@ -1204,7 +1204,7 @@ export const work: Work[] = [
   //   navLink: "https://github.com/aidanfroggatt/cotern"
   // },
   {
-    index: 8,
+    index: 9,
     id: "acme-run",
     title: "ACME Run",
     association: "McMaster University",
@@ -1325,5 +1325,123 @@ export const work: Work[] = [
       }
     ],
     navLink: ""
-  }
+  },
+  // {
+  //   index: 0,
+  //   spotlight: true,
+  //   id: "watsonx-orchestrate",
+  //   title: "watsonx Orchestrate",
+  //   association: "IBM",
+  //   subtitle: "AI-powered digital employee platform.",
+  //   description: "Developed scalable and user-centric features for watsonx Orchestrate, an AI-powered digital employee platform designed to automate repetitive tasks for enterprise users.",
+  //   image: {
+  //     src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fwxo-mockup.png?alt=media&token=e1f62f76-401c-434d-a83e-11aeb6d70d69",
+  //     alt: "IBM watsonx Orchestrate"
+  //   },
+  //   color: "#5C88DA",
+  //   startDate: new Date("2024-05-01"),
+  //   endDate: new Date("2025-04-25"),
+  //   overview: {
+  //     description: "watsonx Orchestrate empowers users to interact with AI through natural language to streamline workflows, automate repetitive tasks, and boost productivity. The platform integrates with enterprise tools and uses generative AI to create digital employees that help knowledge workers handle HR, sales, and operations tasks more efficiently.",
+  //     role: {
+  //       title: "Software Engineer Intern",
+  //       description: "Building automation tooling, testing suites, and validation frameworks."
+  //     },
+  //     technologies: [
+  //       { icon: "SiReact", name: "React" },
+  //       { icon: "SiNodedotjs", name: "Node.js" },
+  //       { icon: "SiTypescript", name: "TypeScript" },
+  //       { icon: "SiCss3", name: "SCSS" },
+  //       { icon: "SiRedux", name: "Redux" },
+  //       { icon: "FaJava", name: "Java" },
+  //       { icon: "SiJunit5", name: "JUnit" },
+  //       { icon: "SiSelenium", name: "Selenium" },
+  //       { icon: "SiGooglechrome", name: "Chrome Web Driver" },
+  //       { icon: "SiJenkins", name: "Jenkins" },
+  //       { icon: "SiJfrog", name: "JFrog" },
+  //       { icon: "SiUbuntu", name: "Ubuntu" },
+  //       { icon: "FiGitBranch", name: "IBM Rational Team Concert" },
+  //       { icon: "SiJira", name: "Jira" },
+  //       { icon: "SiDocker", name: "Docker" },
+  //       { icon: "SiGithub", name: "GitHub" },
+  //       { icon: "FiTerminal", name: "Batch Scripts" },
+  //       { icon: "SiEclipseide", name: "Eclipse IDE" },
+  //       { icon: "SiEslint", name: "ESLint" },
+  //       { icon: "SiFigma", name: "Figma" },
+  //       { icon: "SiWebpack", name: "Webpack" },
+  //       { icon: "SiBox", name: "Box" },
+  //     ],
+  //     team: [
+  //       {
+  //         name: "Dan Cho",
+  //         role: "Engineering Manager"
+  //       },
+  //       {
+  //         name: "Konrad Kolosowski",
+  //         role: "Team Lead"
+  //       },
+  //       {
+  //         name: "Harold Gartner",
+  //         role: "Software Developer"
+  //       },
+  //       {
+  //         name: "Craig Salter",
+  //         role: "Software Developer"
+  //       },
+  //       {
+  //         name: "George Spanogiannopoulos",
+  //         role: "Software Developer"
+  //       },
+  //       {
+  //         name: "Nicholas Tocco",
+  //         role: "Software Developer"
+  //       },
+  //       {
+  //         name: "David Chung",
+  //         role: "Software Developer"
+  //       }
+  //     ]
+  //   },
+  //   highlights: {
+  //     description: "Building automation tooling, testing suites, and validation frameworks.",
+  //     items: [
+  //       {
+  //         asset: {
+  //           alt: "Workflow Designer",
+  //           src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fexample-workflow.png?alt=media&token=e37e49e1-3d2b-40c7-be45-1e7dba4aed09",
+  //           type: "IMAGE"
+  //         }
+  //       },
+  //     ],
+  //   },
+  //   links: [
+  //     {
+  //       icon: "FaGlobe",
+  //       link: "https://www.ibm.com/products/watsonx-orchestrate",
+  //       name: "Website"
+  //     }
+  //   ],
+  //   navLink: "https://www.ibm.com/products/watsonx-orchestrate",
+  //   content: [
+  //     {
+  //       type: "CONTEXT",
+  //       title: "A new way to work.",
+  //       subtitle: "Empowering users to automate repetitive tasks",
+  //       description: "watsonx Orchestrate is an AI-powered digital employee platform that empowers users to interact with AI through natural language to streamline workflows, automate repetitive tasks, and boost productivity.",
+  //       assets: [
+  //         {
+  //           alt: "Animated Diagram",
+  //           src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fwxo-banner.gif?alt=media&token=634d26cf-d03e-4883-9bab-bdde442d6e5e",
+  //           type: "IMAGE"
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       type: "RETROSPECTIVE",
+  //       title: "An incredible learning experience",
+  //       subtitle: "Reflections on engineering growth and team collaboration",
+  //       description: "I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.",
+  //     }
+  //   ]    
+  // }  
 ];

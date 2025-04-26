@@ -52,7 +52,7 @@ const Hero = () => {
           }}
         >
           <MacWindowCard>
-            <div id="shine-animation" className="shine-wrapper">
+            <div id="shine-animation" className="shine-wrapper pointer-events-none">
                 <div className="shine-small" />
                 <div className="shine-big" />
             </div>

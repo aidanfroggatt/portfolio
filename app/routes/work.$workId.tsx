@@ -16,7 +16,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     const currentProject = work.find((item) => item.id === params.workId);
 
     if (!currentProject) {
-        return { projectInfo: null, nextProject: null };
+        throw new Response("Not Found", { status: 404 });
     }
 
     // Find the next project by index

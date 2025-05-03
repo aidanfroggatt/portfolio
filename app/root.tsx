@@ -4,11 +4,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
 import stylesheet from "~/tailwind.css?url";
 import styles from "~/global.css?url";
+import NotFound from "./components/NotFound";
 
 export const links: LinksFunction = () => [
   {
@@ -63,6 +65,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <html lang="en">
+      <head>
+        <title>Oops!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <NotFound />
         <Scripts />
       </body>
     </html>

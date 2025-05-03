@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export const meta: MetaFunction = () => {
     return [
         { title: "Aidan Froggatt — Work" },
-        { name: "description", content: "This is an list of all work samples." },
+        { name: "description", content: "This is a list of all work samples." },
     ];
 };
 

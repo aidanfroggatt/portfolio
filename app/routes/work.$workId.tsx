@@ -437,7 +437,7 @@ const WorkItem = () => {
       >
         <WorkItemHero />
         <WorkItemOverview />
-        <WorkItemHighlights />s
+        <WorkItemHighlights />
         <WorkItemContent />
       </main>
       <Footer />

@@ -1,219 +1,253 @@
 /*DEFAULT CARD*/
 .card-container {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    border: rgba(255, 255, 255, 0.1) 1px solid;
-    padding: 0.5vmax;
-    border-radius: 2vmax;
-    width: auto;
-    height: auto;
-    background-color: #191919;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border: rgba(255, 255, 255, 0.1) 1px solid;
+  padding: 0.5vmax;
+  border-radius: 2vmax;
+  width: auto;
+  height: auto;
+  background-color: #191919;
+  position: relative;
 }
 
 .card-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.15vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #f2f2f2 50%, rgba(255, 255, 255, 0)) 100%;
-    border-radius: 2vmax;
-    z-index: 2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15vh;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      #f2f2f2 50%,
+      rgba(255, 255, 255, 0)
+    )
+    100%;
+  border-radius: 2vmax;
+  z-index: 2;
 }
 
-
 .card {
-    --card-color: transparent;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    justify-items: center;
-    border: rgba(255, 255, 255, 0.2) 1px solid;
-    width: 100%;
-    height: 100%;
-    border-radius: 1.25vmax;
-    transition: background-color 0.5s ease;
-    overflow: hidden;
+  --card-color: transparent;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  border: rgba(255, 255, 255, 0.2) 1px solid;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25vmax;
+  transition: background-color 0.5s ease;
+  overflow: hidden;
 }
 
 .card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.15vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, #f2f2f2 50%, rgba(255, 255, 255, 0) 75%);
-    border-radius: 1.25vmax;
-    z-index: 2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15vh;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 25%,
+    #f2f2f2 50%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  border-radius: 1.25vmax;
+  z-index: 2;
 }
 
 @media (hover: none) {
-    .card {
-        background-image: radial-gradient(circle farthest-side at 50% 0, var(--card-color), rgba(0, 0, 0, 0));
-    }
+  .card {
+    background-image: radial-gradient(
+      circle farthest-side at 50% 0,
+      var(--card-color),
+      rgba(0, 0, 0, 0)
+    );
+  }
 }
 
 @media (hover: hover) {
-    .card-background {
-        --card-color: transparent;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(circle farthest-side at 50% 0, var(--card-color), rgba(0, 0, 0, 0));
-        pointer-events: none;
-    }
+  .card-background {
+    --card-color: transparent;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      circle farthest-side at 50% 0,
+      var(--card-color),
+      rgba(0, 0, 0, 0)
+    );
+    pointer-events: none;
+  }
 }
 
 .card-image {
-    transition: bottom 0.25s ease;
-    transform: translateX(-50%);
+  transition: bottom 0.25s ease;
+  transform: translateX(-50%);
 }
 
 /*HIGHLIGHT CARD*/
 .highlight-card {
-    --highlight-card-accent-color: rgba(242, 242, 242, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    gap: 10vh;
-    border: rgba(255, 255, 255, 0.1) 1px solid;
-    padding: 4vmax;
-    border-radius: 2vmax;
-    height: auto;
-    background-color: rgba(242, 242, 242, 0.04);
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8);
-    position: relative; /* Ensure pseudo-element is positioned relative to the card */
+  --highlight-card-accent-color: rgba(242, 242, 242, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 10vh;
+  border: rgba(255, 255, 255, 0.1) 1px solid;
+  padding: 4vmax;
+  border-radius: 2vmax;
+  height: auto;
+  background-color: rgba(242, 242, 242, 0.04);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 0, 0, 0.2),
+    0 30px 120px rgba(0, 0, 0, 0.8);
+  position: relative; /* Ensure pseudo-element is positioned relative to the card */
 }
 
 .highlight-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.15vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--highlight-card-accent-color), rgba(255, 255, 255, 0)); /* Use your accent color here */
-    border-radius: 2vmax;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15vh;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    var(--highlight-card-accent-color),
+    rgba(255, 255, 255, 0)
+  ); /* Use your accent color here */
+  border-radius: 2vmax;
 }
 
 .highlight-card-asset {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    border: rgba(255, 255, 255, 0.1) 1px solid;
-    border-radius: 2vmax;
-    height: auto;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  border: rgba(255, 255, 255, 0.1) 1px solid;
+  border-radius: 2vmax;
+  height: auto;
+  position: relative;
 }
 
 .highlight-card-asset::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.15vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(242, 242, 242, 0.1), rgba(255, 255, 255, 0)); /* Use your accent color here */
-    border-radius: 2vmax;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15vh;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(242, 242, 242, 0.1),
+    rgba(255, 255, 255, 0)
+  ); /* Use your accent color here */
+  border-radius: 2vmax;
 }
 
 /*MAC WINDOW CARD*/
 @keyframes shineAnimation {
-    0% {
-        transform: translateX(-100%) rotate(15deg);
-        opacity: 0.15;
-    }
-    45% {
-        transform: translateX(100%) rotate(15deg);
-        opacity: 0.15;
-    }
-    55% {
-        transform: translateX(100%) rotate(15deg);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(-100%) rotate(15deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateX(-100%) rotate(15deg);
+    opacity: 0.15;
+  }
+  45% {
+    transform: translateX(100%) rotate(15deg);
+    opacity: 0.15;
+  }
+  55% {
+    transform: translateX(100%) rotate(15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-100%) rotate(15deg);
+    opacity: 0;
+  }
 }
 
 .shine-wrapper {
-    grid-column-gap: 24px;
-    opacity: .15;
-    filter: blur(12px);
-    height: 200%;
-    padding-bottom: 0;
-    padding-right: 0;
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transform: rotate(15deg);
-    animation: shineAnimation 4s linear infinite;
+  grid-column-gap: 24px;
+  opacity: 0.15;
+  filter: blur(12px);
+  height: 200%;
+  padding-bottom: 0;
+  padding-right: 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: rotate(15deg);
+  animation: shineAnimation 4s linear infinite;
 }
 
 .shine-big {
-    width: 96px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-    display: block;
-    unicode-bidi: isolate;
+  width: 96px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  display: block;
+  unicode-bidi: isolate;
 }
 
 .shine-small {
-    width: 40px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-    display: block;
-    unicode-bidi: isolate;
+  width: 40px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  display: block;
+  unicode-bidi: isolate;
 }
 
-
 .icon-link {
-    --link-color: '#f2f2f2';
-    transition: color 0.3s ease;
+  --link-color: "#f2f2f2";
+  transition: color 0.3s ease;
 }
 
 .icon-link:hover {
-    color: var(--link-color);
-    transition: color 0.3s ease;
+  color: var(--link-color);
+  transition: color 0.3s ease;
 }
 
 .mac-window-card-container {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    border: rgba(255, 255, 255, 0.1) 1px solid;
-    padding: 0.5vmax;
-    border-radius: 2vmax;
-    background-color: #191919;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border: rgba(255, 255, 255, 0.1) 1px solid;
+  padding: 0.5vmax;
+  border-radius: 2vmax;
+  background-color: #191919;
+  position: relative;
 }
 
 .mac-window-card-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.15vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, "#f2f2f2" 50%, rgba(255, 255, 255, 0)) 100%;
-    border-radius: 2vmax;
-    z-index: 2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.15vh;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      "#f2f2f2" 50%,
+      rgba(255, 255, 255, 0)
+    )
+    100%;
+  border-radius: 2vmax;
+  z-index: 2;
 }
 
 .project-selection::selection {
-    background-color: var(--project-color);
-    color: #f2f2f2;
-}  
+  background-color: var(--project-color);
+  color: #f2f2f2;
+}

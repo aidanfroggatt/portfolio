@@ -89,17 +89,15 @@ const WorkItemHero = () => {
       {projectInfo.asset && (
         <>
           {projectInfo.asset.type === "VIDEO" ? (
-            <div className="p-8">
-              <VideoWithAutoplay
-                className="rounded-none"
-                asset={projectInfo.asset}
-              />
-            </div>
+            <VideoWithAutoplay
+              className="rounded-[2vmax] p-4 mt-4 w-fit object-cover"
+              asset={projectInfo.asset}
+            />
           ) : (
             <img
+              className="rounded-[2vmax] p-4 mt-4 w-fit object-cover relative z-10 max-h-[75vh] h-full highlight-card-asset"
               src={projectInfo.asset.src}
               alt={projectInfo.asset.alt}
-              className="pt-4 2xl:py-12 h-work-card-image-default md:h-work-card-image-md lg:h-work-card-image-lg 2xl:h-work-card-image-2xl"
             />
           )}
         </>
@@ -439,7 +437,7 @@ const WorkItem = () => {
       >
         <WorkItemHero />
         <WorkItemOverview />
-        <WorkItemHighlights />
+        <WorkItemHighlights />s
         <WorkItemContent />
       </main>
       <Footer />

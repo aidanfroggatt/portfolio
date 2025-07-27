@@ -1540,6 +1540,14 @@ export const work: Work[] = [
           },
         ],
       },
+      // Add a section about my efforts in automated frontend testing and validation framworks
+      {
+        type: "TESTING",
+        title: "Automated testing and validation.",
+        subtitle: "Ensuring quality and reliability",
+        description:
+          "Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform. This included building a comprehensive test suite for the Agent Builder and multi-agent orchestration features.",
+      },
       {
         type: "RETROSPECTIVE",
         title: "An incredible learning experience",

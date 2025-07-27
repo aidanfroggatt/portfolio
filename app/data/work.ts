@@ -1400,9 +1400,10 @@ export const work: Work[] = [
     id: "watsonx-orchestrate",
     title: "watsonx Orchestrate",
     association: "IBM",
-    subtitle: "AI-powered digital employee platform.",
+    subtitle:
+      "A single solution to orchestrate AI agents, assistants and workflows across your business.",
     description:
-      "Developed scalable and user-centric features for watsonx Orchestrate, an AI-powered digital employee platform designed to automate repetitive tasks for enterprise users.",
+      "Developed features for watsonx Orchestrate, a powerful platform for building, deploying, and managing AI agents that automate workflows and processes with generative AI. The platform enables seamless integration with business systems and collaboration between AI assistants and agents in one unified experience.",
     asset: {
       src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fworkflow-animation%2Fworkflow-animation.mp4?alt=media&token=6d838228-74c8-4b37-bf5e-73a032eeac6a",
       poster:
@@ -1415,7 +1416,7 @@ export const work: Work[] = [
     endDate: new Date("2025-04-25"),
     overview: {
       description:
-        "watsonx Orchestrate empowers users to interact with AI through natural language to streamline workflows, automate repetitive tasks, and boost productivity. The platform integrates with enterprise tools and uses generative AI to create digital employees that help knowledge workers handle HR, sales, and operations tasks more efficiently.",
+        "watsonx Orchestrate is a cutting-edge platform that orchestrates teams of AI agents working together to automate complex business processes. The platform enables AI agents to plan, coordinate, and take action together across HR, sales, procurement, and customer service, while intelligently assigning the right agents and resources without human micromanagement.",
       role: {
         title: "Software Engineer Intern",
         description:
@@ -1500,10 +1501,10 @@ export const work: Work[] = [
     content: [
       {
         type: "CONTEXT",
-        title: "A new way to work.",
-        subtitle: "Empowering users to automate repetitive tasks",
+        title: "Multi-agent orchestration for business.",
+        subtitle: "Building the future of AI agents",
         description:
-          "watsonx Orchestrate is an AI-powered digital employee platform that empowers users to interact with AI through natural language to streamline workflows, automate repetitive tasks, and boost productivity.",
+          "watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems.",
         assets: [
           // {
           //   alt: "Eye Animation",
@@ -1519,11 +1520,11 @@ export const work: Work[] = [
         ],
       },
       {
-        type: "AUTOMATION",
-        title: "Automating the mundane.",
-        subtitle: "Building automation tooling and testing suites",
+        type: "AGENTS",
+        title: "AI Agents that work wherever you work.",
+        subtitle: "Specialized agents for every business need",
         description:
-          "Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform.",
+          "Contributed to the development of specialized AI agents for HR, sales, procurement and customer service. These agents can seamlessly integrate with existing business systems, connect to any AI model, and work together to automate complex workflows, reducing manual work and enabling faster decision-making at scale.",
       },
       {
         type: "SCALE",

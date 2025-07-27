@@ -65,7 +65,7 @@ const WorkCards = () => {
                       </div>
                     ) : (
                       <img
-                        className="z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden"
+                        className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden"
                         src={item.asset.src}
                         alt={item.asset.alt}
                       />

@@ -691,7 +691,7 @@ export const work: Work[] = [
     description:
       "Led the design and development of the Google Developer Group at McMaster University's digital presence. Enhanced engagement and visibility across all platforms with websites, rebranding, and a successful annual hackathon, Mac-a-thon.",
     asset: {
-      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2FThreeDeviceMockup.png?alt=media&token=721ae497-1052-4088-b747-98556f4d71fc",
+      src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fgdsc%2Fgdg-digital-illustration-yellow.png?alt=media&token=57fc6880-740d-42c2-b1a2-8527254f20c9",
       alt: "GDG Icon",
       type: "IMAGE",
     },
@@ -1525,7 +1525,7 @@ export const work: Work[] = [
         description:
           "Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform.",
       },
-            {
+      {
         type: "SCALE",
         title: "Learning to scale.",
         subtitle: "My first enterprise project",

@@ -144,21 +144,21 @@ const WorkCards = () => {
                     </span>
                   </div>
                 </div>
-                <div className="pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
-                  {item.asset.type === "VIDEO" ? (
-                    <div className="absolute md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
+                <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
+                  <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
+                    {item.asset.type === "VIDEO" ? (
                       <VideoWithAutoplay
                         className="rounded-none group-hover:[&]:play"
                         asset={item.asset}
                       />
-                    </div>
-                  ) : (
-                    <img
-                      src={item.asset.src}
-                      alt={item.asset.alt}
-                      className="absolute md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 p-4 md:p-0 transition-all duration-200 object-contain h-full"
-                    />
-                  )}
+                    ) : (
+                      <img
+                        src={item.asset.src}
+                        alt={item.asset.alt}
+                        className="rounded-[2vmax]"
+                      />
+                    )}
+                  </div>
                 </div>
               </LinkCard>
             </motion.div>

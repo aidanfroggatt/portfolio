@@ -703,8 +703,7 @@ export const work: Work[] = [
         "Designing and developing the digital presence of the Google Developer Group at McMaster University. Enhancing the group's engagement and visibility on all platforms.",
       role: {
         title: "Team Lead",
-        description:
-          "Directing software development for marketing and branding efforts.",
+        description: "Directing software development for web efforts.",
       },
       team: [
         {

@@ -1,7 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { Link, useNavigation } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { TfiArrowRight } from "react-icons/tfi";
+import LilypadIcon from "~/assets/LilypadIcon";
 import { LinkCard, MacWindowCard } from "~/components/Card";
 import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
@@ -172,14 +173,22 @@ const WorkCards = () => {
 };
 
 export default function Index() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
     <>
       <Header />
-      <main className="bg-main-page-mobile md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light">
+      <main className="bg-main-page-mobile md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light transition-opacity duration-300">
         <Hero />
         <WorkCards />
       </main>
       <Footer />
+      {isLoading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
+          <LilypadIcon className="w-12 h-12 animate-spin" />
+        </div>
+      )}
     </>
   );
 }

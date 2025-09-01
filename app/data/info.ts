@@ -97,7 +97,7 @@ export const experience: experience[] = [
     role: "Software Engineer Intern",
     team: "Design Automation Software",
     startDate: "05/'25",
-    endDate: "Present",
+    endDate: "08/'25",
     description: "Having some fun making useful tools.",
   },
   {

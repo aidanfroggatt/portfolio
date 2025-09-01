@@ -93,7 +93,7 @@ export const about: about[] = [
 export const experience: experience[] = [
   {
     company: "Tesla",
-    companyWebsite: "https://www.tesla.com/we-robot",
+    companyWebsite: "https://www.tesla.com/about",
     role: "Software Engineer Intern",
     team: "Design Automation Software",
     startDate: "05/'25",

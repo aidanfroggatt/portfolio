@@ -10,11 +10,6 @@ Welcome to my personal portfolio website! This site showcases my experience, pro
 - **Database & Backend:** [Firebase Firestore](https://firebase.google.com/docs/firestore)
 - **Language & Tooling:** [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/)
 
-## 📌 About Me
-Hi, I'm **Aidan Froggatt**, a **Software Engineer Intern at IBM**, based in **Toronto**. I enjoy building software solutions that enhance user experiences. My journey into software started with a passion for building—whether it was Lego sets, IKEA furniture, or now, scalable applications.
-
 ## 📬 Contact
 - [GitHub](https://github.com/aidanfroggatt)
 - [LinkedIn](https://linkedin.com/in/aidanfroggatt)
-- [Resume](#)
-

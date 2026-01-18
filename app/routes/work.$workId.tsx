@@ -15,9 +15,9 @@ import {
   VideoAsset,
   work,
 } from "~/data/work";
-import { hexToRGBA } from "~/utils/Color";
-import { calculateDateDifference, formatMonthYear } from "~/utils/Date";
-import { getReactIconByName } from "~/utils/Icon";
+import { hexToRGBA } from "~/utils/color";
+import { calculateDateDifference, formatMonthYear } from "~/utils/date";
+import { getReactIconByName } from "~/utils/icon";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const currentProject = work.find((item) => item.id === params.workId);

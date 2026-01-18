@@ -1,3 +1,4 @@
+import { type LinksFunction, type LoaderFunctionArgs } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -6,10 +7,9 @@ import {
   ScrollRestoration,
   useRouteError,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
-
-import stylesheet from "~/tailwind.css?url";
 import styles from "~/global.css?url";
+import { getLastCommitInfo } from "~/services/github.server";
+import stylesheet from "~/tailwind.css?url";
 import NotFound from "./components/NotFound";
 
 export const links: LinksFunction = () => [
@@ -50,6 +50,13 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles, as: "style" },
 ];
 
+export async function loader({ request }: LoaderFunctionArgs) {
+  const commitInfo = await getLastCommitInfo();
+  return { commitInfo };
+}
+
+export type RootLoader = typeof loader;
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -58,7 +65,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="apple-mobile-web-app-title" content="Aidan Froggatt" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <Meta />
         <Links />
       </head>

@@ -84,17 +84,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export function ErrorBoundary() {
   const error = useRouteError();
   return (
-    <html lang="en">
-      <head>
-        <title>Oops!</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <NotFound />
-        <Scripts />
-      </body>
-    </html>
+    <>
+      <title>Oops!</title>
+      <NotFound />
+    </>
   );
 }
 

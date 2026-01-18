@@ -7,7 +7,7 @@ import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import { about, award, awards, experience, involvement } from "~/data/info";
-import { extractDomain } from "~/utils/Url";
+import { extractDomain } from "~/utils/url";
 
 export const meta: MetaFunction = () => {
     return [

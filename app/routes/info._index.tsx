@@ -3,14 +3,15 @@ import { useLoaderData } from '@remix-run/react';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import { InfoAbout, InfoAwards, InfoExperience, InfoInvolvement } from '~/components/info';
+import { config } from '~/data/config';
 import { db } from '~/db/index.server';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Aidan Froggatt — Info' },
+    { title: `${config.name} — Info` },
     {
       name: 'description',
-      content: 'This is an overview of Aidan Froggatt and his work experience.',
+      content: `This is an overview of ${config.name} and his work experience.`,
     },
   ];
 };

@@ -11,8 +11,7 @@ export const config = {
   },
 
   meta: {
-    description: 'Software Engineer specializing in full-stack development...',
-    keywords: 'Software Engineer, React, Tesla, Remix, Portfolio',
+    description: `Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM.`,
   },
 
   routes: {

@@ -5,6 +5,7 @@ import Footer from '~/components/Footer';
 import ProgressBar from '~/components/ProgressBar';
 import { WorkOverview } from '~/components/work';
 import WorkHero from '~/components/work/hero';
+import { config } from '~/data/config';
 import { db } from '~/db/index.server';
 import { hexToRGBA } from '~/utils/color';
 
@@ -63,7 +64,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const { project } = data;
   return [
     {
-      title: `Aidan Froggatt — ${project.title}`,
+      title: `${config.name} — ${project.title}`,
     },
     {
       name: 'description',

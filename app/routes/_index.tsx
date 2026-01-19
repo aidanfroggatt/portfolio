@@ -8,15 +8,16 @@ import LilypadIcon from '~/components/LilypadIcon';
 import { LinkCard, MacWindowCard } from '~/components/ui/card';
 import Dot from '~/components/ui/dot';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { config } from '~/data/config';
 import { db } from '~/db/index.server';
+import { getFirstWord } from '~/utils/string';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Aidan Froggatt — Software Engineer Intern' },
+    { title: `${config.name} — ${config.jobTitle}` },
     {
       name: 'description',
-      content:
-        "Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM.",
+      content: config.meta.description,
     },
   ];
 };
@@ -54,10 +55,10 @@ const Hero = () => {
             <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">WELCOME</div>
           </div>
           <h1 className="text-shadow-mobile md:text-shadow pb-10 text-5xl">
-            Hi, I&apos;m <span className="h1-accent">Aidan.</span>
+            Hi, I&apos;m <span className="h1-accent">{getFirstWord(config.name)}.</span>
           </h1>
           <div className="flex flex-row justify-center items-center font-bold">
-            Software Engineer Intern at Tesla.
+            {config.jobTitle} at {config.company}.
           </div>
           <div className="text-custom-light/50">Previously at IBM.</div>
         </motion.div>
@@ -91,14 +92,14 @@ const Hero = () => {
               className="flex flex-col justify-center w-full h-full p-16 gap-y-8"
             >
               <div className="flex flex-col font-bold text-5xl lg:text-6xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">
-                <div className="inline-block">Hi, I&apos;m Aidan.</div>
+                <div className="inline-block">Hi, I&apos;m {getFirstWord(config.name)}.</div>{' '}
                 <div className="inline-block">
                   I like to <span className="italic font-accent">build things.</span>
                 </div>
               </div>
               <div className="flex flex-col items-end text-custom-light">
                 <span className="font-semibold text-base md:text-xl 2xl:text-2xl">
-                  Software Engineer Intern at Tesla.
+                  {config.jobTitle} at {config.company}.
                 </span>
                 <span className="text-sm md:text-base 2xl:text-lg text-custom-light/50">
                   {' '}

@@ -6,11 +6,12 @@ import Header from '~/components/Header';
 import { LinkCard } from '~/components/ui/card';
 import Dot from '~/components/ui/dot';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { config } from '~/data/config';
 import { db } from '~/db/index.server';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Aidan Froggatt — Work' },
+    { title: `${config.name} — Work` },
     { name: 'description', content: 'This is a list of all work samples.' },
   ];
 };

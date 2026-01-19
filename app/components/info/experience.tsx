@@ -1,6 +1,6 @@
 import { type InferSelectModel } from 'drizzle-orm';
 import { motion } from 'framer-motion';
-import Dot from '~/components/Dot';
+import Dot from '~/components/ui/dot';
 import { experiences } from '~/db/schema';
 import { formatSQLDateString } from '~/utils/date';
 

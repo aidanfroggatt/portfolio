@@ -1,10 +1,10 @@
 import { MetaFunction, useLoaderData } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import Back from '~/components/Back';
-import { LinkCard } from '~/components/Card';
-import Dot from '~/components/Dot';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
+import { LinkCard } from '~/components/ui/card';
+import Dot from '~/components/ui/dot';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
 import { db } from '~/db/index.server';
 

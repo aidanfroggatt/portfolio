@@ -2,11 +2,11 @@ import type { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData, useNavigation } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import { TfiArrowRight } from 'react-icons/tfi';
-import { LinkCard, MacWindowCard } from '~/components/Card';
-import Dot from '~/components/Dot';
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
 import LilypadIcon from '~/components/LilypadIcon';
+import { LinkCard, MacWindowCard } from '~/components/ui/card';
+import Dot from '~/components/ui/dot';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
 import { db } from '~/db/index.server';
 

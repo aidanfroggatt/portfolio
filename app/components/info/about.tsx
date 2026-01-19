@@ -1,7 +1,7 @@
 import { type InferSelectModel } from 'drizzle-orm';
 import { motion } from 'framer-motion';
-import { ImageCard } from '~/components/Card';
-import Dot from '~/components/Dot';
+import { ImageCard } from '~/components/ui/card';
+import Dot from '~/components/ui/dot';
 import { about, assets } from '~/db/schema';
 
 type BaseAbout = InferSelectModel<typeof about>;

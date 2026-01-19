@@ -1,6 +1,6 @@
 import { calculateDateDifference, formatMonthYear } from '~/utils/date';
 import { getTechIcon } from '~/utils/icon';
-import Tooltip from '../Tooltip';
+import Tooltip from '../ui/tooltip';
 
 interface WorkOverviewProps {
   overviewDescription: string;

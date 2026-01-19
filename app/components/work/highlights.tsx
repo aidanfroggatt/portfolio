@@ -3,7 +3,7 @@ import { CSSProperties } from 'react';
 import { FaMountainSun } from 'react-icons/fa6';
 import { HighlightItem } from '~/data/work';
 import { hexToRGBA } from '~/utils/color';
-import Tooltip from '../Tooltip';
+import Tooltip from '../ui/tooltip';
 import VideoWithAutoplay from '../VideoWithAutoplay';
 
 interface WorkHighlightsProps {

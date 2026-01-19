@@ -181,7 +181,7 @@ export default function Index() {
   return (
     <>
       <Header />
-      <main className="bg-main-page-mobile md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light transition-opacity duration-300">
+      <main className="bg-main-page-mobile bg-size-[100%_450px] md:bg-size-[100%_135vh] md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light transition-opacity duration-300">
         <Hero />
         <WorkCards />
       </main>

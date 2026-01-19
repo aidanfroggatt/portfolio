@@ -103,7 +103,7 @@ const Work = () => {
         <Back />
       </div>
 
-      <main className="bg-main-page-mobile pt-16 md:pt-0 md:bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
+      <main className="bg-main-page-mobile bg-size-[100%_450px] pt-16 md:pt-0 md:bg-info-page md:bg-size-[100%_135vh] bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
         <WorkCards />
       </main>
       <Footer />

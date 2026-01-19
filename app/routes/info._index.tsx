@@ -45,7 +45,7 @@ export default function Info() {
   return (
     <>
       <Header />
-      <main className="relative bg-main-page-mobile md:bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
+      <main className="relative bg-main-page-mobile bg-size-[100%_450px] md:bg-info-page md:bg-size-[100%_135vh] bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
         <InfoAbout data={aboutData} />
         <InfoExperience data={experienceData} />
         <InfoInvolvement data={involvementData} />

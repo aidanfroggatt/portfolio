@@ -1,14 +1,14 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link, useNavigation } from "@remix-run/react";
+import { Link, useLoaderData, useNavigation } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { TfiArrowRight } from "react-icons/tfi";
-import LilypadIcon from "~/assets/LilypadIcon";
 import { LinkCard, MacWindowCard } from "~/components/Card";
 import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
+import LilypadIcon from "~/components/LilypadIcon";
 import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { work } from "~/data/work";
+import { db } from "~/db/index.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,6 +19,18 @@ export const meta: MetaFunction = () => {
         "Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM.",
     },
   ];
+};
+
+export const loader = async () => {
+  const spotlightWork = await db.query.projects.findMany({
+    where: (projects, { eq }) => eq(projects.spotlight, true),
+    orderBy: (projects, { asc }) => [asc(projects.index)],
+    with: {
+      heroAsset: true,
+    },
+  });
+
+  return { work: spotlightWork };
 };
 
 const Hero = () => {
@@ -110,60 +122,59 @@ const Hero = () => {
 };
 
 const WorkCards = () => {
+  const { work } = useLoaderData<typeof loader>();
+
   return (
     <section id="work-cards">
       <div
         id="work-cards-content"
         className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl"
       >
-        {work
-          .filter((item) => item.spotlight)
-          .sort((a, b) => a.index - b.index)
-          .map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col gap-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
-              <LinkCard id={item.id} key={index} color={item.color}>
-                <div className="flex flex-col justify-start w-full gap-y-2 pt-8 px-8">
-                  <div className="flex flex-row justify-between items-center w-full z-40 pointer-events-none">
-                    <h3>{item.title}</h3>
-                    <TfiArrowRight className="2xl:text-4xl text-2xl transition-all duration-200 ease-in group-hover:translate-x-2" />
-                  </div>
-                  <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
-                    {item.association}&nbsp;
-                    <span className="text-custom-light text-opacity-50">
-                      — {item.subtitle}
-                    </span>
-                  </div>
+        {work.map((item, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col gap-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+            }}
+            viewport={{
+              once: true,
+            }}
+          >
+            <LinkCard id={item.id} key={index} color={item.color}>
+              <div className="flex flex-col justify-start w-full gap-y-2 pt-8 px-8">
+                <div className="flex flex-row justify-between items-center w-full z-40 pointer-events-none">
+                  <h3>{item.title}</h3>
+                  <TfiArrowRight className="2xl:text-4xl text-2xl transition-all duration-200 ease-in group-hover:translate-x-2" />
                 </div>
-                <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
-                  <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
-                    {item.asset.type === "VIDEO" ? (
-                      <VideoWithAutoplay
-                        className="rounded-none group-hover:[&]:play"
-                        asset={item.asset}
-                      />
-                    ) : (
-                      <img
-                        src={item.asset.src}
-                        alt={item.asset.alt}
-                        className="rounded-[2vmax]"
-                      />
-                    )}
-                  </div>
+                <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
+                  {item.association}&nbsp;
+                  <span className="text-custom-light text-opacity-50">
+                    — {item.subtitle}
+                  </span>
                 </div>
-              </LinkCard>
-            </motion.div>
-          ))}
+              </div>
+              <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
+                <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
+                  {item.heroAsset.type === "VIDEO" ? (
+                    <VideoWithAutoplay
+                      className="rounded-none group-hover:[&]:play"
+                      asset={item.heroAsset}
+                    />
+                  ) : (
+                    <img
+                      src={item.heroAsset.src}
+                      alt={item.heroAsset.alt}
+                      className="rounded-[2vmax]"
+                    />
+                  )}
+                </div>
+              </div>
+            </LinkCard>
+          </motion.div>
+        ))}
         <Link to="/work" className="md:hidden">
           View all work &rarr;
         </Link>

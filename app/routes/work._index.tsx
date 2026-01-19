@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { motion } from "framer-motion";
 import Back from "~/components/Back";
 import { LinkCard } from "~/components/Card";
@@ -6,7 +6,7 @@ import Dot from "~/components/Dot";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { work } from "~/data/work";
+import { db } from "~/db/index.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,7 +15,20 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader = async () => {
+  const work = await db.query.projects.findMany({
+    orderBy: (projects, { asc }) => [asc(projects.index)],
+    with: {
+      heroAsset: true,
+    },
+  });
+
+  return { work };
+};
+
 const WorkCards = () => {
+  const { work } = useLoaderData<typeof loader>();
+
   return (
     <section id="work-cards">
       <div
@@ -56,18 +69,18 @@ const WorkCards = () => {
                       <h4>{item.title}</h4>
                       <h5>{item.association}</h5>
                     </div>
-                    {item.asset.type === "VIDEO" ? (
+                    {item.heroAsset.type === "VIDEO" ? (
                       <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden">
                         <VideoWithAutoplay
                           className="rounded-none"
-                          asset={item.asset}
+                          asset={item.heroAsset}
                         />
                       </div>
                     ) : (
                       <img
                         className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden"
-                        src={item.asset.src}
-                        alt={item.asset.alt}
+                        src={item.heroAsset.src}
+                        alt={item.heroAsset.alt}
                       />
                     )}
                   </div>

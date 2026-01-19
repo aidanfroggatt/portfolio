@@ -5,20 +5,28 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { CSSProperties, RefObject, useEffect, useState } from "react";
 import { FiArrowUpRight, FiX } from "react-icons/fi";
-import { Work } from "~/data/work";
 import { hexToRGBA } from "~/utils/color";
 
+interface ProgressBarProject {
+  id: string;
+  title: string;
+  association?: string;
+  color: string;
+  navLink?: string | null;
+}
+
 interface ProgressBarProps {
-  work: Work;
-  nextWork: Work;
-  targetRef: React.RefObject<HTMLElement>;
+  work: ProgressBarProject;
+  nextWork: ProgressBarProject;
+  targetRef: RefObject<HTMLElement>;
 }
 
 const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
-  const [validTarget, setValidTarget] =
-    useState<React.RefObject<HTMLElement> | null>(null);
+  const [validTarget, setValidTarget] = useState<RefObject<HTMLElement> | null>(
+    null,
+  );
 
   useEffect(() => {
     if (targetRef?.current) {
@@ -27,23 +35,20 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
   }, [targetRef]);
 
   const { scrollYProgress } = useScroll({
-    target: validTarget || undefined, // Ensures `useScroll` only runs when `targetRef` is ready
+    target: validTarget || undefined,
   });
 
-  // Map scroll progress to percentage
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const progressPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const roundedPercentage = useTransform(progressPercentage, (val) =>
-    Math.round(val)
+    Math.round(val),
   );
 
-  // State to track displayed percentage (avoiding excessive re-renders)
   const [displayPercentage, setDisplayPercentage] = useState(0);
   const [progressState, setProgressState] = useState<
     "start" | "scrolling" | "complete"
   >("start");
 
-  // Update percentage display and progress state only when necessary
   useMotionValueEvent(roundedPercentage, "change", (latest) => {
     setDisplayPercentage(latest);
     if (latest >= 100 && progressState !== "complete") {
@@ -54,6 +59,8 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
       setProgressState("start");
     }
   });
+
+  const currentLink = work.navLink || "#";
 
   return (
     <header className="bg-header-mobile md:bg-header flex flex-row fixed justify-between px-6 md:px-0 md:justify-center items-center w-full py-8 text-custom-light z-50 pointer-events-none gap-x-2">
@@ -68,7 +75,7 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
       {/* Progress bar / Content */}
       <div className="relative flex pointer-events-auto justify-center items-center font-medium bg-custom-light w-fit h-fit rounded-full bg-opacity-5 text-sm border border-opacity-10 border-custom-light backdrop-blur">
         <motion.div
-          key={progressState} // Ensures animation only happens when state changes
+          key={progressState}
           initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           exit={{ opacity: 0, y: -10, filter: "blur(10px)" }}
@@ -78,13 +85,13 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
               ? ({
                   "--project-color": hexToRGBA(work.color, 0.5),
                   "--selection-text-color": "#f2f2f2",
-                } as React.CSSProperties)
+                } as CSSProperties)
               : progressState === "complete" && nextWork.color
-              ? ({
-                  "--project-color": hexToRGBA(nextWork.color, 0.5),
-                  "--selection-text-color": "#f2f2f2",
-                } as React.CSSProperties)
-              : {}
+                ? ({
+                    "--project-color": hexToRGBA(nextWork.color, 0.5),
+                    "--selection-text-color": "#f2f2f2",
+                  } as CSSProperties)
+                : {}
           }
           className="project-selection relative flex justify-between items-center w-52 md:w-64 h-12 rounded-full gap-x-2 overflow-hidden px-4"
         >
@@ -145,13 +152,13 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
 
       {/* Right arrow */}
       <Link
-        to={
-          progressState === "complete" ? `/work/${nextWork.id}` : work.navLink
-        }
+        to={progressState === "complete" ? `/work/${nextWork.id}` : currentLink}
         onClick={(e) => {
           if (progressState === "scrolling") {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
+          } else if (progressState === "start" && !work.navLink) {
+            e.preventDefault();
           }
         }}
         target={progressState === "start" ? "_blank" : undefined}
@@ -165,8 +172,8 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
               progressState === "start"
                 ? 0
                 : progressState === "complete"
-                ? 45
-                : -45,
+                  ? 45
+                  : -45,
           }}
           transition={{ duration: 0.3 }}
         >

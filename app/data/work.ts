@@ -59,7 +59,7 @@ export interface VideoAsset {
   alt: string;
   src: string;
   type: "VIDEO";
-  poster: string; // Required for VIDEO type
+  poster: string;
 }
 
 export interface PDFAsset {

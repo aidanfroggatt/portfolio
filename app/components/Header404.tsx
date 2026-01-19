@@ -1,10 +1,10 @@
 import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { FiX, FiAtSign } from "react-icons/fi";
+import { FiAtSign, FiX } from "react-icons/fi";
 import { TfiArrowTopRight } from "react-icons/tfi";
-import LilypadIcon from "~/assets/LilypadIcon";
 import IconMenu from "~/components/IconMenu";
+import LilypadIcon from "~/components/LilypadIcon";
 import SlideTabs from "~/components/SlideTabs";
 import { socials } from "~/data/general";
 
@@ -29,7 +29,9 @@ const Header404 = () => {
         <LilypadIcon className={"w-9 h-9"} />
         <div className="hidden md:flex flex-col">
           <div className="font-semibold text-md">Aidan Froggatt</div>
-          <div className="text-xs text-custom-light text-opacity-50">Software Engineer Intern</div>
+          <div className="text-xs text-custom-light text-opacity-50">
+            Software Engineer Intern
+          </div>
         </div>
       </div>
 
@@ -42,22 +44,22 @@ const Header404 = () => {
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="w-40 md:w-60"
         >
-            <motion.div
-                className="absolute h-9 rounded-full bg-custom-light bg-opacity-10"
-                animate={bgPos}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-            <Link
-                ref={linkRef}
-                className="relative z-10 gap-x-1 flex flex-row justify-center items-center h-9 rounded-full"
-                to={"/"}
-                onMouseEnter={showCursor}
-                onMouseLeave={hideCursor}
-                onFocus={showCursor}
-                onBlur={hideCursor}
-            >
-                {"Return Home"}
-                <TfiArrowTopRight />
+          <motion.div
+            className="absolute h-9 rounded-full bg-custom-light bg-opacity-10"
+            animate={bgPos}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+          <Link
+            ref={linkRef}
+            className="relative z-10 gap-x-1 flex flex-row justify-center items-center h-9 rounded-full"
+            to={"/"}
+            onMouseEnter={showCursor}
+            onMouseLeave={hideCursor}
+            onFocus={showCursor}
+            onBlur={hideCursor}
+          >
+            {"Return Home"}
+            <TfiArrowTopRight />
           </Link>
         </motion.div>
       </nav>

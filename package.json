@@ -10,7 +10,10 @@
     "lint:fix": "eslint --write .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

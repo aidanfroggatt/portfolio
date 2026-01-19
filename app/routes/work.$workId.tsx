@@ -47,7 +47,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   if (!nextProject) {
     nextProject = await db.query.projects.findFirst({
-      where: (p, { eq }) => eq(p.index, 1),
+      where: (p, { eq }) => eq(p.index, 0),
       columns: { id: true, title: true, color: true },
     });
   }

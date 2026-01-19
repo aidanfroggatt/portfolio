@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react';
 import { CSSProperties } from 'react';
 import { FaMountainSun } from 'react-icons/fa6';
-import { HighlightItem } from '~/data/work';
+import { HighlightItem } from '~/types/work';
 import { hexToRGBA } from '~/utils/color';
 import Tooltip from '../ui/tooltip';
 import VideoWithAutoplay from '../VideoWithAutoplay';

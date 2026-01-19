@@ -1,4 +1,4 @@
-import { Content, ImageAsset, PDFAsset, VideoAsset } from '~/data/work';
+import { Content, ImageAsset, PDFAsset, VideoAsset } from '~/types/work';
 import Dot from '../ui/dot';
 import VideoWithAutoplay from '../VideoWithAutoplay';
 

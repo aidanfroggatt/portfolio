@@ -32,13 +32,13 @@ const WorkHighlights = (projectInfo: WorkHighlightsProps) => {
         style={{ '--highlight-card-accent-color': projectInfo.color } as CSSProperties}
       >
         <div className="flex flex-col justify-between items-center gap-y-4">
-          <div className="rounded-full bg-custom-dark bg-opacity-50 p-1.5 2xl:p-2.5 shadow-md shadow-custom-dark">
+          <div className="rounded-full bg-custom-dark/50 p-1.5 2xl:p-2.5 shadow-md shadow-custom-dark">
             <FaMountainSun
               color={projectInfo.color}
               className="w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12"
             />
           </div>
-          <h5 className="text-custom-light text-opacity-50">HIGHLIGHTS</h5>
+          <h5 className="text-custom-light/50">HIGHLIGHTS</h5>
           <h5 className="text-center">{projectInfo?.highlights?.description}</h5>
         </div>
         {projectInfo.highlights?.items.map((highlight: HighlightItem, index) => {
@@ -89,16 +89,16 @@ const WorkHighlights = (projectInfo: WorkHighlightsProps) => {
               ) : (
                 <p>Invalid asset type.</p>
               )}
-              <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light text-opacity-50">
+              <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light/50">
                 {highlight.asset.alt}
-                <span className="bg-custom-dark bg-opacity-50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
+                <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
                   {highlight.asset.type}
                 </span>
               </h5>
             </div>
           );
         })}
-        <div className="flex flex-row border-t border-opacity-10 border-custom-light w-full justify-center items-center gap-x-8 md:gap-x-12 py-8 md:py-12">
+        <div className="flex flex-row border-t border-custom-light/10 w-full justify-center items-center gap-x-8 md:gap-x-12 py-8 md:py-12">
           {projectInfo.links ? (
             projectInfo.links.map((link, index) => {
               return (

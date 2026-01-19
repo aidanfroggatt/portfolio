@@ -1,16 +1,16 @@
-import { Link } from "@remix-run/react";
-import { motion } from "framer-motion";
-import { useState, useRef } from "react";
-import { TfiArrowTopRight } from "react-icons/tfi";
+import { Link } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { TfiArrowTopRight } from 'react-icons/tfi';
 
 interface SlideTabsProps {
-    tabs: {
-        name: string;
-        to: string;
-    }[]
+  tabs: {
+    name: string;
+    to: string;
+  }[];
 }
 
-const SlideTabs = ({tabs}: SlideTabsProps) => {
+const SlideTabs = ({ tabs }: SlideTabsProps) => {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
@@ -27,9 +27,9 @@ const SlideTabs = ({tabs}: SlideTabsProps) => {
       }}
       className="relative mx-auto flex w-fit rounded-full"
     >
-        {tabs.map((tab, index) => (
-            <Tab key={index} setPosition={setPosition} label={tab.name} to={tab.to}/>
-        ))}
+      {tabs.map((tab, index) => (
+        <Tab key={index} setPosition={setPosition} label={tab.name} to={tab.to} />
+      ))}
       <Cursor position={position} />
     </ul>
   );
@@ -38,7 +38,9 @@ const SlideTabs = ({tabs}: SlideTabsProps) => {
 interface TabProps {
   label: string;
   to: string;
-  setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number; opacity: number }>>;
+  setPosition: React.Dispatch<
+    React.SetStateAction<{ left: number; width: number; opacity: number }>
+  >;
 }
 
 const Tab = ({ label, to, setPosition }: TabProps) => {
@@ -87,7 +89,7 @@ const Cursor = ({ position }: CursorProps) => {
       animate={{
         ...position,
       }}
-      className="absolute h-9 rounded-full bg-custom-light bg-opacity-10"
+      className="absolute h-9 rounded-full bg-custom-light/10"
     />
   );
 };

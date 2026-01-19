@@ -1,8 +1,8 @@
-import { formatMonthYear } from "~/utils/date";
-import VideoWithAutoplay from "../VideoWithAutoplay";
+import { formatMonthYear } from '~/utils/date';
+import VideoWithAutoplay from '../VideoWithAutoplay';
 
 interface HeroAsset {
-  type: "IMAGE" | "VIDEO";
+  type: 'IMAGE' | 'VIDEO';
   src: string;
   alt: string;
   poster: string | null;
@@ -31,15 +31,13 @@ const WorkHero = (projectInfo: WorkHeroProps) => {
       >
         {projectInfo.title}
       </h1>
-      <span className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light text-opacity-50 text-center">
-        {projectInfo.association && projectInfo.association} —{" "}
-        {projectInfo.endDate
-          ? `${formatMonthYear(projectInfo.endDate)}`
-          : "In development"}
+      <span className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light/50 text-center">
+        {projectInfo.association && projectInfo.association} —{' '}
+        {projectInfo.endDate ? `${formatMonthYear(projectInfo.endDate)}` : 'In development'}
       </span>
       {projectInfo.asset && (
         <>
-          {projectInfo.asset.type === "VIDEO" ? (
+          {projectInfo.asset.type === 'VIDEO' ? (
             <VideoWithAutoplay
               className="rounded-[2vmax] p-4 mt-4 w-fit object-cover"
               asset={projectInfo.asset}

@@ -1,20 +1,20 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData, useNavigation } from "@remix-run/react";
-import { motion } from "framer-motion";
-import { TfiArrowRight } from "react-icons/tfi";
-import { LinkCard, MacWindowCard } from "~/components/Card";
-import Dot from "~/components/Dot";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import LilypadIcon from "~/components/LilypadIcon";
-import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { db } from "~/db/index.server";
+import type { MetaFunction } from '@remix-run/node';
+import { Link, useLoaderData, useNavigation } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import { TfiArrowRight } from 'react-icons/tfi';
+import { LinkCard, MacWindowCard } from '~/components/Card';
+import Dot from '~/components/Dot';
+import Footer from '~/components/Footer';
+import Header from '~/components/Header';
+import LilypadIcon from '~/components/LilypadIcon';
+import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { db } from '~/db/index.server';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Aidan Froggatt — Software Engineer Intern" },
+    { title: 'Aidan Froggatt — Software Engineer Intern' },
     {
-      name: "description",
+      name: 'description',
       content:
         "Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM.",
     },
@@ -38,7 +38,7 @@ const Hero = () => {
     <section id="hero">
       <div
         id="hero-content"
-        className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-opacity-10 border-custom-light"
+        className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-custom-light/10"
       >
         <motion.div
           id="hero-content-mobile"
@@ -51,9 +51,7 @@ const Hero = () => {
         >
           <div className="flex flex-row justify-center items-center text-custom-light text-sm md:text-lg 2xl:text-2xl gap-x-2">
             <Dot />
-            <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">
-              WELCOME
-            </div>
+            <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">WELCOME</div>
           </div>
           <h1 className="text-shadow-mobile md:text-shadow pb-10 text-5xl">
             Hi, I&apos;m <span className="h1-accent">Aidan.</span>
@@ -61,9 +59,7 @@ const Hero = () => {
           <div className="flex flex-row justify-center items-center font-bold">
             Software Engineer Intern at Tesla.
           </div>
-          <div className="text-custom-light text-opacity-50">
-            Previously at IBM.
-          </div>
+          <div className="text-custom-light/50">Previously at IBM.</div>
         </motion.div>
         <motion.div
           id="hero-content-desktop"
@@ -75,10 +71,7 @@ const Hero = () => {
           }}
         >
           <MacWindowCard>
-            <div
-              id="shine-animation"
-              className="shine-wrapper pointer-events-none"
-            >
+            <div id="shine-animation" className="shine-wrapper pointer-events-none">
               <div className="shine-small" />
               <div className="shine-big" />
             </div>
@@ -100,17 +93,16 @@ const Hero = () => {
               <div className="flex flex-col font-bold text-5xl lg:text-6xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">
                 <div className="inline-block">Hi, I&apos;m Aidan.</div>
                 <div className="inline-block">
-                  I like to{" "}
-                  <span className="italic font-accent">build things.</span>
+                  I like to <span className="italic font-accent">build things.</span>
                 </div>
               </div>
               <div className="flex flex-col items-end text-custom-light">
                 <span className="font-semibold text-base md:text-xl 2xl:text-2xl">
                   Software Engineer Intern at Tesla.
                 </span>
-                <span className="text-sm md:text-base 2xl:text-lg text-custom-light text-opacity-50">
-                  {" "}
-                  Previously&nbsp;at&nbsp;IBM.{" "}
+                <span className="text-sm md:text-base 2xl:text-lg text-custom-light/50">
+                  {' '}
+                  Previously&nbsp;at&nbsp;IBM.{' '}
                 </span>
               </div>
             </div>
@@ -151,14 +143,12 @@ const WorkCards = () => {
                 </div>
                 <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
                   {item.association}&nbsp;
-                  <span className="text-custom-light text-opacity-50">
-                    — {item.subtitle}
-                  </span>
+                  <span className="text-custom-light/50">— {item.subtitle}</span>
                 </div>
               </div>
               <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
                 <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
-                  {item.heroAsset.type === "VIDEO" ? (
+                  {item.heroAsset.type === 'VIDEO' ? (
                     <VideoWithAutoplay
                       className="rounded-none group-hover:[&]:play"
                       asset={item.heroAsset}
@@ -185,7 +175,7 @@ const WorkCards = () => {
 
 export default function Index() {
   const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
+  const isLoading = navigation.state === 'loading';
 
   return (
     <>

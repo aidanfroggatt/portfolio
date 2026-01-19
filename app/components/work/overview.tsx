@@ -1,6 +1,6 @@
-import { calculateDateDifference, formatMonthYear } from "~/utils/date";
-import { getTechIcon } from "~/utils/icon";
-import Tooltip from "../Tooltip";
+import { calculateDateDifference, formatMonthYear } from '~/utils/date';
+import { getTechIcon } from '~/utils/icon';
+import Tooltip from '../Tooltip';
 
 interface WorkOverviewProps {
   overviewDescription: string;
@@ -37,9 +37,7 @@ const WorkOverview = ({
             <h5>My Role</h5>
             <p>
               {roleTitle}&nbsp;—&nbsp;
-              <span className="text-opacity-50 text-custom-light">
-                {roleDescription}
-              </span>
+              <span className="text-custom-light/50">{roleDescription}</span>
             </p>
           </div>
 
@@ -47,7 +45,7 @@ const WorkOverview = ({
             <div className="flex flex-col">
               <h5>Team</h5>
               {team.map((member, index) => (
-                <p key={index} className="text-custom-light text-opacity-50">
+                <p key={index} className="text-custom-light/50">
                   {member.name}, {member.role}
                 </p>
               ))}
@@ -57,18 +55,15 @@ const WorkOverview = ({
           <div className="flex flex-col">
             <h5>Timeline & Status</h5>
             <p>
-              <span className="text-custom-light text-opacity-50">
+              <span className="text-custom-light/50">
                 {endDate
-                  ? calculateDateDifference(
-                      new Date(startDate),
-                      new Date(endDate),
-                    )
-                  : "On-going"}
+                  ? calculateDateDifference(new Date(startDate), new Date(endDate))
+                  : 'On-going'}
                 ,&nbsp;
               </span>
               {endDate
                 ? `Completed ${formatMonthYear(new Date(endDate))}`
-                : "Started " + formatMonthYear(new Date(startDate))}
+                : 'Started ' + formatMonthYear(new Date(startDate))}
             </p>
           </div>
         </div>
@@ -76,12 +71,10 @@ const WorkOverview = ({
         <div className="flex flex-col justify-start items-start h-full md:w-1/2 gap-y-10">
           <div className="flex flex-col">
             <h5>Overview</h5>
-            <p className="text-custom-light text-opacity-50">
-              {overviewDescription}
-            </p>
+            <p className="text-custom-light/50">{overviewDescription}</p>
           </div>
 
-          <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-8 items-center">
+          <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-9 items-center">
             {technologies.map((technology, index) => {
               const IconComponent = getTechIcon(technology.name);
 
@@ -89,7 +82,7 @@ const WorkOverview = ({
                 <div
                   key={index}
                   className="icon-link"
-                  style={{ "--link-color": color } as React.CSSProperties}
+                  style={{ '--link-color': color } as React.CSSProperties}
                 >
                   <Tooltip text={technology.name}>
                     <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12" />

@@ -1,17 +1,17 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
-import { motion } from "framer-motion";
-import Back from "~/components/Back";
-import { LinkCard } from "~/components/Card";
-import Dot from "~/components/Dot";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { db } from "~/db/index.server";
+import { MetaFunction, useLoaderData } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import Back from '~/components/Back';
+import { LinkCard } from '~/components/Card';
+import Dot from '~/components/Dot';
+import Footer from '~/components/Footer';
+import Header from '~/components/Header';
+import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { db } from '~/db/index.server';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Aidan Froggatt — Work" },
-    { name: "description", content: "This is a list of all work samples." },
+    { title: 'Aidan Froggatt — Work' },
+    { name: 'description', content: 'This is a list of all work samples.' },
   ];
 };
 
@@ -38,7 +38,7 @@ const WorkCards = () => {
         <div className="flex flex-col justify-center items-start lg:mt-40 2xl:mt-48 md:mt-32 pb-10 md:pb-0">
           <div className="flex justify-center items-center flex-row text-custom-light gap-x-2">
             <Dot />
-            <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">
+            <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">
               WORK SAMPLES
             </div>
           </div>
@@ -57,7 +57,7 @@ const WorkCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: 0.3 * index,
-                  type: "spring",
+                  type: 'spring',
                   damping: 10,
                   mass: 1,
                   stiffness: 100,
@@ -69,12 +69,9 @@ const WorkCards = () => {
                       <h4>{item.title}</h4>
                       <h5>{item.association}</h5>
                     </div>
-                    {item.heroAsset.type === "VIDEO" ? (
+                    {item.heroAsset.type === 'VIDEO' ? (
                       <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden">
-                        <VideoWithAutoplay
-                          className="rounded-none"
-                          asset={item.heroAsset}
-                        />
+                        <VideoWithAutoplay className="rounded-none" asset={item.heroAsset} />
                       </div>
                     ) : (
                       <img

@@ -1,48 +1,52 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import '~/styles/gradient-tracker.css';
 
 const GradientTracker = ({ className }: { className?: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const gradientElements = document.querySelectorAll('[data-gradient-tracker]');
+    const container = containerRef.current;
+    if (!container) return;
 
-    gradientElements.forEach((gradientElement) => {
-      const gradientBackground = gradientElement.querySelector('.bg-gradient') as HTMLElement;
+    const gradientBackground = container.querySelector('.bg-gradient') as HTMLElement;
 
-      const handleMouseEnter = () => {
-        if (gradientBackground) {
-          gradientBackground.style.opacity = '1';
-        }
-      };
+    const handleMouseEnter = () => {
+      if (gradientBackground) {
+        gradientBackground.style.opacity = '1';
+      }
+    };
 
-      const handleMouseLeave = () => {
-        if (gradientBackground) {
-          gradientBackground.style.opacity = '0';
-        }
-      };
+    const handleMouseLeave = () => {
+      if (gradientBackground) {
+        gradientBackground.style.opacity = '0';
+      }
+    };
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const rect = gradientElement.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        (gradientElement as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
-        (gradientElement as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
-      };
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      container.style.setProperty('--mouse-x', `${x}px`);
+      container.style.setProperty('--mouse-y', `${y}px`);
+    };
 
-      gradientElement.addEventListener('mouseenter', handleMouseEnter);
-      gradientElement.addEventListener('mouseleave', handleMouseLeave);
-      gradientElement.addEventListener('mousemove', handleMouseMove as EventListener);
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+    container.addEventListener('mousemove', handleMouseMove);
 
-      // Cleanup event listeners when the component unmounts
-      return () => {
-        gradientElement.removeEventListener('mouseenter', handleMouseEnter);
-        gradientElement.removeEventListener('mouseleave', handleMouseLeave);
-        gradientElement.removeEventListener('mousemove', handleMouseMove as EventListener);
-      };
-    });
-  }, []); // Empty dependency array to run once on mount
+    return () => {
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+      container.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
-    <div className={`gradient-tracker-container absolute inset-0 overflow-hidden ${className}`} data-gradient-tracker>
+    <div
+      ref={containerRef}
+      className={`gradient-tracker-container absolute inset-0 overflow-hidden ${className}`}
+      data-gradient-tracker
+    >
       <div className="absolute inset-0 opacity-0 transition-opacity duration-300 bg-gradient" />
     </div>
   );

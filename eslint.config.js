@@ -1,53 +1,31 @@
-import { includeIgnoreFile } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, '.gitignore');
+export default tseslint.config(
+  // 1. Global Ignores
+  { ignores: ['dist', 'build', 'public/build', '.cache', 'node_modules'] },
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-});
-
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  includeIgnoreFile(gitignorePath),
-
+  // 2. Base Configs (JS + TS Recommended)
   {
-    ignores: [
-      '**/.server',
-      '**/.client',
-      'build',
-      'public/build',
-      'dist',
-      'node_modules',
-      '.cache',
-    ],
-  },
-
-  // Base Configs (Remix + React + MDX)
-  // We use compat.extends to load the legacy @remix-run config
-  ...compat.extends(
-    '@remix-run/eslint-config',
-    '@remix-run/eslint-config/node',
-    'plugin:mdx/recommended'
-  ),
-
-  // TypeScript & React Overrides (Manual adjustments for v9)
-  {
-    files: ['**/*.{ts,tsx}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      sourceType: 'module',
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
+      globals: { ...globals.browser, ...globals.node },
+    },
+  },
+
+  // 3. React & Remix Logic
+  {
+    files: ['**/*.{ts,tsx,jsx}'],
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'jsx-a11y': jsxA11y,
     },
     settings: {
       react: { version: 'detect' },
@@ -57,8 +35,21 @@ export default [
         { name: 'NavLink', linkAttribute: 'to' },
       ],
     },
-  },
+    rules: {
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      ...jsxA11y.configs.recommended.rules,
 
-  // Prettier (Must be last to override others)
-  ...compat.extends('prettier'),
-];
+      // Barebones Overrides (Optional)
+      'react/prop-types': 'off', // Not needed with TypeScript
+    },
+    // FIX: This solves the "parserOptions.project" error
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  }
+);

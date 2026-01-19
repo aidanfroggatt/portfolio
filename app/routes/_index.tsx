@@ -54,7 +54,7 @@ const Hero = () => {
             <Dot />
             <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">WELCOME</div>
           </div>
-          <h1 className="text-shadow-mobile md:text-shadow pb-10 text-5xl">
+          <h1 className="text-5xl text-shadow-mobile md:text-shadow pb-10">
             Hi, I&apos;m <span className="h1-accent">{getFirstWord(config.name)}.</span>
           </h1>
           <div className="flex flex-row justify-center items-center font-bold">

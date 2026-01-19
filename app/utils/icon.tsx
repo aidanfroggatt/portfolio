@@ -1,8 +1,9 @@
-import { IconType } from "react-icons";
-import { FaJava, FaSass } from "react-icons/fa";
-import { FiCode, FiGitBranch, FiGlobe, FiTerminal } from "react-icons/fi";
+import { IconType } from 'react-icons';
+import { FaJava, FaSass } from 'react-icons/fa';
+import { FiCode, FiGitBranch, FiGlobe, FiTerminal } from 'react-icons/fi';
 import {
   SiAmazonroute53,
+  SiAmazons3,
   SiApache,
   SiBox,
   SiCloudinary,
@@ -52,7 +53,7 @@ import {
   SiVercel,
   SiVite,
   SiWebpack,
-} from "react-icons/si";
+} from 'react-icons/si';
 
 /**
  * TECHNOLOGY MAPPING
@@ -64,27 +65,27 @@ const TECH_ICONS: Record<string, IconType> = {
   HTML: SiHtml5,
   CSS: SiCss3,
   React: SiReact,
-  "Next.js": SiNextdotjs,
-  "Node.js": SiNodedotjs,
-  "Express.js": SiExpress,
-  "Tailwind CSS": SiTailwindcss,
+  'Next.js': SiNextdotjs,
+  'Node.js': SiNodedotjs,
+  'Express.js': SiExpress,
+  'Tailwind CSS': SiTailwindcss,
   MySQL: SiMysql,
   PostgreSQL: SiPostgresql,
   Firebase: SiFirebase,
   Drizzle: SiDrizzle,
   Neon: SiPostgresql,
   Vercel: SiVercel,
-  "GitHub Actions": SiGithubactions,
+  'GitHub Actions': SiGithubactions,
   Figma: SiFigma,
   Laravel: SiLaravel,
   TailwindCSS: SiTailwindcss,
   Remix: SiRemix,
   Expo: SiExpo,
   PHP: SiPhp,
-  "Digital Ocean": SiDigitalocean,
+  'Digital Ocean': SiDigitalocean,
   Jira: SiJira,
-  "React Native": SiReact,
-  "Amazon Route 53": SiAmazonroute53,
+  'React Native': SiReact,
+  'Amazon Route 53': SiAmazonroute53,
   Turborepo: SiTurborepo,
   Framer: SiFramer,
   Box: SiBox,
@@ -100,14 +101,14 @@ const TECH_ICONS: Record<string, IconType> = {
   SCSS: FaSass,
   Redux: SiRedux,
   Java: FaJava,
-  "Chrome Web Driver": SiGooglechrome,
+  'Chrome Web Driver': SiGooglechrome,
   Eclipse: SiEclipseide,
-  "IBM Rational Team Concert": FiGitBranch,
+  'IBM Rational Team Concert': FiGitBranch,
   Shadcn: SiShadcnui,
   PNPM: SiPnpm,
   Sanity: SiSanity,
   Nginx: SiNginx,
-  "Batch Scripts": FiTerminal,
+  'Batch Scripts': FiTerminal,
   Flask: SiFlask,
   HTML5: SiHtml5,
   Vite: SiVite,
@@ -115,6 +116,7 @@ const TECH_ICONS: Record<string, IconType> = {
   MDX: SiMdx,
   PyTorch: SiPytorch,
   Apache: SiApache,
+  'Amazon S3': SiAmazons3,
 };
 
 /**

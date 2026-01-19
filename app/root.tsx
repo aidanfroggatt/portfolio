@@ -2,7 +2,6 @@ import { type LinksFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import styles from '~/global.css?url';
 import { getLastCommitInfo } from '~/services/github.server';
-import stylesheet from '~/tailwind.css?url';
 import NotFound from './components/NotFound';
 
 export const links: LinksFunction = () => [
@@ -39,7 +38,6 @@ export const links: LinksFunction = () => [
     href: '/favicon-512x512.png',
     type: 'image/png',
   },
-  { rel: 'stylesheet', href: stylesheet, as: 'style' },
   { rel: 'stylesheet', href: styles, as: 'style' },
 ];
 

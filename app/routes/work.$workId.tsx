@@ -108,7 +108,7 @@ const Work = () => {
       )}
 
       <main
-        className="project-selection md:bg-size-[100%_135vh] bg-size-[100%_450px] md:bg-project-page bg-project-page gap-y-16 md:gap-y-40 pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat bg-custom-dark flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
+        className="project-selection md:bg-size-[100%_135vh] bg-size-[100%_450px] md:bg-project-page bg-project-page gap-y-16 md:gap-y-40 pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
         style={style}
         ref={mainRef}
       >

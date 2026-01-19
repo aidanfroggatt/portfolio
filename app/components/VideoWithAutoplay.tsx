@@ -31,7 +31,7 @@ const VideoWithAutoplay = ({ asset, style, className = '' }: VideoWithAutoplayPr
   return (
     <video
       ref={videoRef}
-      className={`${className} relative z-10 max-h-[75vh] w-full h-full object-contain highlight-card-asset`}
+      className={`${className ?? ''} relative z-10 max-h-[75vh] w-full h-full object-contain highlight-card-asset`}
       style={style}
       poster={asset.poster || undefined}
       playsInline

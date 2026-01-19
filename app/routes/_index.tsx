@@ -92,7 +92,7 @@ const Hero = () => {
               className="flex flex-col justify-center w-full h-full p-16 gap-y-8"
             >
               <div className="flex flex-col font-bold text-5xl lg:text-6xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">
-                <div className="inline-block">Hi, I&apos;m {getFirstWord(config.name)}.</div>{' '}
+                <div className="inline-block">Hi, I&apos;m {getFirstWord(config.name)}.</div>
                 <div className="inline-block">
                   I like to <span className="italic font-accent">build things.</span>
                 </div>
@@ -102,8 +102,7 @@ const Hero = () => {
                   {config.jobTitle} at {config.company}.
                 </span>
                 <span className="text-sm md:text-base 2xl:text-lg text-custom-light/50">
-                  {' '}
-                  Previously&nbsp;at&nbsp;IBM.{' '}
+                  Previously&nbsp;at&nbsp;IBM.
                 </span>
               </div>
             </div>
@@ -137,7 +136,7 @@ const WorkCards = () => {
             }}
           >
             <LinkCard id={item.id} key={index} color={item.color}>
-              <div className="flex flex-col justify-start w-full gap-y-2 pt-8 px-8">
+              <div className="flex flex-col justify-start w-full gap-y-2 p-8">
                 <div className="flex flex-row justify-between items-center w-full z-40 pointer-events-none">
                   <h3>{item.title}</h3>
                   <TfiArrowRight className="2xl:text-4xl text-2xl transition-all duration-200 ease-in group-hover:translate-x-2" />
@@ -147,11 +146,11 @@ const WorkCards = () => {
                   <span className="text-custom-light/50">— {item.subtitle}</span>
                 </div>
               </div>
-              <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
-                <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
+              <div className="pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md">
+                <div className="relative md:absolute pt-4 pb-8 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 transition-all duration-200 object-contain h-full px-8">
                   {item.heroAsset.type === 'VIDEO' ? (
                     <VideoWithAutoplay
-                      className="rounded-none group-hover:[&]:play"
+                      className="object-cover group-hover:[&]:play"
                       asset={item.heroAsset}
                     />
                   ) : (

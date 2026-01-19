@@ -71,12 +71,12 @@ const WorkCards = () => {
                       <h5>{item.association}</h5>
                     </div>
                     {item.heroAsset.type === 'VIDEO' ? (
-                      <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden">
-                        <VideoWithAutoplay className="rounded-none" asset={item.heroAsset} />
+                      <div className="rounded-[2vmax] z-40 pointer-events-none object-cover h-32 md:h-48 lg:h-48 overflow-hidden">
+                        <VideoWithAutoplay className="rounded-[2vmax]" asset={item.heroAsset} />
                       </div>
                     ) : (
                       <img
-                        className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden"
+                        className="rounded-[2vmax] z-40 pointer-events-none object-cover h-32 md:h-48 lg:h-48 overflow-hidden"
                         src={item.heroAsset.src}
                         alt={item.heroAsset.alt}
                       />

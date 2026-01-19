@@ -182,8 +182,9 @@
       #101010
     ) !important;
   }
+}
 
-  /*DEFAULT CARD*/
+@layer components {
   .card-container {
     display: flex;
     justify-content: center;
@@ -276,8 +277,9 @@
     transition: bottom 0.25s ease;
     transform: translateX(-50%);
   }
+}
 
-  /*HIGHLIGHT CARD*/
+@layer components {
   .highlight-card {
     --highlight-card-accent-color: rgba(242, 242, 242, 0.1);
     display: flex;
@@ -341,7 +343,9 @@
     ); /* Use your accent color here */
     border-radius: 2vmax;
   }
+}
 
+@layer components {
   .mac-window-card-container {
     display: flex;
     justify-content: center;

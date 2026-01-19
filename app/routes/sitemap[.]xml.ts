@@ -1,29 +1,28 @@
-import { work } from "~/data/work";
-import { LoaderFunction } from "@remix-run/node";
+import { type LoaderFunction } from '@remix-run/node';
+import { db } from '~/db/index.server';
 
 export const loader: LoaderFunction = async () => {
   const domain = 'https://aidanfroggatt.com';
-  
-  // Fetch dynamic URLs from your work data
-  const workItems = work; // The `work` array imported from your data
 
-  // Define the static URLs with their respective priorities
+  const projectItems = await db.query.projects.findMany({
+    columns: {
+      id: true,
+    },
+  });
+
   const staticUrls = [
-    { loc: `${domain}/`, priority: 1.0 }, // Highest priority for the base route
-    { loc: `${domain}/info`, priority: 0.8 }, // /info comes before /work
-    { loc: `${domain}/work`, priority: 0.8 }, // Same priority for /work
+    { loc: `${domain}/`, priority: 1.0 },
+    { loc: `${domain}/info`, priority: 0.8 },
+    { loc: `${domain}/work`, priority: 0.8 },
   ];
 
-  // Create dynamic URLs for the work items with lower priority
-  const dynamicUrls = workItems.map(item => ({
-    loc: `${domain}/work/${item.id}`,
-    priority: 0.5, // Lower priority for individual work items
+  const dynamicUrls = projectItems.map((project) => ({
+    loc: `${domain}/work/${project.id}`,
+    priority: 0.5,
   }));
 
-  // Combine static and dynamic URLs
   const urls = [...staticUrls, ...dynamicUrls];
 
-  // Generate the sitemap
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${urls
@@ -42,6 +41,7 @@ export const loader: LoaderFunction = async () => {
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600',
     },
   });
 };

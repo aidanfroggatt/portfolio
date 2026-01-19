@@ -1,0 +1,96 @@
+---
+meta:
+  slug: island-generator
+  title: Island Generator
+  description:
+---
+
+import WorkContent from '~/components/work/content';
+import WorkHighlights from '~/components/work/highlights';
+
+export const projectData = {
+  index: 9,
+  id: 'island-generator',
+  title: 'Island Generator',
+  association: 'McMaster University',
+  description: '',
+  asset: {
+    src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fisland-generator-mockup.png?alt=media&token=542e46a9-0a17-4e65-9987-4fb494da63b2',
+    alt: 'Island Generator Mockup',
+    type: 'IMAGE',
+  },
+  color: '#04538b',
+  spotlight: false,
+  startDate: new Date('2023-01-31'),
+  endDate: new Date('2023-04-31'),
+  overview: {
+    description:
+      'A Java application that generates islands using a variety of algorithms. The application allows users to customize the size, shape, and features of the generated islands.',
+    role: {
+      title: 'Software Developer',
+      description: 'Developing features for the island generator.',
+    },
+    team: [
+      {
+        name: 'Krish Dogra',
+        role: 'Software Developer',
+      },
+      {
+        name: 'Ashwin Unnithan',
+        role: 'Software Developer',
+      },
+    ],
+    technologies: [
+      {
+        icon: 'FaJava',
+        name: 'Java',
+      },
+      {
+        icon: 'SiApachemaven',
+        name: 'Apache Maven',
+      },
+    ],
+  },
+  highlights: {
+    description: 'Visualizers for mesh data structure and applicable algorithms.',
+    items: [
+      {
+        asset: {
+          alt: 'Mesh Data Structure',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Firregular_debug.svg?alt=media&token=868f4e29-654a-4646-bf54-eb53849996d1',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Capital City Path',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Fcapital-city-path.svg?alt=media&token=24337224-d870-46be-b571-188ef201403e',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Lagoon Island',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Fmesh-generator-sample.svg?alt=media&token=da9a7489-d3ce-4fac-93ba-bea8288e5649',
+          type: 'IMAGE',
+        },
+      },
+    ],
+  },
+  links: [
+    {
+      icon: 'SiGithub',
+      name: 'Github',
+      link: 'https://github.com/aidanfroggatt/IslandGenerator',
+    },
+  ],
+  navLink: 'https://github.com/aidanfroggatt/IslandGenerator',
+};
+
+<WorkHighlights
+  highlights={projectData.highlights}
+  color={projectData.color}
+  links={projectData.links}
+/>
+
+<WorkContent content={projectData.content} />

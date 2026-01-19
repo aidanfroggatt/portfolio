@@ -1,0 +1,122 @@
+---
+meta:
+  slug: snapcycle
+  title: SnapCycle
+  description: SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.
+---
+
+import WorkContent from '~/components/work/content';
+import WorkHighlights from '~/components/work/highlights';
+
+export const projectData = {
+  id: 'snapcycle',
+  index: 7,
+  title: 'SnapCycle',
+  association: 'MacHacks 3',
+  subtitle: 'Award winning AI-powered recyclability detection app.',
+  description:
+    'SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.',
+  asset: {
+    src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fsnapcycle_hero.png?alt=media&token=e946bed8-2205-440a-b82e-687cc2dfdd6b',
+    alt: 'SnapCycle Mockup',
+    type: 'IMAGE',
+  },
+  color: '#75BED1',
+  spotlight: false,
+  award: 'Best Environmental Hack',
+  startDate: new Date('2023-02-03T18:00:00Z'),
+  endDate: new Date('2023-02-05T06:00:00Z'),
+  overview: {
+    description:
+      "SnapCycle is a web app where the user can scan an item to receive info on its recyclability and how to dispose of it! Say no more to scientific articles going into detail on things you don't need to know, SnapCycle tells you exactly what you need to do on the spot!",
+    role: {
+      title: 'Software Developer',
+      description: 'Ideation, design, and development.',
+    },
+    team: [
+      {
+        name: 'Luai Bashar',
+        role: 'Software Developer',
+      },
+      {
+        name: 'Gabriel Hernandez',
+        role: 'Software Developer',
+      },
+    ],
+    technologies: [
+      {
+        icon: 'SiReact',
+        name: 'React',
+      },
+      {
+        icon: 'SiJavascript',
+        name: 'JavaScript',
+      },
+      {
+        icon: 'SiPython',
+        name: 'Python',
+      },
+      {
+        icon: 'SiPytorch',
+        name: 'PyTorch',
+      },
+      {
+        icon: 'SiTailwindcss',
+        name: 'Tailwind CSS',
+      },
+      {
+        icon: 'SiFigma',
+        name: 'Figma',
+      },
+    ],
+  },
+  highlights: {
+    description: 'An award-winning AI-powered tool for detecting the recyclability of items.',
+    items: [
+      {
+        asset: {
+          alt: 'Plastic bottle detection',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fplastic_bottle_detection%2Fplastic_bottle_detection.mp4?alt=media&token=201327a9-2c96-48f6-a425-8103d06f9892',
+          type: 'VIDEO',
+          poster:
+            'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fplastic_bottle_detection%2Fposter.png?alt=media&token=a85bd536-9e26-44a1-a782-7e6a10eadd33',
+        },
+      },
+      {
+        asset: {
+          alt: 'Website demo',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fwebsite_demo%2Fsnapcycle-website.mp4?alt=media&token=7e4563ee-c418-444a-81d2-5ddfbd402fa2',
+          type: 'VIDEO',
+          poster:
+            'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fsnapcycle%2Fhighlights%2Fwebsite_demo%2Fposter.png?alt=media&token=70c4dfc6-cb38-488b-a1bf-34e6173e813e',
+        },
+      },
+    ],
+  },
+  links: [
+    {
+      icon: 'FaGlobe',
+      link: 'https://snap-cycle.github.io/SnapCycle/',
+      name: 'Website',
+    },
+    {
+      icon: 'SiGithub',
+      link: 'https://github.com/snap-cycle/SnapCycle',
+      name: 'GitHub',
+    },
+    {
+      icon: 'SiDevpost',
+      link: 'https://devpost.com/software/snapcycle-hyx3qv',
+      name: 'Devpost',
+    },
+  ],
+  navLink: 'https://devpost.com/software/snapcycle-hyx3qv',
+};
+
+<WorkHighlights
+  highlights={projectData.highlights}
+  color={projectData.color}
+  links={projectData.links}
+/>
+
+<WorkContent content={projectData.content} />

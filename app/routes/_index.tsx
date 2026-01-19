@@ -146,18 +146,18 @@ const WorkCards = () => {
                   <span className="text-custom-light/50">— {item.subtitle}</span>
                 </div>
               </div>
-              <div className="pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md">
-                <div className="relative md:absolute pt-4 pb-8 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 transition-all duration-200 object-contain h-full px-8">
+              <div className="w-full pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md">
+                <div className="w-full md:absolute pt-4 md:pt-0 pb-8 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-20 xl:group-hover:-bottom-14 2xl:-bottom-28 2xl:group-hover:-bottom-22 transition-all duration-200 object-contain h-full px-8">
                   {item.heroAsset.type === 'VIDEO' ? (
                     <VideoWithAutoplay
-                      className="object-cover group-hover:[&]:play"
+                      className="rounded-[2vmax] md:rounded-b-none object-cover group-hover:[&]:play"
                       asset={item.heroAsset}
                     />
                   ) : (
                     <img
                       src={item.heroAsset.src}
                       alt={item.heroAsset.alt}
-                      className="rounded-[2vmax]"
+                      className="rounded-[2vmax] lg:rounded-b-none object-cover w-full"
                     />
                   )}
                 </div>

@@ -67,16 +67,16 @@ const WorkCards = () => {
                 <LinkCard color={item.color} id={item.id}>
                   <div className="flex flex-col justify-start items-center gap-y-4 p-4 w-full h-full">
                     <div className="z-40 pointer-events-none justify-start items-center flex flex-col text-center">
-                      <h4>{item.title}</h4>
-                      <h5>{item.association}</h5>
+                      <h4 className="whitespace-nowrap">{item.title}</h4>
+                      <h5 className="whitespace-nowrap">{item.association}</h5>
                     </div>
                     {item.heroAsset.type === 'VIDEO' ? (
-                      <div className="rounded-[2vmax] z-40 pointer-events-none object-cover h-32 md:h-48 lg:h-48 overflow-hidden">
+                      <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden">
                         <VideoWithAutoplay className="rounded-[2vmax]" asset={item.heroAsset} />
                       </div>
                     ) : (
                       <img
-                        className="rounded-[2vmax] z-40 pointer-events-none object-cover h-32 md:h-48 lg:h-48 overflow-hidden"
+                        className="rounded-[2vmax] z-40 pointer-events-none object-contain w-full h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden"
                         src={item.heroAsset.src}
                         alt={item.heroAsset.alt}
                       />

@@ -10,8 +10,8 @@ export default {
         'custom-dark-alt': '#191919',
       },
       fontFamily: {
-        default: ['"Montserrat"', 'sans-serif'],
-        accent: ['"Playfair Display"', 'serif'],
+        default: ['Montserrat', 'sans-serif'],
+        accent: ['Playfair Display', 'serif'],
       },
       boxShadow: {
         card: 'inset 0 0 8px rgba(0, 0, 0, .4), 0 0 60px rgba(0, 0, 0, .2), 0 30px 120px rgba(0, 0, 0, .8)',

@@ -36,16 +36,7 @@ export default {
         'highlight-card-asset':
           'radial-gradient(circle farthest-side at 50% 0, var(--project-color), #101010);',
       },
-      backgroundSize: {
-        loader: 'calc(100%/3) 50%',
-        'work-page': '100% 135vh',
-        'info-page': '100% 135vh',
-        'project-page-md': '100% 135vh',
-        'project-page-default': '100% 450px',
-        'main-page-mobile': '100% 450px',
-      },
       width: {
-        loader: '60px',
         'page-2xl': '1440px',
         'page-lg': '880px',
         'page-md': '80vw',
@@ -77,28 +68,6 @@ export default {
         'mac-window-dots-2xl': '8px',
         'mac-window-dots-lg': '7px',
         'mac-window-dots-md': '4px',
-      },
-      aspectRatio: {
-        loader: '2',
-      },
-      animation: {
-        'loader-animation': 'loader-keyframes 1s infinite linear',
-      },
-      keyframes: {
-        'loader-keyframes': {
-          '20%': {
-            backgroundPosition: '0% 0%, 50% 50%, 100% 50%',
-          },
-          '40%': {
-            backgroundPosition: '0% 100%, 50% 0%, 100% 50%',
-          },
-          '60%': {
-            backgroundPosition: '0% 50%, 50% 100%, 100% 0%',
-          },
-          '80%': {
-            backgroundPosition: '0% 50%, 50% 50%, 100% 100%',
-          },
-        },
       },
     },
   },

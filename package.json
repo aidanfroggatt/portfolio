@@ -41,6 +41,7 @@
     "@mdx-js/rollup": "^3.1.1",
     "@remix-run/dev": "^2.16.5",
     "@remix-run/eslint-config": "^2.17.4",
+    "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",

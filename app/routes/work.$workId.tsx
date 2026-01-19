@@ -1,28 +1,28 @@
-import { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import {
-  ComponentType,
-  CSSProperties,
-  lazy,
-  Suspense,
-  useMemo,
-  useRef,
-} from "react";
-import Footer from "~/components/Footer";
-import ProgressBar from "~/components/ProgressBar";
-import { WorkOverview } from "~/components/work";
-import WorkHero from "~/components/work/hero";
-import { db } from "~/db/index.server";
-import { hexToRGBA } from "~/utils/color";
+import { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
+import { ComponentType, CSSProperties, lazy, LazyExoticComponent, Suspense, useRef } from 'react';
+import Footer from '~/components/Footer';
+import ProgressBar from '~/components/ProgressBar';
+import { WorkOverview } from '~/components/work';
+import WorkHero from '~/components/work/hero';
+import { db } from '~/db/index.server';
+import { hexToRGBA } from '~/utils/color';
 
-const MDX_MODULES = import.meta.glob<{ default: ComponentType }>(
-  "../content/projects/*.mdx",
-);
+const MDX_MODULES = import.meta.glob<{ default: ComponentType }>('../content/projects/*.mdx');
+
+const MDX_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {};
+
+for (const path in MDX_MODULES) {
+  const slug = path.match(/\/([^/]+)\.mdx$/)?.[1];
+  if (slug) {
+    MDX_COMPONENTS[slug] = lazy(MDX_MODULES[path]);
+  }
+}
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.workId;
 
-  if (!slug) throw new Response("Project ID Required", { status: 400 });
+  if (!slug) throw new Response('Project ID Required', { status: 400 });
 
   const project = await db.query.projects.findFirst({
     where: (p, { eq }) => eq(p.id, slug),
@@ -37,7 +37,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   });
 
   if (!project) {
-    throw new Response("Not Found", { status: 404 });
+    throw new Response('Not Found', { status: 404 });
   }
 
   let nextProject = await db.query.projects.findFirst({
@@ -59,41 +59,28 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  if (!data || !data.project) return [{ title: "Work Item" }];
+  if (!data || !data.project) return [{ title: 'Work Item' }];
   const { project } = data;
   return [
     {
       title: `Aidan Froggatt — ${project.title}`,
     },
     {
-      name: "description",
+      name: 'description',
       content: project.description,
     },
   ];
 };
 
 const ProjectContent = ({ slug }: { slug: string }) => {
-  const Component = useMemo(() => {
-    const filePath = Object.keys(MDX_MODULES).find((path) =>
-      path.includes(`/${slug}.mdx`),
-    );
-
-    if (filePath && MDX_MODULES[filePath]) {
-      return lazy(MDX_MODULES[filePath]);
-    }
-    return null;
-  }, [slug]);
+  const Component = MDX_COMPONENTS[slug];
 
   if (!Component) {
     return null;
   }
 
   return (
-    <Suspense
-      fallback={
-        <div className="py-20 text-center opacity-50">Loading content...</div>
-      }
-    >
+    <Suspense fallback={<div className="py-20 text-center opacity-50">Loading content...</div>}>
       <div className="prose prose-invert prose-lg max-w-4xl w-full px-6 md:px-0 mt-16 md:mt-32">
         <Component />
       </div>
@@ -107,19 +94,15 @@ const Work = () => {
 
   const style = project?.color
     ? ({
-        "--project-color": hexToRGBA(project.color, 0.5),
-        "--selection-text-color": "#f2f2f2",
+        '--project-color': hexToRGBA(project.color, 0.5),
+        '--selection-text-color': '#f2f2f2',
       } as CSSProperties)
     : {};
 
   return (
     <>
       {project && nextProject && (
-        <ProgressBar
-          work={project}
-          nextWork={nextProject}
-          targetRef={mainRef}
-        />
+        <ProgressBar work={project} nextWork={nextProject} targetRef={mainRef} />
       )}
 
       <main

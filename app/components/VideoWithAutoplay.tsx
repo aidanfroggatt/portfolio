@@ -1,5 +1,5 @@
-import { useInView } from "framer-motion";
-import { CSSProperties, useRef } from "react";
+import { useInView } from 'framer-motion';
+import { CSSProperties, useEffect, useRef } from 'react';
 
 interface VideoAssetProps {
   src: string;
@@ -13,22 +13,20 @@ interface VideoWithAutoplayProps {
   className?: string;
 }
 
-const VideoWithAutoplay = ({
-  asset,
-  style,
-  className = "",
-}: VideoWithAutoplayProps) => {
+const VideoWithAutoplay = ({ asset, style, className = '' }: VideoWithAutoplayProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(videoRef, { amount: 0.25 });
 
-  if (videoRef.current) {
-    if (isInView) {
-      videoRef.current.play();
-    } else {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isInView) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
     }
-  }
+  }, [isInView]);
 
   return (
     <video

@@ -1,21 +1,35 @@
-import { MetaFunction } from "@remix-run/react";
-import { motion } from "framer-motion";
-import Back from "~/components/Back";
-import { LinkCard } from "~/components/Card";
-import Dot from "~/components/Dot";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { work } from "~/data/work";
+import { MetaFunction, useLoaderData } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import Back from '~/components/Back';
+import Footer from '~/components/Footer';
+import Header from '~/components/Header';
+import { LinkCard } from '~/components/ui/card';
+import Dot from '~/components/ui/dot';
+import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { config } from '~/data/config';
+import { db } from '~/db/index.server';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Aidan Froggatt — Work" },
-    { name: "description", content: "This is a list of all work samples." },
+    { title: `${config.name} — Work` },
+    { name: 'description', content: 'This is a list of all work samples.' },
   ];
 };
 
+export const loader = async () => {
+  const work = await db.query.projects.findMany({
+    orderBy: (projects, { asc }) => [asc(projects.index)],
+    with: {
+      heroAsset: true,
+    },
+  });
+
+  return { work };
+};
+
 const WorkCards = () => {
+  const { work } = useLoaderData<typeof loader>();
+
   return (
     <section id="work-cards">
       <div
@@ -25,7 +39,7 @@ const WorkCards = () => {
         <div className="flex flex-col justify-center items-start lg:mt-40 2xl:mt-48 md:mt-32 pb-10 md:pb-0">
           <div className="flex justify-center items-center flex-row text-custom-light gap-x-2">
             <Dot />
-            <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">
+            <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">
               WORK SAMPLES
             </div>
           </div>
@@ -44,7 +58,7 @@ const WorkCards = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: 0.3 * index,
-                  type: "spring",
+                  type: 'spring',
                   damping: 10,
                   mass: 1,
                   stiffness: 100,
@@ -53,21 +67,18 @@ const WorkCards = () => {
                 <LinkCard color={item.color} id={item.id}>
                   <div className="flex flex-col justify-start items-center gap-y-4 p-4 w-full h-full">
                     <div className="z-40 pointer-events-none justify-start items-center flex flex-col text-center">
-                      <h4>{item.title}</h4>
-                      <h5>{item.association}</h5>
+                      <h4 className="whitespace-nowrap">{item.title}</h4>
+                      <h5 className="whitespace-nowrap">{item.association}</h5>
                     </div>
-                    {item.asset.type === "VIDEO" ? (
-                      <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden">
-                        <VideoWithAutoplay
-                          className="rounded-none"
-                          asset={item.asset}
-                        />
+                    {item.heroAsset.type === 'VIDEO' ? (
+                      <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden">
+                        <VideoWithAutoplay className="rounded-[2vmax]" asset={item.heroAsset} />
                       </div>
                     ) : (
                       <img
-                        className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-54 overflow-hidden"
-                        src={item.asset.src}
-                        alt={item.asset.alt}
+                        className="rounded-[2vmax] z-40 pointer-events-none object-contain w-full h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden"
+                        src={item.heroAsset.src}
+                        alt={item.heroAsset.alt}
                       />
                     )}
                   </div>
@@ -92,7 +103,7 @@ const Work = () => {
         <Back />
       </div>
 
-      <main className="bg-main-page-mobile pt-16 md:pt-0 md:bg-info-page bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
+      <main className="bg-main-page-mobile bg-size-[100%_450px] pt-16 md:pt-0 md:bg-info-page md:bg-size-[100%_135vh] bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
         <WorkCards />
       </main>
       <Footer />

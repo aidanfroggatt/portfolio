@@ -1,11 +1,12 @@
-import mdx from "@mdx-js/rollup";
-import { vitePlugin as remix } from "@remix-run/dev";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+import mdx from '@mdx-js/rollup';
+import { vitePlugin as remix } from '@remix-run/dev';
+import tailwindcss from '@tailwindcss/vite';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
-declare module "@remix-run/node" {
+declare module '@remix-run/node' {
   interface Future {
     v3_singleFetch: true;
   }
@@ -13,6 +14,7 @@ declare module "@remix-run/node" {
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
     }),

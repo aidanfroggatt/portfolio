@@ -1,0 +1,121 @@
+---
+meta:
+  slug: codewarriors
+  title: CodeWarriors
+  description: CodeWarriors is a gamified platform designed to teach coding through fun and interactive challenges. Developed for new coders, it makes learning programming concepts engaging and accessible.
+---
+
+import WorkContent from '~/components/work/content';
+import WorkHighlights from '~/components/work/highlights';
+
+export const projectData = {
+  index: 8,
+  id: 'codewarriors',
+  title: 'CodeWarriors',
+  association: 'DeltaHacks IX',
+  subtitle: 'A gamified platform for teaching coding.',
+  description:
+    'CodeWarriors is a gamified platform designed to teach coding through fun and interactive challenges. Developed for new coders, it makes learning programming concepts engaging and accessible.',
+  asset: {
+    src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fcodewarriors-mockup.png?alt=media&token=5c09848e-0984-4188-9954-8dce2b4ea900',
+    alt: 'CodeWarriors Mockup',
+    type: 'IMAGE',
+  },
+  color: '#ab6a8c',
+  spotlight: false,
+  startDate: new Date('2023-01-14T12:00:00Z'),
+  endDate: new Date('2023-01-15T24:00:00Z'),
+  overview: {
+    description:
+      'A gamified platform for teaching coding to new coders in a fun and interactive way. The platform is designed to be engaging and educational, with a focus on teaching coding concepts through interactive challenges and games.',
+    role: {
+      title: 'Software Developer',
+      description: 'Designed and developed the platform.',
+    },
+    team: [
+      {
+        name: 'Luai Bashar',
+        role: 'Software Developer',
+      },
+    ],
+    technologies: [
+      {
+        icon: 'SiReact',
+        name: 'React',
+      },
+      {
+        icon: 'SiJavascript',
+        name: 'JavaScript',
+      },
+      {
+        icon: 'SiHtml5',
+        name: 'HTML5',
+      },
+      {
+        icon: 'SiTailwindcss',
+        name: 'Tailwind CSS',
+      },
+      {
+        icon: 'SiFigma',
+        name: 'Figma',
+      },
+    ],
+  },
+  highlights: {
+    description:
+      'The design of CodeWarriors is focused on making coding education fun and engaging for new coders.',
+    items: [
+      {
+        asset: {
+          alt: 'Login Page',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fhighlights%2Fhome-page.jpg?alt=media&token=0ede822a-5894-411f-8331-e071d6a23fae',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Language Selection',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fhighlights%2Flanguage-selection.jpg?alt=media&token=310ca593-4bd2-4faa-9d93-89f94a244f01',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Language Overview',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fhighlights%2Fmission.jpg?alt=media&token=82b30198-2c2a-47ff-90f8-7ee36425af1f',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Mission List',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fhighlights%2Fmission-list.jpg?alt=media&token=78fa70d5-1726-47cc-a654-a363840058a1',
+          type: 'IMAGE',
+        },
+      },
+      {
+        asset: {
+          alt: 'Mission',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fcodewarriors%2Fhighlights%2Fmission-active.jpg?alt=media&token=88e85461-b6ae-4c0b-b293-92fc5f85d546',
+          type: 'IMAGE',
+        },
+      },
+    ],
+  },
+  links: [
+    {
+      icon: 'SiDevpost',
+      link: 'https://devpost.com/software/code-warriors',
+      name: 'Devpost',
+    },
+  ],
+  navLink: 'https://devpost.com/software/code-warriors',
+};
+
+<WorkHighlights
+  highlights={projectData.highlights}
+  color={projectData.color}
+  links={projectData.links}
+/>
+
+<WorkContent content={projectData.content} />

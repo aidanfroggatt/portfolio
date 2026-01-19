@@ -1,24 +1,37 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Link, useNavigation } from "@remix-run/react";
-import { motion } from "framer-motion";
-import { TfiArrowRight } from "react-icons/tfi";
-import LilypadIcon from "~/assets/LilypadIcon";
-import { LinkCard, MacWindowCard } from "~/components/Card";
-import Dot from "~/components/Dot";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import VideoWithAutoplay from "~/components/VideoWithAutoplay";
-import { work } from "~/data/work";
+import type { MetaFunction } from '@remix-run/node';
+import { Link, useLoaderData, useNavigation } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import { TfiArrowRight } from 'react-icons/tfi';
+import Footer from '~/components/Footer';
+import Header from '~/components/Header';
+import LilypadIcon from '~/components/LilypadIcon';
+import { LinkCard, MacWindowCard } from '~/components/ui/card';
+import Dot from '~/components/ui/dot';
+import VideoWithAutoplay from '~/components/VideoWithAutoplay';
+import { config } from '~/data/config';
+import { db } from '~/db/index.server';
+import { getFirstWord } from '~/utils/string';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Aidan Froggatt — Software Engineer Intern" },
+    { title: `${config.name} — ${config.jobTitle}` },
     {
-      name: "description",
-      content:
-        "Hi, I'm Aidan. Currently a Software Engineer Intern at Tesla. Previously a Software Engineer Intern at IBM.",
+      name: 'description',
+      content: config.meta.description,
     },
   ];
+};
+
+export const loader = async () => {
+  const spotlightWork = await db.query.projects.findMany({
+    where: (projects, { eq }) => eq(projects.spotlight, true),
+    orderBy: (projects, { asc }) => [asc(projects.index)],
+    with: {
+      heroAsset: true,
+    },
+  });
+
+  return { work: spotlightWork };
 };
 
 const Hero = () => {
@@ -26,7 +39,7 @@ const Hero = () => {
     <section id="hero">
       <div
         id="hero-content"
-        className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-opacity-10 border-custom-light"
+        className="w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl flex flex-col justify-center items-start md:items-center relative z-10  border-b border-custom-light/10"
       >
         <motion.div
           id="hero-content-mobile"
@@ -39,19 +52,15 @@ const Hero = () => {
         >
           <div className="flex flex-row justify-center items-center text-custom-light text-sm md:text-lg 2xl:text-2xl gap-x-2">
             <Dot />
-            <div className="text-xs 2xl:text-sm text-custom-light text-opacity-50 py-4 2xl:py-8">
-              WELCOME
-            </div>
+            <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">WELCOME</div>
           </div>
-          <h1 className="text-shadow-mobile md:text-shadow pb-10 text-5xl">
-            Hi, I&apos;m <span className="h1-accent">Aidan.</span>
+          <h1 className="text-5xl text-shadow-mobile md:text-shadow pb-10">
+            Hi, I&apos;m <span className="h1-accent">{getFirstWord(config.name)}.</span>
           </h1>
           <div className="flex flex-row justify-center items-center font-bold">
-            Software Engineer Intern at Tesla.
+            {config.jobTitle} at {config.company}.
           </div>
-          <div className="text-custom-light text-opacity-50">
-            Previously at IBM.
-          </div>
+          <div className="text-custom-light/50">Previously at IBM.</div>
         </motion.div>
         <motion.div
           id="hero-content-desktop"
@@ -63,10 +72,7 @@ const Hero = () => {
           }}
         >
           <MacWindowCard>
-            <div
-              id="shine-animation"
-              className="shine-wrapper pointer-events-none"
-            >
+            <div id="shine-animation" className="shine-wrapper pointer-events-none">
               <div className="shine-small" />
               <div className="shine-big" />
             </div>
@@ -86,19 +92,17 @@ const Hero = () => {
               className="flex flex-col justify-center w-full h-full p-16 gap-y-8"
             >
               <div className="flex flex-col font-bold text-5xl lg:text-6xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">
-                <div className="inline-block">Hi, I&apos;m Aidan.</div>
+                <div className="inline-block">Hi, I&apos;m {getFirstWord(config.name)}.</div>
                 <div className="inline-block">
-                  I like to{" "}
-                  <span className="italic font-accent">build things.</span>
+                  I like to <span className="italic font-accent">build things.</span>
                 </div>
               </div>
               <div className="flex flex-col items-end text-custom-light">
                 <span className="font-semibold text-base md:text-xl 2xl:text-2xl">
-                  Software Engineer Intern at Tesla.
+                  {config.jobTitle} at {config.company}.
                 </span>
-                <span className="text-sm md:text-base 2xl:text-lg text-custom-light text-opacity-50">
-                  {" "}
-                  Previously&nbsp;at&nbsp;IBM.{" "}
+                <span className="text-sm md:text-base 2xl:text-lg text-custom-light/50">
+                  Previously&nbsp;at&nbsp;IBM.
                 </span>
               </div>
             </div>
@@ -110,60 +114,57 @@ const Hero = () => {
 };
 
 const WorkCards = () => {
+  const { work } = useLoaderData<typeof loader>();
+
   return (
     <section id="work-cards">
       <div
         id="work-cards-content"
         className="flex flex-col gap-y-8 md:gap-y-10 2xl:gap-y-16 py-16 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl"
       >
-        {work
-          .filter((item) => item.spotlight)
-          .sort((a, b) => a.index - b.index)
-          .map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col gap-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-              }}
-              viewport={{
-                once: true,
-              }}
-            >
-              <LinkCard id={item.id} key={index} color={item.color}>
-                <div className="flex flex-col justify-start w-full gap-y-2 pt-8 px-8">
-                  <div className="flex flex-row justify-between items-center w-full z-40 pointer-events-none">
-                    <h3>{item.title}</h3>
-                    <TfiArrowRight className="2xl:text-4xl text-2xl transition-all duration-200 ease-in group-hover:translate-x-2" />
-                  </div>
-                  <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
-                    {item.association}&nbsp;
-                    <span className="text-custom-light text-opacity-50">
-                      — {item.subtitle}
-                    </span>
-                  </div>
+        {work.map((item, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col gap-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+            }}
+            viewport={{
+              once: true,
+            }}
+          >
+            <LinkCard id={item.id} key={index} color={item.color}>
+              <div className="flex flex-col justify-start w-full gap-y-2 p-8">
+                <div className="flex flex-row justify-between items-center w-full z-40 pointer-events-none">
+                  <h3>{item.title}</h3>
+                  <TfiArrowRight className="2xl:text-4xl text-2xl transition-all duration-200 ease-in group-hover:translate-x-2" />
                 </div>
-                <div className="pointer-events-none flex gap-y-8 justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md h-work-card-image-default">
-                  <div className="relative md:absolute pt-4 md:mt-0 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-24 xl:group-hover:-bottom-14 px-8 transition-all duration-200 object-contain h-full">
-                    {item.asset.type === "VIDEO" ? (
-                      <VideoWithAutoplay
-                        className="rounded-none group-hover:[&]:play"
-                        asset={item.asset}
-                      />
-                    ) : (
-                      <img
-                        src={item.asset.src}
-                        alt={item.asset.alt}
-                        className="rounded-[2vmax]"
-                      />
-                    )}
-                  </div>
+                <div className="text-start 2xl:text-xl md:text-base text-sm z-40 pointer-events-none">
+                  {item.association}&nbsp;
+                  <span className="text-custom-light/50">— {item.subtitle}</span>
                 </div>
-              </LinkCard>
-            </motion.div>
-          ))}
+              </div>
+              <div className="w-full pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md">
+                <div className="w-full md:absolute pt-4 md:pt-0 pb-8 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-20 xl:group-hover:-bottom-14 2xl:-bottom-28 2xl:group-hover:-bottom-22 transition-all duration-200 object-contain h-full px-8">
+                  {item.heroAsset.type === 'VIDEO' ? (
+                    <VideoWithAutoplay
+                      className="rounded-[2vmax] md:rounded-b-none object-cover group-hover:[&]:play"
+                      asset={item.heroAsset}
+                    />
+                  ) : (
+                    <img
+                      src={item.heroAsset.src}
+                      alt={item.heroAsset.alt}
+                      className="rounded-[2vmax] lg:rounded-b-none object-cover w-full"
+                    />
+                  )}
+                </div>
+              </div>
+            </LinkCard>
+          </motion.div>
+        ))}
         <Link to="/work" className="md:hidden">
           View all work &rarr;
         </Link>
@@ -174,12 +175,12 @@ const WorkCards = () => {
 
 export default function Index() {
   const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
+  const isLoading = navigation.state === 'loading';
 
   return (
     <>
       <Header />
-      <main className="bg-main-page-mobile md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light transition-opacity duration-300">
+      <main className="bg-main-page-mobile bg-size-[100%_450px] md:bg-size-[100%_135vh] md:bg-work-page bg-no-repeat relative md:pb-40 2xl:pb-60 min-h-screen flex flex-col justify-evenly items-center bg-custom-dark text-custom-light transition-opacity duration-300">
         <Hero />
         <WorkCards />
       </main>

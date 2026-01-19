@@ -1,57 +1,137 @@
-import * as SiIcons from "react-icons/si";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as BiIcons from "react-icons/bi";
-import * as BsIcons from "react-icons/bs";
-import * as DiIcons from "react-icons/di";
-import * as FiIcons from "react-icons/fi";
-import * as FcIcons from "react-icons/fc";
-import * as GiIcons from "react-icons/gi";
-import * as GoIcons from "react-icons/go";
-import * as GrIcons from "react-icons/gr";
-import * as HiIcons from "react-icons/hi";
-import * as ImIcons from "react-icons/im";
-import * as IoIcons from "react-icons/io";
-import * as Io5Icons from "react-icons/io5";
-import * as MdIcons from "react-icons/md";
-import * as RiIcons from "react-icons/ri";
-import * as TbIcons from "react-icons/tb";
-import * as TiIcons from "react-icons/ti";
-import * as VscIcons from "react-icons/vsc";
-import * as WiIcons from "react-icons/wi";
+import { IconType } from 'react-icons';
+import { FaJava, FaSass } from 'react-icons/fa';
+import { FiCode, FiGitBranch, FiGlobe, FiTerminal } from 'react-icons/fi';
+import {
+  SiAmazonroute53,
+  SiAmazons3,
+  SiApache,
+  SiBox,
+  SiCloudinary,
+  SiCss3,
+  SiDigitalocean,
+  SiDocker,
+  SiDrizzle,
+  SiEclipseide,
+  SiEslint,
+  SiExpo,
+  SiExpress,
+  SiFigma,
+  SiFirebase,
+  SiFlask,
+  SiFramer,
+  SiGithub,
+  SiGithubactions,
+  SiGooglechrome,
+  SiHtml5,
+  SiJavascript,
+  SiJenkins,
+  SiJfrog,
+  SiJira,
+  SiJunit5,
+  SiLaravel,
+  SiLinkedin,
+  SiMdx,
+  SiMysql,
+  SiNextdotjs,
+  SiNginx,
+  SiNodedotjs,
+  SiPhp,
+  SiPnpm,
+  SiPostgresql,
+  SiPython,
+  SiPytorch,
+  SiReact,
+  SiRedux,
+  SiRemix,
+  SiSanity,
+  SiSelenium,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTurborepo,
+  SiTypescript,
+  SiUbuntu,
+  SiVercel,
+  SiVite,
+  SiWebpack,
+} from 'react-icons/si';
 
-const AllIcons: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
-    ...SiIcons,
-    ...FiIcons,
-    ...FaIcons,
-    ...AiIcons,
-    ...BiIcons,
-    ...BsIcons,
-    ...DiIcons,
-    ...FiIcons,
-    ...FcIcons,
-    ...GiIcons,
-    ...GoIcons,
-    ...GrIcons,
-    ...HiIcons,
-    ...ImIcons,
-    ...IoIcons,
-    ...Io5Icons,
-    ...MdIcons,
-    ...RiIcons,
-    ...TbIcons,
-    ...TiIcons,
-    ...VscIcons,
-    ...WiIcons
+/**
+ * TECHNOLOGY MAPPING
+ */
+const TECH_ICONS: Record<string, IconType> = {
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  Python: SiPython,
+  HTML: SiHtml5,
+  CSS: SiCss3,
+  React: SiReact,
+  'Next.js': SiNextdotjs,
+  'Node.js': SiNodedotjs,
+  'Express.js': SiExpress,
+  'Tailwind CSS': SiTailwindcss,
+  MySQL: SiMysql,
+  PostgreSQL: SiPostgresql,
+  Firebase: SiFirebase,
+  Drizzle: SiDrizzle,
+  Neon: SiPostgresql,
+  Vercel: SiVercel,
+  'GitHub Actions': SiGithubactions,
+  Figma: SiFigma,
+  Laravel: SiLaravel,
+  TailwindCSS: SiTailwindcss,
+  Remix: SiRemix,
+  Expo: SiExpo,
+  PHP: SiPhp,
+  'Digital Ocean': SiDigitalocean,
+  Jira: SiJira,
+  'React Native': SiReact,
+  'Amazon Route 53': SiAmazonroute53,
+  Turborepo: SiTurborepo,
+  Framer: SiFramer,
+  Box: SiBox,
+  ESLint: SiEslint,
+  JUnit: SiJunit5,
+  Selenium: SiSelenium,
+  Jenkins: SiJenkins,
+  JFrog: SiJfrog,
+  Ubuntu: SiUbuntu,
+  GitHub: SiGithub,
+  Docker: SiDocker,
+  Webpack: SiWebpack,
+  SCSS: FaSass,
+  Redux: SiRedux,
+  Java: FaJava,
+  'Chrome Web Driver': SiGooglechrome,
+  Eclipse: SiEclipseide,
+  'IBM Rational Team Concert': FiGitBranch,
+  Shadcn: SiShadcnui,
+  PNPM: SiPnpm,
+  Sanity: SiSanity,
+  Nginx: SiNginx,
+  'Batch Scripts': FiTerminal,
+  Flask: SiFlask,
+  HTML5: SiHtml5,
+  Vite: SiVite,
+  Cloudinary: SiCloudinary,
+  MDX: SiMdx,
+  PyTorch: SiPytorch,
+  Apache: SiApache,
+  'Amazon S3': SiAmazons3,
 };
 
-interface IconProps {
-    iconName: string;
-    style?: React.CSSProperties;
-    className?: string;
-}
+/**
+ * LINK MAPPING
+ */
+const PLATFORM_ICONS: Record<string, IconType> = {
+  GitHub: SiGithub,
+  LinkedIn: SiLinkedin,
+  Website: FiGlobe,
+};
 
-export const getReactIconByName = ({iconName, style, className}: IconProps) => {
-    const IconComponent = AllIcons[iconName] as React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    return IconComponent ? <IconComponent style={style} className={className}/> : null;
+export const getTechIcon = (name: string): IconType => {
+  return TECH_ICONS[name] || FiCode;
+};
+
+export const getLinkIcon = (name: string): IconType => {
+  return PLATFORM_ICONS[name];
 };

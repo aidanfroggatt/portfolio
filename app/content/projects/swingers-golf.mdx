@@ -1,0 +1,180 @@
+---
+meta:
+  slug: swingers-golf
+  title: Swingers Gold
+  description: Swingers Golf is a cross-platform social networking app designed to connect golfers, making it easier to find like-minded players and improve their golfing experience. Built with React Native and TypeScript, it is the perfect platform to enhance your game.
+---
+
+import WorkContent from '~/components/work/content';
+import WorkHighlights from '~/components/work/highlights';
+
+export const projectData = {
+  id: 'swingers-golf',
+  index: 2,
+  title: 'Swingers Golf',
+  association: 'Links Connect Inc.',
+  subtitle: 'Cross platform social networking app for connecting golfers.',
+  description:
+    'Swingers Golf is a cross-platform social networking app designed to connect golfers, making it easier to find like-minded players and improve their golfing experience. Built with React Native and TypeScript, it is the perfect platform to enhance your game.',
+  asset: {
+    src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2FTwoDeviceMockup.png?alt=media&token=968b2e35-f2d7-4ae5-84ef-a4f903589a1e',
+    alt: 'Swingers Golf Mockup',
+    type: 'IMAGE',
+  },
+  color: '#07663B',
+  spotlight: true,
+  startDate: new Date('2024-06-01'),
+  overview: {
+    description:
+      'A cross-platform golf social networking app that connects golfers improving their golfing experience. The platform allows for golfers with similar interests to connect and golf together.',
+    role: {
+      title: 'Co-Founder and CTO',
+      description: 'Architecture, design, development, testing, and deployment.',
+    },
+    team: [
+      {
+        name: 'Jon Kerr',
+        role: 'Co-Founder and CEO',
+      },
+      {
+        name: 'Payton Robinson',
+        role: 'Co-Founder and COO',
+      },
+      {
+        name: 'Paul Robinson',
+        role: 'Investor and Advisor',
+      },
+      {
+        name: 'Neil Froggatt',
+        role: 'Lead Backend Developer',
+      },
+    ],
+    technologies: [
+      {
+        icon: 'SiTypescript',
+        name: 'TypeScript',
+      },
+      {
+        icon: 'SiPhp',
+        name: 'PHP',
+      },
+      {
+        icon: 'SiReact',
+        name: 'React Native',
+      },
+      {
+        icon: 'SiExpo',
+        name: 'Expo',
+      },
+      {
+        icon: 'SiRemix',
+        name: 'Remix',
+      },
+      {
+        icon: 'SiLaravel',
+        name: 'Laravel',
+      },
+      {
+        icon: 'SiTailwindcss',
+        name: 'Tailwind CSS',
+      },
+      {
+        icon: 'SiAmazons3',
+        name: 'Amazon S3',
+      },
+      {
+        icon: 'SiMysql',
+        name: 'MySQL',
+      },
+      {
+        icon: 'SiGithubactions',
+        name: 'GitHub Actions',
+      },
+      {
+        icon: 'SiVercel',
+        name: 'Vercel',
+      },
+      {
+        icon: 'SiAmazonroute53',
+        name: 'Amazon Route 53',
+      },
+      {
+        icon: 'SiDigitalocean',
+        name: 'Digital Ocean',
+      },
+      {
+        icon: 'SiJira',
+        name: 'Jira',
+      },
+      {
+        icon: 'SiFigma',
+        name: 'Figma',
+      },
+    ],
+  },
+  highlights: {
+    description:
+      'Creating a social networking app for golfers to connect and improve their golfing experience.',
+    items: [
+      {
+        asset: {
+          alt: 'Round Management',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fmobile-user-interface%2Fswingers-three-screen-mockup.png?alt=media&token=9be9e2f3-d2bb-4762-871e-a48418f5ca23',
+          type: 'IMAGE',
+        },
+      },
+      // {
+      //   asset: {
+      //     alt: "Realtime Messaging",
+      //     src: "",
+      //     poster: "",
+      //     type: "VIDEO"
+      //   }
+      // },
+      {
+        asset: {
+          alt: 'User Flow',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fuser-flow%2Fswingers-user-flow.png?alt=media&token=90024556-e009-4cd8-8af6-1d54123b5848',
+          type: 'IMAGE',
+        },
+      },
+    ],
+  },
+  links: [
+    {
+      icon: 'SiGithub',
+      link: 'https://github.com/swingersgolf',
+      name: 'GitHub',
+    },
+    {
+      icon: 'FaGlobe',
+      link: 'https://swingersgolfapp.com/',
+      name: 'Website',
+    },
+  ],
+  navLink: 'https://swingersgolfapp.com/',
+  content: [
+    {
+      type: 'CONTEXT',
+      title: 'An opportunity to make our game better.',
+      subtitle: 'The dissatisfaction is clear',
+      description:
+        'Creating a way for golfers to find like-minded individuals to play with has been long overdue.',
+      assets: [
+        {
+          alt: 'Community Requests',
+          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fswingers%2Fhighlights%2Fcommunity-requests%2Fswingers-community-requests.png?alt=media&token=7e4853c4-fee6-473f-aaac-80e50a49b8fc',
+          type: 'IMAGE',
+        },
+      ],
+    },
+  ],
+};
+
+<WorkHighlights
+  highlights={projectData.highlights}
+  color={projectData.color}
+  links={projectData.links}
+/>
+
+<WorkContent content={projectData.content} />

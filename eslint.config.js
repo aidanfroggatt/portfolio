@@ -1,3 +1,4 @@
+import { includeIgnoreFile } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import globals from 'globals';
@@ -6,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const gitignorePath = path.resolve(__dirname, '.gitignore');
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -14,7 +16,8 @@ const compat = new FlatCompat({
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  // 1. Global Ignores
+  includeIgnoreFile(gitignorePath),
+
   {
     ignores: [
       '**/.server',
@@ -27,7 +30,7 @@ export default [
     ],
   },
 
-  // 2. Base Configs (Remix + React + MDX)
+  // Base Configs (Remix + React + MDX)
   // We use compat.extends to load the legacy @remix-run config
   ...compat.extends(
     '@remix-run/eslint-config',
@@ -35,7 +38,7 @@ export default [
     'plugin:mdx/recommended'
   ),
 
-  // 3. TypeScript & React Overrides (Manual adjustments for v9)
+  // TypeScript & React Overrides (Manual adjustments for v9)
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -56,6 +59,6 @@ export default [
     },
   },
 
-  // 4. Prettier (Must be last to override others)
+  // Prettier (Must be last to override others)
   ...compat.extends('prettier'),
 ];

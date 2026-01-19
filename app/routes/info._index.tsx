@@ -25,17 +25,15 @@ export const loader = async () => {
 
   const experienceData = await db.query.experiences.findMany({
     where: (t, { eq }) => eq(t.type, 'work'),
-    orderBy: (t, { asc }) => [asc(t.index)],
+    orderBy: (t, { desc }) => [desc(t.startDate)],
   });
 
   const involvementData = await db.query.experiences.findMany({
     where: (t, { eq }) => eq(t.type, 'involvement'),
-    orderBy: (t, { asc }) => [asc(t.index)],
+    orderBy: (t, { desc }) => [desc(t.startDate)],
   });
 
-  const awardsData = await db.query.awards.findMany({
-    orderBy: (t, { asc }) => [asc(t.index)],
-  });
+  const awardsData = await db.query.awards.findMany();
 
   return { aboutData, experienceData, involvementData, awardsData };
 };

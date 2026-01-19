@@ -23,8 +23,8 @@ export const projectsToTechnologiesRelations = relations(projectsToTechnologies,
     references: [projects.id],
   }),
   tech: one(technologies, {
-    fields: [projectsToTechnologies.technologyId],
-    references: [technologies.id],
+    fields: [projectsToTechnologies.technologyName],
+    references: [technologies.name],
   }),
 }));
 

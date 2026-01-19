@@ -4,10 +4,7 @@ import { useRef, useState } from 'react';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 
 interface SlideTabsProps {
-  tabs: {
-    name: string;
-    to: string;
-  }[];
+  tabs: Record<string, string>;
 }
 
 const SlideTabs = ({ tabs }: SlideTabsProps) => {
@@ -27,8 +24,9 @@ const SlideTabs = ({ tabs }: SlideTabsProps) => {
       }}
       className="relative mx-auto flex w-fit rounded-full"
     >
-      {tabs.map((tab, index) => (
-        <Tab key={index} setPosition={setPosition} label={tab.name} to={tab.to} />
+      {/* Transform the object into an array for mapping */}
+      {Object.entries(tabs).map(([name, url], index) => (
+        <Tab key={index} setPosition={setPosition} label={name} to={url} />
       ))}
       <Cursor position={position} />
     </ul>
@@ -65,8 +63,8 @@ const Tab = ({ label, to, setPosition }: TabProps) => {
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={updateCursor}
-        onFocus={updateCursor} // Handles keyboard navigation
-        onBlur={() => setPosition((prev) => ({ ...prev, opacity: 0 }))} // Hide cursor on blur
+        onFocus={updateCursor}
+        onBlur={() => setPosition((prev) => ({ ...prev, opacity: 0 }))}
       >
         {label}
         <TfiArrowTopRight />

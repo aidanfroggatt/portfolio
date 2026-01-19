@@ -1,8 +1,8 @@
-import { pgTable, text, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, text, uuid } from 'drizzle-orm/pg-core';
 import { assetTypeEnum } from './enums';
 
 export const assets = pgTable('assets', {
-  id: varchar('id', { length: 255 }).primaryKey(),
+  id: uuid('id').primaryKey().defaultRandom(),
   type: assetTypeEnum('type').notNull(),
   src: text('src').notNull(),
   alt: text('alt').notNull(),

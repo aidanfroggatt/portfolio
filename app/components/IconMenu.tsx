@@ -6,7 +6,7 @@ import { TfiArrowTopRight } from 'react-icons/tfi';
 interface IconMenuProps {
   initialIcon: JSX.Element;
   toggleIcon: JSX.Element;
-  menuOptions: { name: string; to: string }[];
+  menuOptions: Record<string, string>;
 }
 
 const IconMenu = ({ initialIcon, toggleIcon, menuOptions }: IconMenuProps) => {
@@ -55,7 +55,7 @@ const IconMorph = ({ initialIcon, toggleIcon, isToggled, setIsToggled }: IconMor
 };
 
 interface MenuModalProps {
-  menuOptions: { name: string; to: string }[];
+  menuOptions: Record<string, string>;
   isToggled: boolean;
 }
 
@@ -87,23 +87,20 @@ const MenuModal = ({ isToggled, menuOptions }: MenuModalProps) => {
             },
           }}
         >
-          {menuOptions &&
-            menuOptions.map((link, index) => {
-              return (
-                <Link
-                  key={index}
-                  className="flex flex-row w-full justify-between items-center"
-                  to={link.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="flex flex-row justify-start items-center text-sm">
-                    {link.name}
-                  </span>
-                  <TfiArrowTopRight style={{ height: '0.875rem', width: 'auto' }} />
-                </Link>
-              );
-            })}
+          {Object.entries(menuOptions).map(([name, to], index) => {
+            return (
+              <Link
+                key={index}
+                className="flex flex-row w-full justify-between items-center"
+                to={to}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="flex flex-row justify-start items-center text-sm">{name}</span>
+                <TfiArrowTopRight style={{ height: '0.875rem', width: 'auto' }} />
+              </Link>
+            );
+          })}
         </motion.div>
       )}
     </AnimatePresence>

@@ -1,4 +1,4 @@
-import { pgTable, primaryKey, text, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, primaryKey, text } from 'drizzle-orm/pg-core';
 import { projects } from './projects';
 import { technologies } from './technologies';
 
@@ -8,11 +8,11 @@ export const projectsToTechnologies = pgTable(
     projectId: text('project_id')
       .notNull()
       .references(() => projects.id),
-    technologyId: varchar('technology_id', { length: 255 })
+    technologyName: text('technology_name')
       .notNull()
-      .references(() => technologies.id),
+      .references(() => technologies.name),
   },
   (t) => ({
-    pk: primaryKey({ columns: [t.projectId, t.technologyId] }),
+    pk: primaryKey({ columns: [t.projectId, t.technologyName] }),
   })
 );

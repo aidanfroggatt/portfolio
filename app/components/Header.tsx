@@ -6,7 +6,7 @@ import { TfiArrowTopRight } from 'react-icons/tfi';
 import IconMenu from '~/components/IconMenu';
 import LilypadIcon from '~/components/LilypadIcon';
 import SlideTabs from '~/components/SlideTabs';
-import { mobileRoutes, routes, socials } from '~/data/general';
+import { config } from '~/data/config';
 
 const HeaderShell = ({ children }: { children: ReactNode }) => {
   return (
@@ -15,8 +15,8 @@ const HeaderShell = ({ children }: { children: ReactNode }) => {
       <div className="pointer-events-auto flex flex-row gap-x-2 items-center fixed sm:left-12 left-6">
         <LilypadIcon className={'w-9 h-9'} />
         <div className="hidden md:flex flex-col">
-          <div className="font-semibold text-md">Aidan Froggatt</div>
-          <div className="text-xs text-custom-light/50">Software Engineer Intern</div>
+          <div className="font-semibold text-md">{config.name}</div>
+          <div className="text-xs text-custom-light/50">{config.jobTitle}</div>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ const HeaderShell = ({ children }: { children: ReactNode }) => {
 
       {/* Right: Desktop Socials */}
       <div className="pointer-events-auto hidden lg:flex font-medium fixed md:right-3 lg:right-12">
-        <SlideTabs tabs={socials} />
+        <SlideTabs tabs={config.socials} />
       </div>
 
       {/* Right: Mobile Menu */}
@@ -33,7 +33,7 @@ const HeaderShell = ({ children }: { children: ReactNode }) => {
         <IconMenu
           initialIcon={<FiX className="w-9 h-9" />}
           toggleIcon={<FiAtSign className="w-9 h-9" />}
-          menuOptions={socials}
+          menuOptions={config.socials}
         />
       </div>
     </header>
@@ -43,9 +43,9 @@ const HeaderShell = ({ children }: { children: ReactNode }) => {
 export const Header = () => {
   const location = useLocation();
 
-  const navbarContent = ({ routes }: { routes: { to: string; name: string }[] }) => {
-    return routes.map((route, index) => {
-      const active = location.pathname === route.to;
+  const navbarContent = ({ routes }: { routes: Record<string, string> }) => {
+    return Object.entries(routes).map(([name, to], index) => {
+      const active = location.pathname === to;
       return (
         <motion.div
           key={index}
@@ -56,9 +56,9 @@ export const Header = () => {
         >
           <Link
             className={`relative ${active ? 'bg-custom-light/10' : ''} flex justify-center items-center w-20 h-9 rounded-full`}
-            to={route.to}
+            to={to}
           >
-            {route.name}
+            {name}
             {active && (
               <div
                 id="nav-indicator"
@@ -75,11 +75,11 @@ export const Header = () => {
     <HeaderShell>
       {/* Desktop Nav */}
       <nav className="hidden md:flex pointer-events-auto justify-center items-center font-medium bg-custom-light/5 w-64 h-12 rounded-full text-sm border border-custom-light/10 backdrop-blur hover:border-custom-light/20">
-        {routes && navbarContent({ routes })}
+        {config.routes && navbarContent({ routes: config.routes })}
       </nav>
       {/* Mobile Nav */}
       <nav className="md:hidden flex pointer-events-auto justify-center items-center font-medium bg-custom-light/5 w-44 h-12 rounded-full text-sm border border-custom-light/10 backdrop-blur hover:border-custom-light/20">
-        {mobileRoutes && navbarContent({ routes: mobileRoutes })}
+        {config.mobileRoutes && navbarContent({ routes: config.mobileRoutes })}
       </nav>
     </HeaderShell>
   );

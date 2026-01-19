@@ -441,3 +441,26 @@
   background-color: var(--project-color);
   color: #f2f2f2;
 }
+
+@layer components {
+  .gradient-tracker-container {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+  }
+
+  .bg-gradient {
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      var(--card-color, rgba(255, 0, 150, 0.3)),
+      /* Decrease opacity for less brightness */ transparent 90%
+        /* Increase this value to make the gradient wider */
+    );
+    transition:
+      background-position 0.1s ease,
+      opacity 0.3s ease;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Allow pointer events to pass through */
+    /* Optional: Add a blur effect for a smoother appearance */
+    filter: blur(50px); /* Adjust the blur amount as needed */
+  }
+}

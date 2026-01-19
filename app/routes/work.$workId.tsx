@@ -83,9 +83,7 @@ const ProjectContent = ({ slug }: { slug: string }) => {
 
   return (
     <Suspense fallback={<div className="py-20 text-center opacity-50">Loading content...</div>}>
-      <div className="prose prose-invert prose-lg max-w-4xl w-full px-6 md:px-0 mt-16 md:mt-32">
-        <Component />
-      </div>
+      <Component />
     </Suspense>
   );
 };

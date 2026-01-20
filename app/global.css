@@ -5,26 +5,11 @@
 @tailwind utilities;
 
 @theme {
-  /* Colors */
-  --color-custom-dark: #101010;
-  --color-custom-light: #f2f2f2;
-  --color-custom-dark-alt: #191919;
-
-  /* Fonts */
   --font-default: 'Montserrat', sans-serif;
   --font-accent: 'Playfair Display', serif;
 
-  /* Box Shadows */
-  --shadow-card:
-    inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 0, 0, 0.2), 0 30px 120px rgba(0, 0, 0, 0.8);
-  --shadow-card-mobile:
-    inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 0, 0, 0.2), 0 10px 40px rgba(0, 0, 0, 0.8);
-  --shadow-tab: 0 2px 25px 2px rgba(255, 255, 255, 1);
+  --font-sans: var(--font-default);
 
-  /* Background Opacity */
-  --background-opacity-4: 0.04;
-
-  /* Background Images */
   --background-image-work-page: radial-gradient(
     circle closest-corner at 50% 0,
     rgba(242, 242, 242, 0.15),
@@ -48,8 +33,6 @@
     #101010
   );
 
-  /* Spacing / Width / Height */
-  /* Note: In v4, defining spacing variables often covers width, height, and gap automatically */
   --spacing-page-2xl: 1440px;
   --spacing-page-lg: 880px;
   --spacing-page-md: 80vw;
@@ -80,6 +63,41 @@
   --spacing-mac-window-dots-2xl: 8px;
   --spacing-mac-window-dots-lg: 7px;
   --spacing-mac-window-dots-md: 4px;
+
+  --shadow-card:
+    inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 0, 0, 0.2), 0 30px 120px rgba(0, 0, 0, 0.8);
+  --shadow-card-mobile:
+    inset 0 0 8px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 0, 0, 0.2), 0 10px 40px rgba(0, 0, 0, 0.8);
+  --shadow-tab: 0 2px 25px 2px rgba(255, 255, 255, 1);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-custom-dark: var(--color-custom-dark);
+  --color-custom-light: var(--color-custom-light);
+  --color-custom-dark-alt: var(--color-custom-dark-alt);
 }
 
 @layer base {
@@ -146,6 +164,44 @@
   }
 }
 
+:root {
+  --color-custom-dark: #101010;
+  --color-custom-light: #f2f2f2;
+  --color-custom-dark-alt: #191919;
+  --color-border-dim: rgba(255, 255, 255, 0.1);
+  --color-border-bright: rgba(255, 255, 255, 0.2);
+
+  --background: var(--color-custom-dark);
+  --foreground: var(--color-custom-light);
+
+  --card: var(--color-custom-dark-alt);
+  --card-foreground: var(--color-custom-light);
+
+  --popover: var(--color-custom-dark-alt);
+  --popover-foreground: var(--color-custom-light);
+
+  --primary: var(--color-custom-light);
+  --primary-foreground: var(--color-custom-dark);
+
+  --secondary: #2a2a2a;
+  --secondary-foreground: var(--color-custom-light);
+
+  --muted: #2a2a2a;
+  --muted-foreground: rgba(242, 242, 242, 0.6);
+
+  --accent: rgba(242, 242, 242, 0.1);
+  --accent-foreground: var(--color-custom-light);
+
+  --destructive: #ef4444;
+  --destructive-foreground: var(--color-custom-light);
+
+  --border: var(--color-border-dim);
+  --input: var(--color-border-dim);
+  --ring: var(--color-border-bright);
+
+  --radius: 0.625rem;
+}
+
 @layer components {
   .h1-accent {
     @apply font-bold font-accent italic;
@@ -165,7 +221,6 @@
       0 0 20px rgba(255, 255, 255, 0.25);
   }
 
-  /* Fix for Dynamic Project Backgrounds */
   .bg-project-page {
     background-image: radial-gradient(
       circle farthest-side at 50% 0,
@@ -174,7 +229,6 @@
     ) !important;
   }
 
-  /* Fix for Highlight Card Item Backgrounds */
   .bg-highlight-card-asset {
     background-image: radial-gradient(
       circle farthest-side at 50% 0,
@@ -182,9 +236,7 @@
       #101010
     ) !important;
   }
-}
 
-@layer components {
   .card-container {
     display: flex;
     justify-content: center;
@@ -277,9 +329,7 @@
     transition: bottom 0.25s ease;
     transform: translateX(-50%);
   }
-}
 
-@layer components {
   .highlight-card {
     --highlight-card-accent-color: rgba(242, 242, 242, 0.1);
     display: flex;
@@ -297,7 +347,7 @@
       inset 0 0 8px rgba(0, 0, 0, 0.4),
       0 0 60px rgba(0, 0, 0, 0.2),
       0 30px 120px rgba(0, 0, 0, 0.8);
-    position: relative; /* Ensure pseudo-element is positioned relative to the card */
+    position: relative;
   }
 
   .highlight-card::before {
@@ -312,7 +362,7 @@
       rgba(255, 255, 255, 0),
       var(--highlight-card-accent-color),
       rgba(255, 255, 255, 0)
-    ); /* Use your accent color here */
+    );
     border-radius: 2vmax;
   }
 
@@ -340,12 +390,10 @@
       rgba(255, 255, 255, 0),
       rgba(242, 242, 242, 0.1),
       rgba(255, 255, 255, 0)
-    ); /* Use your accent color here */
+    );
     border-radius: 2vmax;
   }
-}
 
-@layer components {
   .mac-window-card-container {
     display: flex;
     justify-content: center;
@@ -374,9 +422,6 @@
     border-radius: 2vmax;
     z-index: 2;
   }
-}
-
-@layer components {
   @keyframes shineAnimation {
     0% {
       transform: translateX(-100%) rotate(15deg);
@@ -425,24 +470,22 @@
     display: block;
     unicode-bidi: isolate;
   }
-}
 
-.icon-link {
-  --link-color: '#f2f2f2';
-  transition: color 0.3s ease;
-}
+  .icon-link {
+    --link-color: '#f2f2f2';
+    transition: color 0.3s ease;
+  }
 
-.icon-link:hover {
-  color: var(--link-color);
-  transition: color 0.3s ease;
-}
+  .icon-link:hover {
+    color: var(--link-color);
+    transition: color 0.3s ease;
+  }
 
-.project-selection::selection {
-  background-color: var(--project-color);
-  color: #f2f2f2;
-}
+  .project-selection::selection {
+    background-color: var(--project-color);
+    color: #f2f2f2;
+  }
 
-@layer components {
   .gradient-tracker-container {
     --mouse-x: 50%;
     --mouse-y: 50%;
@@ -452,15 +495,13 @@
     background: radial-gradient(
       circle at var(--mouse-x) var(--mouse-y),
       var(--card-color, rgba(255, 0, 150, 0.3)),
-      /* Decrease opacity for less brightness */ transparent 90%
-        /* Increase this value to make the gradient wider */
+      transparent 90%
     );
     transition:
       background-position 0.1s ease,
       opacity 0.3s ease;
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Allow pointer events to pass through */
-    /* Optional: Add a blur effect for a smoother appearance */
-    filter: blur(50px); /* Adjust the blur amount as needed */
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(50px);
   }
 }

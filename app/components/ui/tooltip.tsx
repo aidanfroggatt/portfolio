@@ -1,120 +1,61 @@
-import { ReactNode, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import * as React from 'react';
 
-interface TooltipProps {
-  children: ReactNode;
-  text: string;
+import { cn } from '~/lib/utils';
+
+function TooltipProvider({
+  delayDuration = 0,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+  return (
+    <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
+      delayDuration={delayDuration}
+      {...props}
+    />
+  );
 }
 
-const Tooltip = ({ children, text }: TooltipProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [xOffset, setXOffset] = useState(0);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const tooltipId = useId();
-
-  useLayoutEffect(() => {
-    let animationFrameId: number;
-
-    if (isOpen && contentRef.current) {
-      animationFrameId = requestAnimationFrame(() => {
-        if (!contentRef.current) return;
-
-        const rect = contentRef.current.getBoundingClientRect();
-        const padding = 16;
-        let offset = 0;
-
-        if (rect.left < padding) {
-          offset = padding - rect.left;
-        } else if (rect.right > window.innerWidth - padding) {
-          offset = window.innerWidth - padding - rect.right;
-        }
-
-        // Using a functional update can help bypass some linting checks
-        // and ensures we have the most stable state.
-        setXOffset(offset);
-      });
-    } else {
-      // Wrap the reset in requestAnimationFrame to match the open logic
-      // and prevent the cascading render error on close.
-      animationFrameId = requestAnimationFrame(() => {
-        setXOffset(0);
-      });
-    }
-
-    return () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleDismiss = (event: PointerEvent) => {
-      if (tooltipRef.current && !tooltipRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    const handleScroll = () => {
-      if (isOpen) setIsOpen(false);
-    };
-
-    if (isOpen) {
-      document.addEventListener('pointerdown', handleDismiss);
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    }
-
-    return () => {
-      document.removeEventListener('pointerdown', handleDismiss);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isOpen]);
-
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-
+function Tooltip({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return (
-    <div
-      ref={tooltipRef}
-      className="relative group cursor-help outline-none rounded-lg focus-visible:ring-2 focus-visible:ring-custom-light/50 focus-visible:ring-offset-4 focus-visible:ring-offset-custom-dark transition-shadow"
-      role="button"
-      tabIndex={0}
-      aria-describedby={tooltipId}
-      aria-haspopup="true"
-      aria-expanded={isOpen}
-      onClick={handleOpen}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleOpen();
-        }
-        if (e.key === 'Escape') handleClose();
-      }}
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
-      onFocus={handleOpen}
-      onBlur={handleClose}
-    >
-      {children}
-
-      <div
-        id={tooltipId}
-        ref={contentRef}
-        role="tooltip"
-        aria-hidden={!isOpen}
-        style={{
-          transform: `translateX(calc(-50% + ${xOffset}px)) ${isOpen ? 'translateY(0)' : 'translateY(4px)'}`,
-        }}
-        className={`
-          absolute left-1/2 mt-1 w-max px-2 py-1 
-          text-white text-xs md:text-sm rounded 
-          bg-custom-light/10 border border-custom-light/20 
-          backdrop-blur-md transition-all duration-200 pointer-events-none z-50
-          ${isOpen ? 'opacity-100' : 'opacity-0'}
-        `}
-      >
-        {text}
-      </div>
-    </div>
+    <TooltipProvider>
+      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+    </TooltipProvider>
   );
-};
+}
 
-export default Tooltip;
+function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
+}
+
+function TooltipContent({
+  className,
+  sideOffset = 4, // Increased slightly to give the glass effect breathing room
+  children,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Content
+        data-slot="tooltip-content"
+        sideOffset={sideOffset}
+        className={cn(
+          // 1. Layout & Animation (Keep Shadcn defaults for smooth entry/exit)
+          'z-50 overflow-hidden animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+
+          // 2. Your Custom Styling (Glassmorphism + Border + Text)
+          'rounded px-2 py-1 text-sm text-white', // Matches your rounded shape and text size
+          'bg-custom-light/5 border border-custom-light/10 backdrop-blur-md', // The Glass Effect
+
+          className
+        )}
+        {...props}
+      >
+        {children}
+        {/* Arrow removed: Arrows create visual artifacts with transparent glass backgrounds */}
+      </TooltipPrimitive.Content>
+    </TooltipPrimitive.Portal>
+  );
+}
+
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

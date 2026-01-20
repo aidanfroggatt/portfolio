@@ -1,5 +1,5 @@
 import { Content, ImageAsset, PDFAsset, VideoAsset } from '~/types/work';
-import Dot from '../ui/dot';
+import Dot from '../dot';
 import VideoWithAutoplay from '../VideoWithAutoplay';
 
 interface WorkContentProps {

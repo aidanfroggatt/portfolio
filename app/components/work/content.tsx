@@ -1,5 +1,8 @@
+import { Link } from '@remix-run/react';
+import { FiExternalLink } from 'react-icons/fi';
 import { Content, ImageAsset, PDFAsset, VideoAsset } from '~/types/work';
-import Dot from '../ui/dot';
+import Dot from '../dot';
+import { Button } from '../ui/button';
 import VideoWithAutoplay from '../VideoWithAutoplay';
 
 interface WorkContentProps {
@@ -33,10 +36,11 @@ const WorkContent = (projectInfo: WorkContentProps) => {
               <h2 className="text-shadow-mobile md:text-shadow">{contentSection.title}</h2>
             )}
           </div>
+
           <div className="flex flex-col md:grid md:grid-cols-2 md:gap-x-20 gap-y-2 justify-start items-start">
             <div>
               {contentSection.subtitle && (
-                <h4 className="md:flex-grow text-shadow-mobile md:text-shadow">
+                <h4 className="md:grow text-shadow-mobile md:text-shadow">
                   {contentSection.subtitle}
                 </h4>
               )}
@@ -47,6 +51,7 @@ const WorkContent = (projectInfo: WorkContentProps) => {
               )}
             </div>
           </div>
+
           <div className="flex flex-col gap-y-8 md:gap-y-16">
             {contentSection.assets &&
               contentSection.assets.map((asset: ImageAsset | VideoAsset | PDFAsset, index) => (
@@ -67,16 +72,37 @@ const WorkContent = (projectInfo: WorkContentProps) => {
                       alt={asset.alt}
                     />
                   ) : asset.type === 'PDF' ? (
-                    <object
-                      data={asset.src}
-                      className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
-                      type="text/html"
-                      title={asset.alt}
-                      aria-label={asset.alt}
-                    />
+                    <div className="relative w-full h-full group">
+                      <object
+                        data={asset.src}
+                        type="application/pdf"
+                        className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
+                        title={asset.alt}
+                        aria-label={asset.alt}
+                      >
+                        <div className="flex h-full w-full items-center justify-center bg-custom-light/5 p-10 text-center">
+                          <p>Unable to display PDF inline.</p>
+                        </div>
+                      </object>
+
+                      <div className="absolute top-4 right-4 z-20">
+                        <Button
+                          asChild
+                          variant="secondary"
+                          size="sm"
+                          className="shadow-lg backdrop-blur-md bg-white/90 hover:bg-white text-black"
+                        >
+                          <Link to={asset.src} target="_blank" rel="noopener noreferrer">
+                            <span className="mr-2 hidden sm:inline">Open PDF</span>
+                            <FiExternalLink />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
                   ) : (
                     <p>Invalid asset type.</p>
                   )}
+
                   <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light/50">
                     {asset.alt}
                     <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark">

@@ -8,6 +8,7 @@ import {
   SiBox,
   SiCloudinary,
   SiCss3,
+  SiDevpost,
   SiDigitalocean,
   SiDocker,
   SiDrizzle,
@@ -126,6 +127,7 @@ const PLATFORM_ICONS: Record<string, IconType> = {
   GitHub: SiGithub,
   LinkedIn: SiLinkedin,
   Website: FiGlobe,
+  Devpost: SiDevpost,
 };
 
 export const getTechIcon = (name: string): IconType => {

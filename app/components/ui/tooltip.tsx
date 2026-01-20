@@ -1,19 +1,61 @@
-import { ReactNode } from 'react';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import * as React from 'react';
 
-interface TooltipProps {
-  children: ReactNode;
-  text: string;
+import { cn } from '~/lib/utils';
+
+function TooltipProvider({
+  delayDuration = 0,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+  return (
+    <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
+      delayDuration={delayDuration}
+      {...props}
+    />
+  );
 }
 
-const Tooltip = ({ children, text }: TooltipProps) => {
+function Tooltip({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return (
-    <div className="relative group">
-      {children}
-      <div className="absolute left-1/2 mt-1 -translate-x-1/2 top-full w-max px-2 py-1 text-white text-sm rounded bg-custom-light/5 border border-custom-light/10 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-        {text}
-      </div>
-    </div>
+    <TooltipProvider>
+      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+    </TooltipProvider>
   );
-};
+}
 
-export default Tooltip;
+function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
+}
+
+function TooltipContent({
+  className,
+  sideOffset = 4, // Increased slightly to give the glass effect breathing room
+  children,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Content
+        data-slot="tooltip-content"
+        sideOffset={sideOffset}
+        className={cn(
+          // 1. Layout & Animation (Keep Shadcn defaults for smooth entry/exit)
+          'z-50 overflow-hidden animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+
+          // 2. Your Custom Styling (Glassmorphism + Border + Text)
+          'rounded px-2 py-1 text-sm text-white', // Matches your rounded shape and text size
+          'bg-custom-light/5 border border-custom-light/10 backdrop-blur-md', // The Glass Effect
+
+          className
+        )}
+        {...props}
+      >
+        {children}
+        {/* Arrow removed: Arrows create visual artifacts with transparent glass backgrounds */}
+      </TooltipPrimitive.Content>
+    </TooltipPrimitive.Portal>
+  );
+}
+
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

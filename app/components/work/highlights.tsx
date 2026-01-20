@@ -1,10 +1,12 @@
 import { Link } from '@remix-run/react';
 import { CSSProperties } from 'react';
 import { FaMountainSun } from 'react-icons/fa6';
+import { FiExternalLink } from 'react-icons/fi';
 import { HighlightItem } from '~/types/work';
 import { hexToRGBA } from '~/utils/color';
-import Tooltip from '../ui/tooltip';
+import { getLinkIcon } from '~/utils/icon';
 import VideoWithAutoplay from '../VideoWithAutoplay';
+import { Button } from '../ui/button';
 
 interface WorkHighlightsProps {
   highlights?: {
@@ -98,31 +100,47 @@ const WorkHighlights = (projectInfo: WorkHighlightsProps) => {
             </div>
           );
         })}
-        <div className="flex flex-row border-t border-custom-light/10 w-full justify-center items-center gap-x-8 md:gap-x-12 py-8 md:py-12">
+        <div className="flex flex-col md:flex-row w-full flex-wrap justify-center items-stretch md:items-center gap-3 md:gap-8 py-8 md:py-12 border-t border-custom-light/10">
           {projectInfo.links ? (
             projectInfo.links.map((link, index) => {
+              const IconComponent = getLinkIcon(link.name);
               return (
-                <Tooltip text={link.name} key={index}>
+                <Button
+                  key={index}
+                  asChild
+                  variant="outline"
+                  className="
+                    /* RESPONSIVE WIDTH: Full width on mobile, auto width on desktop */
+                    w-full md:w-auto
+                    h-10 px-6 
+                    border-custom-light/10 bg-custom-light/5 text-custom-light 
+                    hover:text-white hover:border-custom-light/20 
+                    transition-all duration-300 backdrop-blur-md
+                  "
+                  style={{ '--link-color': projectInfo.color } as CSSProperties}
+                >
                   <Link
-                    key={index}
                     to={link.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="icon-link"
-                    style={{ '--link-color': projectInfo.color } as CSSProperties}
+                    /* CENTER CONTENT: Ensures text is centered in the wide mobile button */
+                    className="flex items-center justify-center gap-2"
                   >
-                    {/* {getReactIconByName({
-                      iconName: link.icon,
-                      className: "w-8 h-8 md:w-10 md:h-10 2xl:w-12 2xl:h-12",
-                    })} */}
+                    {IconComponent && <IconComponent className="w-4 h-4" />}
+
+                    <span className="whitespace-nowrap">{link.name}</span>
+
+                    <FiExternalLink className="w-3 h-3 opacity-50 ml-0.5" />
                   </Link>
-                </Tooltip>
+                </Button>
               );
             })
           ) : (
-            <div className="flex flex-col">
-              <p>This project is not publicly available.</p>
-              <p>Feel free to reach out for more information.</p>
+            <div className="flex flex-col text-center">
+              <p className="text-custom-light/70">This project is not publicly available.</p>
+              <p className="text-custom-light/50 text-sm">
+                Feel free to reach out for more information.
+              </p>
             </div>
           )}
         </div>

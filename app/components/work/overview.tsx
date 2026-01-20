@@ -1,6 +1,6 @@
 import { calculateDateDifference, formatMonthYear } from '~/utils/date';
 import { getTechIcon } from '~/utils/icon';
-import Tooltip from '../ui/tooltip';
+import { Badge } from '../ui/badge';
 
 interface WorkOverviewProps {
   overviewDescription: string;
@@ -19,7 +19,6 @@ const WorkOverview = ({
   roleDescription,
   startDate,
   endDate,
-  color,
   team,
   technologies,
 }: WorkOverviewProps) => {
@@ -74,22 +73,30 @@ const WorkOverview = ({
             <p className="text-custom-light/50">{overviewDescription}</p>
           </div>
 
-          <div className="flex flex-wrap md:flex-row w-full justify-evenly md:justify-start gap-9 items-center">
-            {technologies.map((technology, index) => {
-              const IconComponent = getTechIcon(technology.name);
+          <div className="flex flex-col">
+            <h5>Technologies</h5>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {technologies.map((tech) => {
+                const IconComponent = getTechIcon(tech.name);
+                return (
+                  <Badge
+                    key={tech.name}
+                    variant="outline"
+                    className={
+                      'flex items-center gap-2 md:px-4 md:py-2 py-1 px-2 text-sm font-medium transition-all duration-300 bg-custom-light/5 border-custom-light/10 text-custom-light backdrop-blur-md'
+                    }
+                  >
+                    <span className="relative shrink-0 w-3.5 h-3.5 md:w-5 md:h-5 text-custom-light/50 transition-all duration-300">
+                      <IconComponent className="w-full h-full" />
+                    </span>
 
-              return (
-                <div
-                  key={index}
-                  className="icon-link"
-                  style={{ '--link-color': color } as React.CSSProperties}
-                >
-                  <Tooltip text={technology.name}>
-                    <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12" />
-                  </Tooltip>
-                </div>
-              );
-            })}
+                    <span className="whitespace-nowrap text-custom-light text-xs md:text-sm">
+                      {tech.name}
+                    </span>
+                  </Badge>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

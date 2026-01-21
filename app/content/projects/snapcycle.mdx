@@ -5,50 +5,31 @@ meta:
   description: SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.
 ---
 
-import WorkContent from '~/components/work/content';
-import WorkHighlights from '~/components/work/highlights';
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/components/work';
 
-export const projectData = {
-  color: '#75BED1',
+<WorkHighlightCard>
+  <WorkHighlightHeader description="An award-winning AI-powered tool for detecting the recyclability of items." />
 
-highlights: {
-description: 'An award-winning AI-powered tool for detecting the recyclability of items.',
-assets: [
-{
-alt: 'Plastic bottle detection',
-publicId: 'projects/snapcycle/highlights/plastic_bottle_detection/plastic_bottle_detection',
-resourceType: 'video',
-},
-{
-alt: 'Website demo',
-publicId: 'projects/snapcycle/highlights/website_demo/snapcycle-website',
-resourceType: 'video',
-},
-],
-},
-links: [
-{
-icon: 'FaGlobe',
-url: 'https://snap-cycle.github.io/SnapCycle/', // Renamed link -> url
-name: 'Website',
-},
-{
-icon: 'SiGithub',
-url: 'https://github.com/snap-cycle/SnapCycle',
-name: 'GitHub',
-},
-{
-icon: 'SiDevpost',
-url: 'https://devpost.com/software/snapcycle-hyx3qv',
-name: 'Devpost',
-},
-],
-};
-
-<WorkHighlights
-  highlights={projectData.highlights}
-  color={projectData.color}
-  links={projectData.links}
+<WorkHighlightAsset
+  alt="Plastic bottle detection"
+  publicId="projects/snapcycle/highlights/plastic_bottle_detection/plastic_bottle_detection"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Website demo"
+  publicId="projects/snapcycle/highlights/website_demo/snapcycle-website"
+  resourceType="video"
 />
 
-<WorkContent content={projectData.content} />
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

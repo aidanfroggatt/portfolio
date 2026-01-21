@@ -5,121 +5,100 @@ meta:
   description: Led the design and development of the Google Developer Group at McMaster University's digital presence. Enhanced engagement and visibility across all platforms with websites, rebranding, and a successful annual hackathon, Mac-a-thon.
 ---
 
-import WorkContent from '~/components/work/content';
-import WorkHighlights from '~/components/work/highlights';
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/components/work';
 
-export const projectData = {
-  color: '#FBBC04',
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Creating websites and applications to enhance the digital presence of the Google Developer Group." />
 
-highlights: {
-description:
-'Creating websites and applications to enhance the digital presence of the Google Developer Group.',
-assets: [
-{
-alt: 'Google Developer Group Website',
-publicId: 'projects/gdsc/highlights/website/gdg-website',
-resourceType: 'video',
-},
-{
-alt: 'Mac-a-thon Website',
-publicId: 'projects/gdsc/highlights/hackathon-website/mac-a-thon-website',
-resourceType: 'video',
-},
-],
-},
-content: [
-{
-type: 'CONTEXT',
-title: 'A complete club exposure overhaul.',
-subtitle: 'Rebranding, expanding, and enhancing the digital presence',
-description:
-'Google Developer Group rebranded to Google Developer Group on Campus. Our chapter further expanded to include an annual hackathon that required a digital presence.',
-},
-{
-type: 'DESIGN',
-title: 'Designing for engagement.',
-subtitle: 'Creating websites that engage and inform',
-description:
-'Designed websites that engaged users and informed them about the Google Developer Group on Campus and our annual hackathon, Mac-a-thon.',
-assets: [
-{
-alt: 'Card Components',
-publicId: 'projects/gdsc/design/gdg-cards',
-resourceType: 'image',
-},
-{
-alt: 'Navbar Components',
-publicId: 'projects/gdsc/design/gdg-navbars',
-resourceType: 'image',
-},
-],
-},
-{
-type: 'REBRAND',
-title: 'A new name, a new chapter.',
-subtitle: 'Google Developer Group on Campus',
-description:
-'The Google Developer Group rebranded to Google Developer Group on Campus to better reflect our focus on student engagement and learning.',
-assets: [
-{
-alt: 'Google Developer Group on Campus Globe',
-publicId: 'projects/gdsc/rebrand/gdg-globe',
-resourceType: 'video',
-},
-],
-},
-{
-type: 'HACKATHON',
-title: 'Mac-a-thon',
-subtitle: 'Our first annual AI hackathon',
-description:
-'We hosted our first annual AI hackathon, Mac-a-thon, to engage students and foster a community of learning and innovation.',
-assets: [
-{
-alt: 'Mac-a-thon Banner',
-publicId: 'projects/gdsc/mac-a-thon/gdg-mac-a-thon-banner',
-resourceType: 'image',
-},
-],
-},
-{
-type: 'NEWSLETTER',
-title: 'Informing our community.',
-subtitle: 'Our first year delivering a monthly newsletter',
-description:
-'We launched a monthly newsletter to inform our community about the latest and greatest in the tech industry.',
-},
-{
-type: 'RETROSPECTIVE',
-title: 'A successful year of growth.',
-subtitle: 'Enhanced engagement and visibility',
-description:
-'Our rebranding and expansion efforts have led to increased engagement and visibility for the Google Developer Group on Campus. Our community has grown to over 2000 members across all platforms.',
-},
-],
-links: [
-{
-icon: 'FaGlobe',
-url: 'https://gdgmcmaster.ca',
-name: 'Website',
-},
-{
-icon: 'SiGithub',
-url: 'https://github.com/DSC-McMaster-U',
-name: 'GitHub',
-},
-{
-icon: 'FaGlobe',
-url: 'https://mac-a-thon.gdgmcmaster.ca',
-name: 'Mac-a-thon Website',
-},
-],
-};
-
-<WorkHighlights
-  highlights={projectData.highlights}
-  color={projectData.color}
-  links={projectData.links}
+<WorkHighlightAsset
+  alt="Google Developer Group Website"
+  publicId="projects/gdsc/highlights/website/gdg-website"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Mac-a-thon Website"
+  publicId="projects/gdsc/highlights/hackathon-website/mac-a-thon-website"
+  resourceType="video"
 />
 
-<WorkContent content={projectData.content} />
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [
+  {
+    type: 'CONTEXT',
+    title: 'A complete club exposure overhaul.',
+    subtitle: 'Rebranding, expanding, and enhancing the digital presence',
+    description:
+      'Google Developer Group rebranded to Google Developer Group on Campus. Our chapter further expanded to include an annual hackathon that required a digital presence.',
+  },
+  {
+    type: 'DESIGN',
+    title: 'Designing for engagement.',
+    subtitle: 'Creating websites that engage and inform',
+    description:
+      'Designed websites that engaged users and informed them about the Google Developer Group on Campus and our annual hackathon, Mac-a-thon.',
+    assets: [
+      {
+        alt: 'Card Components',
+        publicId: 'projects/gdsc/design/gdg-cards',
+        resourceType: 'image',
+      },
+      {
+        alt: 'Navbar Components',
+        publicId: 'projects/gdsc/design/gdg-navbars',
+        resourceType: 'image',
+      },
+    ],
+  },
+  {
+    type: 'REBRAND',
+    title: 'A new name, a new chapter.',
+    subtitle: 'Google Developer Group on Campus',
+    description:
+      'The Google Developer Group rebranded to Google Developer Group on Campus to better reflect our focus on student engagement and learning.',
+    assets: [
+      {
+        alt: 'Google Developer Group on Campus Globe',
+        publicId: 'projects/gdsc/rebrand/gdg-globe',
+        resourceType: 'video',
+      },
+    ],
+  },
+  {
+    type: 'HACKATHON',
+    title: 'Mac-a-thon',
+    subtitle: 'Our first annual AI hackathon',
+    description:
+      'We hosted our first annual AI hackathon, Mac-a-thon, to engage students and foster a community of learning and innovation.',
+    assets: [
+      {
+        alt: 'Mac-a-thon Banner',
+        publicId: 'projects/gdsc/mac-a-thon/gdg-mac-a-thon-banner',
+        resourceType: 'image',
+      },
+    ],
+  },
+  {
+    type: 'NEWSLETTER',
+    title: 'Informing our community.',
+    subtitle: 'Our first year delivering a monthly newsletter',
+    description:
+      'We launched a monthly newsletter to inform our community about the latest and greatest in the tech industry.',
+  },
+  {
+    type: 'RETROSPECTIVE',
+    title: 'A successful year of growth.',
+    subtitle: 'Enhanced engagement and visibility',
+    description:
+      'Our rebranding and expansion efforts have led to increased engagement and visibility for the Google Developer Group on Campus. Our community has grown to over 2000 members across all platforms.',
+  },
+];
+
+<WorkContent content={content} />

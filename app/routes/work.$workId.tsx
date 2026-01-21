@@ -5,8 +5,10 @@ import Footer from '~/components/Footer';
 import ProgressBar from '~/components/ProgressBar';
 import { WorkOverview } from '~/components/work';
 import WorkHero from '~/components/work/hero';
+import { ProjectProvider } from '~/contexts/project-context';
 import { config } from '~/data/config';
 import { db } from '~/db/index.server';
+import { Project } from '~/db/schema';
 import { hexToRGBA } from '~/lib/color';
 
 const MDX_MODULES = import.meta.glob<{ default: ComponentType }>('../content/projects/*.mdx');
@@ -74,7 +76,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ];
 };
 
-const ProjectContent = ({ slug }: { slug: string }) => {
+const ProjectContent = ({ slug, project }: { slug: string; project: Project }) => {
   const Component = MDX_COMPONENTS[slug];
 
   if (!Component) {
@@ -83,7 +85,9 @@ const ProjectContent = ({ slug }: { slug: string }) => {
 
   return (
     <Suspense fallback={<div className="py-20 text-center opacity-50">Loading content...</div>}>
-      <Component />
+      <ProjectProvider project={project}>
+        <Component />
+      </ProjectProvider>
     </Suspense>
   );
 };
@@ -130,7 +134,7 @@ const Work = () => {
           color={project.color}
         />
 
-        <ProjectContent slug={project.id} />
+        <ProjectContent slug={project.id} project={project} />
       </main>
       <Footer />
     </>

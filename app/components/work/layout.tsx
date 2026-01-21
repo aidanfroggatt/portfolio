@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { CSSProperties, ReactNode, useRef } from 'react';
 import Footer from '~/components/Footer';
 import ProgressBar from '~/components/ProgressBar';
 import { hexToRGBA } from '~/lib/color';
@@ -25,7 +25,7 @@ const WorkLayout = ({ children, projectInfo, nextProject }: WorkLayoutProps) => 
             ? ({
                 '--project-color': hexToRGBA(projectInfo.color, 0.5),
                 '--selection-text-color': '#f2f2f2', // white text when project color exists
-              } as React.CSSProperties)
+              } as CSSProperties)
             : {}
         }
         ref={mainRef}

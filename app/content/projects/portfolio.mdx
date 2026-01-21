@@ -5,45 +5,31 @@ meta:
   description:
 ---
 
-import WorkContent from '~/components/work/content';
-import WorkHighlights from '~/components/work/highlights';
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/components/work';
 
-export const projectData = {
-  color: '#ff5a5a',
+<WorkHighlightCard>
+  <WorkHighlightHeader description="A showcase of my work, skills, and projects." />
 
-highlights: {
-description: 'A showcase of my work, skills, and projects.',
-assets: [
-{
-alt: 'Hero Animation',
-publicId: 'projects/portfolio/highlights/hero-animation/hero-animation',
-resourceType: 'video',
-},
-{
-alt: 'Custom Card',
-publicId: 'projects/portfolio/highlights/custom-card',
-resourceType: 'image',
-},
-],
-},
-links: [
-{
-icon: 'SiGithub',
-url: 'https://github.com/aidanfroggatt/portfolio',
-name: 'GitHub',
-},
-{
-icon: 'FaGlobe',
-url: 'https://aidanfroggatt.com',
-name: 'Website',
-},
-],
-};
-
-<WorkHighlights
-  highlights={projectData.highlights}
-  color={projectData.color}
-  links={projectData.links}
+<WorkHighlightAsset
+  alt="Hero Animation"
+  publicId="projects/portfolio/highlights/hero-animation/hero-animation"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Custom Card"
+  publicId="projects/portfolio/highlights/custom-card"
+  resourceType="image"
 />
 
-<WorkContent content={projectData.content} />
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

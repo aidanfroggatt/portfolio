@@ -5,48 +5,36 @@ meta:
   description:
 ---
 
-import WorkContent from '~/components/work/content';
-import WorkHighlights from '~/components/work/highlights';
-import { assets } from '~/db/schema';
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/components/work';
 
-export const projectData = {
-  color: '#04538b',
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Visualizers for mesh data structure and applicable algorithms." />
 
-highlights: {
-description: 'Visualizers for mesh data structure and applicable algorithms.',
-assets: [
-{
-alt: 'Mesh Data Structure',
-publicId: 'projects/island-generator/highlights/irregular_debug',
-resourceType: 'image',
-},
-{
-alt: 'Capital City Path',
-publicId: 'projects/island-generator/highlights/capital-city-path',
-resourceType: 'image',
-},
-{
-asset: {
-alt: 'Lagoon Island',
-publicId: 'projects/island-generator/highlights/mesh-generator-sample',
-resourceType: 'image',
-},
-},
-],
-},
-links: [
-{
-icon: 'SiGithub',
-name: 'GitHub',
-url: 'https://github.com/aidanfroggatt/IslandGenerator',
-},
-],
-};
-
-<WorkHighlights
-  highlights={projectData.highlights}
-  color={projectData.color}
-  links={projectData.links}
+<WorkHighlightAsset
+  alt="Mesh Data Structure"
+  publicId="projects/island-generator/highlights/irregular_debug"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="Capital City Path"
+  publicId="projects/island-generator/highlights/capital-city-path"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="Lagoon Island"
+  publicId="projects/island-generator/highlights/mesh-generator-sample"
+  resourceType="image"
 />
 
-<WorkContent content={projectData.content} />
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

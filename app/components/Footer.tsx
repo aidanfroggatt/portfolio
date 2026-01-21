@@ -2,8 +2,8 @@ import { Link, useRouteLoaderData } from '@remix-run/react';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 import LilypadIcon from '~/components/LilypadIcon';
 import { config } from '~/data/config';
+import { getFirstWord } from '~/lib/string';
 import type { RootLoader } from '~/root';
-import { getFirstWord } from '~/utils/string';
 
 const Footer = () => {
   const rootData = useRouteLoaderData<RootLoader>('root');

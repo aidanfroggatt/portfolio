@@ -2,7 +2,7 @@ import { type InferSelectModel } from 'drizzle-orm';
 import { motion } from 'framer-motion';
 import Dot from '~/components/dot';
 import { experiences } from '~/db/schema';
-import { formatSQLDateString } from '~/utils/date';
+import { formatSQLDateString } from '~/lib/date';
 
 type Experience = InferSelectModel<typeof experiences>;
 

@@ -7,41 +7,40 @@ meta:
 
 import WorkContent from '~/components/work/content';
 import WorkHighlights from '~/components/work/highlights';
+import { assets } from '~/db/schema';
 
 export const projectData = {
-  highlights: {
-    description: 'Visualizers for mesh data structure and applicable algorithms.',
-    items: [
-      {
-        asset: {
-          alt: 'Mesh Data Structure',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Firregular_debug.svg?alt=media&token=868f4e29-654a-4646-bf54-eb53849996d1',
-          type: 'IMAGE',
-        },
-      },
-      {
-        asset: {
-          alt: 'Capital City Path',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Fcapital-city-path.svg?alt=media&token=24337224-d870-46be-b571-188ef201403e',
-          type: 'IMAGE',
-        },
-      },
-      {
-        asset: {
-          alt: 'Lagoon Island',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fisland-generator%2Fhighlights%2Fmesh-generator-sample.svg?alt=media&token=da9a7489-d3ce-4fac-93ba-bea8288e5649',
-          type: 'IMAGE',
-        },
-      },
-    ],
-  },
-  links: [
-    {
-      icon: 'SiGithub',
-      name: 'GitHub',
-      link: 'https://github.com/aidanfroggatt/IslandGenerator',
-    },
-  ],
+  color: '#04538b',
+
+highlights: {
+description: 'Visualizers for mesh data structure and applicable algorithms.',
+assets: [
+{
+alt: 'Mesh Data Structure',
+publicId: 'projects/island-generator/highlights/irregular_debug',
+resourceType: 'image',
+},
+{
+alt: 'Capital City Path',
+publicId: 'projects/island-generator/highlights/capital-city-path',
+resourceType: 'image',
+},
+{
+asset: {
+alt: 'Lagoon Island',
+publicId: 'projects/island-generator/highlights/mesh-generator-sample',
+resourceType: 'image',
+},
+},
+],
+},
+links: [
+{
+icon: 'SiGithub',
+name: 'GitHub',
+url: 'https://github.com/aidanfroggatt/IslandGenerator',
+},
+],
 };
 
 <WorkHighlights

@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { CSSProperties, RefObject, useEffect, useState } from 'react';
 import { FiArrowUpRight, FiX } from 'react-icons/fi';
-import { hexToRGBA } from '~/utils/color';
+import { hexToRGBA } from '~/lib/color';
 
 interface ProgressBarProject {
   id: string;

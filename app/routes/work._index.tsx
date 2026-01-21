@@ -8,6 +8,7 @@ import Header from '~/components/Header';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
 import { config } from '~/data/config';
 import { db } from '~/db/index.server';
+import { buildUrl } from '~/lib/cloudinary';
 
 export const meta: MetaFunction = () => {
   return [
@@ -70,14 +71,18 @@ const WorkCards = () => {
                       <h4 className="whitespace-nowrap">{item.title}</h4>
                       <h5 className="whitespace-nowrap">{item.association}</h5>
                     </div>
-                    {item.heroAsset.type === 'VIDEO' ? (
+                    {item.heroAsset.resourceType === 'video' ? (
                       <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden">
-                        <VideoWithAutoplay className="rounded-[2vmax]" asset={item.heroAsset} />
+                        <VideoWithAutoplay
+                          className="rounded-[2vmax]"
+                          publicId={item.heroAsset.publicId}
+                          alt={item.heroAsset.alt}
+                        />
                       </div>
                     ) : (
                       <img
                         className="rounded-[2vmax] z-40 pointer-events-none object-contain w-full h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden"
-                        src={item.heroAsset.src}
+                        src={buildUrl(item.heroAsset.publicId, 'image')}
                         alt={item.heroAsset.alt}
                       />
                     )}

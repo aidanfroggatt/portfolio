@@ -7,7 +7,7 @@ import { WorkOverview } from '~/components/work';
 import WorkHero from '~/components/work/hero';
 import { config } from '~/data/config';
 import { db } from '~/db/index.server';
-import { hexToRGBA } from '~/utils/color';
+import { hexToRGBA } from '~/lib/color';
 
 const MDX_MODULES = import.meta.glob<{ default: ComponentType }>('../content/projects/*.mdx');
 

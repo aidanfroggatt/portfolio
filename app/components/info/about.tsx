@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ImageCard } from '~/components/Card';
 import Dot from '~/components/dot';
 import { about, assets } from '~/db/schema';
+import { buildUrl } from '~/lib/cloudinary';
 
 type BaseAbout = InferSelectModel<typeof about>;
 type BaseAsset = InferSelectModel<typeof assets>;
@@ -26,7 +27,7 @@ const InfoAbout = ({ data }: { data: AboutWithAsset[] }) => {
           viewport={{ once: true }}
         >
           <ImageCard>
-            <img src={item.asset.src} alt={item.asset.alt} />
+            <img src={buildUrl(item.asset.publicId, 'image')} alt={item.asset.alt} />
           </ImageCard>
         </motion.div>
       );

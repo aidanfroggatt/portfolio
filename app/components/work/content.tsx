@@ -1,9 +1,20 @@
-import { Link } from '@remix-run/react';
-import { FiExternalLink } from 'react-icons/fi';
-import { Content, ImageAsset, PDFAsset, VideoAsset } from '~/types/work';
-import Dot from '../dot';
-import { Button } from '../ui/button';
-import VideoWithAutoplay from '../VideoWithAutoplay';
+import Dot from '~/components/dot';
+import WorkAsset from '~/components/work/asset';
+import type { Asset } from '~/db/schema';
+
+interface WorkAsset {
+  publicId: Asset['publicId'];
+  resourceType: Asset['resourceType'];
+  alt: Asset['alt'];
+}
+
+export interface Content {
+  type: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  assets?: WorkAsset[];
+}
 
 interface WorkContentProps {
   content?: Content[];
@@ -19,7 +30,7 @@ const WorkContent = (projectInfo: WorkContentProps) => {
       id="work-item-content"
       className="flex flex-col justify-center items-center w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl"
     >
-      {projectInfo.content.map((contentSection: Content, index) => (
+      {projectInfo.content.map((contentSection, index) => (
         <section
           id="work-item-content"
           key={index}
@@ -54,59 +65,20 @@ const WorkContent = (projectInfo: WorkContentProps) => {
 
           <div className="flex flex-col gap-y-8 md:gap-y-16">
             {contentSection.assets &&
-              contentSection.assets.map((asset: ImageAsset | VideoAsset | PDFAsset, index) => (
-                <div key={index} className="relative w-full flex flex-col items-center">
-                  {asset.type === 'VIDEO' ? (
-                    <VideoWithAutoplay
-                      asset={{
-                        src: asset.src,
-                        poster: asset.poster,
-                        alt: asset.alt || 'Video',
-                      }}
-                      className="z-10 w-full h-full highlight-card-asset object-contain"
-                    />
-                  ) : asset.type === 'IMAGE' ? (
-                    <img
-                      className="z-10 max-h-[75vh] w-full h-full highlight-card-asset object-contain"
-                      src={asset.src}
-                      alt={asset.alt}
-                    />
-                  ) : asset.type === 'PDF' ? (
-                    <div className="relative w-full h-full group">
-                      <object
-                        data={asset.src}
-                        type="application/pdf"
-                        className="z-10 w-full max-h-[75vh] min-h-[75vh] h-full highlight-card-asset object-contain"
-                        title={asset.alt}
-                        aria-label={asset.alt}
-                      >
-                        <div className="flex h-full w-full items-center justify-center bg-custom-light/5 p-10 text-center">
-                          <p>Unable to display PDF inline.</p>
-                        </div>
-                      </object>
-
-                      <div className="absolute top-4 right-4 z-20">
-                        <Button
-                          asChild
-                          variant="secondary"
-                          size="sm"
-                          className="shadow-lg backdrop-blur-md bg-white/90 hover:bg-white text-black"
-                        >
-                          <Link to={asset.src} target="_blank" rel="noopener noreferrer">
-                            <span className="mr-2 hidden sm:inline">Open PDF</span>
-                            <FiExternalLink />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  ) : (
-                    <p>Invalid asset type.</p>
-                  )}
+              contentSection.assets.map((asset, index) => (
+                <div key={index} className="relative w-full flex flex-col items-center group">
+                  <WorkAsset
+                    publicId={asset.publicId}
+                    resourceType={asset.resourceType}
+                    alt={asset.alt}
+                  />
 
                   <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light/50">
                     {asset.alt}
-                    <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark">
-                      {asset.type}
+                    <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark uppercase text-xs">
+                      {asset.resourceType === 'pdf' || asset.publicId.endsWith('.pdf')
+                        ? 'PDF'
+                        : asset.resourceType}
                     </span>
                   </h5>
                 </div>

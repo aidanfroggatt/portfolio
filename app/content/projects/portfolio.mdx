@@ -9,39 +9,35 @@ import WorkContent from '~/components/work/content';
 import WorkHighlights from '~/components/work/highlights';
 
 export const projectData = {
-  highlights: {
-    description: 'A showcase of my work, skills, and projects.',
-    items: [
-      {
-        asset: {
-          alt: 'Hero Animation',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fhero-animation%2Fhero-animation.mp4?alt=media&token=7116c3fd-ff5a-44ab-8c86-93be08f76bf8',
-          type: 'VIDEO',
-          poster:
-            'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fhero-animation%2Fposter.png?alt=media&token=56a707c7-121d-4b7b-88ac-7a0bb2a56ccb',
-        },
-      },
-      {
-        asset: {
-          alt: 'Custom Card',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fportfolio%2Fhighlights%2Fcustom-card.png?alt=media&token=f9301734-e044-43e8-84e7-40392be8fef7',
-          type: 'IMAGE',
-        },
-      },
-    ],
-  },
-  links: [
-    {
-      icon: 'SiGithub',
-      link: 'https://github.com/aidanfroggatt/portfolio',
-      name: 'GitHub',
-    },
-    {
-      icon: 'FaGlobe',
-      link: 'https://aidanfroggatt.com',
-      name: 'Website',
-    },
-  ],
+  color: '#ff5a5a',
+
+highlights: {
+description: 'A showcase of my work, skills, and projects.',
+assets: [
+{
+alt: 'Hero Animation',
+publicId: 'projects/portfolio/highlights/hero-animation/hero-animation',
+resourceType: 'video',
+},
+{
+alt: 'Custom Card',
+publicId: 'projects/portfolio/highlights/custom-card',
+resourceType: 'image',
+},
+],
+},
+links: [
+{
+icon: 'SiGithub',
+url: 'https://github.com/aidanfroggatt/portfolio',
+name: 'GitHub',
+},
+{
+icon: 'FaGlobe',
+url: 'https://aidanfroggatt.com',
+name: 'Website',
+},
+],
 };
 
 <WorkHighlights

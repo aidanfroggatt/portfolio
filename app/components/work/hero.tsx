@@ -1,17 +1,14 @@
-import { formatMonthYear } from '~/utils/date';
+import { Asset } from '~/db/schema';
+import { buildUrl } from '~/lib/cloudinary';
+import { formatMonthYear } from '~/lib/date';
 import VideoWithAutoplay from '../VideoWithAutoplay';
 
-interface HeroAsset {
-  type: 'IMAGE' | 'VIDEO';
-  src: string;
-  alt: string;
-  poster: string | null;
-}
+type HeroAsset = Pick<Asset, 'resourceType' | 'publicId' | 'alt'>;
 
 interface WorkHeroProps {
   title: string;
   association?: string;
-  endDate?: Date;
+  endDate?: Date | null;
   asset?: HeroAsset;
 }
 
@@ -33,19 +30,23 @@ const WorkHero = (projectInfo: WorkHeroProps) => {
       </h1>
       <span className="flex justify-center items-center text-base lg:text-lg 2xl:text-xl font-normal text-custom-light/50 text-center">
         {projectInfo.association && projectInfo.association} —{' '}
-        {projectInfo.endDate ? `${formatMonthYear(projectInfo.endDate)}` : 'In development'}
+        {projectInfo.endDate
+          ? `${formatMonthYear(new Date(projectInfo.endDate))}`
+          : 'In development'}
       </span>
+
       {projectInfo.asset && (
         <>
-          {projectInfo.asset.type === 'VIDEO' ? (
+          {projectInfo.asset.resourceType === 'video' ? (
             <VideoWithAutoplay
               className="rounded-[2vmax] p-4 mt-4 w-fit object-cover"
-              asset={projectInfo.asset}
+              publicId={projectInfo.asset.publicId}
+              alt={projectInfo.asset.alt}
             />
           ) : (
             <img
               className="rounded-[2vmax] p-4 mt-4 w-fit object-cover relative z-10 max-h-[75vh] h-full highlight-card-asset"
-              src={projectInfo.asset.src}
+              src={buildUrl(projectInfo.asset.publicId, 'image')}
               alt={projectInfo.asset.alt}
             />
           )}

@@ -106,6 +106,10 @@
     @apply font-default bg-custom-dark text-custom-light;
   }
 
+  * {
+    @apply border-border;
+  }
+
   h1 {
     @apply font-medium text-left text-3xl md:text-5xl 2xl:text-7xl leading-[90%] tracking-[-2px];
   }

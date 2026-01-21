@@ -2,6 +2,7 @@ import { Link } from '@remix-run/react';
 import { CSSProperties } from 'react';
 import { FaMountainSun } from 'react-icons/fa6';
 import { FiExternalLink } from 'react-icons/fi';
+import { Badge } from '~/components/ui/badge';
 import { Button } from '~/components/ui/button';
 import WorkAsset from '~/components/work/asset';
 import type { Asset, Project } from '~/db/schema';
@@ -58,11 +59,7 @@ const WorkHighlights = (projectInfo: WorkHighlightsProps) => {
 
             <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light/50">
               {asset.alt}
-              <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark uppercase text-xs">
-                {asset.resourceType === 'pdf' || asset.publicId.endsWith('.pdf')
-                  ? 'PDF'
-                  : asset.resourceType}
-              </span>
+              <Badge variant="assetType">{asset.resourceType}</Badge>
             </h5>
           </div>
         ))}

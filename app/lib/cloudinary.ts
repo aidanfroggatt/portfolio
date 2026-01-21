@@ -12,23 +12,16 @@ export const buildUrl = (
   resourceType: 'image' | 'video' | 'raw' | 'pdf' = 'image',
   options?: AssetOptions
 ) => {
-  // Cloudinary stores PDFs as "images" to allow preview generation.
-  // We map 'pdf' -> 'image' for the URL, but keep 'pdf' in our logic for clarity.
   const cloudinaryType = resourceType === 'pdf' ? 'image' : resourceType;
 
-  // 1. RAW FILES
   if (resourceType === 'raw') {
     return `${BASE_URL}/raw/upload/${publicId}`;
   }
 
-  // 2. PDF DOWNLOAD / OPEN
-  // If we explicitly request 'pdf' format, return the URL without transformations.
-  // This serves the original file (which allows the browser's PDF viewer to work).
   if (options?.format === 'pdf') {
     return `${BASE_URL}/${cloudinaryType}/upload/${publicId}`;
   }
 
-  // 3. TRANSFORMATIONS (Images, Video, PDF Previews)
   const transformations: string[] = [];
 
   transformations.push(`f_${options?.format || 'auto'}`);
@@ -46,8 +39,11 @@ export const buildBlurUrl = (
   publicId: string,
   resourceType: 'image' | 'video' | 'pdf' = 'image'
 ) => {
-  // Treat 'pdf' as 'image' for generating blurred placeholders
   const type = resourceType === 'video' ? 'video' : 'image';
 
-  return `${BASE_URL}/${type}/upload/f_jpg,q_auto,w_20,e_blur:1000/${publicId}`;
+  // w_20: Tiny width (approx 20px)
+  // e_blur:1000: Maximum blur
+  // q_auto:low: Low quality (small file size)
+  // f_auto: Optimal format (usually WebP/AVIF)
+  return `${BASE_URL}/${type}/upload/w_20,e_blur:1000,q_auto:low,f_auto/${publicId}`;
 };

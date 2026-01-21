@@ -1,6 +1,6 @@
+import { Badge } from '~/components/ui/badge';
 import { calculateDateDifference, formatMonthYear } from '~/lib/date';
 import { getTechIcon } from '~/lib/icon';
-import { Badge } from '../ui/badge';
 
 interface WorkOverviewProps {
   overviewDescription: string;

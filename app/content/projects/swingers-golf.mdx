@@ -5,67 +5,46 @@ meta:
   description: Swingers Golf is a cross-platform social networking app designed to connect golfers, making it easier to find like-minded players and improve their golfing experience. Built with React Native and TypeScript, it is the perfect platform to enhance your game.
 ---
 
-import WorkContent from '~/components/work/content';
-import WorkHighlights from '~/components/work/highlights';
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/components/work';
 
-export const projectData = {
-  color: '#07663B',
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Creating a social networking app for golfers to connect and improve their golfing experience." />
 
-highlights: {
-description:
-'Creating a social networking app for golfers to connect and improve their golfing experience.',
-assets: [
-{
-alt: 'Round Management',
-publicId: 'projects/swingers/highlights/mobile-user-interface/swingers-three-screen-mockup',
-resourceType: 'image',
-},
-// {
-// alt: "Realtime Messaging",
-// publicId: "...",
-// resourceType: "video"
-// },
-{
-alt: 'User Flow',
-publicId: 'projects/swingers/highlights/user-flow/swingers-user-flow',
-resourceType: 'image',
-},
-],
-},
-links: [
-{
-icon: 'SiGithub',
-url: 'https://github.com/swingersgolf',
-name: 'GitHub',
-},
-// {
-// icon: 'FaGlobe',
-// url: 'https://swingersgolfapp.com/',
-// name: 'Website',
-// },
-],
-content: [
-{
-type: 'CONTEXT',
-title: 'An opportunity to make our game better.',
-subtitle: 'The dissatisfaction is clear',
-description:
-'Creating a way for golfers to find like-minded individuals to play with has been long overdue.',
-assets: [
-{
-alt: 'Community Requests',
-publicId: 'projects/swingers/highlights/community-requests/swingers-community-requests',
-resourceType: 'image',
-},
-],
-},
-],
-};
-
-<WorkHighlights
-  highlights={projectData.highlights}
-  color={projectData.color}
-  links={projectData.links}
+<WorkHighlightAsset
+  alt="Round Management"
+  publicId="projects/swingers/highlights/mobile-user-interface/swingers-three-screen-mockup"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="User Flow"
+  publicId="projects/swingers/highlights/user-flow/swingers-user-flow"
+  resourceType="image"
 />
 
-<WorkContent content={projectData.content} />
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [
+  {
+    type: 'CONTEXT',
+    title: 'An opportunity to make our game better.',
+    subtitle: 'The dissatisfaction is clear',
+    description:
+      'Creating a way for golfers to find like-minded individuals to play with has been long overdue.',
+    assets: [
+      {
+        alt: 'Community Requests',
+        publicId: 'projects/swingers/highlights/community-requests/swingers-community-requests',
+        resourceType: 'image',
+      },
+    ],
+  },
+];
+
+<WorkContent content={content} />

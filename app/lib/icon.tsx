@@ -130,10 +130,37 @@ const PLATFORM_ICONS: Record<string, IconType> = {
   Devpost: SiDevpost,
 };
 
+const SORTED_TECH_KEYS = Object.keys(TECH_ICONS).sort((a, b) => b.length - a.length);
+const SORTED_PLATFORM_KEYS = Object.keys(PLATFORM_ICONS).sort((a, b) => b.length - a.length);
+
+/**
+ * Helper: Finds an icon by checking if any key in the map exists within the name string.
+ */
+const findIconByKeyword = (
+  name: string,
+  map: Record<string, IconType>,
+  sortedKeys: string[],
+  defaultIcon: IconType
+): IconType => {
+  if (map[name]) {
+    return map[name];
+  }
+
+  const lowerName = name.toLowerCase();
+
+  for (const key of sortedKeys) {
+    if (lowerName.includes(key.toLowerCase())) {
+      return map[key];
+    }
+  }
+
+  return defaultIcon;
+};
+
 export const getTechIcon = (name: string): IconType => {
-  return TECH_ICONS[name] || FiCode;
+  return findIconByKeyword(name, TECH_ICONS, SORTED_TECH_KEYS, FiCode);
 };
 
 export const getLinkIcon = (name: string): IconType => {
-  return PLATFORM_ICONS[name];
+  return findIconByKeyword(name, PLATFORM_ICONS, SORTED_PLATFORM_KEYS, FiGlobe);
 };

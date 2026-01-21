@@ -1,7 +1,5 @@
-import WorkContent from "./content";
-import WorkHero from "./hero";
-import WorkHighlights from "./highlights";
-import WorkLayout from "./layout";
-import WorkOverview from "./overview";
-
-export { WorkContent, WorkHero, WorkHighlights, WorkLayout, WorkOverview };
+export { default as WorkContent } from '~/components/work/content';
+export { default as WorkHero } from '~/components/work/hero';
+export * from '~/components/work/highlight-card';
+export { default as WorkLayout } from '~/components/work/layout';
+export { default as WorkOverview } from '~/components/work/overview';

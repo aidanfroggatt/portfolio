@@ -1,11 +1,11 @@
 import { Link } from '@remix-run/react';
 import { CSSProperties } from 'react';
 import { FiExternalLink } from 'react-icons/fi';
+import VideoWithAutoplay from '~/components/ui/autoplay-video';
+import { Button } from '~/components/ui/button';
 import type { Asset } from '~/db/schema';
 import { buildBlurUrl, buildUrl } from '~/lib/cloudinary';
 import { hexToRGBA } from '~/lib/color';
-import { Button } from '../ui/button';
-import VideoWithAutoplay from '../VideoWithAutoplay';
 
 interface WorkAssetProps {
   publicId: Asset['publicId'];

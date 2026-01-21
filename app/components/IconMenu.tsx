@@ -1,11 +1,11 @@
 import { Link } from '@remix-run/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 
 interface IconMenuProps {
-  initialIcon: JSX.Element;
-  toggleIcon: JSX.Element;
+  initialIcon: ReactElement;
+  toggleIcon: ReactElement;
   menuOptions: Record<string, string>;
 }
 
@@ -26,8 +26,8 @@ const IconMenu = ({ initialIcon, toggleIcon, menuOptions }: IconMenuProps) => {
 };
 
 interface IconMorphProps {
-  initialIcon: JSX.Element;
-  toggleIcon: JSX.Element;
+  initialIcon: ReactElement;
+  toggleIcon: ReactElement;
   isToggled: boolean;
   setIsToggled: (isToggled: boolean) => void;
 }

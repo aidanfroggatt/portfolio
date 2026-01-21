@@ -3,14 +3,14 @@ import { Link, useLoaderData, useNavigation } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import { TfiArrowRight } from 'react-icons/tfi';
 import { LinkCard, MacWindowCard } from '~/components/Card';
-import Dot from '~/components/dot';
-import Footer from '~/components/Footer';
-import Header from '~/components/Header';
-import LilypadIcon from '~/components/LilypadIcon';
-import VideoWithAutoplay from '~/components/VideoWithAutoplay';
-import { config } from '~/data/config';
+import Footer from '~/components/layout/footer';
+import Header from '~/components/layout/header';
+import VideoWithAutoplay from '~/components/ui/autoplay-video';
+import Dot from '~/components/ui/dot';
+import LilypadIcon from '~/components/ui/lilypad';
 import { db } from '~/db/index.server';
 import { buildUrl } from '~/lib/cloudinary';
+import { config } from '~/lib/config';
 import { getFirstWord } from '~/lib/string';
 
 export const meta: MetaFunction = () => {

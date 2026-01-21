@@ -1,7 +1,7 @@
-import Dot from '~/components/dot';
 import { Badge } from '~/components/ui/badge';
-import WorkAsset from '~/components/work/asset';
+import Dot from '~/components/ui/dot';
 import type { Asset } from '~/db/schema';
+import WorkAsset from '~/features/work/components/asset';
 
 interface WorkAsset {
   publicId: Asset['publicId'];

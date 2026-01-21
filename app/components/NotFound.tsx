@@ -1,5 +1,5 @@
-import Footer from '~/components/Footer';
-import { HeaderNotFound } from '~/components/Header';
+import Footer from '~/components/layout/footer';
+import { HeaderNotFound } from '~/components/layout/header';
 
 export default function NotFound() {
   return (

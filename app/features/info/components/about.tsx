@@ -1,7 +1,7 @@
 import { type InferSelectModel } from 'drizzle-orm';
 import { motion } from 'framer-motion';
 import { ImageCard } from '~/components/Card';
-import Dot from '~/components/dot';
+import Dot from '~/components/ui/dot';
 import { about, assets } from '~/db/schema';
 import { buildUrl } from '~/lib/cloudinary';
 

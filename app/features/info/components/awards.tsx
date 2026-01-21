@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 import { type InferSelectModel } from 'drizzle-orm';
 import { motion } from 'framer-motion';
 import { TfiArrowTopRight } from 'react-icons/tfi';
-import Dot from '~/components/dot';
+import Dot from '~/components/ui/dot';
 import { awards } from '~/db/schema';
 import { extractDomain } from '~/lib/url';
 

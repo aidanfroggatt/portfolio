@@ -1,7 +1,7 @@
 import { Link, useRouteLoaderData } from '@remix-run/react';
 import { TfiArrowTopRight } from 'react-icons/tfi';
-import LilypadIcon from '~/components/LilypadIcon';
-import { config } from '~/data/config';
+import LilypadIcon from '~/components/ui/lilypad';
+import { config } from '~/lib/config';
 import { getFirstWord } from '~/lib/string';
 import type { RootLoader } from '~/root';
 

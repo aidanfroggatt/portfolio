@@ -4,9 +4,9 @@ import { FaMountainSun } from 'react-icons/fa6';
 import { FiExternalLink } from 'react-icons/fi';
 import { Badge } from '~/components/ui/badge';
 import { Button } from '~/components/ui/button';
-import WorkAsset from '~/components/work/asset';
-import { useProject } from '~/contexts/project-context';
 import type { Asset } from '~/db/schema';
+import WorkAsset from '~/features/work/components/asset';
+import { useProject } from '~/features/work/context/project-context';
 import { getLinkIcon } from '~/lib/icon';
 import { cn } from '~/lib/utils';
 

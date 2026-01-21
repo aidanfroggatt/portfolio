@@ -1,55 +1,23 @@
 import { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { ComponentType, lazy, LazyExoticComponent, Suspense } from 'react';
-import { WorkLayout, WorkOverview } from '~/components/work';
-import WorkHero from '~/components/work/hero';
-import { config } from '~/data/config';
-import { db } from '~/db/index.server';
-
-const MDX_MODULES = import.meta.glob<{ default: ComponentType }>('../content/projects/*.mdx');
-
-const MDX_COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {};
-
-for (const path in MDX_MODULES) {
-  const slug = path.match(/\/([^/]+)\.mdx$/)?.[1];
-  if (slug) {
-    MDX_COMPONENTS[slug] = lazy(MDX_MODULES[path]);
-  }
-}
+import { createElement, Suspense } from 'react';
+import { WorkHero, WorkLayout, WorkOverview } from '~/features/work/components';
+import { getMdxComponent } from '~/features/work/content/registry';
+import { getNextProject, getWorkById } from '~/features/work/work.server';
+import { config } from '~/lib/config';
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.workId;
 
   if (!slug) throw new Response('Project ID Required', { status: 400 });
 
-  const project = await db.query.projects.findFirst({
-    where: (p, { eq }) => eq(p.id, slug),
-    with: {
-      heroAsset: true,
-      techConnections: {
-        orderBy: (t, { asc }) => [asc(t.technologyName)],
-        with: {
-          tech: true,
-        },
-      },
-    },
-  });
+  const project = await getWorkById(slug);
 
   if (!project) {
     throw new Response('Not Found', { status: 404 });
   }
 
-  let nextProject = await db.query.projects.findFirst({
-    where: (p, { eq }) => eq(p.index, project.index + 1),
-    columns: { id: true, title: true, color: true },
-  });
-
-  if (!nextProject) {
-    nextProject = await db.query.projects.findFirst({
-      where: (p, { eq }) => eq(p.index, 0),
-      columns: { id: true, title: true, color: true },
-    });
-  }
+  const nextProject = await getNextProject(project.index);
 
   return {
     project,
@@ -72,15 +40,20 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 const ProjectContent = ({ slug }: { slug: string }) => {
-  const Component = MDX_COMPONENTS[slug];
+  const component = getMdxComponent(slug);
 
-  if (!Component) {
-    return null;
+  if (!component) {
+    return (
+      <div className="py-20 flex flex-col items-center justify-center opacity-50 border-2 border-dashed border-custom-light/20 rounded-xl m-10">
+        <p>No content file found for:</p>
+        <code className="bg-custom-light/10 px-2 py-1 rounded mt-2">{slug}.mdx</code>
+      </div>
+    );
   }
 
   return (
     <Suspense fallback={<div className="py-20 text-center opacity-50">Loading content...</div>}>
-      <Component />
+      {createElement(component)}
     </Suspense>
   );
 };

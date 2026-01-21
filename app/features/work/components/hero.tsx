@@ -1,7 +1,7 @@
+import VideoWithAutoplay from '~/components/ui/autoplay-video';
 import { Asset } from '~/db/schema';
 import { buildUrl } from '~/lib/cloudinary';
 import { formatMonthYear } from '~/lib/date';
-import VideoWithAutoplay from '../VideoWithAutoplay';
 
 type HeroAsset = Pick<Asset, 'resourceType' | 'publicId' | 'alt'>;
 

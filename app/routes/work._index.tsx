@@ -2,13 +2,13 @@ import { MetaFunction, useLoaderData } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import Back from '~/components/Back';
 import { LinkCard } from '~/components/Card';
-import Dot from '~/components/dot';
-import Footer from '~/components/Footer';
-import Header from '~/components/Header';
-import VideoWithAutoplay from '~/components/VideoWithAutoplay';
-import { config } from '~/data/config';
-import { db } from '~/db/index.server';
+import Footer from '~/components/layout/footer';
+import Header from '~/components/layout/header';
+import VideoWithAutoplay from '~/components/ui/autoplay-video';
+import Dot from '~/components/ui/dot';
+import { getAllWork } from '~/features/work/work.server';
 import { buildUrl } from '~/lib/cloudinary';
+import { config } from '~/lib/config';
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,13 +18,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const work = await db.query.projects.findMany({
-    orderBy: (projects, { asc }) => [asc(projects.index)],
-    with: {
-      heroAsset: true,
-    },
-  });
-
+  const work = await getAllWork();
   return { work };
 };
 

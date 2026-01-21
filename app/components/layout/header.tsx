@@ -4,9 +4,9 @@ import { ReactNode, useRef, useState } from 'react';
 import { FiAtSign, FiX } from 'react-icons/fi';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 import IconMenu from '~/components/IconMenu';
-import LilypadIcon from '~/components/LilypadIcon';
 import SlideTabs from '~/components/SlideTabs';
-import { config } from '~/data/config';
+import LilypadIcon from '~/components/ui/lilypad';
+import { config } from '~/lib/config';
 
 const HeaderShell = ({ children }: { children: ReactNode }) => {
   return (

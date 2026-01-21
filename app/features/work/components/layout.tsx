@@ -1,8 +1,8 @@
 import { CSSProperties, ReactNode, useRef } from 'react';
-import Footer from '~/components/Footer';
-import ProgressBar from '~/components/ProgressBar';
-import { ProjectProvider } from '~/contexts/project-context';
+import Footer from '~/components/layout/footer';
 import { Project } from '~/db/schema';
+import ProgressBar from '~/features/work/components/progress';
+import { ProjectProvider } from '~/features/work/context/project-context';
 import { hexToRGBA } from '~/lib/color';
 
 interface WorkLayoutProps {

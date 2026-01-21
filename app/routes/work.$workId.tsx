@@ -1,15 +1,10 @@
 import { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { ComponentType, CSSProperties, lazy, LazyExoticComponent, Suspense, useRef } from 'react';
-import Footer from '~/components/Footer';
-import ProgressBar from '~/components/ProgressBar';
-import { WorkOverview } from '~/components/work';
+import { ComponentType, lazy, LazyExoticComponent, Suspense } from 'react';
+import { WorkLayout, WorkOverview } from '~/components/work';
 import WorkHero from '~/components/work/hero';
-import { ProjectProvider } from '~/contexts/project-context';
 import { config } from '~/data/config';
 import { db } from '~/db/index.server';
-import { Project } from '~/db/schema';
-import { hexToRGBA } from '~/lib/color';
 
 const MDX_MODULES = import.meta.glob<{ default: ComponentType }>('../content/projects/*.mdx');
 
@@ -76,7 +71,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ];
 };
 
-const ProjectContent = ({ slug, project }: { slug: string; project: Project }) => {
+const ProjectContent = ({ slug }: { slug: string }) => {
   const Component = MDX_COMPONENTS[slug];
 
   if (!Component) {
@@ -85,59 +80,38 @@ const ProjectContent = ({ slug, project }: { slug: string; project: Project }) =
 
   return (
     <Suspense fallback={<div className="py-20 text-center opacity-50">Loading content...</div>}>
-      <ProjectProvider project={project}>
-        <Component />
-      </ProjectProvider>
+      <Component />
     </Suspense>
   );
 };
 
 const Work = () => {
   const { project, nextProject } = useLoaderData<typeof loader>();
-  const mainRef = useRef<HTMLDivElement>(null);
-
-  const style = project?.color
-    ? ({
-        '--project-color': hexToRGBA(project.color, 0.5),
-        '--selection-text-color': '#f2f2f2',
-      } as CSSProperties)
-    : {};
 
   return (
-    <>
-      {project && nextProject && (
-        <ProgressBar work={project} nextWork={nextProject} targetRef={mainRef} />
-      )}
+    <WorkLayout projectInfo={project} nextProject={nextProject}>
+      <WorkHero
+        title={project.title}
+        association={project.association}
+        endDate={project.endDate ? new Date(project.endDate) : undefined}
+        asset={project.heroAsset}
+      />
 
-      <main
-        className="project-selection md:bg-size-[100%_135vh] bg-size-[100%_450px] md:bg-project-page bg-project-page gap-y-16 md:gap-y-40 pt-16 md:pt-28 2xl:pt-44 pb-16 md:pb-40 2xl:pb-60 relative bg-no-repeat flex flex-col items-center text-custom-light overflow-hidden w-full max-w-full"
-        style={style}
-        ref={mainRef}
-      >
-        <WorkHero
-          title={project.title}
-          association={project.association}
-          endDate={project.endDate ? new Date(project.endDate) : undefined}
-          asset={project.heroAsset}
-        />
+      <WorkOverview
+        overviewDescription={project.overviewDescription}
+        roleTitle={project.roleTitle}
+        roleDescription={project.roleDescription}
+        team={project.team || []}
+        technologies={project.techConnections.map((c) => ({
+          name: c.tech.name,
+        }))}
+        startDate={new Date(project.startDate)}
+        endDate={project.endDate ? new Date(project.endDate) : undefined}
+        color={project.color}
+      />
 
-        <WorkOverview
-          overviewDescription={project.overviewDescription}
-          roleTitle={project.roleTitle}
-          roleDescription={project.roleDescription}
-          team={project.team || []}
-          technologies={project.techConnections.map((c) => ({
-            name: c.tech.name,
-          }))}
-          startDate={new Date(project.startDate)}
-          endDate={project.endDate ? new Date(project.endDate) : undefined}
-          color={project.color}
-        />
-
-        <ProjectContent slug={project.id} project={project} />
-      </main>
-      <Footer />
-    </>
+      <ProjectContent slug={project.id} />
+    </WorkLayout>
   );
 };
 

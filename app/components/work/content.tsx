@@ -1,4 +1,5 @@
 import Dot from '~/components/dot';
+import { Badge } from '~/components/ui/badge';
 import WorkAsset from '~/components/work/asset';
 import type { Asset } from '~/db/schema';
 
@@ -75,11 +76,7 @@ const WorkContent = (projectInfo: WorkContentProps) => {
 
                   <h5 className="flex flex-row w-full justify-end items-center gap-x-2 mt-2 text-end text-custom-light/50">
                     {asset.alt}
-                    <span className="bg-custom-dark/50 rounded-full p-1.5 shadow-inner shadow-custom-dark uppercase text-xs">
-                      {asset.resourceType === 'pdf' || asset.publicId.endsWith('.pdf')
-                        ? 'PDF'
-                        : asset.resourceType}
-                    </span>
+                    <Badge variant="assetType">{asset.resourceType}</Badge>
                   </h5>
                 </div>
               ))}

@@ -38,7 +38,7 @@ export const links: LinksFunction = () => [
     href: '/favicon-512x512.png',
     type: 'image/png',
   },
-  { rel: 'stylesheet', href: styles, as: 'style' },
+  { rel: 'stylesheet', href: styles },
 ];
 
 export async function loader() {

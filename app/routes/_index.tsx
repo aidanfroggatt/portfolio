@@ -10,7 +10,8 @@ import LilypadIcon from '~/components/LilypadIcon';
 import VideoWithAutoplay from '~/components/VideoWithAutoplay';
 import { config } from '~/data/config';
 import { db } from '~/db/index.server';
-import { getFirstWord } from '~/utils/string';
+import { buildUrl } from '~/lib/cloudinary';
+import { getFirstWord } from '~/lib/string';
 
 export const meta: MetaFunction = () => {
   return [
@@ -148,14 +149,15 @@ const WorkCards = () => {
               </div>
               <div className="w-full pointer-events-none flex justify-center items-center relative 2xl:h-work-card-image-2xl lg:h-work-card-image-lg md:h-work-card-image-md">
                 <div className="w-full md:absolute pt-4 md:pt-0 pb-8 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-20 xl:group-hover:-bottom-14 2xl:-bottom-28 2xl:group-hover:-bottom-22 transition-all duration-200 object-contain h-full px-8">
-                  {item.heroAsset.type === 'VIDEO' ? (
+                  {item.heroAsset.resourceType === 'video' ? (
                     <VideoWithAutoplay
                       className="rounded-[2vmax] md:rounded-b-none object-cover group-hover:[&]:play"
-                      asset={item.heroAsset}
+                      publicId={item.heroAsset.publicId}
+                      alt={item.heroAsset.alt}
                     />
                   ) : (
                     <img
-                      src={item.heroAsset.src}
+                      src={buildUrl(item.heroAsset.publicId, 'image')}
                       alt={item.heroAsset.alt}
                       className="rounded-[2vmax] lg:rounded-b-none object-cover w-full"
                     />

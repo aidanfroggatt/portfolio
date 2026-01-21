@@ -7,93 +7,95 @@ meta:
 
 import WorkContent from '~/components/work/content';
 import WorkHighlights from '~/components/work/highlights';
+import { assets } from '~/db/schema';
 
 export const projectData = {
-  highlights: {
-    description: 'Requirements engineering for a dynamic fitness solution.',
-    items: [
-      {
-        asset: {
-          alt: 'Project Report',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Findex.pdf?alt=media&token=349699e4-ac09-4072-8193-38810e926140',
-          type: 'PDF',
-        },
-      },
-    ],
-  },
-  content: [
-    {
-      type: 'CONTEXT',
-      title: 'A need for a dynamic fitness solution.',
-      subtitle: 'Reimagining fitness in North America',
-      description:
-        'ACME Run aims to address the unmet need for an engaging fitness solution in North America. The platform combines gamified workouts with curated running trails and heart rate monitoring to create a dynamic fitness experience.',
-    },
-    {
-      type: 'GOALS',
-      title: 'Making fitness more accessible.',
-      subtitle: 'Creating a dynamic and enjoyable fitness experience for all',
-      description:
-        'ACME RUN is a gamified fitness app offering personalized workouts through curated trails and heart rate monitoring, aiming to make fitness more accessible, enjoyable, and community-focused.',
-      assets: [
-        {
-          alt: 'High Level Use Case Diagram',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fuse-case-diagram.svg?alt=media&token=1b318af1-e61b-4180-b186-ab9558dce7bf',
-          type: 'IMAGE',
-        },
-      ],
-    },
-    {
-      type: 'ENVIRONMENT',
-      title: 'Domain in focus.',
-      subtitle: 'Understanding the fitness ecosystem and user needs',
-      description:
-        'Defining the components, constraints, assumptions, effects, and invariants of the ACME Run domain to understand the fitness ecosystem and user needs.',
-      assets: [
-        {
-          alt: 'Domain Model',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fdomain-model.svg?alt=media&token=a40b887d-3fed-40b7-8ec3-6407ffbea9ee',
-          type: 'IMAGE',
-        },
-      ],
-    },
-    {
-      type: 'SYSTEM',
-      title: 'Constructing the architecture.',
-      subtitle: 'The components required to create a dynamic fitness solution',
-      description:
-        'Illustrating the components, functionality, interfaces, usage scenarios, and prioritization of the ACME Run system.',
-      assets: [
-        {
-          alt: 'Components Model',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fcomponents-model.svg?alt=media&token=740db715-7d70-4ea3-9e84-6009e0eefd75',
-          type: 'IMAGE',
-        },
-        {
-          alt: 'API Diagram',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Fapi-diagram.svg?alt=media&token=51eca081-ecff-4919-b842-dbae48802afd',
-          type: 'IMAGE',
-        },
-        {
-          alt: 'Activity Update Diagram',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Factivity-update-diagram.svg?alt=media&token=0bda1243-73d2-4361-ad7e-615b942746d2',
-          type: 'IMAGE',
-        },
-        {
-          alt: 'Activity Run Diagram',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Facme-run%2Fdiagrams%2Factivity-run-diagram.svg?alt=media&token=718ad6cc-f640-4694-92ae-df3101ecbad8',
-          type: 'IMAGE',
-        },
-      ],
-    },
-    {
-      type: 'RETROSPECTIVE',
-      title: 'A learning experience in requirements engineering.',
-      subtitle: 'The importance and impact of requirements engineering',
-      description:
-        'ACME Run was a valuable learning experience in requirements engineering. The project required a deep understanding of user needs and system requirements to create a successful fitness solution.',
-    },
-  ],
+  color: '#7A003C',
+  links: [],
+
+highlights: {
+description: 'Requirements engineering for a dynamic fitness solution.',
+assets: [
+{
+alt: 'Project Report',
+publicId: 'projects/acme-run/index',
+resourceType: 'pdf',
+},
+],
+},
+content: [
+{
+type: 'CONTEXT',
+title: 'A need for a dynamic fitness solution.',
+subtitle: 'Reimagining fitness in North America',
+description:
+'ACME Run aims to address the unmet need for an engaging fitness solution in North America. The platform combines gamified workouts with curated running trails and heart rate monitoring to create a dynamic fitness experience.',
+},
+{
+type: 'GOALS',
+title: 'Making fitness more accessible.',
+subtitle: 'Creating a dynamic and enjoyable fitness experience for all',
+description:
+'ACME RUN is a gamified fitness app offering personalized workouts through curated trails and heart rate monitoring, aiming to make fitness more accessible, enjoyable, and community-focused.',
+assets: [
+{
+alt: 'High Level Use Case Diagram',
+publicId: 'projects/acme-run/diagrams/use-case-diagram.svg',
+resourceType: 'image',
+},
+],
+},
+{
+type: 'ENVIRONMENT',
+title: 'Domain in focus.',
+subtitle: 'Understanding the fitness ecosystem and user needs',
+description:
+'Defining the components, constraints, assumptions, effects, and invariants of the ACME Run domain to understand the fitness ecosystem and user needs.',
+assets: [
+{
+alt: 'Domain Model',
+publicId: 'projects/acme-run/diagrams/domain-model.svg',
+resourceType: 'image',
+},
+],
+},
+{
+type: 'SYSTEM',
+title: 'Constructing the architecture.',
+subtitle: 'The components required to create a dynamic fitness solution',
+description:
+'Illustrating the components, functionality, interfaces, usage scenarios, and prioritization of the ACME Run system.',
+assets: [
+{
+alt: 'Components Model',
+publicId: 'projects/acme-run/diagrams/components-model.svg',
+resourceType: 'image',
+},
+{
+alt: 'API Diagram',
+publicId: 'projects/acme-run/diagrams/api-diagram.svg',
+resourceType: 'image',
+},
+{
+alt: 'Activity Update Diagram',
+publicId: 'projects/acme-run/diagrams/activity-update-diagram.svg',
+resourceType: 'image',
+},
+{
+alt: 'Activity Run Diagram',
+publicId: 'projects/acme-run/diagrams/activity-run-diagram.svg',
+resourceType: 'image',
+},
+],
+},
+{
+type: 'RETROSPECTIVE',
+title: 'A learning experience in requirements engineering.',
+subtitle: 'The importance and impact of requirements engineering',
+description:
+'ACME Run was a valuable learning experience in requirements engineering. The project required a deep understanding of user needs and system requirements to create a successful fitness solution.',
+},
+],
 };
 
 <WorkHighlights

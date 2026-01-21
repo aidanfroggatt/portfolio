@@ -9,83 +9,82 @@ import WorkContent from '~/components/work/content';
 import WorkHighlights from '~/components/work/highlights';
 
 export const projectData = {
-  highlights: {
-    description: 'Building automation tooling, testing suites, and validation frameworks.',
-    items: [
-      {
-        asset: {
-          alt: 'Workflow Designer',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fibm-skeleton.png?alt=media&token=8015faef-d37b-4de1-beb0-122d7e171f8d',
-          type: 'IMAGE',
-        },
-      },
-    ],
-  },
-  links: [
-    {
-      icon: 'FaGlobe',
-      link: 'https://www.ibm.com/products/watsonx-orchestrate',
-      name: 'Website',
-    },
-  ],
-  content: [
-    {
-      type: 'CONTEXT',
-      title: 'Multi-agent orchestration for business.',
-      subtitle: 'Building the future of AI agents',
-      description:
-        'watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems.',
-      assets: [
-        // {
-        //   alt: "Eye Animation",
-        //   src: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Feye-animation%2Feye-aniimation.mp4?alt=media&token=c558321e-a3fc-4715-b510-de667de0a2ec",
-        //   poster: "https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Feye-animation%2Fposter.png?alt=media&token=34659fed-299f-48ff-b247-5c624d08cd84",
-        //   type: "VIDEO",
-        // },
-        {
-          alt: 'Empowering Users',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fibm-people.png?alt=media&token=0131ebdb-fbd1-41d9-be7f-7e2a41ed2f99',
-          type: 'IMAGE',
-        },
-      ],
-    },
-    {
-      type: 'AGENTS',
-      title: 'AI Agents that work wherever you work.',
-      subtitle: 'Specialized agents for every business need',
-      description:
-        'Contributed to the development of specialized AI agents for HR, sales, procurement and customer service. These agents can seamlessly integrate with existing business systems, connect to any AI model, and work together to automate complex workflows, reducing manual work and enabling faster decision-making at scale.',
-    },
-    {
-      type: 'SCALE',
-      title: 'Learning to scale.',
-      subtitle: 'My first enterprise project',
-      description:
-        'This was my first enterprise project, and I learned a lot about scaling applications and working with large codebases.',
-      assets: [
-        {
-          alt: 'International Impact',
-          src: 'https://firebasestorage.googleapis.com/v0/b/portfolio-aidan-froggatt.appspot.com/o/projects%2Fwatsonx-orchestrate%2Fibm-country-animations.gif?alt=media&token=3f55664e-4930-480f-ac22-c81c99e3143d',
-          type: 'IMAGE',
-        },
-      ],
-    },
-    // Add a section about my efforts in automated frontend testing and validation framworks
-    {
-      type: 'TESTING',
-      title: 'Automated testing and validation.',
-      subtitle: 'Ensuring quality and reliability',
-      description:
-        'Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform. This included building a comprehensive test suite for the Agent Builder and multi-agent orchestration features.',
-    },
-    {
-      type: 'RETROSPECTIVE',
-      title: 'An incredible learning experience',
-      subtitle: 'Reflections on engineering growth and team collaboration',
-      description:
-        'I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.',
-    },
-  ],
+  color: '#5C88DA',
+
+highlights: {
+description: 'Building automation tooling, testing suites, and validation frameworks.',
+assets: [
+{
+alt: 'Workflow Designer',
+publicId: 'projects/watsonx-orchestrate/ibm-skeleton',
+resourceType: 'image',
+},
+],
+},
+links: [
+{
+icon: 'FaGlobe',
+url: 'https://www.ibm.com/products/watsonx-orchestrate',
+name: 'Website',
+},
+],
+content: [
+{
+type: 'CONTEXT',
+title: 'Multi-agent orchestration for business.',
+subtitle: 'Building the future of AI agents',
+description:
+'watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems.',
+assets: [
+// {
+// alt: "Eye Animation",
+// publicId: "projects/watsonx-orchestrate/eye-animation/eye-aniimation",
+// resourceType: "video",
+// },
+{
+alt: 'Empowering Users',
+publicId: 'projects/watsonx-orchestrate/ibm-people',
+resourceType: 'image',
+},
+],
+},
+{
+type: 'AGENTS',
+title: 'AI Agents that work wherever you work.',
+subtitle: 'Specialized agents for every business need',
+description:
+'Contributed to the development of specialized AI agents for HR, sales, procurement and customer service. These agents can seamlessly integrate with existing business systems, connect to any AI model, and work together to automate complex workflows, reducing manual work and enabling faster decision-making at scale.',
+},
+{
+type: 'SCALE',
+title: 'Learning to scale.',
+subtitle: 'My first enterprise project',
+description:
+'This was my first enterprise project, and I learned a lot about scaling applications and working with large codebases.',
+assets: [
+{
+alt: 'International Impact',
+publicId: 'projects/watsonx-orchestrate/ibm-country-animations',
+resourceType: 'image', // GIFs are treated as images
+},
+],
+},
+// Add a section about my efforts in automated frontend testing and validation framworks
+{
+type: 'TESTING',
+title: 'Automated testing and validation.',
+subtitle: 'Ensuring quality and reliability',
+description:
+'Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform. This included building a comprehensive test suite for the Agent Builder and multi-agent orchestration features.',
+},
+{
+type: 'RETROSPECTIVE',
+title: 'An incredible learning experience',
+subtitle: 'Reflections on engineering growth and team collaboration',
+description:
+'I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.',
+},
+],
 };
 
 <WorkHighlights

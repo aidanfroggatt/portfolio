@@ -1,5 +1,5 @@
-import { calculateDateDifference, formatMonthYear } from '~/utils/date';
-import { getTechIcon } from '~/utils/icon';
+import { calculateDateDifference, formatMonthYear } from '~/lib/date';
+import { getTechIcon } from '~/lib/icon';
 import { Badge } from '../ui/badge';
 
 interface WorkOverviewProps {
@@ -86,7 +86,7 @@ const WorkOverview = ({
                       'flex items-center gap-2 md:px-4 md:py-2 py-1 px-2 text-sm font-medium transition-all duration-300 bg-custom-light/5 border-custom-light/10 text-custom-light backdrop-blur-md'
                     }
                   >
-                    <span className="relative shrink-0 w-3.5 h-3.5 md:w-5 md:h-5 text-custom-light/50 transition-all duration-300">
+                    <span className="relative shrink-0 w-4 h-4 text-custom-light/50 transition-all duration-300">
                       <IconComponent className="w-full h-full" />
                     </span>
 

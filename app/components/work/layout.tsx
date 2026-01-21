@@ -1,8 +1,8 @@
 import { ReactNode, useRef } from 'react';
 import Footer from '~/components/Footer';
 import ProgressBar from '~/components/ProgressBar';
+import { hexToRGBA } from '~/lib/color';
 import { Work } from '~/types/work';
-import { hexToRGBA } from '~/utils/color';
 
 interface WorkLayoutProps {
   children: ReactNode;

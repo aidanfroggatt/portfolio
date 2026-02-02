@@ -44,7 +44,7 @@ const ProjectContent = ({ slug }: { slug: string }) => {
 
   if (!component) {
     return (
-      <div className="py-20 flex flex-col items-center justify-center opacity-50 border-2 border-dashed border-custom-light/20 rounded-xl m-10">
+      <div className="p-20 flex flex-col items-center justify-center opacity-50 border-2 border-dashed border-custom-light/20 rounded-xl m-10">
         <p>No content file found for:</p>
         <code className="bg-custom-light/10 px-2 py-1 rounded mt-2">{slug}.mdx</code>
       </div>

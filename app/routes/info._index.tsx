@@ -1,10 +1,10 @@
 import type { MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import Footer from '~/components/Footer';
-import Header from '~/components/Header';
-import { InfoAbout, InfoAwards, InfoExperience, InfoInvolvement } from '~/components/info';
-import { config } from '~/data/config';
+import Footer from '~/components/layout/footer';
+import Header from '~/components/layout/header';
 import { db } from '~/db/index.server';
+import { InfoAbout, InfoAwards, InfoExperience, InfoInvolvement } from '~/features/info/components';
+import { config } from '~/lib/config';
 
 export const meta: MetaFunction = () => {
   return [

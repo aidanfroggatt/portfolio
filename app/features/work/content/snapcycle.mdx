@@ -1,0 +1,35 @@
+---
+meta:
+  slug: snapcycle
+  title: SnapCycle
+  description: SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="An award-winning AI-powered tool for detecting the recyclability of items." />
+
+<WorkHighlightAsset
+  alt="Plastic bottle detection"
+  publicId="projects/snapcycle/highlights/plastic_bottle_detection/plastic_bottle_detection"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Website demo"
+  publicId="projects/snapcycle/highlights/website_demo/snapcycle-website"
+  resourceType="video"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

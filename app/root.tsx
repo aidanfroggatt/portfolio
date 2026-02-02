@@ -1,5 +1,6 @@
 import { type LinksFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { ReactNode } from 'react';
 import styles from '~/global.css?url';
 import { getLastCommitInfo } from '~/services/github.server';
 import NotFound from './components/NotFound';
@@ -48,7 +49,7 @@ export async function loader() {
 
 export type RootLoader = typeof loader;
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>

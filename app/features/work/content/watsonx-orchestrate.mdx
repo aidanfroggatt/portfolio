@@ -1,0 +1,85 @@
+---
+meta:
+  slug: watsonx-orchestrate
+  title: watsonx Orchestrate
+  description: Developed features for watsonx Orchestrate, a powerful platform for building, deploying, and managing AI agents that automate workflows and processes with generative AI. The platform enables seamless integration with business systems and collaboration between AI assistants and agents in one unified experience.
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Building automation tooling, testing suites, and validation frameworks." />
+
+<WorkHighlightAsset
+  alt="Workflow Designer"
+  publicId="projects/watsonx-orchestrate/ibm-skeleton"
+  resourceType="image"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [
+  {
+    type: 'CONTEXT',
+    title: 'Multi-agent orchestration for business.',
+    subtitle: 'Building the future of AI agents',
+    description:
+      'watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems.',
+    assets: [
+      // {
+      //   alt: "Eye Animation",
+      //   publicId: "projects/watsonx-orchestrate/eye-animation/eye-aniimation",
+      //   resourceType: "video",
+      // },
+      {
+        alt: 'Empowering Users',
+        publicId: 'projects/watsonx-orchestrate/ibm-people',
+        resourceType: 'image',
+      },
+    ],
+  },
+  {
+    type: 'AGENTS',
+    title: 'AI Agents that work wherever you work.',
+    subtitle: 'Specialized agents for every business need',
+    description:
+      'Contributed to the development of specialized AI agents for HR, sales, procurement and customer service. These agents can seamlessly integrate with existing business systems, connect to any AI model, and work together to automate complex workflows, reducing manual work and enabling faster decision-making at scale.',
+  },
+  {
+    type: 'SCALE',
+    title: 'Learning to scale.',
+    subtitle: 'My first enterprise project',
+    description:
+      'This was my first enterprise project, and I learned a lot about scaling applications and working with large codebases.',
+    assets: [
+      {
+        alt: 'International Impact',
+        publicId: 'projects/watsonx-orchestrate/ibm-country-animations',
+        resourceType: 'image', // GIFs are treated as images
+      },
+    ],
+  },
+  {
+    type: 'TESTING',
+    title: 'Automated testing and validation.',
+    subtitle: 'Ensuring quality and reliability',
+    description:
+      'Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform. This included building a comprehensive test suite for the Agent Builder and multi-agent orchestration features.',
+  },
+  {
+    type: 'RETROSPECTIVE',
+    title: 'An incredible learning experience',
+    subtitle: 'Reflections on engineering growth and team collaboration',
+    description:
+      'I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.',
+  },
+];
+
+<WorkContent content={content} />

@@ -1,0 +1,35 @@
+---
+meta:
+  slug: portfolio
+  title: Portfolio
+  description:
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="A showcase of my work, skills, and projects." />
+
+<WorkHighlightAsset
+  alt="Hero Animation"
+  publicId="projects/portfolio/highlights/hero-animation/hero-animation"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Custom Card"
+  publicId="projects/portfolio/highlights/custom-card"
+  resourceType="image"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

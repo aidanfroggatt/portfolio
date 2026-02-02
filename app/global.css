@@ -103,7 +103,7 @@
 @layer base {
   html,
   body {
-    @apply font-default bg-custom-dark text-custom-light;
+    @apply font-default bg-custom-dark text-custom-light relative;
   }
 
   * {

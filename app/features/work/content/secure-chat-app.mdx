@@ -1,0 +1,85 @@
+---
+meta:
+  slug: secure-chat-app
+  title: Secure Chat App
+  description: A secure chat application featuring Kerberos authentication and AES encryption for real-time, protected messaging. Built with React Native, Firebase, Python, and Flask, this app ensures a robust and encrypted communication experience.
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="A secure chat application that utilizes Kerberos authentication and AES encryption to create secure realtime chats." />
+
+<WorkHighlightAsset
+  alt="Realtime Group Chat"
+  publicId="projects/secure-chat-app/realtime_groupchat/realtime_groupchat"
+  resourceType="video"
+/>
+<WorkHighlightAsset
+  alt="Kerberos Authentication"
+  publicId="projects/secure-chat-app/kerberos_authentication/kerberos_authentication"
+  resourceType="video"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [
+  {
+    type: 'Deliverable 1',
+    title: 'Software Requirement Specification',
+    subtitle: 'A cross platform secure chat application.',
+    description:
+      'An outline of the purpose, product description, use case diagram, functional, and non functional requirements.',
+    assets: [
+      {
+        resourceType: 'pdf',
+        publicId: 'projects/secure-chat-app/deliverables/Software_Requirement_Specification_D1',
+        alt: 'Software Requirement Specification Report',
+      },
+    ],
+  },
+  {
+    type: 'Deliverable 2',
+    title: 'High Level Architecture',
+    subtitle: 'Enabling encrypted communitcation for sensitive information.',
+    description:
+      'Analysis class diagram, architectural design and rationale behind design decisions, and class responsibility collaboration cards detailing class responsibilities and interactions.',
+    assets: [
+      {
+        resourceType: 'pdf',
+        publicId: 'projects/secure-chat-app/deliverables/High_Level_Architecture_D2',
+        alt: 'High Level Architecture Report',
+      },
+    ],
+  },
+  {
+    type: 'Deliverable 3',
+    title: 'Detailed Architecture',
+    subtitle: 'PAC architecture with repository sub-system.',
+    description:
+      'Furthering the definition of the architecture through state chart diagrams, sequence diagrams, and a detailed class diagram.',
+    assets: [
+      {
+        resourceType: 'pdf',
+        publicId: 'projects/secure-chat-app/deliverables/Detailed_Architecture_D3',
+        alt: 'Detailed Architecture Report',
+      },
+    ],
+  },
+  {
+    type: 'Retrospective',
+    title: 'A successful project with valuable insights.',
+    subtitle: 'A secure chat app with Kerberos authentication and AES encryption.',
+    description:
+      'The secure chat app was a success, providing valuable insights into secure chat applications and encryption.',
+  },
+];
+
+<WorkContent content={content} />

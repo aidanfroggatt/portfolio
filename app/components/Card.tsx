@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react';
 import { CSSProperties, ReactNode } from 'react';
-import GradientTracker from '~/components/GradientTracker';
+import GradientTracker from '~/components/ui/gradient-tracker';
 
 export const LinkCard = ({
   children,

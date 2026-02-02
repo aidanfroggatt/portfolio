@@ -1,0 +1,40 @@
+---
+meta:
+  slug: island-generator
+  title: Island Generator
+  description:
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Visualizers for mesh data structure and applicable algorithms." />
+
+<WorkHighlightAsset
+  alt="Mesh Data Structure"
+  publicId="projects/island-generator/highlights/irregular_debug"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="Capital City Path"
+  publicId="projects/island-generator/highlights/capital-city-path"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="Lagoon Island"
+  publicId="projects/island-generator/highlights/mesh-generator-sample"
+  resourceType="image"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [];
+
+<WorkContent content={content} />

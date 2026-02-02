@@ -1,0 +1,123 @@
+---
+meta:
+  slug: burloak-insight
+  title: Burloak Insight
+  description: Data analytics and report generation platform for additive manufacturing.
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="An internal company dashboard created to centralize truth, analyze data, generate reports, and direct engineering decisions." />
+
+<WorkHighlightAsset
+  alt="Architecture Overview"
+  publicId="projects/burloak-insight/architecture-overview/burloak-insight-architecture-overview"
+  resourceType="image"
+/>
+<WorkHighlightAsset
+  alt="Manager Recommendation"
+  publicId="projects/burloak-insight/recommendation/eric-tenuta-recommendation"
+  resourceType="image"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+{/* <BurloakImpactChart /> */}
+
+export const content = [
+  {
+    type: 'CONTEXT',
+    title: 'An opportunity to improve company operations.',
+    subtitle: 'A need for automation and consolidation was evident',
+    description:
+      'Data access, storage, analsysis, and report generation were fragmented processes. I centralized these tasks, enhancing operational efficiency and informing engineering decisions.',
+  },
+  {
+    type: 'DATA ENTRY',
+    title: 'Data entry was entirely manual.',
+    subtitle: 'A time-consuming and error-prone process, wasting engineering hours.',
+    description:
+      'I automated data entry, increasing speed by over 200x, entering 500+ pdfs of secure data, and centralizing 30+ data stores.',
+    assets: [
+      {
+        alt: 'Simple Flowchart',
+        publicId:
+          'projects/burloak-insight/database_video/burloak-insight-data-entry-simple-diagram',
+        resourceType: 'image',
+      },
+      {
+        alt: 'Complete Flowchart',
+        publicId:
+          'projects/burloak-insight/database_video/burloak-insight-data-entry-complete-diagram',
+        resourceType: 'image',
+      },
+      {
+        alt: 'Raw Data Dashboard',
+        publicId: 'projects/burloak-insight/database_video/burloak_insight_database_video',
+        resourceType: 'video',
+      },
+    ],
+  },
+  {
+    type: 'DATA ANALYSIS',
+    title: 'Data analysis was not happening.',
+    subtitle: 'Without analysis, engineering decisions were not data-driven.',
+    description:
+      'I implemented a data analysis dashboard to analyze data, enabling informed engineering decisions.',
+    assets: [
+      {
+        alt: 'Data Analysis Dashboard',
+        publicId:
+          'projects/burloak-insight/data_analysis_video/burloak_insight_data_analysis_video',
+        resourceType: 'video',
+      },
+    ],
+  },
+  {
+    type: 'REPORT GENERATION',
+    title: 'Reports generation was done by hand.',
+    subtitle: 'This manual process was time-consuming and error-prone.',
+    description:
+      'I automated report generation, continuing to generate reports in seconds, saving engineering hours and reducing errors.',
+    assets: [
+      {
+        alt: 'Report Generation Dashboard',
+        publicId:
+          'projects/burloak-insight/report_generation_video/burloak_insight_report_generation_video',
+        resourceType: 'video',
+      },
+    ],
+  },
+  {
+    type: 'MACHINE VERIFICATION',
+    title: 'Machine verification was a reactive process.',
+    subtitle: 'Only after a machine failed was maintenance performed.',
+    description:
+      'I implemented a machine verification dashboard to monitor and predict maintenance needs. This proactive approach reduced downtime.',
+    assets: [
+      {
+        alt: 'Machine Verification Dashboard',
+        publicId:
+          'projects/burloak-insight/machine-verification-dashboard/burloak-insight-machine-verification-dashboard',
+        resourceType: 'video',
+      },
+    ],
+  },
+  {
+    type: 'RETROSPECTIVE',
+    title: 'A great experience with many lessons learned.',
+    subtitle: 'Tangible results and valuable insights, but always room for improvement',
+    description:
+      'Increasing data entry speed by over 200x, entering 500+ pdfs of secure data, centralizing 30+ data stores, and continuing to generate reports in seconds.',
+  },
+];
+
+<WorkContent content={content} />

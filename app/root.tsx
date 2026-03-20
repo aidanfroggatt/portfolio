@@ -5,6 +5,8 @@ import styles from '~/global.css?url';
 import { getLastCommitInfo } from '~/services/github.server';
 import NotFound from './components/NotFound';
 
+import { Analytics } from '@vercel/analytics/remix';
+
 export const links: LinksFunction = () => [
   {
     rel: 'manifest',
@@ -65,6 +67,7 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

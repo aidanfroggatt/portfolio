@@ -6,6 +6,7 @@ import { getLastCommitInfo } from '~/services/github.server';
 import NotFound from './components/NotFound';
 
 import { Analytics } from '@vercel/analytics/remix';
+import { SpeedInsights } from '@vercel/speed-insights/remix';
 
 export const links: LinksFunction = () => [
   {
@@ -68,6 +69,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <ScrollRestoration />
         <Scripts />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

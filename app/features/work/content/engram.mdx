@@ -1,0 +1,87 @@
+---
+meta:
+  slug: engram
+  title: Engram
+  description: Architected a high-throughput media vault and archival engine, featuring a zero-trust Go backend, an edge-cached delivery pipeline, and a Next.js 15 frontend.
+---
+
+import {
+  WorkContent,
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="Architecting a sovereign media vault with a zero-trust security perimeter and distributed ingestion pipeline." />
+
+<WorkHighlightAsset
+  alt="Engram Staging Area"
+  publicId="projects/engram/staged-assets-preview"
+  resourceType="image"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+export const content = [
+  {
+    type: 'CONTEXT',
+    title: 'Escaping the Algorithmic Friction.',
+    subtitle: 'Sovereign media archival',
+    description:
+      'Engram was engineered as a reaction to the data lock-in of modern social platforms. The mission was to build a private, high-fidelity vault that prioritizes data ownership and intentional archival over performative engagement. The architecture was designed from Day 1 to handle heavy, batch-uploaded media directly from mobile devices without the constraints of serverless execution limits.',
+    assets: [
+      {
+        alt: 'Spatial UI Concept',
+        publicId: 'projects/engram/spatial-ui-floating-glass',
+        resourceType: 'image',
+      },
+    ],
+  },
+  {
+    type: 'ARCHITECTURE',
+    title: 'The High-Throughput Ingestion Engine.',
+    subtitle: 'Direct-to-S3 streaming and transactional commits',
+    description:
+      'To bypass traditional API payload bottlenecks, I implemented a "Commit Handshake" protocol. The Go backend generates short-lived, presigned PUT URLs, allowing the Next.js client to stream raw binaries (12MB+) directly to Backblaze B2. Only after a successful storage event does the client fire a transactional commit to the Neon Postgres database via the Ent ORM, ensuring perfect synchronization between file storage and metadata registry.',
+  },
+  {
+    type: 'SECURITY',
+    title: 'Zero-Trust Polyglot Perimeter.',
+    subtitle: 'JWT Verification and Identity Partitioning',
+    description:
+      'Security is enforced through a strict zero-trust model. While Clerk manages sessions on the frontend, the Go API implements a custom middleware that verifies RSA-signed JWTs against cached Public Key Sets (JWKS). This verified identity is injected into the Go context, ensuring that database queries and storage access are cryptographically partitioned by User ID, making data forgery impossible.',
+    assets: [
+      {
+        alt: 'Backend Security Architecture',
+        publicId: 'projects/engram/go-middleware-auth',
+        resourceType: 'image',
+      },
+    ],
+  },
+  {
+    type: 'EDGE',
+    title: 'Managing Success at the Edge.',
+    subtitle: 'Cloudflare Workers as a Media Gateway',
+    description:
+      'To eliminate egress costs and reduce latency, I architected a Serverless Media Gateway using Cloudflare Workers. By joining the Bandwidth Alliance, the system serves edge-cached media with zero egress fees from B2. The Worker acts as an "Identity Valve," verifying Clerk JWTs at the Edge and rewriting requests to B2 via the S3-compatibility layer, ensuring media is only accessible to authorized owners.',
+  },
+  {
+    type: 'ENGINEERING',
+    title: 'Single Source of Truth.',
+    subtitle: 'Schema-first development with Ent and Turborepo',
+    description:
+      'The project utilizes a polyglot monorepo orchestrated by Turborepo. I integrated the Ent ORM to treat the database as a living schema, supporting automated migrations and type-safe Go structs. To maintain consistency across the stack, I implemented a custom config package with a "fail-fast" strategy, ensuring the infrastructure remains resilient during production deployments on Render.',
+  },
+  {
+    type: 'RETROSPECTIVE',
+    title: 'Infrastructure as a Product.',
+    subtitle: 'Lessons in distributed systems and performance',
+    description:
+      'Building Engram highlighted the necessity of treating infrastructure with the same rigor as UI. From resolving Turborepo’s hermetic build constraints on Windows to mastering AWS V4 signatures in a serverless environment, the project has been a deep dive into building scalable, sustainable, and secure software that stands the test of real-world data.',
+  },
+];
+
+<WorkContent content={content} />

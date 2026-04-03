@@ -12,6 +12,7 @@ import {
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import { WorkAssetBlock, WorkHeader, WorkSection } from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
   <WorkHighlightHeader description="Building automation tooling, testing suites, and validation frameworks." />
@@ -81,5 +82,20 @@ export const content = [
       'I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.',
   },
 ];
+
+<WorkSection>
+  <WorkHeader
+    type="CONTEXT"
+    title="Multi-agent orchestration for business."
+    subtitle="Building the future of AI agents"
+    description="watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems."
+  />
+
+  <WorkAssetBlock
+    alt="Empowering Users"
+    publicId="projects/watsonx-orchestrate/ibm-people"
+    resourceType="image"
+  />
+</WorkSection>
 
 <WorkContent content={content} />

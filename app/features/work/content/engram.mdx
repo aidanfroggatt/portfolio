@@ -5,83 +5,403 @@ meta:
   description: Architected a high-throughput media vault and archival engine, featuring a zero-trust Go backend, an edge-cached delivery pipeline, and a Next.js 15 frontend.
 ---
 
+import { motion } from 'framer-motion';
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
   <WorkHighlightHeader description="Architecting a sovereign media vault with a zero-trust security perimeter and distributed ingestion pipeline." />
-
-<WorkHighlightAsset
-  alt="Engram Staging Area"
-  publicId="projects/engram/staged-assets-preview"
-  resourceType="image"
-/>
-
+  <WorkHighlightAsset alt="Engrams" publicId="projects/engram/engrams" resourceType="image" />
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'Escaping the Algorithmic Friction.',
-    subtitle: 'Sovereign media archival',
-    description:
-      'Engram was engineered as a reaction to the data lock-in of modern social platforms. The mission was to build a private, high-fidelity vault that prioritizes data ownership and intentional archival over performative engagement. The architecture was designed from Day 1 to handle heavy, batch-uploaded media directly from mobile devices without the constraints of serverless execution limits.',
-    assets: [
-      {
-        alt: 'Spatial UI Concept',
-        publicId: 'projects/engram/spatial-ui-floating-glass',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'ARCHITECTURE',
-    title: 'The High-Throughput Ingestion Engine.',
-    subtitle: 'Direct-to-S3 streaming and transactional commits',
-    description:
-      'To bypass traditional API payload bottlenecks, I implemented a "Commit Handshake" protocol. The Go backend generates short-lived, presigned PUT URLs, allowing the Next.js client to stream raw binaries (12MB+) directly to Backblaze B2. Only after a successful storage event does the client fire a transactional commit to the Neon Postgres database via the Ent ORM, ensuring perfect synchronization between file storage and metadata registry.',
-  },
-  {
-    type: 'SECURITY',
-    title: 'Zero-Trust Polyglot Perimeter.',
-    subtitle: 'JWT Verification and Identity Partitioning',
-    description:
-      'Security is enforced through a strict zero-trust model. While Clerk manages sessions on the frontend, the Go API implements a custom middleware that verifies RSA-signed JWTs against cached Public Key Sets (JWKS). This verified identity is injected into the Go context, ensuring that database queries and storage access are cryptographically partitioned by User ID, making data forgery impossible.',
-    assets: [
-      {
-        alt: 'Backend Security Architecture',
-        publicId: 'projects/engram/go-middleware-auth',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'EDGE',
-    title: 'Managing Success at the Edge.',
-    subtitle: 'Cloudflare Workers as a Media Gateway',
-    description:
-      'To eliminate egress costs and reduce latency, I architected a Serverless Media Gateway using Cloudflare Workers. By joining the Bandwidth Alliance, the system serves edge-cached media with zero egress fees from B2. The Worker acts as an "Identity Valve," verifying Clerk JWTs at the Edge and rewriting requests to B2 via the S3-compatibility layer, ensuring media is only accessible to authorized owners.',
-  },
-  {
-    type: 'ENGINEERING',
-    title: 'Single Source of Truth.',
-    subtitle: 'Schema-first development with Ent and Turborepo',
-    description:
-      'The project utilizes a polyglot monorepo orchestrated by Turborepo. I integrated the Ent ORM to treat the database as a living schema, supporting automated migrations and type-safe Go structs. To maintain consistency across the stack, I implemented a custom config package with a "fail-fast" strategy, ensuring the infrastructure remains resilient during production deployments on Render.',
-  },
-  {
-    type: 'RETROSPECTIVE',
-    title: 'Infrastructure as a Product.',
-    subtitle: 'Lessons in distributed systems and performance',
-    description:
-      'Building Engram highlighted the necessity of treating infrastructure with the same rigor as UI. From resolving Turborepo’s hermetic build constraints on Windows to mastering AWS V4 signatures in a serverless environment, the project has been a deep dive into building scalable, sustainable, and secure software that stands the test of real-world data.',
-  },
-];
+<WorkSection>
+  <WorkHeader type="PHILOSOPHY" title="Reclaiming Data Sovereignty." />
+  <WorkProse>
+    I built Engram as a direct reaction to the friction of modern social media. I wanted to preserve
+    the habit of keeping a digital journal, but I was exhausted by performative algorithms, forced
+    engagement loops, and inevitable data lock-in.
+    <br />
+    For years, the path of least resistance for digital scrapbooking was maintaining a private
+    Instagram account. While frictionless, it inherently meant sacrificing data ownership. Platforms
+    compress memories, strip critical spatial metadata, and trap assets inside walled gardens. I
+    engineered Engram to reclaim that space. I designed it to deliver the fluid, instant temporal
+    navigation of a native mobile application, but anchored by a zero-trust, heavily cached
+    distributed architecture.
+  </WorkProse>
+</WorkSection>
 
-<WorkContent content={content} />
+<WorkSection>
+  <WorkHeader type="INFRASTRUCTURE" title="Decoupling Read and Write Paths." />
+  <WorkSplitContent subtitle="Designing for asymmetrical data flows">
+    <p>
+      When building a media vault, the foundational architecture is driven by a simple fact of physics: media files are heavy. I needed the system to handle massive, batch-uploaded batches directly from mobile devices without choking serverless functions or blowing up memory limits. 
+    </p>
+    <p>
+      To solve this, I violently separated the Read Path from the Write Path. By treating media delivery and metadata orchestration as two entirely isolated systems, the architecture can scale independently based on the specific load requirements of the user.
+    </p>
+  </WorkSplitContent>
+
+<WorkDiagramWrapper>
+{/* Connecting Lines (Desktop) */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block z-0">
+        <path
+          d="M 15% 50% L 50% 25%"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          fill="none"
+        />
+        <path
+          d="M 15% 50% L 50% 75%"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          fill="none"
+        />
+        <path
+          d="M 50% 25% L 85% 25%"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          fill="none"
+        />
+        <path
+          d="M 50% 75% L 85% 25%"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          fill="none"
+        />
+        <path
+          d="M 50% 75% L 85% 75%"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          fill="none"
+        />
+
+        {/* Tracer Pulses */}
+        <motion.circle
+          r="3"
+          fill={"#ffffff"}
+          animate={{ cx: ['15%', '50%'], cy: ['50%', '25%'], opacity: [0, 1, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+        />
+        <motion.circle
+          r="3"
+          fill={"#ffffff"}
+          animate={{ cx: ['15%', '50%'], cy: ['50%', '75%'], opacity: [0, 1, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'linear', delay: 0.5 }}
+        />
+        <motion.circle
+          r="3"
+          fill={"#ffffff"}
+          animate={{ cx: ['50%', '85%'], cy: ['75%', '75%'], opacity: [0, 1, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'linear', delay: 1 }}
+        />
+      </svg>
+
+      {/* Left: Client */}
+      <div className="relative z-10 w-full md:w-1/4 flex justify-center">
+        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl">
+          <span className="text-sm font-medium text-custom-light/90">Web Client</span>
+        </div>
+      </div>
+
+      {/* Middle: Logic */}
+      <div className="relative z-10 w-full md:w-1/4 flex flex-col gap-12 md:gap-32">
+        <div
+          className="bg-custom-dark border p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden"
+          style={{ borderColor: `#ffffff60` }}
+        >
+          <div
+            className="absolute top-0 left-0 w-full h-1"
+            style={{ backgroundColor: '#ffffff', opacity: 0.8 }}
+          />
+          <span className="text-sm font-medium text-custom-light/90 block mt-1">Media Proxy</span>
+          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
+            Cloudflare Edge
+          </div>
+        </div>
+        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
+          <span className="text-sm font-medium text-custom-light/90 block mt-1">Librarian API</span>
+          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
+            Go 1.22
+          </div>
+        </div>
+      </div>
+
+      {/* Right: Storage */}
+      <div className="relative z-10 w-full md:w-1/4 flex flex-col gap-12 md:gap-32">
+        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
+          <span className="text-sm font-medium text-custom-light/90 block mt-1">Deep Storage</span>
+          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
+            Backblaze B2
+          </div>
+        </div>
+        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
+          <span className="text-sm font-medium text-custom-light/90 block mt-1">Database</span>
+          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
+            Neon Postgres
+          </div>
+        </div>
+      </div>
+
+</WorkDiagramWrapper>
+
+  <WorkFeatureList>
+    <WorkFeature title="The Interface (Next.js)">
+      Orchestrates the client-side experience. It extracts local EXIF data (stripping timestamps and GPS coordinates securely) before payload transmission, and handles direct-to-cloud binary streaming to bypass server payload bottlenecks entirely.
+    </WorkFeature>
+    <WorkFeature title="The Librarian (Go 1.22)">
+      The absolute authority for the Write Path. I wrote the core API in Go to manage metadata synchronization, orchestrate Ent ORM database migrations, and generate short-lived cryptographic signatures for secure bucket access.
+    </WorkFeature>
+    <WorkFeature title="The Edge (Cloudflare)">
+      The high-speed engine for the Read Path. Deployed globally, it intercepts media requests, validates identity tokens in under 10ms, and serves deep storage assets directly from regional edge caches.
+    </WorkFeature>
+  </WorkFeatureList>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="EDGE COMPUTING" title="Surviving the Success Disaster." />
+
+<WorkEvolution
+  contextHeading="The Bandwidth Bleed"
+  context={
+    <>
+      Every engineer dreams of the moment their application feels real. For me, that moment arrived
+      alongside a critical infrastructure warning. Early on, my Go API generated presigned URLs that
+      served 12MB+ uncompressed photographs directly from Backblaze B2 to the browser. It worked
+      flawlessly, but I had hit a "Success Disaster": every chronological gallery scroll initiated a
+      barrage of raw cloud transactions. The application was performing beautifully, but it was
+      bleeding bandwidth and rapidly driving the system toward its daily tier caps.
+    </>
+  }
+  evolutionHeading="The Serverless Gateway"
+  evolution={
+    <>
+      My initial instinct was to optimize the Go backend, but the server was already saturated
+      generating signatures. The solution was a fundamental pivot: introducing a Cloudflare Worker
+      as a Serverless Media Gateway. Now, instead of the backend communicating with B2 for reads,
+      the Edge Worker intercepts the traffic. Routing through the Bandwidth Alliance dropped egress
+      fees to absolute zero, and caching media at the edge meant a gallery view that previously
+      triggered 1,000 backend transactions now triggers one.
+    </>
+  }
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="SECURITY" title="The Identity Valve." />
+
+<WorkProse>
+  Migrating media delivery to the edge solved the bandwidth problem, but it introduced immense
+  security friction. A multi-tenant application cannot blindly trust client-side claims, and leaving
+  a deep storage bucket exposed to the public internet was a non-starter. While Clerk manages
+  session lifecycles on the frontend, I engineered "The Identity Valve" inside the Cloudflare Worker
+  to enforce an absolute zero-trust perimeter. The edge script dynamically fetches and caches
+  Clerk's public JSON Web Key Set (JWKS), mathematically verifying the cryptographic signature of
+  the user's incoming JWT before a single byte of media is ever requested.
+</WorkProse>
+
+<WorkCallout title="Path Partitioning">
+  Authentication is meaningless without authorization. Building the proxy required navigating the
+  notoriously fragile AWS V4 Signature protocol. Once authenticated, the Edge Worker enforces strict
+  Path Partitioning. It guarantees that even if a user possesses a valid token, they can only ever
+  resolve the S3 object prefix matching their unique User ID, completely neutralizing horizontal
+  object enumeration.
+</WorkCallout>
+
+  <WorkDiagramWrapper caption="Zero-Egress Read Path Sequence">
+    ```mermaid
+    sequenceDiagram
+        autonumber
+        participant Client
+        participant Edge as Media Proxy (Worker)
+        participant Auth as Identity Provider
+        participant Vault as B2 Storage
+
+        Client->>Edge: GET /user_id/asset.jpg?token=jwt
+        Edge->>Edge: Cache Check (CF-Cache)
+
+        alt Cache Miss
+            Edge->>Auth: Verify Token Signature
+            Auth-->>Edge: Valid Payload (sub: user_id)
+            Edge->>Edge: Enforce Path Partitioning
+            Edge->>Vault: AWS V4 Signed Request
+            Vault-->>Edge: Media Stream
+            Edge->>Edge: Populate Edge Cache (30 Days)
+        end
+
+        Edge-->>Client: Final Edge Delivery (HIT/MISS)
+    ```
+
+  </WorkDiagramWrapper>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DATA LAYER" title="Stateful Ingestion." />
+
+<WorkSplitContent subtitle="The Three-Phase Commit Handshake">
+  <p>
+    While the Read Path is stateless and heavily cached, the Write Path demands absolute relational
+    consistency. A "fire and forget" upload model creates orphan files—assets sitting in cloud
+    storage without a matching metadata record in the database. To solve this, I built the ingestion
+    pipeline around a strict, three-phase transactional handshake.
+  </p>
+  <p>
+    I integrated the Ent ORM to manage the Neon Postgres instance, treating the database as a living
+    schema defined strictly in Go. By leveraging Ent's `SetNillable` patterns, the application
+    cleanly handles the optionality of spatial data (latitude and longitude) extracted from EXIF
+    metadata without breaking strict type boundaries.
+  </p>
+</WorkSplitContent>
+
+{/* PLACEHOLDER: UI Animation showing the 3 phases of upload: Presigning lock, Streaming progress bar, and Database commit checkmark */}
+
+  <WorkAssetBlock
+    alt="Upload Commit Handshake UI Animation"
+    publicId="placeholders/upload-commit-handshake-ui"
+    resourceType="animation"
+  />
+  
+  <WorkFeatureList>
+    <WorkFeature title="1. Intent Authorization">
+      The Next.js client requests an upload intent. The Go backend authorizes the user context and generates a restricted, short-lived B2 PUT URL.
+    </WorkFeature>
+    <WorkFeature title="2. Direct-to-Cloud Streaming">
+      The frontend streams the raw binary payload directly to Backblaze B2. Bypassing the Go API prevents memory exhaustion and timeout errors during massive batch uploads.
+    </WorkFeature>
+    <WorkFeature title="3. Transactional Commit">
+      Only after Backblaze confirms a successful HTTP 200 upload event does the client trigger the commit endpoint. Go pulls the verified `user_id` from the secure context, merges it with the client-extracted EXIF data, and persists the final record via Ent.
+    </WorkFeature>
+  </WorkFeatureList>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="USER EXPERIENCE" title="The Aesthetics of Quiet UI." />
+
+<WorkEvolution
+  contextHeading="The Monolithic God Component"
+  context={
+    <>
+      As the Lightbox and Staging Area grew in complexity, my main viewer component devolved into a
+      "God Component"—a monolith attempting to manage its own state, focus traps, metadata
+      extraction, and three different modal overlays simultaneously. The browser’s accessibility
+      tree was actively fighting the layout, resulting in endless Z-index wars and massive cognitive
+      load.
+    </>
+  }
+  evolutionHeading="Progressive Disclosure & The Naked Refactor"
+  evolution={
+    <>
+      The solution was a strict atomization of logic driven by the philosophy of Progressive
+      Disclosure. A user simply viewing a memory does not need immediate access to a GPS coordinate
+      editor. I executed a "Naked Refactor," stripping away custom DOM wrappers and trusting the
+      unstyled primitives of `shadcn/ui`. By focusing on semantic HTML hierarchy, Radix UI was
+      finally able to manage focus traps correctly, achieving visual consistency automatically.
+    </>
+  }
+/>
+
+  <WorkProse>
+    To support this fluid chronological experience, I implemented a memoized grouping engine using `date-fns`. Assets are mathematically grouped by ISO-8601 timestamps, allowing users to instantly swap between "Day" and "Year" views without triggering additional network round-trips. 
+    
+    I also engineered a conditional hydration layer to solve the "Broken Video" problem. The renderer dynamically swaps between the optimized Next.js `<Image />` component and raw HTML5 `<video>` tags based on the MIME type, utilizing the `#t=0.001` URL suffix trick to force the browser to generate a lightweight poster thumbnail from the first frame.
+  </WorkProse>
+
+  <WorkAssetGallery>
+    {/* PLACEHOLDER: Desktop staging view UI */}
+    <WorkAssetBlock
+      alt="Staging Area Desktop Grid Interface"
+      publicId="placeholders/desktop-staging-view-ui"
+      resourceType="image"
+    />
+    {/* PLACEHOLDER: Mobile interaction showing smooth date-fns grouping */}
+    <WorkAssetBlock
+      alt="Mobile Native Date Picker Integration showing smooth grouping"
+      publicId="placeholders/mobile-native-input-ui"
+      resourceType="video"
+    />
+  </WorkAssetGallery>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DATA PIPELINE" title="Real-World Data is Messy." />
+
+<WorkSplitContent subtitle="Recursive filesystem ingestion">
+  <p>
+    The decision to migrate a decade of my own memories off of Meta's servers provided the ultimate
+    reality check for the ingestion engine. The initial plan—relying on a clean JSON-based metadata
+    import—was shattered by the chaotic reality of the actual data dump, which was a labyrinth of
+    nested folders, missing manifests, and stripped EXIF data.
+  </p>
+  <p>
+    Rather than writing brittle scripts to fix Meta's export, I pivoted the architecture to rely on
+    a Recursive Filesystem Walker. I engineered the pipeline to fall back on deriving temporal
+    context directly from the folder hierarchy itself (e.g., `/202405/`) when EXIF data failed,
+    proving the system's resiliency.
+  </p>
+</WorkSplitContent>
+
+{/* PLACEHOLDER: Terminal animation showing the Recursive Walker parsing messy data dumps */}
+
+<WorkAssetBlock
+  alt="Terminal animation showing the Recursive Filesystem Walker parsing messy Instagram data dumps"
+  publicId="placeholders/terminal-data-ingestion-animation"
+  resourceType="animation"
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DEVOPS" title="Taming the Polyglot Monorepo." />
+
+<WorkProse>
+  When you start a polyglot monorepo, the promise is a unified workflow. The reality is often "Death
+  by a Thousand Configs." Architecting a codebase that gracefully handles Next.js frontends,
+  Cloudflare Workers, and Go binaries required establishing a mathematically reproducible build
+  pipeline. Turborepo acts as my master orchestrator, but strict environment isolation presented
+  unique hurdles—specifically, Turborepo stripping the OS-level variables required by the Go
+  compiler on Windows to locate its build cache. Explicitly whitelisting these paths via
+  `turbo.json` allowed me to maintain lightning-fast, parallelized builds locally without
+  compromising my hermetic CI environments in the cloud.
+</WorkProse>
+
+<WorkInsight title="Infrastructure as a Product">
+  The most profound paradigm shift during the development of Engram was treating infrastructure not
+  as a deployment afterthought, but as the core product feature. Building a button that uploads a
+  photo is trivial. Building a system that can sustain 10,000 parallel uploads securely, parse the
+  resulting metadata accurately, and serve that media globally with zero egress cost requires
+  rigorous system design. By enforcing SSH commit signing, migrating DNS authority to Cloudflare for
+  a unified namespace, and co-locating edge logic tests via Vitest to mathematically prove my
+  authorization partitioning, Engram matured from a conceptual CRUD application into a hardened
+  archival engine. It is ready for the next 10,000 memories.
+</WorkInsight>
+
+</WorkSection>

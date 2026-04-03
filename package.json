@@ -13,7 +13,8 @@
     "prepare": "husky",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "postinstall": "playwright install chromium"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -76,8 +77,10 @@
     "globals": "^17.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "playwright": "^1.59.1",
     "postcss": "^8.4.38",
     "prettier": "^3.8.0",
+    "rehype-mermaid": "^3.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^5.2.0",
     "tailwindcss": "^4.1.18",

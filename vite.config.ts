@@ -1,6 +1,7 @@
 import mdx from '@mdx-js/rollup';
 import { vitePlugin as remix } from '@remix-run/dev';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeMermaid from 'rehype-mermaid';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { defineConfig } from 'vite';
@@ -17,6 +18,14 @@ export default defineConfig({
     tailwindcss(),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      rehypePlugins: [
+        [
+          rehypeMermaid,
+          {
+            strategy: 'inline-svg',
+          },
+        ],
+      ],
     }),
     remix({
       future: {

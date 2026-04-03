@@ -509,3 +509,123 @@
     filter: blur(50px);
   }
 }
+
+/* Mermaid Style Overrides */
+@layer components {
+  svg[id^='mermaid-'] {
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 1. Nodes & Shapes */
+  svg[id^='mermaid-'] .node rect,
+  svg[id^='mermaid-'] .node circle,
+  svg[id^='mermaid-'] .node ellipse,
+  svg[id^='mermaid-'] .node polygon,
+  svg[id^='mermaid-'] .node path,
+  svg[id^='mermaid-'] .label-container,
+  svg[id^='mermaid-'] .state-container, /* State Diagram Boxes */
+  svg[id^='mermaid-'] rect.actor,
+  svg[id^='mermaid-'] rect.activation0,
+  svg[id^='mermaid-'] rect.activation1,
+  svg[id^='mermaid-'] rect.note {
+    fill: rgba(20, 20, 20, 0.8) !important;
+    stroke: var(--project-color, #f2f2f2) !important;
+    stroke-width: 1.5px !important;
+    rx: 6px !important;
+    ry: 6px !important;
+  }
+
+  svg[id^='mermaid-'] .node .cylinder {
+    fill: rgba(30, 30, 30, 0.8) !important;
+    stroke: var(--project-color, #f2f2f2) !important;
+  }
+
+  /* 2. CRITICAL FIX: Foreign Object Clipping */
+  /* This forces the HTML wrapper inside the SVG to never cut off text */
+  svg[id^='mermaid-'] foreignObject,
+  svg[id^='mermaid-'] foreignObject > div {
+    overflow: visible !important;
+  }
+
+  /* 3. Text & Labels */
+  svg[id^='mermaid-'] .label text,
+  svg[id^='mermaid-'] .node text,
+  svg[id^='mermaid-'] .nodeLabel,
+  svg[id^='mermaid-'] .stateLabel,
+  svg[id^='mermaid-'] .state-title,
+  svg[id^='mermaid-'] foreignObject div,
+  svg[id^='mermaid-'] foreignObject span,
+  svg[id^='mermaid-'] text.actor > tspan,
+  svg[id^='mermaid-'] text.messageText,
+  svg[id^='mermaid-'] .loopText > tspan,
+  svg[id^='mermaid-'] .noteText > tspan {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 11px !important; /* Smaller size ensures mono font fits */
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. NUKE THE BROKEN GRAY BOXES */
+  /* Flowchart arrows and State Diagram labels have default rects that break */
+  svg[id^='mermaid-'] .edgeLabel rect,
+  svg[id^='mermaid-'] .stateLabel rect,
+  svg[id^='mermaid-'] .state-title rect {
+    display: none !important;
+    fill: transparent !important;
+    stroke: none !important;
+  }
+
+  /* Style the HTML text span on lines to look like floating text */
+  svg[id^='mermaid-'] .edgeLabel span,
+  svg[id^='mermaid-'] .edgeLabel {
+    background-color: #050505 !important; /* Match the new canvas background */
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    border: none !important;
+  }
+
+  /* 5. Lines & Arrows */
+  svg[id^='mermaid-'] .edgePath .path,
+  svg[id^='mermaid-'] line.messageLine0,
+  svg[id^='mermaid-'] line.messageLine1,
+  svg[id^='mermaid-'] line.actor-line,
+  svg[id^='mermaid-'] .loopLine,
+  svg[id^='mermaid-'] .transition {
+    stroke: rgba(255, 255, 255, 0.25) !important;
+    stroke-width: 1.2px !important;
+  }
+
+  svg[id^='mermaid-'] marker path,
+  svg[id^='mermaid-'] .arrowheadPath {
+    fill: rgba(255, 255, 255, 0.4) !important;
+    stroke: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* INTERACTIVE CANVAS OVERRIDES (Fixes chopped text & scaling)                */
+/* -------------------------------------------------------------------------- */
+@layer components {
+  /* This targets the wrapper inside the WorkDiagram component */
+  .unbounded-mermaid-canvas svg[id^='mermaid-'] {
+    max-width: none !important; /* Disables the squish effect */
+    min-width: max-content !important; /* Forces it to render at true text size */
+    height: auto !important;
+    transform-origin: center center;
+    overflow: visible !important;
+  }
+
+  /* Ensure foreignObjects (HTML text boxes) never clip their text */
+  svg[id^='mermaid-'] foreignObject,
+  svg[id^='mermaid-'] foreignObject > div {
+    overflow: visible !important;
+  }
+}

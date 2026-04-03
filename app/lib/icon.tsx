@@ -3,7 +3,9 @@ import { FiCode, FiGlobe, FiTerminal } from 'react-icons/fi';
 import {
   SiAmazons3,
   SiApache,
+  SiBackblaze,
   SiBox,
+  SiBrevo,
   SiDevpost,
   SiGithub,
   SiJenkins,
@@ -19,6 +21,8 @@ import {
 } from 'react-icons/si';
 import { BetterAuthDark } from '~/components/ui/svgs/betterAuthDark';
 import { Chromium } from '~/components/ui/svgs/chromium';
+import { ClerkIconDark } from '~/components/ui/svgs/clerkIconDark';
+import { CloudflareWorkers } from '~/components/ui/svgs/cloudflareWorkers';
 import { Cloudinary } from '~/components/ui/svgs/cloudinary';
 import { CssOld } from '~/components/ui/svgs/cssOld';
 import { Digitalocean } from '~/components/ui/svgs/digitalocean';
@@ -33,12 +37,15 @@ import { Firebase } from '~/components/ui/svgs/firebase';
 import { FlaskDark } from '~/components/ui/svgs/flaskDark';
 import { FramerDark } from '~/components/ui/svgs/framerDark';
 import { GithubDark } from '~/components/ui/svgs/githubDark';
+import { GolangDark } from '~/components/ui/svgs/golangDark';
+import { GoogleMaps } from '~/components/ui/svgs/googleMaps';
 import { Hono } from '~/components/ui/svgs/hono';
 import { Html5 } from '~/components/ui/svgs/html5';
 import { Ibm } from '~/components/ui/svgs/ibm';
 import { Java } from '~/components/ui/svgs/java';
 import { Javascript } from '~/components/ui/svgs/javascript';
 import { Laravel } from '~/components/ui/svgs/laravel';
+import { MermaidLogoDark } from '~/components/ui/svgs/mermaidLogoDark';
 import { MysqlIconDark } from '~/components/ui/svgs/mysqlIconDark';
 import { Neon } from '~/components/ui/svgs/neon';
 import { NextjsIconDark } from '~/components/ui/svgs/nextjsIconDark';
@@ -51,9 +58,11 @@ import { Python } from '~/components/ui/svgs/python';
 import { ReactDark } from '~/components/ui/svgs/reactDark';
 import { Redux } from '~/components/ui/svgs/redux';
 import { RemixDark } from '~/components/ui/svgs/remixDark';
+import { RenderWhite } from '~/components/ui/svgs/renderWhite';
 import { SanityDark } from '~/components/ui/svgs/sanityDark';
 import { Sass } from '~/components/ui/svgs/sass';
 import { ShadcnUiDark } from '~/components/ui/svgs/shadcnUiDark';
+import { Stripe } from '~/components/ui/svgs/stripe';
 import { Tailwindcss } from '~/components/ui/svgs/tailwindcss';
 import { Trpc } from '~/components/ui/svgs/trpc';
 import { TurborepoIconDark } from '~/components/ui/svgs/turborepoIconDark';
@@ -127,6 +136,15 @@ const TECH_ICONS: Record<string, IconType> = {
   PyTorch: SiPytorch,
   Apache: SiApache,
   'Amazon S3': SiAmazons3,
+  'Cloudflare Workers': CloudflareWorkers,
+  Clerk: ClerkIconDark,
+  Go: GolangDark,
+  Render: RenderWhite,
+  Backblaze: SiBackblaze,
+  Brevo: SiBrevo,
+  'Google Maps': GoogleMaps,
+  Stripe: Stripe,
+  Mermaid: MermaidLogoDark,
 };
 
 /**

@@ -42,31 +42,29 @@ import {
     I built Engram as a direct reaction to the friction of modern social media. I wanted to preserve
     the habit of keeping a digital journal, but I was exhausted by performative algorithms, forced
     engagement loops, and inevitable data lock-in.
-    <br />
+
     For years, the path of least resistance for digital scrapbooking was maintaining a private
     Instagram account. While frictionless, it inherently meant sacrificing data ownership. Platforms
     compress memories, strip critical spatial metadata, and trap assets inside walled gardens. I
     engineered Engram to reclaim that space. I designed it to deliver the fluid, instant temporal
     navigation of a native mobile application, but anchored by a zero-trust, heavily cached
     distributed architecture.
+
   </WorkProse>
 </WorkSection>
 
 <WorkSection>
   <WorkHeader type="INFRASTRUCTURE" title="Decoupling Read and Write Paths." />
   <WorkSplitContent subtitle="Designing for asymmetrical data flows">
-    <p>
-      When building a media vault, the foundational architecture is driven by a simple fact of physics: media files are heavy. I needed the system to handle massive, batch-uploaded batches directly from mobile devices without choking serverless functions or blowing up memory limits. 
-    </p>
-    <p>
-      To solve this, I violently separated the Read Path from the Write Path. By treating media delivery and metadata orchestration as two entirely isolated systems, the architecture can scale independently based on the specific load requirements of the user.
-    </p>
+    When building a media vault, the foundational architecture is driven by a simple fact of physics: media files are heavy. I needed the system to handle massive, batch-uploaded batches directly from mobile devices without choking serverless functions or blowing up memory limits. 
+    
+    To solve this, I violently separated the Read Path from the Write Path. By treating media delivery and metadata orchestration as two entirely isolated systems, the architecture can scale independently based on the specific load requirements of the user.
   </WorkSplitContent>
 
 <WorkDiagramWrapper caption="High-Level System Architecture">
   <Mermaid
     chart={`
-    flowchart LR
+    graph LR
     A[Web Client] -->|Reads| B( Media Proxy Edge )
     A -->|Writes| C( Go API )
     B -->|Cached Fetch| D[( Deep Storage )]
@@ -80,7 +78,7 @@ import {
     <WorkFeature title="The Interface (Next.js)">
       Orchestrates the client-side experience. It extracts local EXIF data (stripping timestamps and GPS coordinates securely) before payload transmission, and handles direct-to-cloud binary streaming to bypass server payload bottlenecks entirely.
     </WorkFeature>
-    <WorkFeature title="The Librarian (Go 1.22)">
+    <WorkFeature title="The Librarian (Go)">
       The absolute authority for the Write Path. I wrote the core API in Go to manage metadata synchronization, orchestrate Ent ORM database migrations, and generate short-lived cryptographic signatures for secure bucket access.
     </WorkFeature>
     <WorkFeature title="The Edge (Cloudflare)">
@@ -174,18 +172,16 @@ sequenceDiagram
   <WorkHeader type="DATA LAYER" title="Stateful Ingestion." />
 
 <WorkSplitContent subtitle="The Three-Phase Commit Handshake">
-  <p>
-    While the Read Path is stateless and heavily cached, the Write Path demands absolute relational
-    consistency. A "fire and forget" upload model creates orphan files—assets sitting in cloud
-    storage without a matching metadata record in the database. To solve this, I built the ingestion
-    pipeline around a strict, three-phase transactional handshake.
-  </p>
-  <p>
-    I integrated the Ent ORM to manage the Neon Postgres instance, treating the database as a living
-    schema defined strictly in Go. By leveraging Ent's `SetNillable` patterns, the application
-    cleanly handles the optionality of spatial data (latitude and longitude) extracted from EXIF
-    metadata without breaking strict type boundaries.
-  </p>
+  While the Read Path is stateless and heavily cached, the Write Path demands absolute relational
+  consistency. A "fire and forget" upload model creates orphan files—assets sitting in cloud
+  storage without a matching metadata record in the database. To solve this, I built the ingestion
+  pipeline around a strict, three-phase transactional handshake.
+
+I integrated the Ent ORM to manage the Neon Postgres instance, treating the database as a living
+schema defined strictly in Go. By leveraging Ent's `SetNillable` patterns, the application
+cleanly handles the optionality of spatial data (latitude and longitude) extracted from EXIF
+metadata without breaking strict type boundaries.
+
 </WorkSplitContent>
 
 {/* PLACEHOLDER: UI Animation showing the 3 phases of upload: Presigning lock, Streaming progress bar, and Database commit checkmark */}
@@ -241,18 +237,16 @@ sequenceDiagram
   <WorkHeader type="DATA PIPELINE" title="Real-World Data is Messy." />
 
 <WorkSplitContent subtitle="Recursive filesystem ingestion">
-  <p>
-    The decision to migrate a decade of my own memories off of Meta's servers provided the ultimate
-    reality check for the ingestion engine. The initial plan—relying on a clean JSON-based metadata
-    import—was shattered by the chaotic reality of the actual data dump, which was a labyrinth of
-    nested folders, missing manifests, and stripped EXIF data.
-  </p>
-  <p>
-    Rather than writing brittle scripts to fix Meta's export, I pivoted the architecture to rely on
-    a Recursive Filesystem Walker. I engineered the pipeline to fall back on deriving temporal
-    context directly from the folder hierarchy itself (e.g., `/202405/`) when EXIF data failed,
-    proving the system's resiliency.
-  </p>
+  The decision to migrate a decade of my own memories off of Meta's servers provided the ultimate
+  reality check for the ingestion engine. The initial plan—relying on a clean JSON-based metadata
+  import—was shattered by the chaotic reality of the actual data dump, which was a labyrinth of
+  nested folders, missing manifests, and stripped EXIF data.
+
+Rather than writing brittle scripts to fix Meta's export, I pivoted the architecture to rely on
+a Recursive Filesystem Walker. I engineered the pipeline to fall back on deriving temporal
+context directly from the folder hierarchy itself (e.g., `/202405/`) when EXIF data failed,
+proving the system's resiliency.
+
 </WorkSplitContent>
 
 <WorkTerminal />

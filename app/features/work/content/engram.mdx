@@ -185,12 +185,6 @@ flowchart LR
 
 {/* PLACEHOLDER: UI Animation showing the 3 phases of upload: Presigning lock, Streaming progress bar, and Database commit checkmark */}
 
-{/_ <WorkAssetBlock
-    alt="Upload Commit Handshake UI Animation"
-    publicId="placeholders/upload-commit-handshake-ui"
-    resourceType="animation"
-  /> _/}
-
   <WorkFeatureList>
     <WorkFeature title="1. Intent Authorization">
       The Next.js client requests an upload intent. The Go backend authorizes the user context and generates a restricted, short-lived B2 PUT URL.
@@ -236,22 +230,6 @@ flowchart LR
     I also engineered a conditional hydration layer to solve the "Broken Video" problem. The renderer dynamically swaps between the optimized Next.js `<Image />` component and raw HTML5 `<video>` tags based on the MIME type, utilizing the `#t=0.001` URL suffix trick to force the browser to generate a lightweight poster thumbnail from the first frame.
   </WorkProse>
 
-{/\* <WorkAssetGallery>
-PLACEHOLDER: Desktop staging view UI
-
-<WorkAssetBlock
-  alt="Staging Area Desktop Grid Interface"
-  publicId="placeholders/desktop-staging-view-ui"
-  resourceType="image"
-/>
-PLACEHOLDER: Mobile interaction showing smooth date-fns grouping
-<WorkAssetBlock
-  alt="Mobile Native Date Picker Integration showing smooth grouping"
-  publicId="placeholders/mobile-native-input-ui"
-  resourceType="video"
-/>
-
-  </WorkAssetGallery> */}
 </WorkSection>
 
 <WorkSection>

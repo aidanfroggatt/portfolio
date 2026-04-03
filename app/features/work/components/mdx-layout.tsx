@@ -418,11 +418,11 @@ export const WorkInsight = ({ title, children }: { title?: string; children: Rea
 export const WorkDiagramWrapper = ({
   children,
   caption,
-  type,
+  type = 'Diagram',
 }: {
   children: ReactNode;
-  caption?: string;
-  type?: string;
+  caption: string;
+  type: string;
 }) => {
   return (
     <motion.div
@@ -439,16 +439,14 @@ export const WorkDiagramWrapper = ({
           {children}
         </div>
       </div>
-      {caption && (
-        <div className="flex flex-row w-full justify-between items-center mt-4 px-1">
-          <h5 className="flex flex-row w-full justify-end items-center gap-x-2 text-end text-custom-light/50">
-            {caption}
-            <Badge variant="secondary" className="uppercase text-[10px] tracking-wider">
-              {type?.toUpperCase() ?? 'DIAGRAM'}
-            </Badge>
-          </h5>
-        </div>
-      )}
+      <div className="flex flex-row w-full justify-between items-center mt-4 px-1">
+        <h5 className="flex flex-row w-full justify-end items-center gap-x-2 text-end text-custom-light/50">
+          {caption ?? ''}
+          <Badge variant="secondary" className="uppercase text-[10px] tracking-wider">
+            {type?.toUpperCase()}
+          </Badge>
+        </h5>
+      </div>
     </motion.div>
   );
 };

@@ -1,5 +1,3 @@
-import { GoogleMaps } from '~/components/ui/svgs/googleMaps';
-import { Stripe } from '~/components/ui/svgs/stripe';
 import { IconType } from 'react-icons';
 import { FiCode, FiGlobe, FiTerminal } from 'react-icons/fi';
 import {
@@ -40,12 +38,14 @@ import { FlaskDark } from '~/components/ui/svgs/flaskDark';
 import { FramerDark } from '~/components/ui/svgs/framerDark';
 import { GithubDark } from '~/components/ui/svgs/githubDark';
 import { GolangDark } from '~/components/ui/svgs/golangDark';
+import { GoogleMaps } from '~/components/ui/svgs/googleMaps';
 import { Hono } from '~/components/ui/svgs/hono';
 import { Html5 } from '~/components/ui/svgs/html5';
 import { Ibm } from '~/components/ui/svgs/ibm';
 import { Java } from '~/components/ui/svgs/java';
 import { Javascript } from '~/components/ui/svgs/javascript';
 import { Laravel } from '~/components/ui/svgs/laravel';
+import { MermaidLogoDark } from '~/components/ui/svgs/mermaidLogoDark';
 import { MysqlIconDark } from '~/components/ui/svgs/mysqlIconDark';
 import { Neon } from '~/components/ui/svgs/neon';
 import { NextjsIconDark } from '~/components/ui/svgs/nextjsIconDark';
@@ -62,6 +62,7 @@ import { RenderWhite } from '~/components/ui/svgs/renderWhite';
 import { SanityDark } from '~/components/ui/svgs/sanityDark';
 import { Sass } from '~/components/ui/svgs/sass';
 import { ShadcnUiDark } from '~/components/ui/svgs/shadcnUiDark';
+import { Stripe } from '~/components/ui/svgs/stripe';
 import { Tailwindcss } from '~/components/ui/svgs/tailwindcss';
 import { Trpc } from '~/components/ui/svgs/trpc';
 import { TurborepoIconDark } from '~/components/ui/svgs/turborepoIconDark';
@@ -143,6 +144,7 @@ const TECH_ICONS: Record<string, IconType> = {
   Brevo: SiBrevo,
   'Google Maps': GoogleMaps,
   Stripe: Stripe,
+  Mermaid: MermaidLogoDark,
 };
 
 /**

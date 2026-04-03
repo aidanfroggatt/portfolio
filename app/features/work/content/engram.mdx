@@ -6,6 +6,7 @@ meta:
 ---
 
 import { motion } from 'framer-motion';
+import { Mermaid } from '~/components/ui/mermaid';
 import {
   WorkHighlightAsset,
   WorkHighlightCard,
@@ -62,15 +63,17 @@ import {
     </p>
   </WorkSplitContent>
 
-<WorkDiagramWrapper>
-```mermaid
-flowchart LR
+<WorkDiagramWrapper caption="High-Level System Architecture">
+  <Mermaid
+    chart={`
+    flowchart LR
     A[Web Client] -->|Reads| B( Media Proxy Edge )
     A -->|Writes| C( Go API )
     B -->|Cached Fetch| D[( Deep Storage )]
     C -->|Metadata Sync| E[( Database )]
     C -->|Signatures| D
-```
+    `}
+  />
 </WorkDiagramWrapper>
 
   <WorkFeatureList>
@@ -138,8 +141,9 @@ flowchart LR
 </WorkCallout>
 
   <WorkDiagramWrapper caption="Zero-Egress Read Path Sequence">
-    ```mermaid
-    sequenceDiagram
+    <Mermaid
+    chart={`
+sequenceDiagram
         autonumber
         participant Client
         participant Edge as Media Proxy (Worker)
@@ -159,7 +163,8 @@ flowchart LR
         end
 
         Edge-->>Client: Final Edge Delivery (HIT/MISS)
-    ```
+    `}
+    />
 
   </WorkDiagramWrapper>
 

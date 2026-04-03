@@ -26,6 +26,7 @@ import {
   WorkSection,
   WorkSplitContent,
   WorkSubSection,
+  WorkTerminal,
 } from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
@@ -62,114 +63,14 @@ import {
   </WorkSplitContent>
 
 <WorkDiagramWrapper>
-{/* Connecting Lines (Desktop) */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block z-0">
-        <path
-          d="M 15% 50% L 50% 25%"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="1.5"
-          strokeDasharray="4 4"
-          fill="none"
-        />
-        <path
-          d="M 15% 50% L 50% 75%"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="1.5"
-          strokeDasharray="4 4"
-          fill="none"
-        />
-        <path
-          d="M 50% 25% L 85% 25%"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="1.5"
-          strokeDasharray="4 4"
-          fill="none"
-        />
-        <path
-          d="M 50% 75% L 85% 25%"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="1.5"
-          strokeDasharray="4 4"
-          fill="none"
-        />
-        <path
-          d="M 50% 75% L 85% 75%"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="1.5"
-          strokeDasharray="4 4"
-          fill="none"
-        />
-
-        {/* Tracer Pulses */}
-        <motion.circle
-          r="3"
-          fill={"#ffffff"}
-          animate={{ cx: ['15%', '50%'], cy: ['50%', '25%'], opacity: [0, 1, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-        />
-        <motion.circle
-          r="3"
-          fill={"#ffffff"}
-          animate={{ cx: ['15%', '50%'], cy: ['50%', '75%'], opacity: [0, 1, 0] }}
-          transition={{ repeat: Infinity, duration: 2.2, ease: 'linear', delay: 0.5 }}
-        />
-        <motion.circle
-          r="3"
-          fill={"#ffffff"}
-          animate={{ cx: ['50%', '85%'], cy: ['75%', '75%'], opacity: [0, 1, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: 'linear', delay: 1 }}
-        />
-      </svg>
-
-      {/* Left: Client */}
-      <div className="relative z-10 w-full md:w-1/4 flex justify-center">
-        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl">
-          <span className="text-sm font-medium text-custom-light/90">Web Client</span>
-        </div>
-      </div>
-
-      {/* Middle: Logic */}
-      <div className="relative z-10 w-full md:w-1/4 flex flex-col gap-12 md:gap-32">
-        <div
-          className="bg-custom-dark border p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden"
-          style={{ borderColor: `#ffffff60` }}
-        >
-          <div
-            className="absolute top-0 left-0 w-full h-1"
-            style={{ backgroundColor: '#ffffff', opacity: 0.8 }}
-          />
-          <span className="text-sm font-medium text-custom-light/90 block mt-1">Media Proxy</span>
-          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
-            Cloudflare Edge
-          </div>
-        </div>
-        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
-          <span className="text-sm font-medium text-custom-light/90 block mt-1">Librarian API</span>
-          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
-            Go 1.22
-          </div>
-        </div>
-      </div>
-
-      {/* Right: Storage */}
-      <div className="relative z-10 w-full md:w-1/4 flex flex-col gap-12 md:gap-32">
-        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
-          <span className="text-sm font-medium text-custom-light/90 block mt-1">Deep Storage</span>
-          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
-            Backblaze B2
-          </div>
-        </div>
-        <div className="bg-custom-dark border border-custom-light/10 p-5 rounded-lg w-full text-center shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-custom-light/20" />
-          <span className="text-sm font-medium text-custom-light/90 block mt-1">Database</span>
-          <div className="text-[9px] font-mono text-custom-light/50 uppercase mt-2 tracking-widest">
-            Neon Postgres
-          </div>
-        </div>
-      </div>
-
+```mermaid
+flowchart LR
+    A[Web Client] -->|Reads| B( Media Proxy Edge )
+    A -->|Writes| C( Go API )
+    B -->|Cached Fetch| D[( Deep Storage )]
+    C -->|Metadata Sync| E[( Database )]
+    C -->|Signatures| D
+```
 </WorkDiagramWrapper>
 
   <WorkFeatureList>
@@ -369,13 +270,7 @@ import {
   </p>
 </WorkSplitContent>
 
-{/* PLACEHOLDER: Terminal animation showing the Recursive Walker parsing messy data dumps */}
-
-<WorkAssetBlock
-  alt="Terminal animation showing the Recursive Filesystem Walker parsing messy Instagram data dumps"
-  publicId="placeholders/terminal-data-ingestion-animation"
-  resourceType="animation"
-/>
+<WorkTerminal />
 
 </WorkSection>
 

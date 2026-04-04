@@ -65,21 +65,21 @@ const WorkCards = () => {
                       <h4 className="whitespace-nowrap">{item.title}</h4>
                       <h5 className="whitespace-nowrap">{item.association}</h5>
                     </div>
-                    {item.heroAsset.resourceType === 'video' ? (
-                      <div className="rounded-[2vmax] z-40 pointer-events-none object-contain h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden">
+                    <div className="z-40 pointer-events-none flex justify-center items-end w-full h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden">
+                      {item.heroAsset.resourceType === 'video' ? (
                         <VideoWithAutoplay
-                          className="rounded-[2vmax]"
+                          className="rounded-[2vmax] object-contain max-h-full max-w-full"
                           publicId={item.heroAsset.publicId}
                           alt={item.heroAsset.alt}
                         />
-                      </div>
-                    ) : (
-                      <img
-                        className="rounded-[2vmax] z-40 pointer-events-none object-contain w-full h-32 md:h-48 lg:h-52 xl:h-64 2xl:h-72 overflow-hidden"
-                        src={buildUrl(item.heroAsset.publicId, 'image')}
-                        alt={item.heroAsset.alt}
-                      />
-                    )}
+                      ) : (
+                        <img
+                          className="rounded-[2vmax] object-contain max-h-full max-w-full"
+                          src={buildUrl(item.heroAsset.publicId, 'image')}
+                          alt={item.heroAsset.alt}
+                        />
+                      )}
+                    </div>
                   </div>
                 </LinkCard>
               </motion.div>

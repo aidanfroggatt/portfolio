@@ -39,7 +39,7 @@ const WorkHero = (projectInfo: WorkHeroProps) => {
         <>
           {projectInfo.asset.resourceType === 'video' ? (
             <VideoWithAutoplay
-              className="rounded-[2vmax] p-4 mt-4 w-fit object-cover"
+              className="rounded-[2vmax] p-4 mt-4 w-fit object-cover highlight-card-asset"
               publicId={projectInfo.asset.publicId}
               alt={projectInfo.asset.alt}
             />

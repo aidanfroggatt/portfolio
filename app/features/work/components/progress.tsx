@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import { CSSProperties, RefObject, useEffect, useState } from 'react';
+import { CSSProperties, RefObject, useEffect, useRef, useState } from 'react';
 import { FiArrowUpRight, FiX } from 'react-icons/fi';
 import { hexToRGBA } from '~/lib/color';
 
@@ -35,11 +35,14 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
   const progressPercentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const roundedPercentage = useTransform(progressPercentage, (val) => Math.round(val));
 
-  const [displayPercentage, setDisplayPercentage] = useState(0);
+  const percentageRef = useRef<HTMLSpanElement>(null);
   const [progressState, setProgressState] = useState<'start' | 'scrolling' | 'complete'>('start');
 
   useMotionValueEvent(roundedPercentage, 'change', (latest) => {
-    setDisplayPercentage(latest);
+    if (percentageRef.current) {
+      percentageRef.current.textContent = `${latest}%`;
+    }
+
     if (latest >= 100 && progressState !== 'complete') {
       setProgressState('complete');
     } else if (latest > 0 && latest < 100 && progressState !== 'scrolling') {
@@ -53,7 +56,6 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
 
   return (
     <header className="bg-header-mobile md:bg-header flex flex-row fixed justify-between px-6 md:px-0 md:justify-center items-center w-full py-8 text-custom-light z-50 pointer-events-none gap-x-2">
-      {/* Close button */}
       <Link
         to="/"
         className="flex pointer-events-auto justify-center items-center font-medium bg-custom-light/5 rounded-full text-sm border border-custom-light/10 backdrop-blur hover:border-custom-light/20 w-12 h-12"
@@ -61,7 +63,6 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
         <FiX className="w-6 h-6 font-medium text-xs" />
       </Link>
 
-      {/* Progress bar / Content */}
       <div className="relative flex pointer-events-auto justify-center items-center font-medium bg-custom-light/5 w-fit h-fit rounded-full text-sm border border-custom-light/10 backdrop-blur">
         <motion.div
           key={progressState}
@@ -108,8 +109,11 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                 />
                 <div className="absolute top-[50%] translate-y-[-50%] h-full w-full bg-custom-light/30 z-10" />
               </div>
-              <motion.span className="font-medium text-xs text-custom-light/60">
-                {displayPercentage}%
+              <motion.span
+                ref={percentageRef}
+                className="font-medium text-xs text-custom-light/60 w-8 text-right"
+              >
+                {roundedPercentage.get()}%
               </motion.span>
             </>
           )}
@@ -131,7 +135,6 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
         </motion.div>
       </div>
 
-      {/* Right arrow */}
       <Link
         to={progressState === 'complete' ? `/work/${nextWork.id}` : currentLink}
         onClick={(e) => {

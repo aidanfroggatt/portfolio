@@ -5,6 +5,7 @@ meta:
   description: My first software engineering co-op, where I built a full-stack data analytics and automated reporting platform to streamline additive manufacturing workflows.
 ---
 
+import { Mermaid } from '~/components/ui/mermaid';
 import {
   WorkHighlightAsset,
   WorkHighlightCard,
@@ -15,12 +16,13 @@ import {
   WorkAssetBlock,
   WorkAssetGallery,
   WorkCallout,
+  WorkDiagramWrapper,
   WorkEvolution,
   WorkFeature,
   WorkFeatureList,
   WorkHeader,
-  WorkInsight,
   WorkProse,
+  WorkRetrospective,
   WorkSection,
   WorkSplitContent,
   WorkSubSection,
@@ -52,12 +54,31 @@ import {
     Data access, storage, analysis, and report generation were largely manual tasks spread across different departments. I was given the opportunity to step in, apply the programming concepts I was learning, and build something that could genuinely help the engineers around me work more efficiently.
   </WorkProse>
 
-    <WorkAssetBlock
-      alt="Simple Data Flowchart"
-      publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-simple-diagram"
-      resourceType="image"
-    />
-    <WorkAssetBlock
+<WorkDiagramWrapper caption='Simple Data Flowchart'>
+<Mermaid chart={`
+flowchart LR
+    Start([Start]) --> D1{Is it a tensile test?}
+    
+    D1 -- Yes --> A1[pdf moved to tensile test folder]
+    D1 -- No --> D2{is it a duplicate?}
+    
+    D2 -- Yes --> A2[pdf moved to duplicate folder]
+    D2 -- No --> A3[pdf moved to archive folder]
+    
+    A2 --> A4[scrape info from pdf]
+    A3 --> A4
+    
+    A4 --> D3{does the current pdf data exist in excel?}
+    
+    D3 -- Yes --> End([End])
+    D3 -- No --> A5[Write data into excel]
+    
+    A5 --> End
+
+`} />
+
+</WorkDiagramWrapper>
+ <WorkAssetBlock
       alt="Complete Data Flowchart"
       publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-complete-diagram"
       resourceType="image"
@@ -142,13 +163,13 @@ import {
 
 <WorkSection>
   
-<WorkInsight title="The impact of applied software">
+<WorkRetrospective title="The impact of applied software">
   My time at Burloak Technologies was an incredible introduction to professional software
   engineering. Moving beyond personal projects to build tools that actual engineers relied on daily
   taught me lessons about user empathy, data security, and system architecture that a classroom
   simply cannot replicate. Delivering a platform that successfully centralized 30+ data stores and
   reduced reporting time to seconds showed me exactly why I chose this field: the ability to build
   systems that make people's lives tangibly easier.
-</WorkInsight>
+</WorkRetrospective>
 
 </WorkSection>

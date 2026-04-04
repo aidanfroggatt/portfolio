@@ -20,12 +20,11 @@ const VideoWithAutoplay = ({ publicId, alt, style, className = '' }: VideoWithAu
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
-          console.warn('Autoplay prevented:', error);
+          console.warn('Autoplay prevented by browser:', error);
         });
       }
     } else {
       videoRef.current.pause();
-      videoRef.current.currentTime = 0;
     }
   }, [isInView]);
 
@@ -37,10 +36,12 @@ const VideoWithAutoplay = ({ publicId, alt, style, className = '' }: VideoWithAu
       playsInline
       muted
       loop
+      autoPlay
+      preload="metadata"
       aria-label={alt}
-      src={buildUrl(publicId, 'video')}
       poster={buildUrl(publicId, 'video', { format: 'jpg', quality: 'auto' })}
     >
+      <source src={buildUrl(publicId, 'video')} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   );

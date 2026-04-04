@@ -2,19 +2,30 @@
 meta:
   slug: portfolio
   title: Portfolio
-  description:
+  description: A continuously evolving digital sandbox and personal passion project, serving as a living record of my engineering journey since 2023.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkCallout,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="A showcase of my work, skills, and projects." />
+  <WorkHighlightHeader description="A living digital sandbox built for continuous experimentation, learning, and growth." />
 
 <WorkHighlightAsset
   alt="Hero Animation"
@@ -30,6 +41,82 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [];
+<WorkSection>
+  <WorkHeader type="PHILOSOPHY" title="An indefinite project." />
+  
+  <WorkProse>
+    I pushed the first commit for my personal website in January 2023. Since that day, the repository has been in a state of continuous iteration. I have come to accept that this website will never truly be "finished"—and that is exactly the point.
 
-<WorkContent content={content} />
+    While it serves the practical purpose of hosting my resume and past work, its actual value to me runs much deeper. This portfolio is my personal sandbox. It is an indefinite passion project that grows, breaks, and evolves right alongside my own capabilities as an engineer.
+
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="EXPERIMENTATION" title="The freedom to break things." />
+
+<WorkEvolution
+  contextHeading="The constraints of production"
+  context={
+    <>
+      When writing code for enterprise systems or large user bases, stability is paramount. There is
+      a natural, necessary hesitation to try something wildly experimental or adopt an untested
+      paradigm when real users and real data are on the line.
+    </>
+  }
+  evolutionHeading="A safe place to fail"
+  evolution={
+    <>
+      This codebase is where I actively remove those constraints. It is my dedicated space to make
+      mistakes. If I want to test a new animation library, explore a complex state-management
+      pattern, or attempt a radical UI layout, I do it here first. Breaking this site teaches me the
+      architectural lessons I need to write safer, better code when it actually counts.
+    </>
+  }
+/>
+<WorkCallout title="Continuous Refactoring">
+  Many of the components you see on this site have been rewritten from scratch three or four times.
+  Not because the original code didn't work, but because my understanding of React, performance
+  optimization, and clean architecture improved, compelling me to go back and do it better.
+</WorkCallout>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="ARCHITECTURE" title="Under the hood." />
+
+<WorkSplitContent subtitle="Keeping the stack focused">
+  Because the goal of this project is to experiment with user interfaces and interaction design, I
+  intentionally selected a tech stack that gets out of my way. The infrastructure is designed to be
+  lean, fast, and highly developer-friendly.
+</WorkSplitContent>
+
+<WorkFeatureList>
+  <WorkFeature title="The Foundation (Remix & React)">
+    Built on Remix to handle server-side rendering and seamless client-side routing. It provides a
+    robust, web-standard foundation that makes managing layout states and data loading intuitive.
+  </WorkFeature>
+  <WorkFeature title="The Motion (Framer Motion)">
+    The engine behind the interactions. Almost every micro-interaction, scroll-linked timeline, and
+    page transition is powered by Framer Motion, allowing me to experiment with complex spring
+    physics and SVG animations.
+  </WorkFeature>
+  <WorkFeature title="The Styling (Tailwind CSS)">
+    Utility-first styling allows for rapid visual iteration. I rely heavily on custom CSS variables
+    and Tailwind configuration to maintain a strict, scalable design system across the entire site.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="More Than a Showcase">
+  I never fully anticipated how much this single passion project would impact my trajectory as a
+  software engineer. Having a tangible space where I can channel my technical curiosity has been
+  quietly instrumental in my career development. It has bridged the gap between a standard resume
+  and actual engineering execution, repeatedly serving as a catalyst for new opportunities and
+  conversations. More than just a portfolio, it is a living reflection of how much I genuinely enjoy
+  building for the web.
+</WorkInsight>
+
+</WorkSection>

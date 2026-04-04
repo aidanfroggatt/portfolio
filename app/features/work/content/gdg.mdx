@@ -2,19 +2,34 @@
 meta:
   slug: gdg
   title: Google Developer Group
-  description: Led the design and development of the Google Developer Group at McMaster University's digital presence. Enhanced engagement and visibility across all platforms with websites, rebranding, and a successful annual hackathon, Mac-a-thon.
+  description: Led a 15-person engineering team over two years to architect a modern Turborepo monorepo, replacing deprecated legacy systems and scaling the club's digital community to over 2,000 members.
 ---
 
+import { Mermaid } from '~/components/ui/mermaid';
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="Creating websites and applications to enhance the digital presence of the Google Developer Group." />
+  <WorkHighlightHeader description="Architecting a scalable monorepo and leading a 15-person engineering team to rebuild the club's digital ecosystem." />
 
 <WorkHighlightAsset
   alt="Google Developer Group Website"
@@ -30,75 +45,146 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'A complete club exposure overhaul.',
-    subtitle: 'Rebranding, expanding, and enhancing the digital presence',
-    description:
-      'Google Developer Group rebranded to Google Developer Group on Campus. Our chapter further expanded to include an annual hackathon that required a digital presence.',
-  },
-  {
-    type: 'DESIGN',
-    title: 'Designing for engagement.',
-    subtitle: 'Creating websites that engage and inform',
-    description:
-      'Designed websites that engaged users and informed them about the Google Developer Group on Campus and our annual hackathon, Mac-a-thon.',
-    assets: [
-      {
-        alt: 'Card Components',
-        publicId: 'projects/gdsc/design/gdg-cards',
-        resourceType: 'image',
-      },
-      {
-        alt: 'Navbar Components',
-        publicId: 'projects/gdsc/design/gdg-navbars',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'REBRAND',
-    title: 'A new name, a new chapter.',
-    subtitle: 'Google Developer Group on Campus',
-    description:
-      'The Google Developer Group rebranded to Google Developer Group on Campus to better reflect our focus on student engagement and learning.',
-    assets: [
-      {
-        alt: 'Google Developer Group on Campus Globe',
-        publicId: 'projects/gdsc/rebrand/gdg-globe',
-        resourceType: 'video',
-      },
-    ],
-  },
-  {
-    type: 'HACKATHON',
-    title: 'Mac-a-thon',
-    subtitle: 'Our first annual AI hackathon',
-    description:
-      'We hosted our first annual AI hackathon, Mac-a-thon, to engage students and foster a community of learning and innovation.',
-    assets: [
-      {
-        alt: 'Mac-a-thon Banner',
-        publicId: 'projects/gdsc/mac-a-thon/gdg-mac-a-thon-banner',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'NEWSLETTER',
-    title: 'Informing our community.',
-    subtitle: 'Our first year delivering a monthly newsletter',
-    description:
-      'We launched a monthly newsletter to inform our community about the latest and greatest in the tech industry.',
-  },
-  {
-    type: 'RETROSPECTIVE',
-    title: 'A successful year of growth.',
-    subtitle: 'Enhanced engagement and visibility',
-    description:
-      'Our rebranding and expansion efforts have led to increased engagement and visibility for the Google Developer Group on Campus. Our community has grown to over 2000 members across all platforms.',
-  },
-];
+<WorkSection>
+  <WorkHeader type="THE CATALYST" title="A complete digital overhaul." />
+  
+  <WorkSplitContent subtitle="Rescuing a deprecated architecture">
+    <p>
+      When I stepped in as the Web Development Team Lead for the McMaster Google Developer Group, the club's digital presence was running on borrowed time. We were shackled to a heavily deprecated, unmaintained Gatsby application plagued with vulnerabilities and stale dependencies.
+    </p>
+    <p>
+      Over the course of two years, my objective was two-fold: completely tear down and replace the legacy infrastructure with a modern, cutting-edge tech stack, and simultaneously scale our digital footprint to support our rapid community growth.
+    </p>
+  </WorkSplitContent>
 
-<WorkContent content={content} />
+  <WorkAssetBlock
+    alt="Google Developer Group on Campus Globe"
+    publicId="projects/gdsc/rebrand/gdg-globe"
+    resourceType="video"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="INFRASTRUCTURE" title="Consolidating the ecosystem." />
+
+<WorkEvolution
+  contextHeading="Fragmented Deployments"
+  context={
+    <>
+      As the club expanded, we didn't just need a single website; we needed marketing pages, event
+      dashboards, and internal tooling. Spinning up isolated repositories for each project meant
+      duplicating configurations, drifting brand guidelines, and maintenance nightmares for future
+      student developers.
+    </>
+  }
+  evolutionHeading="The Turborepo Monorepo"
+  evolution={
+    <>
+      I architected our migration to a Turborepo workspace. By extracting our UI components, ESLint
+      configs, and Sanity CMS schemas into shared internal packages, we established a single source
+      of truth. This allowed us to spin up entirely new Next.js applications in minutes, ensuring
+      absolute brand consistency and making long-term maintenance significantly easier.
+    </>
+  }
+/>
+
+  <WorkDiagramWrapper caption="Turborepo Workspace Architecture" type="Architecture">
+    <Mermaid
+      chart={`
+      flowchart TD
+          subgraph Packages ["Shared Internal Packages"]
+              UI[ui-components]
+              Lint[eslint-config]
+              CMS[sanity-schemas]
+          end
+
+          subgraph Apps ["Next.js Applications"]
+              Main[GDG Main Website]
+              Hack[Mac-a-thon Portal]
+          end
+
+          UI -.-> Apps
+          Lint -.-> Apps
+          CMS -.-> Apps
+      `}
+    />
+
+  </WorkDiagramWrapper>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="CROSS-FUNCTIONAL" title="Engineering Mac-a-thon." />
+
+<WorkProse>
+  The true test of our new monorepo architecture came when our GDG Conferences team decided to host
+  our first annual AI hackathon: **Mac-a-thon**. Rather than using generic, off-the-shelf event
+  software, they outsourced the development directly to my web team. This required extensive
+  cross-functional collaboration. By leveraging our shared component library within the monorepo, we
+  rapidly scoped, architected, and deployed a dedicated, high-performance portal for the event
+  alongside our primary site. It proved the scalability of our infrastructure and delivered a
+  cohesive, premium experience for our hackers.
+</WorkProse>
+
+<WorkAssetBlock
+  alt="Mac-a-thon Banner"
+  publicId="projects/gdsc/mac-a-thon/gdg-mac-a-thon-banner"
+  resourceType="image"
+/>
+
+<WorkAssetGallery>
+  <WorkAssetBlock
+    alt="Card Components"
+    publicId="projects/gdsc/design/gdg-cards"
+    resourceType="image"
+  />
+  <WorkAssetBlock
+    alt="Navbar Components"
+    publicId="projects/gdsc/design/gdg-navbars"
+    resourceType="image"
+  />
+</WorkAssetGallery>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="LEADERSHIP" title="Mentoring the next generation." />
+
+<WorkProse>
+  Building software is one thing; building an engineering team is another. Over two years, I managed
+  and mentored over 15 student developers. The core challenge of leading a university team is
+  navigating a massive variance in skill levels—some members were writing their first lines of code
+  and breaking into software for the first time, while others were experienced engineers hungry for
+  complex architectural challenges.
+</WorkProse>
+
+<WorkFeatureList>
+  <WorkFeature title="Onboarding Beginners">
+    I structured beginner-friendly issues to introduce new members to Git workflows, React
+    fundamentals, and Tailwind CSS without overwhelming them, giving many their first real exposure
+    to shipping production software.
+  </WorkFeature>
+  <WorkFeature title="Challenging Veterans">
+    For our senior members, I delegated complex tasks like optimizing Vercel CI/CD pipelines,
+    handling advanced GraphQL data fetching, and structuring the Sanity CMS backend, keeping them
+    engaged and growing.
+  </WorkFeature>
+  <WorkFeature title="Agile Execution">
+    By managing feature planning, task delegation, and progress tracking via strict Kanban boards,
+    we maintained a 100% on-time delivery rate for all club initiatives.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="Community Impact">
+  The technical overhaul directly catalyzed our community's growth. By pairing a fast, accessible,
+  and modern web presence with a newly launched monthly newsletter, we dramatically increased our
+  visibility on campus. Navigating the official global rebrand to "Google Developer Group on
+  Campus," establishing a scalable monorepo foundation, and growing our community to over 2,000
+  followers was an incredible journey. I left the team with a hardened codebase and a confident,
+  capable roster of developers ready to take the helm.
+</WorkInsight>
+
+</WorkSection>

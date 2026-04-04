@@ -2,19 +2,34 @@
 meta:
   slug: secure-chat-app
   title: Secure Chat App
-  description: A secure chat application featuring Kerberos authentication and AES encryption for real-time, protected messaging. Built with React Native, Firebase, Python, and Flask, this app ensures a robust and encrypted communication experience.
+  description: A cross-platform secure chat application built for a McMaster University Software Engineering course, featuring custom Kerberos authentication and AES encryption.
 ---
 
+import { Mermaid } from '~/components/ui/mermaid';
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="A secure chat application that utilizes Kerberos authentication and AES encryption to create secure realtime chats." />
+  <WorkHighlightHeader description="Architecting and implementing a cross-platform chat application secured by Kerberos authentication and AES encryption." />
 
 <WorkHighlightAsset
   alt="Realtime Group Chat"
@@ -30,56 +45,122 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'Deliverable 1',
-    title: 'Software Requirement Specification',
-    subtitle: 'A cross platform secure chat application.',
-    description:
-      'An outline of the purpose, product description, use case diagram, functional, and non functional requirements.',
-    assets: [
-      {
-        resourceType: 'pdf',
-        publicId: 'projects/secure-chat-app/deliverables/Software_Requirement_Specification_D1',
-        alt: 'Software Requirement Specification Report',
-      },
-    ],
-  },
-  {
-    type: 'Deliverable 2',
-    title: 'High Level Architecture',
-    subtitle: 'Enabling encrypted communitcation for sensitive information.',
-    description:
-      'Analysis class diagram, architectural design and rationale behind design decisions, and class responsibility collaboration cards detailing class responsibilities and interactions.',
-    assets: [
-      {
-        resourceType: 'pdf',
-        publicId: 'projects/secure-chat-app/deliverables/High_Level_Architecture_D2',
-        alt: 'High Level Architecture Report',
-      },
-    ],
-  },
-  {
-    type: 'Deliverable 3',
-    title: 'Detailed Architecture',
-    subtitle: 'PAC architecture with repository sub-system.',
-    description:
-      'Furthering the definition of the architecture through state chart diagrams, sequence diagrams, and a detailed class diagram.',
-    assets: [
-      {
-        resourceType: 'pdf',
-        publicId: 'projects/secure-chat-app/deliverables/Detailed_Architecture_D3',
-        alt: 'Detailed Architecture Report',
-      },
-    ],
-  },
-  {
-    type: 'Retrospective',
-    title: 'A successful project with valuable insights.',
-    subtitle: 'A secure chat app with Kerberos authentication and AES encryption.',
-    description:
-      'The secure chat app was a success, providing valuable insights into secure chat applications and encryption.',
-  },
-];
+<WorkSection>
+  <WorkHeader type="ACADEMIC FOUNDATION" title="Unboxing secure communications." />
 
-<WorkContent content={content} />
+  <WorkProse>
+    During my Software Engineering undergraduate studies at McMaster University, we were tasked with
+    building a secure communication platform from the ground up. It is one thing to use an existing
+    cloud authentication provider in a personal project; it is an entirely different challenge to
+    architect the cryptographic handshakes yourself. This project served as my sandbox for
+    understanding how enterprise-grade security protocols actually function. The goal wasn't just to
+    build another messaging app—it was to embrace the meticulous planning, strict requirement
+    gathering, and architectural rigor necessary to keep sensitive data safe in transit.
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="REQUIREMENTS & DESIGN" title="Measure twice, code once." />
+  
+  <WorkSplitContent subtitle="The importance of documentation">
+    Before writing a single line of Python or TypeScript, we had to rigorously define the system. Academic software engineering places a heavy emphasis on the planning phase, forcing us to think through every edge case, security vulnerability, and user flow before committing to a technical stack.
+    
+    We authored a comprehensive Software Requirement Specification (SRS) and broke the system down using Presentation-Abstraction-Control (PAC) architecture. Creating Class Responsibility Collaboration (CRC) cards and state charts taught me how to visualize and debug a complex system entirely on paper.
+  </WorkSplitContent>
+
+<WorkAssetBlock
+  alt="Software Requirement Specification Report"
+  publicId="projects/secure-chat-app/deliverables/Software_Requirement_Specification_D1"
+  resourceType="pdf"
+/>
+<WorkAssetBlock
+  alt="High Level Architecture Report"
+  publicId="projects/secure-chat-app/deliverables/High_Level_Architecture_D2"
+  resourceType="pdf"
+/>
+
+<WorkAssetBlock
+  alt="Detailed Architecture Report"
+  publicId="projects/secure-chat-app/deliverables/Detailed_Architecture_D3"
+  resourceType="pdf"
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="SECURITY ARCHITECTURE" title="Implementing Kerberos." />
+
+<WorkEvolution
+  contextHeading="The standard login vulnerability"
+  context={
+    <>
+      In standard web applications, users often send their credentials directly to the server, which
+      validates them and returns a session token. For a highly secure environment, transmitting the
+      actual password over the network presents an unnecessary attack vector.
+    </>
+  }
+  evolutionHeading="Ticket-Granting Architecture"
+  evolution={
+    <>
+      To solve this, we implemented a custom Kerberos authentication flow. Instead of verifying
+      passwords directly, the system uses a Key Distribution Center (KDC) and Ticket-Granting
+      Tickets (TGT). Once a client is authenticated and receives their service ticket, all real-time
+      messages are secured end-to-end using AES encryption, ensuring that even if the database is
+      intercepted, the chat history remains illegible.
+    </>
+  }
+/>
+
+  <WorkDiagramWrapper caption="Kerberos Authentication Sequence" type="Sequence">
+    <Mermaid chart={`
+      sequenceDiagram
+        autonumber
+        participant Client
+        participant AS as Auth Server (KDC)
+        participant TGS as Ticket Granting Server
+        participant Chat as Chat Service
+
+        Client->>AS: Request TGT (User ID)
+        AS-->>Client: TGT + Session Key (Encrypted)
+        Client->>TGS: Send TGT + Request Chat Service Ticket
+        TGS-->>Client: Chat Service Ticket (Encrypted)
+        Client->>Chat: Present Ticket + Authenticator
+        Chat-->>Client: Mutual Authentication Success
+    `} />
+
+  </WorkDiagramWrapper>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="IMPLEMENTATION" title="The Tech Stack." />
+
+<WorkFeatureList>
+  <WorkFeature title="The Client (React Native)">
+    We built a cross-platform mobile application to provide a seamless, native feel for both iOS and
+    Android users, handling the local AES encryption and decryption of messages directly on the
+    device.
+  </WorkFeature>
+  <WorkFeature title="The Backend (Python & Flask)">
+    Developed the core server logic and Key Distribution Center (KDC) in Python, managing the
+    complex cryptographic ticket exchanges and data validation required by the Kerberos protocol.
+  </WorkFeature>
+  <WorkFeature title="Real-Time Infrastructure (Firebase)">
+    Leveraged Firebase to handle the real-time websocket connections, instantly syncing the
+    encrypted, unreadable message payloads across all active clients in a chat room.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="The cost of complexity">
+  Building the Secure Chat App was a profound learning experience. Implementing cryptographic
+  protocols from scratch gave me a deep appreciation for the invisible security layers that protect
+  the modern web. It was a safe academic playground to make mistakes, wrestle with encryption keys,
+  and ultimately realize that true security is incredibly difficult to engineer. It bridged the gap
+  between theoretical computer science concepts and practical, hands-on software development,
+  cementing lessons I still carry into my professional work today.
+</WorkInsight>
+
+</WorkSection>

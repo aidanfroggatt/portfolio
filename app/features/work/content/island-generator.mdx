@@ -2,32 +2,41 @@
 meta:
   slug: island-generator
   title: Island Generator
-  description:
+  description: A McMaster Software Engineering course project exploring procedural generation through irregular mesh data structures and pathfinding algorithms.
 ---
 
+import { Mermaid } from '~/components/ui/mermaid';
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="Visualizers for mesh data structure and applicable algorithms." />
+  <WorkHighlightHeader description="Exploring procedural generation through irregular mesh data structures and geometric algorithms." />
 
 <WorkHighlightAsset
-  alt="Mesh Data Structure"
+  alt="Mesh Data Structure Debug"
   publicId="projects/island-generator/highlights/irregular_debug"
   resourceType="image"
 />
 <WorkHighlightAsset
-  alt="Capital City Path"
-  publicId="projects/island-generator/highlights/capital-city-path"
-  resourceType="image"
-/>
-<WorkHighlightAsset
-  alt="Lagoon Island"
+  alt="Lagoon Island Generation"
   publicId="projects/island-generator/highlights/mesh-generator-sample"
   resourceType="image"
 />
@@ -35,6 +44,84 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [];
+<WorkSection>
+  <WorkHeader type="ALGORITHMIC ART" title="The logic of organic terrain." />
+  
+  <WorkProse>
+    In my software engineering courses at McMaster, one of the most interesting challenges was bridging the gap between theoretical data structures and visual output. I wanted to explore how procedural generation could create organic, believable landscapes using nothing but math and code.
 
-<WorkContent content={content} />
+    The Island Generator project was my attempt to move away from simple square grids. Real nature isn't made of pixels; it’s irregular and jagged. To replicate that, I had to dive into computational geometry and figure out how to manage a mesh that could represent the complex interconnectedness of terrain.
+
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DATA STRUCTURES" title="Building the mesh." />
+
+  <WorkEvolution
+    contextHeading="The Grid Constraint"
+    context={
+      <>
+        Standard Cartesian grids are computationally inexpensive but result in repetitive, "blocky" environments. Creating natural-looking islands requires a data structure that allows for irregular connections between points while still being traversable for algorithms.
+      </>
+    }
+    evolutionHeading="Irregular Mesh Graphs"
+    evolution={
+      <>
+        I shifted the architecture to use an irregular mesh, where each cell or "polygon" was defined by its neighbors rather than coordinates on a fixed axis. Managing this required a robust graph-based approach, where each node tracked its adjacent cells, allowing for varied terrain shapes—like lagoons and jagged coastlines—that felt much more organic.
+      </>
+    }
+  />
+  
+  <WorkAssetBlock
+    alt="Mesh Data Structure Visualization"
+    publicId="projects/island-generator/highlights/irregular_debug"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="ALGORITHMS" title="Pathfinding across polygons." />
+
+  <WorkSplitContent subtitle="Navigating the abstract">
+    Once the terrain was generated, the next challenge was traversal. Because the mesh wasn't a standard grid, traditional coordinate-based pathfinding wouldn't work. I had to implement graph-traversal algorithms that understood the adjacency list of the mesh.
+
+    This allowed the system to calculate logical paths—such as the most efficient route for a capital city's supply line—while taking the generated elevation and terrain type into account. It was a practical lesson in how graph theory underpins modern navigation systems.
+
+  </WorkSplitContent>
+
+<WorkFeatureList>
+  <WorkFeature title="Procedural Generation">
+    Utilized randomized noise and geometric constraints to determine where land meets water,
+    ensuring every generated island was unique yet topologically sound.
+  </WorkFeature>
+  <WorkFeature title="Mesh Adjacency Logic">
+    Engineered a custom graph structure where each cell independently manages its relationship to
+    its neighbors, facilitating complex traversal logic.
+  </WorkFeature>
+  <WorkFeature title="Path Visualization">
+    Developed a visualizer to trace the results of pathfinding algorithms across the irregular mesh,
+    making the underlying math visible.
+  </WorkFeature>
+</WorkFeatureList>
+
+  <WorkAssetBlock
+    alt="Capital City Pathing Visualization"
+    publicId="projects/island-generator/highlights/capital-city-path"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+
+<WorkInsight title="Lessons in Visualization">
+  The Island Generator wasn't just about making pretty maps; it was about learning how to debug
+  invisible systems. When working with complex mesh neighbors, errors are rarely obvious in the
+  code—they only become apparent when a path breaks or a polygon overlaps incorrectly. Building
+  custom debug visualizers to see the underlying "skeleton" of the mesh taught me the importance of
+  internal tooling. It showed me that as software grows in complexity, the ability to see what the
+  data is doing is just as important as the logic itself. It was a humble reminder that even the
+  most complex organic results are often built on a foundation of very strict, simple rules.
+</WorkInsight>
+
+</WorkSection>

@@ -2,19 +2,33 @@
 meta:
   slug: snapcycle
   title: SnapCycle
-  description: SnapCycle is an award-winning AI-powered web app that instantly assesses the recyclability of items, providing users with clear, actionable disposal instructions. Built with React, Python, and PyTorch, it simplifies environmental impact awareness.
+  description: An AI-powered web app built during Mac Hacks 3 that instantly assesses item recyclability using PyTorch and React. Awarded Best Overall Sustainability Hack.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="An award-winning AI-powered tool for detecting the recyclability of items." />
+  <WorkHighlightHeader description="A weekend hackathon project exploring computer vision to simplify everyday recycling decisions." />
 
 <WorkHighlightAsset
   alt="Plastic bottle detection"
@@ -30,6 +44,71 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [];
+<WorkSection>
+  <WorkHeader type="THE HACKATHON" title="Tackling the wishcycling problem." />
 
-<WorkContent content={content} />
+  <WorkProse>
+    Hackathons are a unique environment. You have a very short window to identify a problem, learn
+    the tools necessary to solve it, and build a working prototype. For Mac Hacks 3, my team and I
+    wanted to focus on sustainability, specifically targeting a habit we were all guilty of:
+    "wishcycling." Wishcycling happens when you throw an item into the recycling bin hoping it
+    belongs there, which often ends up contaminating the entire batch. We realized the core issue
+    wasn't a lack of effort from people, but a lack of immediate, clear information. We set out to
+    build SnapCycle—a tool where you could just point your camera at an object and instantly know
+    exactly how to dispose of it.
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="COMPUTER VISION" title="Learning on the fly." />
+
+<WorkEvolution
+  contextHeading="The manual sorting barrier"
+  context={
+    <>
+      Municipal recycling guidelines are notoriously dense and vary drastically by region. Expecting
+      everyday users to memorize resin identification codes or search through city databases every
+      time they throw away a coffee cup is simply unrealistic.
+    </>
+  }
+  evolutionHeading="Point-and-shoot clarity"
+  evolution={
+    <>
+      Instead of relying on manual searches, we wanted to leverage computer vision. We set up an AI
+      model to recognize common waste items—plastic bottles, cardboard, organic matter—and mapped
+      those classifications to actionable disposal instructions. The user simply takes a photo, and
+      the application handles the identification in the background.
+    </>
+  }
+/>
+
+<WorkFeatureList>
+  <WorkFeature title="The Model (PyTorch & Python)">
+    This was my first real deep dive into PyTorch under a tight deadline. We used Python to
+    implement an image classification model, learning how to handle datasets and tweak detection
+    logic over a single weekend.
+  </WorkFeature>
+  <WorkFeature title="The Interface (React)">
+    We built a lightweight, mobile-responsive React frontend that allowed users to easily upload or
+    snap photos directly from their devices and receive instant feedback.
+  </WorkFeature>
+  <WorkFeature title="The Integration">
+    The core challenge was connecting the React frontend to our Python backend—learning how to send
+    image payloads, process them through the model, and translate the raw outputs into helpful,
+    human-readable instructions.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="Best Overall Sustainability Hack">
+  Winning the Best Overall Sustainability Hack at Mac Hacks 3 was a wonderful surprise, but the real
+  prize was the learning experience. SnapCycle forced me completely out of my comfort zone. It was a
+  crash course in rapid prototyping, scoping down a massive idea into a deliverable MVP, and
+  collaborating closely with a team when everyone is running on minimal sleep. It taught me that you
+  don't always need months of planning to build something meaningful—sometimes you just need a good
+  team, a weekend, and the willingness to figure things out as you go.
+</WorkInsight>
+
+</WorkSection>

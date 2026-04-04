@@ -113,7 +113,7 @@ const ProgressBar = ({ work, nextWork, targetRef }: ProgressBarProps) => {
                 ref={percentageRef}
                 className="font-medium text-xs text-custom-light/60 w-8 text-right"
               >
-                1%
+                {roundedPercentage.get()}%
               </motion.span>
             </>
           )}

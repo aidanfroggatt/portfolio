@@ -36,16 +36,16 @@ const WorkHero = (projectInfo: WorkHeroProps) => {
       </span>
 
       {projectInfo.asset && (
-        <div className="highlight-card-asset max-h-[75vh] h-full p-4 mt-4 w-fit relative z-10">
+        <div className="mt-4 p-4 w-fit h-fit relative z-10 highlight-card-asset flex justify-center items-center">
           {projectInfo.asset.resourceType === 'video' ? (
             <VideoWithAutoplay
-              className="rounded-[2vmax] object-cover"
+              className="rounded-[2vmax] w-auto h-auto max-w-full"
               publicId={projectInfo.asset.publicId}
               alt={projectInfo.asset.alt}
             />
           ) : (
             <img
-              className="rounded-[2vmax] object-cover"
+              className="rounded-[2vmax] object-cover overflow-hidden"
               src={buildUrl(projectInfo.asset.publicId, 'image')}
               alt={projectInfo.asset.alt}
             />

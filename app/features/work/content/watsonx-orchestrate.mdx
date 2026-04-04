@@ -2,23 +2,35 @@
 meta:
   slug: watsonx-orchestrate
   title: watsonx Orchestrate
-  description: Developed features for watsonx Orchestrate, a powerful platform for building, deploying, and managing AI agents that automate workflows and processes with generative AI. The platform enables seamless integration with business systems and collaboration between AI assistants and agents in one unified experience.
+  description: Designed and deployed scalable features and testing frameworks for watsonx Orchestrate, a powerful IBM platform for building, deploying, and managing AI agents.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
-import { WorkAssetBlock, WorkHeader, WorkSection } from '~/features/work/components/mdx-layout';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="Building automation tooling, testing suites, and validation frameworks." />
+  <WorkHighlightHeader description="Engineering scalable validation frameworks and automated testing pipelines for enterprise AI." />
 
 <WorkHighlightAsset
-  alt="Workflow Designer"
+  alt="Workflow Designer UI"
   publicId="projects/watsonx-orchestrate/ibm-skeleton"
   resourceType="image"
 />
@@ -26,76 +38,106 @@ import { WorkAssetBlock, WorkHeader, WorkSection } from '~/features/work/compone
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'Multi-agent orchestration for business.',
-    subtitle: 'Building the future of AI agents',
-    description:
-      'watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems.',
-    assets: [
-      // {
-      //   alt: "Eye Animation",
-      //   publicId: "projects/watsonx-orchestrate/eye-animation/eye-aniimation",
-      //   resourceType: "video",
-      // },
-      {
-        alt: 'Empowering Users',
-        publicId: 'projects/watsonx-orchestrate/ibm-people',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'AGENTS',
-    title: 'AI Agents that work wherever you work.',
-    subtitle: 'Specialized agents for every business need',
-    description:
-      'Contributed to the development of specialized AI agents for HR, sales, procurement and customer service. These agents can seamlessly integrate with existing business systems, connect to any AI model, and work together to automate complex workflows, reducing manual work and enabling faster decision-making at scale.',
-  },
-  {
-    type: 'SCALE',
-    title: 'Learning to scale.',
-    subtitle: 'My first enterprise project',
-    description:
-      'This was my first enterprise project, and I learned a lot about scaling applications and working with large codebases.',
-    assets: [
-      {
-        alt: 'International Impact',
-        publicId: 'projects/watsonx-orchestrate/ibm-country-animations',
-        resourceType: 'image', // GIFs are treated as images
-      },
-    ],
-  },
-  {
-    type: 'TESTING',
-    title: 'Automated testing and validation.',
-    subtitle: 'Ensuring quality and reliability',
-    description:
-      'Developed automation tooling, testing suites, and validation frameworks to ensure the quality and reliability of the platform. This included building a comprehensive test suite for the Agent Builder and multi-agent orchestration features.',
-  },
-  {
-    type: 'RETROSPECTIVE',
-    title: 'An incredible learning experience',
-    subtitle: 'Reflections on engineering growth and team collaboration',
-    description:
-      'I had the opportunity to work with a talented team of engineers. I learned a lot about software engineering and team collaboration.',
-  },
-];
-
 <WorkSection>
-  <WorkHeader
-    type="CONTEXT"
-    title="Multi-agent orchestration for business."
-    subtitle="Building the future of AI agents"
-    description="watsonx Orchestrate revolutionizes business processes by orchestrating teams of AI agents that work together seamlessly. The platform features an Agent Builder for creating custom agents, a comprehensive Agent Catalog, and sophisticated multi-agent orchestration capabilities that enable AI agents to collaborate effectively across business systems."
-  />
+  <WorkHeader type="ENTERPRISE AI" title="Multi-agent orchestration at scale." />
+  
+  <WorkSplitContent subtitle="Building for Fortune 100 constraints">
+    <p>
+      watsonx Orchestrate represents a massive shift in how businesses handle automated workflows. It allows enterprises to orchestrate teams of AI agents—handling everything from HR to sales and procurement—that seamlessly integrate with existing business systems.
+    </p>
+    <p>
+      However, building AI tools for Fortune 100 clients and government agencies means the margin for error is absolute zero. During my time at IBM, my focus wasn't just on building features; it was on architecting the infrastructure required to guarantee the reliability, security, and accuracy of those features at an enterprise scale.
+    </p>
+  </WorkSplitContent>
 
   <WorkAssetBlock
-    alt="Empowering Users"
+    alt="Empowering Users with AI"
     publicId="projects/watsonx-orchestrate/ibm-people"
     resourceType="image"
   />
 </WorkSection>
 
-<WorkContent content={content} />
+<WorkSection>
+  <WorkHeader type="QUALITY ASSURANCE" title="Automating the validation pipeline." />
+
+<WorkProse>
+  When you deploy complex AI agents into production environments, manual testing rapidly becomes a
+  bottleneck. To ensure that our UI updates and agent interactions didn't introduce regressions, I
+  architected and deployed a comprehensive automated testing framework. Using Java, JUnit, and
+  Selenium, I built an automation suite that could programmatically interact with the watsonx
+  platform exactly like a human user. This wasn't just a local script—I integrated it directly into
+  a Jenkins CI/CD pipeline.
+</WorkProse>
+
+<WorkFeatureList>
+  <WorkFeature title="End-to-End Simulation (Selenium)">
+    Engineered complex, multi-step browser interactions to simulate how enterprise clients built and
+    deployed custom agents within the Agent Builder.
+  </WorkFeature>
+  <WorkFeature title="CI/CD Integration (Jenkins)">
+    Wrote batch scripts to trigger the Selenium test suite across multiple isolated environments
+    simultaneously, preventing localized configuration drift.
+  </WorkFeature>
+  <WorkFeature title="High-Fidelity Reliability">
+    Achieved a 95%+ success rate for the automated runs, hosting the results on a dedicated virtual
+    machine for immediate developer feedback.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="SERVER-SIDE LOGIC" title="Securing the data boundary." />
+
+<WorkEvolution
+  contextHeading="The Client-Side Mirage"
+  context={
+    <>
+      In a massive React application using Redux, it is dangerously easy to rely entirely on the
+      frontend to sanitize and validate user inputs before hitting the database. But when
+      orchestrating AI models that execute real-world business actions, client-side validation is
+      merely a UX convenience, not a security boundary.
+    </>
+  }
+  evolutionHeading="Server-Side Hardening"
+  evolution={
+    <>
+      I took ownership of planning and implementing a comprehensive, TypeScript-based server-side
+      validation framework. Before writing a single line of execution logic, I audited the platform
+      and documented over 250+ specific validation scenarios. By pushing the validation logic deep
+      into the backend, we ensured that malformed or malicious payloads from any client (or rogue
+      agent) were rejected before they could trigger expensive model invocations or mutate data.
+    </>
+  }
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="RETROSPECTIVE" title="Learning the enterprise cadence." />
+
+<WorkProse>
+  This was my first true exposure to enterprise-level software engineering, and it fundamentally
+  shifted my perspective on development. Building applications that must serve millions of users
+  with zero downtime requires a cadence of rigorous planning, strict typing, and relentless
+  automated testing.
+</WorkProse>
+
+<WorkAssetBlock
+  alt="International Impact Animations"
+  publicId="projects/watsonx-orchestrate/ibm-country-animations"
+  resourceType="image"
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkInsight title="The Value of Stability">
+    At IBM, I learned that shipping code fast is useless if it isn't stable. Working alongside a
+    highly talented engineering team taught me how to navigate large, legacy codebases safely. My
+    work on the validation frameworks and Jenkins pipelines wasn't just about finding bugs—it was
+    about building developer trust, allowing the team to iterate on complex generative AI features
+    with the confidence that our automated infrastructure would catch any regressions before they
+    reached the client.
+  </WorkInsight>
+</WorkSection>

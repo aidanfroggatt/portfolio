@@ -2,4 +2,180 @@
 meta:
   slug: hitchly
   title: Hitchly
+  description: A secure, student-focused ridesharing ecosystem for the McMaster community.
 ---
+
+import { Mermaid } from '~/components/ui/mermaid';
+import {
+  WorkHighlightAsset,
+  WorkHighlightCard,
+  WorkHighlightFooter,
+  WorkHighlightHeader,
+} from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
+
+<WorkHighlightCard>
+  <WorkHighlightHeader description="A community-driven carpooling platform built to make student commuting safer and more affordable." />
+
+<WorkHighlightAsset
+  alt="Hitchly Demo Video"
+  publicId="projects/hitchly/demo-video"
+  resourceType="video"
+/>
+
+  <WorkHighlightFooter />
+</WorkHighlightCard>
+
+<WorkSection>
+  <WorkHeader title="The Motivation" type="Context" />
+  <WorkSplitContent subtitle="The Spark">
+    Our journey began with a simple observation: university life is expensive. We found many students spending over $250 a month on parking and fuel alone.
+
+    Beyond the cost, we wanted to address the environmental impact—single-occupancy vehicles heading to campus account for roughly 36% of our school's GHG emissions. Hitchly was our attempt to build a community around shared, sustainable travel.
+
+  </WorkSplitContent>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="The Commuter's Dilemma" type="Context" />
+  <WorkEvolution
+    contextHeading="The Trust Gap"
+    context={
+      <>
+        Existing options felt fragmented. Public transit was unreliable for those outside main
+        corridors, and traditional ridesharing was too expensive for a student budget. While people
+        wanted to carpool, the "trust gap" on anonymous boards was too wide to bridge.
+      </>
+    }
+    evolutionHeading="A Trusted Circle"
+    evolution={
+      <>
+        We realized trust was our most important "feature." By restricting the platform to verified
+        school emails and integrating professional identity checks, we created a closed-loop
+        ecosystem where every rider and driver is a peer.
+      </>
+    }
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="The Strategy" type="Product" />
+  <WorkSubSection title="Our Foundational Pillars">
+    <WorkFeatureList>
+      <WorkFeature title="Verified Community">
+        A strict school-domain requirement ensures every user is an accountable member of the
+        community—whether a student, researcher, or professor.
+      </WorkFeature>
+      <WorkFeature title="Safety First">
+        We integrated secure identity verification for drivers. It was a rigorous technical step,
+        but essential for maintaining peace of mind in every car.
+      </WorkFeature>
+      <WorkFeature title="Fair Cost-Sharing">
+        Our system calculates fair splits based on actual fuel and maintenance costs, moving away
+        from profit-driven models to keep commuting affordable.
+      </WorkFeature>
+    </WorkFeatureList>
+  </WorkSubSection>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="Designing for Growth" type="Engineering" />
+  <WorkProse>
+    Knowing this system would need to scale, we adopted a modular architecture. By breaking 
+    the application into independent "services"—like separate modules for matching, 
+    payments, and profiles—we could work in parallel without bottlenecks. This 
+    "separation of concerns" meant we could refine our matching logic without 
+    risking the integrity of our security and identity systems.
+  </WorkProse>
+
+  <WorkDiagramWrapper caption="The Hitchly System Infrastructure" type="Architecture">
+    <Mermaid
+      chart={`
+      graph TD
+        subgraph Client_Layer [User Interface]
+          A[Mobile App]
+          B[Management Dashboard]
+        end
+        subgraph Server_Layer [Core Logic]
+          C[API Service]
+          D[Data Router]
+          E[Matching Engine]
+        end
+        subgraph External_Integrations [Integrations]
+          F[Identity Verification]
+          G[Database]
+          H[Mapping Services]
+        end
+        A & B -- "Secure Communication" --> D
+        D --> C
+        C --> E
+        C --> F
+        C --> G
+        C --> H
+    `}
+    />
+  </WorkDiagramWrapper>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="The Heart of the App: Matching" type="Logic" />
+  <WorkSplitContent subtitle="Alignment over Proximity">
+    Effective matching is about more than proximity; it's about schedule alignment. A 
+    rider living two minutes away is a poor match if their class starts an hour later.
+
+    We developed a weighted algorithm that prioritizes timing and location, while
+    also considering social preferences to ensure the morning commute is as
+    pleasant as it is efficient.
+
+  </WorkSplitContent>
+
+<WorkDiagramWrapper caption="The Matching Workflow" type="Logic">
+  <Mermaid chart={`
+    graph LR
+      A[Rider Request] --> B{Safety Check}
+      B -- Verified --> C[Calculate Match Score]
+      C --> D[Ranked Suggestions]
+        `} />
+</WorkDiagramWrapper>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="Learning Through Testing" type="Validation" />
+  <WorkProse>
+    Handling personal data required rigorous testing. Running hundreds of test cases taught us the
+    importance of reliability over speed. We prioritized high code coverage to ensure the system
+    gracefully handled edge cases—like blurry verification documents or mid-booking session
+    timeouts.
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader title="Looking Ahead" type="Future" />
+  <WorkProse>
+    While built for our campus, the architecture is designed to be "plug-and-play" for other
+    universities. Future iterations include real-time GPS updates and smarter coordination tools to
+    help students manage the inevitable last-minute schedule changes of university life.
+  </WorkProse>
+</WorkSection>
+
+<WorkSection>
+  <WorkInsight title="Modularity for Security">
+    The biggest challenge wasn't just the code, but the responsibility of data privacy. By moving
+    our matching logic into an isolated, dedicated module, we learned how to balance product
+    flexibility with system security. It allowed us to fine-tune the user experience without ever
+    touching the sensitive security layers—a design principle I'll carry into every future project.
+  </WorkInsight>
+</WorkSection>

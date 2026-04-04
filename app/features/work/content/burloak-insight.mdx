@@ -2,19 +2,32 @@
 meta:
   slug: burloak-insight
   title: Burloak Insight
-  description: Data analytics and report generation platform for additive manufacturing.
+  description: My first software engineering co-op, where I built a full-stack data analytics and automated reporting platform to streamline additive manufacturing workflows.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="An internal company dashboard created to centralize truth, analyze data, generate reports, and direct engineering decisions." />
+  <WorkHighlightHeader description="Architecting an internal platform to centralize data, automate reporting, and guide engineering decisions." />
 
 <WorkHighlightAsset
   alt="Architecture Overview"
@@ -30,94 +43,114 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-{/* <BurloakImpactChart /> */}
+<WorkSection>
+  <WorkHeader type="CONTEXT" title="My first step into the industry." />
+  
+  <WorkProse>
+    Stepping into my first software engineering co-op at Burloak Technologies was an incredible, eye-opening experience. Surrounded by cutting-edge additive manufacturing, I quickly noticed a common industry challenge: while the manufacturing hardware was incredibly advanced, the data pipelines supporting it were heavily fragmented. 
+    
+    Data access, storage, analysis, and report generation were largely manual tasks spread across different departments. I was given the opportunity to step in, apply the programming concepts I was learning, and build something that could genuinely help the engineers around me work more efficiently.
+  </WorkProse>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'An opportunity to improve company operations.',
-    subtitle: 'A need for automation and consolidation was evident',
-    description:
-      'Data access, storage, analsysis, and report generation were fragmented processes. I centralized these tasks, enhancing operational efficiency and informing engineering decisions.',
-  },
-  {
-    type: 'DATA ENTRY',
-    title: 'Data entry was entirely manual.',
-    subtitle: 'A time-consuming and error-prone process, wasting engineering hours.',
-    description:
-      'I automated data entry, increasing speed by over 200x, entering 500+ pdfs of secure data, and centralizing 30+ data stores.',
-    assets: [
-      {
-        alt: 'Simple Flowchart',
-        publicId:
-          'projects/burloak-insight/database_video/burloak-insight-data-entry-simple-diagram',
-        resourceType: 'image',
-      },
-      {
-        alt: 'Complete Flowchart',
-        publicId:
-          'projects/burloak-insight/database_video/burloak-insight-data-entry-complete-diagram',
-        resourceType: 'image',
-      },
-      {
-        alt: 'Raw Data Dashboard',
-        publicId: 'projects/burloak-insight/database_video/burloak_insight_database_video',
-        resourceType: 'video',
-      },
-    ],
-  },
-  {
-    type: 'DATA ANALYSIS',
-    title: 'Data analysis was not happening.',
-    subtitle: 'Without analysis, engineering decisions were not data-driven.',
-    description:
-      'I implemented a data analysis dashboard to analyze data, enabling informed engineering decisions.',
-    assets: [
-      {
-        alt: 'Data Analysis Dashboard',
-        publicId:
-          'projects/burloak-insight/data_analysis_video/burloak_insight_data_analysis_video',
-        resourceType: 'video',
-      },
-    ],
-  },
-  {
-    type: 'REPORT GENERATION',
-    title: 'Reports generation was done by hand.',
-    subtitle: 'This manual process was time-consuming and error-prone.',
-    description:
-      'I automated report generation, continuing to generate reports in seconds, saving engineering hours and reducing errors.',
-    assets: [
-      {
-        alt: 'Report Generation Dashboard',
-        publicId:
-          'projects/burloak-insight/report_generation_video/burloak_insight_report_generation_video',
-        resourceType: 'video',
-      },
-    ],
-  },
-  {
-    type: 'MACHINE VERIFICATION',
-    title: 'Machine verification was a reactive process.',
-    subtitle: 'Only after a machine failed was maintenance performed.',
-    description:
-      'I implemented a machine verification dashboard to monitor and predict maintenance needs. This proactive approach reduced downtime.',
-    assets: [
-      {
-        alt: 'Machine Verification Dashboard',
-        publicId:
-          'projects/burloak-insight/machine-verification-dashboard/burloak-insight-machine-verification-dashboard',
-        resourceType: 'video',
-      },
-    ],
-  },
-  {
-    type: 'RETROSPECTIVE',
-    title: 'A great experience with many lessons learned.',
-    subtitle: 'Tangible results and valuable insights, but always room for improvement',
-    description:
-      'Increasing data entry speed by over 200x, entering 500+ pdfs of secure data, centralizing 30+ data stores, and continuing to generate reports in seconds.',
-  },
-];
+  <WorkAssetGallery>
+    <WorkAssetBlock
+      alt="Simple Data Flowchart"
+      publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-simple-diagram"
+      resourceType="image"
+    />
+    <WorkAssetBlock
+      alt="Complete Data Flowchart"
+      publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-complete-diagram"
+      resourceType="image"
+    />
+  </WorkAssetGallery>
+</WorkSection>
 
-<WorkContent content={content} />
+<WorkSection>
+  <WorkHeader type="DATA ENGINEERING" title="Taming the spreadsheets." />
+
+<WorkEvolution
+  contextHeading="The manual bottleneck"
+  context={
+    <>
+      Before this project, data entry was an entirely manual, time-consuming, and error-prone
+      process. Engineers were spending valuable hours meticulously copying information from hundreds
+      of disconnected PDF reports and typing it into siloed spreadsheets. It was a tedious necessity
+      that kept them away from actual engineering work.
+    </>
+  }
+  evolutionHeading="Automated Extraction"
+  evolution={
+    <>
+      I wrote custom Python scrapers using pandas and batch scripts to target over 500+ secure PDF
+      documents. By automating the parsing and extraction process, we consolidated over 30 separate
+      data stores into a single, unified MySQL database. Seeing a script I wrote reduce a multi-hour
+      manual task to a process running 200x faster was my first real taste of the impact software
+      can have in the real world.
+    </>
+  }
+/>
+
+  <WorkAssetBlock
+    alt="Raw Data Dashboard"
+    publicId="projects/burloak-insight/database_video/burloak_insight_database_video"
+    resourceType="video"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="FULL-STACK DEVELOPMENT" title="Making data actionable." />
+  
+  <WorkSplitContent subtitle="From raw metrics to engineering insights">
+    Centralizing the data was only the first step. Without an accessible way to view and interpret that data, engineering decisions couldn't be truly data-driven. 
+    
+    To solve this, I designed and architected a full-stack web application. By building a custom internal dashboard, the engineering team could finally visualize the consolidated data, run historical analyses, and click a button to generate comprehensive reports in seconds instead of compiling them by hand.
+  </WorkSplitContent>
+
+<WorkFeatureList>
+  <WorkFeature title="The Frontend (React & Tailwind)">
+    Built an intuitive, responsive user interface allowing engineers to easily filter, search, and
+    visualize complex manufacturing datasets without needing database expertise.
+  </WorkFeature>
+  <WorkFeature title="The Backend (Node.js & Express)">
+    Developed a robust REST API to securely query the MySQL database, handle business logic, and
+    format the heavy data payloads for the client.
+  </WorkFeature>
+  <WorkFeature title="Machine Verification (Power BI)">
+    Directed a cross-functional effort to implement a proactive Power BI dashboard. Instead of
+    reacting to machine failures, the team could now monitor real-time statistical analysis to
+    predict maintenance needs and reduce downtime.
+  </WorkFeature>
+</WorkFeatureList>
+
+  <WorkAssetGallery>
+    <WorkAssetBlock
+      alt="Data Analysis Dashboard"
+      publicId="projects/burloak-insight/data_analysis_video/burloak_insight_data_analysis_video"
+      resourceType="video"
+    />
+    <WorkAssetBlock
+      alt="Report Generation Dashboard"
+      publicId="projects/burloak-insight/report_generation_video/burloak_insight_report_generation_video"
+      resourceType="video"
+    />
+  </WorkAssetGallery>
+  <WorkAssetBlock
+  alt="Machine Verification Dashboard"
+  publicId="projects/burloak-insight/machine-verification-dashboard/burloak-insight-machine-verification-dashboard"
+  resourceType="video"
+/>
+</WorkSection>
+
+<WorkSection>
+  
+<WorkInsight title="The impact of applied software">
+  My time at Burloak Technologies was an incredible introduction to professional software
+  engineering. Moving beyond personal projects to build tools that actual engineers relied on daily
+  taught me lessons about user empathy, data security, and system architecture that a classroom
+  simply cannot replicate. Delivering a platform that successfully centralized 30+ data stores and
+  reduced reporting time to seconds showed me exactly why I chose this field: the ability to build
+  systems that make people's lives tangibly easier.
+</WorkInsight>
+
+</WorkSection>

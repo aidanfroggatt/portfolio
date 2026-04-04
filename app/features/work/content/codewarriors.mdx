@@ -2,42 +2,39 @@
 meta:
   slug: codewarriors
   title: CodeWarriors
-  description: CodeWarriors is a gamified platform designed to teach coding through fun and interactive challenges. Developed for new coders, it makes learning programming concepts engaging and accessible.
+  description: A gamified learning platform built during DeltaHacks 9 to make programming concepts engaging and accessible for new developers. Awarded 1st Place Best Overall.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="The design of CodeWarriors is focused on making coding education fun and engaging for new coders." />
+  <WorkHighlightHeader description="Redefining coding education through gamified challenges and interactive missions." />
 
 <WorkHighlightAsset
-  alt="Login Page"
+  alt="CodeWarriors Login Page"
   publicId="projects/codewarriors/highlights/home-page"
   resourceType="image"
 />
 <WorkHighlightAsset
-  alt="Language Selection"
-  publicId="projects/codewarriors/highlights/language-selection"
-  resourceType="image"
-/>
-<WorkHighlightAsset
-  alt="Language Overview"
-  publicId="projects/codewarriors/highlights/mission"
-  resourceType="image"
-/>
-<WorkHighlightAsset
-  alt="Mission List"
-  publicId="projects/codewarriors/highlights/mission-list"
-  resourceType="image"
-/>
-<WorkHighlightAsset
-  alt="Mission"
+  alt="Mission Interface"
   publicId="projects/codewarriors/highlights/mission-active"
   resourceType="image"
 />
@@ -45,6 +42,93 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [];
+<WorkSection>
+  <WorkHeader type="THE MISSION" title="Breaking the barrier to entry." />
+  
+  <WorkProse>
+    Learning to code can be incredibly intimidating. For many beginners, the first hurdle isn't the logic itself, but the dry, text-heavy environment in which programming is often taught. At DeltaHacks 9, my team and I wanted to see if we could lower that barrier by borrowing principles from game design.
+    
+    We set out to build CodeWarriors, a platform that transforms the curriculum into a series of interactive "missions." The goal was to replace the standard, static tutorial with a dynamic experience where progress felt tangible and learning felt like a game rather than a chore.
+  </WorkProse>
 
-<WorkContent content={content} />
+  <WorkAssetBlock
+    alt="Language Selection Interface"
+    publicId="projects/codewarriors/highlights/language-selection"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="GAMIFICATION" title="Education through interaction." />
+
+<WorkEvolution
+  contextHeading="The tutorial fatigue"
+  context={
+    <>
+      Standard coding platforms often struggle with user retention. Beginners often start with
+      enthusiasm but lose interest when faced with abstract concepts and lack of immediate, visual
+      feedback on their progress.
+    </>
+  }
+  evolutionHeading="Missions and Progression"
+  evolution={
+    <>
+      We restructured the learning path into a mission-based system. By introducing elements like
+      language selection "classes," progress tracking, and interactive mission overviews, we aimed
+      to create a feedback loop that kept users engaged. Every concept mastered became a mission
+      accomplished, providing a sense of momentum that is often missing from traditional
+      documentation.
+    </>
+  }
+/>
+
+  <WorkAssetGallery>
+    <WorkAssetBlock
+      alt="Mission Overview"
+      publicId="projects/codewarriors/highlights/mission"
+      resourceType="image"
+    />
+    <WorkAssetBlock
+      alt="Mission Selection List"
+      publicId="projects/codewarriors/highlights/mission-list"
+      resourceType="image"
+    />
+  </WorkAssetGallery>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="IMPLEMENTATION" title="The Hackathon Sprint." />
+
+<WorkSplitContent subtitle="Rapid prototyping for real impact">
+  Building a full-scale educational platform in 36 hours required us to be extremely disciplined
+  with our scope. We focused on creating a clean, inviting UI that emphasized clarity and fun,
+  ensuring the transition from the "game" world to the actual coding missions felt seamless.
+</WorkSplitContent>
+
+<WorkFeatureList>
+  <WorkFeature title="Interactive Missions">
+    Engineered missions that guide users through fundamental programming concepts using a
+    narrative-driven approach, reducing the cognitive load for new learners.
+  </WorkFeature>
+  <WorkFeature title="Engaging UI/UX">
+    Designed an aesthetic that leans into game-like visuals, moving away from the "Integrated
+    Development Environment" look to something more approachable and colorful.
+  </WorkFeature>
+  <WorkFeature title="Concept Validation">
+    The core challenge was ensuring that the "game" elements didn't overshadow the actual learning.
+    We spent the weekend refining the balance between narrative and education.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="1st Place Best Overall">
+  Being awarded 1st Place Best Overall at DeltaHacks 9 was an incredible honor, especially
+  considering the level of talent at McMaster's biggest hackathon. However, the most rewarding part
+  was seeing people interact with CodeWarriors and hearing that it made programming feel a little
+  less "scary." It taught me that technical complexity isn't always the goal; sometimes, the most
+  impactful thing you can build is a simpler, more empathetic way for people to learn something new.
+</WorkInsight>
+
+</WorkSection>

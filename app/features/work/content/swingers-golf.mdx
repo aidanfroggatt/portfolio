@@ -2,19 +2,33 @@
 meta:
   slug: swingers-golf
   title: Swingers Golf
-  description: Swingers Golf is a cross-platform social networking app designed to connect golfers, making it easier to find like-minded players and improve their golfing experience. Built with React Native and TypeScript, it is the perfect platform to enhance your game.
+  description: Co-founded and engineered a cross-platform mobile golf social network using React Native, Expo, and a scalable Laravel backend to solve the player matchmaking problem.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+  WorkSubSection,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="Creating a social networking app for golfers to connect and improve their golfing experience." />
+  <WorkHighlightHeader description="Architecting a cross-platform social network to connect golfers and seamlessly facilitate matchmaking." />
 
 <WorkHighlightAsset
   alt="Round Management"
@@ -30,21 +44,113 @@ import {
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'An opportunity to make our game better.',
-    subtitle: 'The dissatisfaction is clear',
-    description:
-      'Creating a way for golfers to find like-minded individuals to play with has been long overdue.',
-    assets: [
-      {
-        alt: 'Community Requests',
-        publicId: 'projects/swingers/highlights/community-requests/swingers-community-requests',
-        resourceType: 'image',
-      },
-    ],
-  },
-];
+<WorkSection>
+  <WorkHeader type="THE PROBLEM" title="An opportunity to make our game better." />
+  
+  <WorkProse>
+    Golf is inherently a social game, yet the modern digital experience for golfers is surprisingly isolated. Creating a frictionless way for players to find like-minded individuals to hit the links with has been long overdue. The dissatisfaction within the community was clear, scattered across forums, disjointed group chats, and fragmented social media groups.
+    
+    As Co-Founder and CTO of Links Connect Inc., I set out to build Swingers Golf. The objective was straightforward but technically demanding: engineer a centralized, highly performant mobile application that facilitates seamless matchmaking and community building for a potential global market of over 60 million golfers.
+  </WorkProse>
 
-<WorkContent content={content} />
+  <WorkAssetBlock
+    alt="Community Requests"
+    publicId="projects/swingers/highlights/community-requests/swingers-community-requests"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="ARCHITECTURE" title="Architecting a cross-platform ecosystem." />
+  
+  <WorkSplitContent subtitle="Speed on the frontend, stability on the backend">
+    Building a social network requires an architecture that can support real-time interactions, heavy media storage, and rapid deployment across both iOS and Android simultaneously. A fragmented native codebase was out of the question for our timeline.
+    
+    I architected a decoupled ecosystem. We leveraged React Native and Expo to maintain a single, highly iterative frontend codebase. For the backend, I designed a robust REST API using PHP and Laravel, ensuring we had a reliable, strictly typed relational data layer capable of handling complex matchmaking algorithms.
+  </WorkSplitContent>
+
+  <WorkFeatureList>
+    <WorkFeature title="The Mobile Client (Expo & React Native)">
+      Built with TypeScript and Tailwind CSS, the frontend delivers a buttery-smooth, native-feeling user interface. Using Expo and Remix allowed for rapid over-the-air updates and shared logic, keeping development cycles incredibly lean.
+    </WorkFeature>
+    <WorkFeature title="The Core API (Laravel & PHP)">
+      The absolute source of truth for the platform. Written in PHP utilizing the Laravel framework, it handles user authentication, connection logic, real-time push notifications, and the core matchmaking engine.
+    </WorkFeature>
+    <WorkFeature title="Infrastructure (DigitalOcean & AWS)">
+      Deployed on DigitalOcean for predictable, scalable compute, coupled with AWS S3 for high-speed, secure media storage. The database layer utilizes MySQL, optimized to maintain high-throughput read/write operations for the social feed.
+    </WorkFeature>
+  </WorkFeatureList>
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="SYSTEM DESIGN" title="Seamless Matchmaking." />
+
+<WorkEvolution
+  contextHeading="The Fragmentation of Play"
+  context={
+    <>
+      Before Swingers Golf, organizing a round of golf required bouncing between text messages,
+      course websites, and calendar apps. The friction was high. If a player dropped out at the last
+      minute, finding a replacement with a similar handicap and play style was incredibly tedious,
+      often resulting in canceled tee times.
+    </>
+  }
+  evolutionHeading="Algorithmic Connections"
+  evolution={
+    <>
+      We engineered a matchmaking engine directly into the Laravel backend. By indexing user
+      preferences—handicap, preferred courses, and availability—the system actively curates and
+      suggests relevant players. Coupled with a real-time notification pipeline, golfers are
+      instantly alerted to open slots, transforming the fragmented scheduling process into a
+      unified, one-tap experience.
+    </>
+  }
+/>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="VALIDATION" title="Beta Testing with Industry Pros." />
+
+<WorkProse>
+  You cannot build a successful sports technology product in a vacuum. The engineering might be
+  flawless, but if the user experience doesn't resonate with the actual culture of the game,
+  adoption will fail. Instead of a blind public launch, I led a targeted beta testing program with
+  over 30 highly experienced golf management professionals. Their industry expertise was invaluable.
+  We treated their feedback as strict engineering requirements, utilizing it to rapidly iterate on
+  our matchmaking precision, refine our social features, and dial in the overall UX.
+</WorkProse>
+
+<WorkCallout title="Driven by the Community">
+  By putting the app directly into the hands of frequent players during the beta phase, we validated
+  our core architecture under real-world conditions.
+</WorkCallout>
+
+{/* PLACEHOLDER: Gallery showing the evolution of the UI based on Beta Feedback */}
+
+<WorkAssetGallery>
+  <WorkAssetBlock
+    alt="Social Feed Interface"
+    publicId="placeholders/swingers-social-feed"
+    resourceType="image"
+  />
+  <WorkAssetBlock
+    alt="Matchmaking Discovery Interface"
+    publicId="placeholders/swingers-matchmaking"
+    resourceType="image"
+  />
+</WorkAssetGallery>
+
+</WorkSection>
+
+<WorkSection>
+<WorkInsight title="Founding Engineering">
+  Operating as a Co-Founder and CTO fundamentally changed how I approach software development. It
+  forced me to balance technical perfection with business reality. Architecting a scalable backend
+  using Laravel and AWS while simultaneously pushing UI updates in React Native taught me how to
+  maximize efficiency without compromising on stability. Swingers Golf wasn't just about writing
+  code; it was about building a highly available infrastructure capable of supporting a massive
+  market, and actively listening to users to ensure we were building the *right* product.
+</WorkInsight>
+
+</WorkSection>

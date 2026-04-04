@@ -2,97 +2,149 @@
 meta:
   slug: acme-run
   title: ACME Run
-  description: ACME Run is a gamified fitness platform combining curated running trails and heart rate monitoring to provide a dynamic fitness experience. Designed for North American users, it promotes community engagement and user safety through local partnerships. The project focuses on requirements engineering and system architecture, with a vision to make fitness more accessible and enjoyable.
+  description: An academic deep-dive into requirements engineering at McMaster University, architecting a gamified fitness ecosystem through formal domain modeling and system design.
 ---
 
 import {
-  WorkContent,
   WorkHighlightAsset,
   WorkHighlightCard,
   WorkHighlightFooter,
   WorkHighlightHeader,
 } from '~/features/work/components';
+import {
+  WorkAssetBlock,
+  WorkAssetGallery,
+  WorkCallout,
+  WorkDiagramWrapper,
+  WorkEvolution,
+  WorkFeature,
+  WorkFeatureList,
+  WorkHeader,
+  WorkInsight,
+  WorkProse,
+  WorkSection,
+  WorkSplitContent,
+} from '~/features/work/components/mdx-layout';
 
 <WorkHighlightCard>
-  <WorkHighlightHeader description="Requirements engineering for a dynamic fitness solution." />
+  <WorkHighlightHeader description="Architecting the theoretical foundation and formal requirements for a gamified fitness ecosystem." />
 
-<WorkHighlightAsset alt="Project Report" publicId="projects/acme-run/index" resourceType="pdf" />
+<WorkHighlightAsset
+  alt="ACME Run Formal Project Report"
+  publicId="projects/acme-run/index"
+  resourceType="pdf"
+/>
 
   <WorkHighlightFooter />
 </WorkHighlightCard>
 
-export const content = [
-  {
-    type: 'CONTEXT',
-    title: 'A need for a dynamic fitness solution.',
-    subtitle: 'Reimagining fitness in North America',
-    description:
-      'ACME Run aims to address the unmet need for an engaging fitness solution in North America. The platform combines gamified workouts with curated running trails and heart rate monitoring to create a dynamic fitness experience.',
-  },
-  {
-    type: 'GOALS',
-    title: 'Making fitness more accessible.',
-    subtitle: 'Creating a dynamic and enjoyable fitness experience for all',
-    description:
-      'ACME RUN is a gamified fitness app offering personalized workouts through curated trails and heart rate monitoring, aiming to make fitness more accessible, enjoyable, and community-focused.',
-    assets: [
-      {
-        alt: 'High Level Use Case Diagram',
-        publicId: 'projects/acme-run/diagrams/use-case-diagram.svg',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'ENVIRONMENT',
-    title: 'Domain in focus.',
-    subtitle: 'Understanding the fitness ecosystem and user needs',
-    description:
-      'Defining the components, constraints, assumptions, effects, and invariants of the ACME Run domain to understand the fitness ecosystem and user needs.',
-    assets: [
-      {
-        alt: 'Domain Model',
-        publicId: 'projects/acme-run/diagrams/domain-model.svg',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'SYSTEM',
-    title: 'Constructing the architecture.',
-    subtitle: 'The components required to create a dynamic fitness solution',
-    description:
-      'Illustrating the components, functionality, interfaces, usage scenarios, and prioritization of the ACME Run system.',
-    assets: [
-      {
-        alt: 'Components Model',
-        publicId: 'projects/acme-run/diagrams/components-model.svg',
-        resourceType: 'image',
-      },
-      {
-        alt: 'API Diagram',
-        publicId: 'projects/acme-run/diagrams/api-diagram.svg',
-        resourceType: 'image',
-      },
-      {
-        alt: 'Activity Update Diagram',
-        publicId: 'projects/acme-run/diagrams/activity-update-diagram.svg',
-        resourceType: 'image',
-      },
-      {
-        alt: 'Activity Run Diagram',
-        publicId: 'projects/acme-run/diagrams/activity-run-diagram.svg',
-        resourceType: 'image',
-      },
-    ],
-  },
-  {
-    type: 'RETROSPECTIVE',
-    title: 'A learning experience in requirements engineering.',
-    subtitle: 'The importance and impact of requirements engineering',
-    description:
-      'ACME Run was a valuable learning experience in requirements engineering. The project required a deep understanding of user needs and system requirements to create a successful fitness solution.',
-  },
-];
+<WorkSection>
+  <WorkHeader type="REQUIREMENTS ENGINEERING" title="Defining the fitness ecosystem." />
+  
+  <WorkProse>
+    In my Software Engineering studies at McMaster, I’ve learned that the most difficult part of building a system isn’t always the implementation—it’s the definition. ACME Run was a project focused entirely on the "Why" and the "How" before the "What."
 
-<WorkContent content={content} />
+    The goal was to architect a gamified fitness platform that combined curated running trails with real-time heart rate monitoring. However, instead of jumping straight into code, we focused on the rigorous discipline of Requirements Engineering: identifying unmet needs in the North American fitness market and translating them into a hardened technical blueprint.
+
+  </WorkProse>
+
+  <WorkAssetBlock
+    alt="High Level Use Case Diagram"
+    publicId="projects/acme-run/diagrams/use-case-diagram.svg"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DOMAIN MODELING" title="Dissecting the environment." />
+
+  <WorkSplitContent subtitle="Understanding invariants and constraints">
+    To build a reliable fitness solution, we first had to define the world in which it lives. This meant identifying the specific components, constraints, and assumptions of the fitness domain.
+
+    We spent a significant portion of the project dissecting user behavior and environmental invariants. By formalizing these relationships in a Domain Model, we ensured that the system architecture would be rooted in reality—accounting for everything from hardware heart-rate variability to the spatial constraints of local running trails.
+
+  </WorkSplitContent>
+
+  <WorkAssetBlock
+    alt="Domain Model Structure"
+    publicId="projects/acme-run/diagrams/domain-model.svg"
+    resourceType="image"
+  />
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="SYSTEM DESIGN" title="Engineering the blueprint." />
+
+<WorkEvolution
+  contextHeading="Abstract User Desires"
+  context={
+    <>
+      Users often start with vague requests: "I want an app that makes running fun" or "I want to
+      track my heart rate." For an engineer, these are starting points, but they are too fluid to
+      build against without a high risk of scope drift or system failure.
+    </>
+  }
+  evolutionHeading="Formal System Requirements"
+  evolution={
+    <>
+      We transformed these desires into a prioritized list of functional and non-functional
+      requirements. We illustrated the specific components, interfaces, and usage scenarios required
+      to make the vision a reality. This included designing the logic for real-time activity updates
+      and the API structures required to facilitate community engagement and user safety.
+    </>
+  }
+/>
+
+<WorkFeatureList>
+  <WorkFeature title="Component Architecture">
+    Defined the modular breakdown of the ACME Run system, ensuring that trial curation, user
+    tracking, and reward logic were strictly decoupled for future scalability.
+  </WorkFeature>
+  <WorkFeature title="Activity Logic">
+    Engineered formal usage scenarios for Activity Runs, mapping out the exact sequence of data flow
+    between heart rate sensors, GPS coordinates, and the gamification engine.
+  </WorkFeature>
+  <WorkFeature title="API Interfacing">
+    Developed comprehensive API diagrams to standardize how the mobile client would communicate with
+    back-end fitness databases and local partnership services.
+  </WorkFeature>
+</WorkFeatureList>
+
+</WorkSection>
+
+<WorkSection>
+  <WorkHeader type="DOCUMENTATION" title="Visualizing the Flow." />
+
+<WorkAssetBlock
+  alt="Components Model"
+  publicId="projects/acme-run/diagrams/components-model.svg"
+  resourceType="image"
+/>
+<WorkAssetBlock
+  alt="API Interface Diagram"
+  publicId="projects/acme-run/diagrams/api-diagram.svg"
+  resourceType="image"
+/>
+
+    <WorkAssetBlock
+      alt="Activity Update Sequence"
+      publicId="projects/acme-run/diagrams/activity-update-diagram.svg"
+      resourceType="image"
+    />
+    <WorkAssetBlock
+      alt="Activity Run Flow"
+      publicId="projects/acme-run/diagrams/activity-run-diagram.svg"
+      resourceType="image"
+    />
+
+</WorkSection>
+
+<WorkSection>
+  <WorkInsight title="Architecture Over Code">
+    ACME Run was a foundational learning experience that fundamentally changed my approach to development. It taught me that a well-documented requirement is just as valuable as a well-written function.
+
+    By spending the time to deeply understand user needs and system invariants, I realized that many "coding problems" are actually just "requirement gaps" that could have been solved with a better blueprint. This academic grounding has made me a much more intentional developer, pushing me to think through the architecture of a system long before I open my IDE.
+
+  </WorkInsight>
+
+</WorkSection>

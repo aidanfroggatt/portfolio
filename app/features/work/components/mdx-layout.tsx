@@ -373,7 +373,7 @@ export const WorkFeature = ({ title, children }: { title: string; children: Reac
   );
 };
 
-export const WorkInsight = ({ title, children }: { title?: string; children: ReactNode }) => {
+export const WorkRetrospective = ({ title, children }: { title?: string; children: ReactNode }) => {
   const project = useProject();
   return (
     <motion.div
@@ -389,7 +389,9 @@ export const WorkInsight = ({ title, children }: { title?: string; children: Rea
         className="absolute -top-[50%] -right-[10%] w-[120%] h-[150%] opacity-[0.15] pointer-events-none mix-blend-screen"
         style={{
           background: `conic-gradient(from 90deg, transparent 0%, ${project.color || '#fff'} 50%, transparent 100%)`,
-          filter: 'blur(80px)',
+          filter: 'blur(40px)', // Halve the blur, or remove it entirely on mobile
+          willChange: 'transform', // Forces the GPU to composite this layer separately
+          transform: 'translateZ(0)', // Additional hardware acceleration trigger
         }}
       />
       <BlueprintGrid />

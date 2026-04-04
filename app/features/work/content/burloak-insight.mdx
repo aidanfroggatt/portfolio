@@ -5,6 +5,7 @@ meta:
   description: My first software engineering co-op, where I built a full-stack data analytics and automated reporting platform to streamline additive manufacturing workflows.
 ---
 
+import { Mermaid } from '~/components/ui/mermaid';
 import {
   WorkHighlightAsset,
   WorkHighlightCard,
@@ -15,6 +16,7 @@ import {
   WorkAssetBlock,
   WorkAssetGallery,
   WorkCallout,
+  WorkDiagramWrapper,
   WorkEvolution,
   WorkFeature,
   WorkFeatureList,
@@ -52,18 +54,36 @@ import {
     Data access, storage, analysis, and report generation were largely manual tasks spread across different departments. I was given the opportunity to step in, apply the programming concepts I was learning, and build something that could genuinely help the engineers around me work more efficiently.
   </WorkProse>
 
-  <WorkAssetGallery>
-    <WorkAssetBlock
-      alt="Simple Data Flowchart"
-      publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-simple-diagram"
-      resourceType="image"
-    />
-    <WorkAssetBlock
+<WorkDiagramWrapper caption='Simple Data Flowchart'>
+<Mermaid chart={`
+flowchart LR
+    Start([Start]) --> D1{Is it a tensile test?}
+    
+    D1 -- Yes --> A1[pdf moved to tensile test folder]
+    D1 -- No --> D2{is it a duplicate?}
+    
+    D2 -- Yes --> A2[pdf moved to duplicate folder]
+    D2 -- No --> A3[pdf moved to archive folder]
+    
+    A2 --> A4[scrape info from pdf]
+    A3 --> A4
+    
+    A4 --> D3{does the current pdf data exist in excel?}
+    
+    D3 -- Yes --> End([End])
+    D3 -- No --> A5[Write data into excel]
+    
+    A5 --> End
+
+`} />
+
+</WorkDiagramWrapper>
+ <WorkAssetBlock
       alt="Complete Data Flowchart"
       publicId="projects/burloak-insight/database_video/burloak-insight-data-entry-complete-diagram"
       resourceType="image"
     />
-  </WorkAssetGallery>
+
 </WorkSection>
 
 <WorkSection>
@@ -123,7 +143,6 @@ import {
   </WorkFeature>
 </WorkFeatureList>
 
-  <WorkAssetGallery>
     <WorkAssetBlock
       alt="Data Analysis Dashboard"
       publicId="projects/burloak-insight/data_analysis_video/burloak_insight_data_analysis_video"
@@ -134,7 +153,7 @@ import {
       publicId="projects/burloak-insight/report_generation_video/burloak_insight_report_generation_video"
       resourceType="video"
     />
-  </WorkAssetGallery>
+
   <WorkAssetBlock
   alt="Machine Verification Dashboard"
   publicId="projects/burloak-insight/machine-verification-dashboard/burloak-insight-machine-verification-dashboard"

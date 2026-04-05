@@ -4,9 +4,9 @@ import Footer from '~/components/layout/footer';
 import Header from '~/components/layout/header';
 import { siteConfig } from '~/config/site';
 import { getInfoPageData } from '~/features/info/api.server';
+import InfoAbout from '~/features/info/components/About';
+import InfoAwards from '~/features/info/components/Awards';
 import { Timeline } from '~/features/info/components/Timeline';
-import InfoAbout from '~/features/info/components/about';
-import InfoAwards from '~/features/info/components/awards';
 
 export const meta: MetaFunction = () => [
   { title: `${siteConfig.name} — Info` },

@@ -1,18 +1,18 @@
 import { MetaFunction, useLoaderData } from '@remix-run/react';
 import { motion } from 'framer-motion';
-import Back from '~/components/Back';
 import { LinkCard } from '~/components/Card';
 import Footer from '~/components/layout/footer';
 import Header from '~/components/layout/header';
+import Back from '~/components/navigation/Back';
 import VideoWithAutoplay from '~/components/ui/autoplay-video';
 import Dot from '~/components/ui/dot';
+import { siteConfig } from '~/config/site';
 import { getAllWork } from '~/features/work/work.server';
-import { buildUrl } from '~/lib/cloudinary';
-import { config } from '~/lib/config';
+import { buildUrl } from '~/utils/cloudinary';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: `${config.name} — Work` },
+    { title: `${siteConfig.name} — Work` },
     { name: 'description', content: 'This is a list of all work samples.' },
   ];
 };

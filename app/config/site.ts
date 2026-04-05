@@ -1,4 +1,4 @@
-export const config = {
+export const siteConfig = {
   name: 'Aidan Froggatt',
   jobTitle: 'Software Engineer',
   company: 'Tesla',

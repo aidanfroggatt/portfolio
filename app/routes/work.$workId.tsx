@@ -1,10 +1,10 @@
 import { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { createElement, Suspense } from 'react';
+import { siteConfig } from '~/config/site';
 import { WorkHero, WorkLayout, WorkOverview } from '~/features/work/components';
 import { getMdxComponent } from '~/features/work/content/registry';
 import { getNextProject, getWorkById } from '~/features/work/work.server';
-import { config } from '~/lib/config';
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const slug = params.workId;
@@ -30,7 +30,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const { project } = data;
   return [
     {
-      title: `${config.name} — ${project.title}`,
+      title: `${siteConfig.name} — ${project.title}`,
     },
     {
       name: 'description',

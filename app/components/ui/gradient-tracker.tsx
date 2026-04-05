@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import '~/global.css';
+import '~/styles/global.css';
 
 const GradientTracker = ({ className }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);

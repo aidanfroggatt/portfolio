@@ -1,5 +1,5 @@
 import { redirect } from '@remix-run/node';
-import { buildUrl } from '~/lib/cloudinary';
+import { buildUrl } from '~/utils/cloudinary';
 
 export const loader = async () => {
   // Build the basic URL for the 'resume' asset

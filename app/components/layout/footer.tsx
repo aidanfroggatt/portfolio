@@ -1,9 +1,9 @@
 import { Link, useRouteLoaderData } from '@remix-run/react';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 import LilypadIcon from '~/components/ui/lilypad';
-import { config } from '~/lib/config';
-import { getFirstWord } from '~/lib/string';
+import { siteConfig } from '~/config/site';
 import type { RootLoader } from '~/root';
+import { getFirstWord } from '~/utils/string';
 
 const Footer = () => {
   const rootData = useRouteLoaderData<RootLoader>('root');
@@ -15,8 +15,8 @@ const Footer = () => {
         <div className="flex flex-row justify-start md:justify-end items-start gap-x-16 w-full h-full row-start-1 col-start-2">
           <nav className="flex flex-col justify-center items-start gap-y-4">
             <div className="text-xs 2xl:text-sm text-custom-light/50">MAIN</div>
-            {config.routes &&
-              Object.entries(config.routes).map(([name, to], index) => (
+            {siteConfig.routes &&
+              Object.entries(siteConfig.routes).map(([name, to], index) => (
                 <Link
                   key={index}
                   className="text-base font-medium 2xl:text-lg hover:cursor-pointer"
@@ -28,8 +28,8 @@ const Footer = () => {
           </nav>
           <div className="flex flex-col justify-center items-start gap-y-4">
             <div className="text-xs 2xl:text-sm text-custom-light/50">CONTACT</div>
-            {config.socials &&
-              Object.entries(config.socials).map(([name, to], index) => (
+            {siteConfig.socials &&
+              Object.entries(siteConfig.socials).map(([name, to], index) => (
                 <Link
                   key={index}
                   className="flex flex-row justify-start items-center text-base 2xl:text-lg gap-x-1 font-medium"
@@ -47,7 +47,7 @@ const Footer = () => {
           <LilypadIcon className="w-20 h-20 2xl:h-24 2xl:w-24" />
         </div>
         <div className="col-start-1 row-start-2 w-full h-full flex flex-col justify-end items-start">
-          <div className="font-medium text-base 2xl:text-lg">{config.name}</div>
+          <div className="font-medium text-base 2xl:text-lg">{siteConfig.name}</div>
           <div className="text-sm 2xl:text-base text-custom-light/50">Thanks for visiting!</div>
         </div>
         <div className="col-start-2 row-start-2 flex flex-col h-full w-full items-start md:items-end justify-end">

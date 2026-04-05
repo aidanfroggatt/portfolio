@@ -2,12 +2,12 @@ import { Link } from '@remix-run/react';
 import { CSSProperties, ReactNode } from 'react';
 import { FaMountainSun } from 'react-icons/fa6';
 import { FiExternalLink } from 'react-icons/fi';
+import { TechIcon } from '~/components/logos';
 import { Badge } from '~/components/ui/badge';
 import { Button } from '~/components/ui/button';
 import type { Asset } from '~/db/schema';
 import WorkAsset from '~/features/work/components/asset';
 import { useProject } from '~/features/work/context/project-context';
-import { getLinkIcon } from '~/lib/icon';
 import { cn } from '~/lib/utils';
 
 interface WorkHighlightCardProps {
@@ -94,7 +94,6 @@ export const WorkHighlightFooter = () => {
 
   // Helper to render a single button to keep code DRY
   const renderButton = (link: { name: string; url: string }, index: number) => {
-    const IconComponent = getLinkIcon(link.name);
     return (
       <Button
         key={index}
@@ -109,7 +108,7 @@ export const WorkHighlightFooter = () => {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2"
         >
-          {IconComponent && <IconComponent className="w-4 h-4" />}
+          <TechIcon name={link.name} mode="platform" className="w-4 h-4" />
           <span className="whitespace-nowrap">{link.name}</span>
           <FiExternalLink className="w-3 h-3 opacity-50 ml-0.5" />
         </Link>

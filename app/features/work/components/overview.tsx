@@ -1,6 +1,6 @@
+import { TechIcon } from '~/components/logos';
 import { Badge } from '~/components/ui/badge';
-import { calculateDateDifference, formatMonthYear } from '~/lib/date';
-import { getTechIcon } from '~/lib/icon';
+import { calculateDateDifference, formatMonthYear } from '~/utils/date';
 
 interface WorkOverviewProps {
   overviewDescription: string;
@@ -77,7 +77,6 @@ const WorkOverview = ({
             <h5>Technologies</h5>
             <div className="mt-2 flex flex-wrap gap-2">
               {technologies.map((tech) => {
-                const IconComponent = getTechIcon(tech.name);
                 return (
                   <Badge
                     key={tech.name}
@@ -87,7 +86,7 @@ const WorkOverview = ({
                     }
                   >
                     <span className="relative shrink-0 w-4 h-4 text-custom-light/50 transition-all duration-300">
-                      <IconComponent className="w-full h-full" />
+                      <TechIcon name={tech.name} className="w-full h-full" />
                     </span>
 
                     <span className="whitespace-nowrap text-custom-light text-xs md:text-sm">

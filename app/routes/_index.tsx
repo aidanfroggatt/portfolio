@@ -8,17 +8,17 @@ import Header from '~/components/layout/header';
 import VideoWithAutoplay from '~/components/ui/autoplay-video';
 import Dot from '~/components/ui/dot';
 import LilypadIcon from '~/components/ui/lilypad';
+import { siteConfig } from '~/config/site';
 import { db } from '~/db/index.server';
-import { buildUrl } from '~/lib/cloudinary';
-import { config } from '~/lib/config';
-import { getFirstWord } from '~/lib/string';
+import { buildUrl } from '~/utils/cloudinary';
+import { getFirstWord } from '~/utils/string';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: `${config.name} — ${config.jobTitle}` },
+    { title: `${siteConfig.name} — ${siteConfig.jobTitle}` },
     {
       name: 'description',
-      content: config.meta.description,
+      content: siteConfig.meta.description,
     },
   ];
 };
@@ -56,10 +56,10 @@ const Hero = () => {
             <div className="text-xs 2xl:text-sm text-custom-light/50 py-4 2xl:py-8">WELCOME</div>
           </div>
           <h1 className="text-5xl text-shadow-mobile md:text-shadow pb-10">
-            Hi, I&apos;m <span className="h1-accent">{getFirstWord(config.name)}.</span>
+            Hi, I&apos;m <span className="h1-accent">{getFirstWord(siteConfig.name)}.</span>
           </h1>
           <div className="flex flex-row justify-center items-center font-bold">
-            {config.jobTitle} at {config.company}.
+            {siteConfig.jobTitle} at {siteConfig.company}.
           </div>
           <div className="text-custom-light/50">Previously at IBM.</div>
         </motion.div>
@@ -79,7 +79,7 @@ const Hero = () => {
             </div>
             <div
               id="window-bar"
-              className="absolute top-0 flex items-center w-full pl-[1.25vw] bg-[linear-gradient(to_right,_rgba(242,242,242,0.1),_rgba(242,242,242,0.5)_50%,_rgba(242,242,242,0.1))] rounded-t-[1.25vmax] shadow-[0_10px_20px_4px_rgba(0,0,0,0.2)]
+              className="absolute top-0 flex items-center w-full pl-[1.25vw] bg-[linear-gradient(to_right,rgba(242,242,242,0.1),rgba(242,242,242,0.5)_50%,rgba(242,242,242,0.1))] rounded-t-[1.25vmax] shadow-[0_10px_20px_4px_rgba(0,0,0,0.2)]
                 sm:h-[6vh] 2xl:h-mac-window-header-2xl lg:h-mac-window-header-lg md:h-mad-window-header-md
                 2xl:gap-x-mac-window-dots-2xl lg:gap-x-mac-window-dots-lg md:gap-x-mac-window-dots-md gap-x-2
             "
@@ -93,14 +93,14 @@ const Hero = () => {
               className="flex flex-col justify-center w-full h-full p-16 gap-y-8"
             >
               <div className="flex flex-col font-bold text-5xl lg:text-6xl 2xl:text-8xl leading-[90%] tracking-[-2px] text-shadow">
-                <div className="inline-block">Hi, I&apos;m {getFirstWord(config.name)}.</div>
+                <div className="inline-block">Hi, I&apos;m {getFirstWord(siteConfig.name)}.</div>
                 <div className="inline-block">
                   I like to <span className="italic font-accent">build things.</span>
                 </div>
               </div>
               <div className="flex flex-col items-end text-custom-light">
                 <span className="font-semibold text-base md:text-xl 2xl:text-2xl">
-                  {config.jobTitle} at {config.company}.
+                  {siteConfig.jobTitle} at {siteConfig.company}.
                 </span>
                 <span className="text-sm md:text-base 2xl:text-lg text-custom-light/50">
                   Previously&nbsp;at&nbsp;IBM.

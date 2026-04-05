@@ -3,7 +3,7 @@ import Footer from '~/components/layout/footer';
 import { Project } from '~/db/schema';
 import ProgressBar from '~/features/work/components/progress';
 import { ProjectProvider } from '~/features/work/context/project-context';
-import { hexToRGBA } from '~/lib/color';
+import { hexToRGBA } from '~/utils/color';
 
 interface WorkLayoutProps {
   children: ReactNode;

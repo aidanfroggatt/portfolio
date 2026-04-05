@@ -4,8 +4,8 @@ import { FiExternalLink } from 'react-icons/fi';
 import VideoWithAutoplay from '~/components/ui/autoplay-video';
 import { Button } from '~/components/ui/button';
 import type { Asset } from '~/db/schema';
-import { buildBlurUrl, buildUrl } from '~/lib/cloudinary';
-import { hexToRGBA } from '~/lib/color';
+import { buildBlurUrl, buildUrl } from '~/utils/cloudinary';
+import { hexToRGBA } from '~/utils/color';
 
 interface WorkAssetProps {
   publicId: Asset['publicId'];

@@ -1,6 +1,6 @@
 import { TechIcon } from '~/components/logos';
 import { Badge } from '~/components/ui/badge';
-import { calculateDateDifference, formatMonthYear } from '~/lib/date';
+import { calculateDateDifference, formatMonthYear } from '~/utils/date';
 
 interface WorkOverviewProps {
   overviewDescription: string;

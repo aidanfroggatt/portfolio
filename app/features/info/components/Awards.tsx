@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { TfiArrowTopRight } from 'react-icons/tfi';
 import Dot from '~/components/ui/dot';
 import { awards } from '~/db/schema';
-import { extractDomain } from '~/lib/url';
+import { extractDomain } from '~/utils/url';
 
 type Award = InferSelectModel<typeof awards>;
 

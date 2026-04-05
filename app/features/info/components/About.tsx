@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ImageCard } from '~/components/Card';
 import Dot from '~/components/ui/dot';
 import { about, assets } from '~/db/schema';
-import { buildUrl } from '~/lib/cloudinary';
+import { buildUrl } from '~/utils/cloudinary';
 
 type BaseAbout = InferSelectModel<typeof about>;
 type BaseAsset = InferSelectModel<typeof assets>;

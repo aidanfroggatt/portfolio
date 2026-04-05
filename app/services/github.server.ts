@@ -1,4 +1,4 @@
-import { formatGithubCommitDate } from '~/lib/date';
+import { formatGithubCommitDate } from '~/utils/date';
 
 export const getLastCommitInfo = async () => {
   const username = process.env.GITHUB_USERNAME;

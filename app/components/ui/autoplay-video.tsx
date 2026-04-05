@@ -1,6 +1,6 @@
 import { useInView } from 'framer-motion';
 import { CSSProperties, useEffect, useRef } from 'react';
-import { buildUrl } from '~/lib/cloudinary';
+import { buildUrl } from '~/utils/cloudinary';
 
 interface VideoWithAutoplayProps {
   publicId: string;

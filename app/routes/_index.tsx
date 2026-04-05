@@ -151,7 +151,7 @@ const WorkCards = () => {
                 <div className="w-full md:absolute pt-4 md:pt-0 pb-8 md:-bottom-16 md:group-hover:-bottom-10 lg:-bottom-16 lg:group-hover:-bottom-8 xl:-bottom-20 xl:group-hover:-bottom-14 2xl:-bottom-28 2xl:group-hover:-bottom-22 transition-all duration-200 object-contain h-full px-8">
                   {item.heroAsset.resourceType === 'video' ? (
                     <VideoWithAutoplay
-                      className="rounded-[2vmax] md:rounded-b-none object-cover group-hover:[&]:play"
+                      className="rounded-[2vmax] md:rounded-b-none object-cover w-full h-full group-hover:[&]:play"
                       publicId={item.heroAsset.publicId}
                       alt={item.heroAsset.alt}
                     />

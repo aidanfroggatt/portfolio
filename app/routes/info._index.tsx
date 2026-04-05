@@ -23,8 +23,7 @@ export default function InfoPage() {
   return (
     <>
       <Header />
-      <main className="relative bg-custom-dark text-custom-light flex flex-col items-center">
-        {/* Background Decorations moved to CSS or Wrapper classes */}
+      <main className="relative bg-main-page-mobile bg-size-[100%_450px] md:bg-info-page md:bg-size-[100%_135vh] bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
         <InfoAbout data={aboutData} />
         <Timeline id="experience" title="Experience" data={experienceData} />
         <Timeline id="involvement" title="Involvement" data={involvementData} />

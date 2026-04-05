@@ -1,8 +1,8 @@
 import { type LinksFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import { ReactNode } from 'react';
-import styles from '~/global.css?url';
 import { getLastCommitInfo } from '~/services/github.server';
+import styles from '~/styles/global.css?url';
 import NotFound from './components/NotFound';
 
 import { Analytics } from '@vercel/analytics/remix';

@@ -4,8 +4,8 @@
   "rsc": false,
   "tsx": true,
   "tailwind": {
-    "config": "",
-    "css": "app/global.css",
+    "config": "app/styles/global.css",
+    "css": "app/styles/global.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
@@ -16,9 +16,7 @@
     "utils": "~/lib/utils",
     "ui": "~/components/ui",
     "lib": "~/lib",
-    "hooks": "~/hooks"
-  },
-  "registries": {
-    "@svgl": "https://svgl.app/r/{name}.json"
+    "hooks": "~/hooks",
+    "logos": "~/components/logos"
   }
 }

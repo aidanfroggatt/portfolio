@@ -54,15 +54,29 @@ const InfoAbout = ({ data }: { data: AboutWithAsset[] }) => {
     return null;
   };
 
-  const mobileContent = data.map((item) => renderContent(item));
+  // 1. Separate images and texts
+  const images = data.filter((item) => item.type === 'image');
+  const texts = data.filter((item) => item.type === 'text');
 
-  const desktopContentLeft = [0, 3, 4, 7, 8].map((idx) =>
-    data[idx] ? renderContent(data[idx]) : null
-  );
+  // 2. Interleave them strictly alternating (Image, Text, Image, Text...)
+  const interleavedMobileData: AboutWithAsset[] = [];
+  const maxLength = Math.max(images.length, texts.length);
 
-  const desktopContentRight = [1, 2, 5, 6, 9].map((idx) =>
-    data[idx] ? renderContent(data[idx]) : null
-  );
+  for (let i = 0; i < maxLength; i++) {
+    if (images[i]) interleavedMobileData.push(images[i]);
+    if (texts[i]) interleavedMobileData.push(texts[i]);
+  }
+
+  const mobileContent = interleavedMobileData.map((item) => renderContent(item));
+
+  // Desktop lists remain based on the original index/column split
+  const desktopContentLeft = data
+    .filter((_, idx) => idx % 2 === 0)
+    .map((item) => renderContent(item));
+
+  const desktopContentRight = data
+    .filter((_, idx) => idx % 2 !== 0)
+    .map((item) => renderContent(item));
 
   return (
     <section id="info-about">
@@ -81,12 +95,10 @@ const InfoAbout = ({ data }: { data: AboutWithAsset[] }) => {
           </h1>
         </div>
 
-        {/* Mobile Version */}
-        <div className="md:hidden flex flex-col gap-y-16 md:grid-cols-2 md:py-20 2xl:py-32 md:gap-x-12 2xl:gap-x-20">
-          {mobileContent}
-        </div>
+        {/* Mobile Version - Uses the interleaved alternating array */}
+        <div className="md:hidden flex flex-col gap-y-16 py-10">{mobileContent}</div>
 
-        {/* Desktop Version */}
+        {/* Desktop Version - Uses original array split into columns */}
         <div className="hidden md:py-20 2xl:py-32 md:grid md:grid-cols-2 md:gap-x-12 2xl:gap-x-20">
           <div className="flex flex-col md:gap-y-20">{desktopContentLeft}</div>
           <div className="flex flex-col md:gap-y-20">{desktopContentRight}</div>

@@ -28,6 +28,9 @@ export default function InfoPage() {
         <Timeline id="experience" title="Experience" data={experienceData} />
         <Timeline id="involvement" title="Involvement" data={involvementData} />
         <InfoAwards data={awardsData} />
+        {/* <section className="flex flex-col border-t border-custom-light/20 gap-y-2 py-16 md:gap-y-8 w-page-default md:w-page-md lg:w-page-lg 2xl:w-page-2xl">
+          <Globe />
+        </section> */}
       </main>
       <Footer />
     </>

@@ -18,7 +18,8 @@ export const loader = async () => {
 };
 
 export default function InfoPage() {
-  const { aboutData, experienceData, involvementData, awardsData } = useLoaderData<typeof loader>();
+  const { aboutData, experienceData, educationData, involvementData, awardsData } =
+    useLoaderData<typeof loader>();
 
   return (
     <>
@@ -26,6 +27,7 @@ export default function InfoPage() {
       <main className="relative bg-main-page-mobile bg-size-[100%_450px] md:bg-info-page md:bg-size-[100%_135vh] bg-no-repeat flex flex-col justify-start items-center bg-custom-dark text-custom-light">
         <InfoAbout data={aboutData} />
         <Timeline id="experience" title="Experience" data={experienceData} />
+        <Timeline id="education" title="Education" data={educationData} />
         <Timeline id="involvement" title="Involvement" data={involvementData} />
         <InfoAwards data={awardsData} />
       </main>
